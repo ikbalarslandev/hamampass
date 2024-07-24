@@ -32,10 +32,10 @@ const Card = ({ property }: any) => (
       </CarouselContent>
     </Carousel>
     <div>
-      <p className="text-xs">
-        {property.contact.city} / {property.contact.district}
-      </p>
-      <h2 className="text-xl font-bold text-slate-700"> {property.title}</h2>
+      <h2 className="text-xl font-bold text-slate-700 my-2">
+        {" "}
+        {property.title}
+      </h2>
       <span className="bg-emerald-500 text-white px-2 py-[.1rem] rounded-xl">
         {" "}
         {property.vibe}
