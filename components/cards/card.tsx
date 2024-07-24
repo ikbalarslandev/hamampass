@@ -42,7 +42,7 @@ const Card = ({ property }: any) => (
       </span>
       <p className="flex gap-4 mt-2 ml-1">
         {property.amenities.map((amenity: any, index: number) => (
-          <HoverComponent amenity={amenity} />
+          <HoverComponent key={index} amenity={amenity} />
         ))}
       </p>
     </div>
