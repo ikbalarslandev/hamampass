@@ -1,28 +1,81 @@
+import Image from "next/image";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import HoverComponent from "./hover";
+import { FaTurkishLiraSign } from "react-icons/fa6";
+
 const Card = ({ property }: any) => (
-  <div className="bg-gray-400  mb-2">
-    <h2>title: {property.title}</h2>
-    <p>vibe: {property.vibe}</p>
-    <p>
-      {property.amenities.map((amenity: any, index: number) => (
-        <span key={index}>{amenity}, </span>
-      ))}
-    </p>
-
-    <div className="bg-red-200">
-      <p>adult price: {property.price.adult}</p>
-      <p>child price: {property.price.child}</p>
-      <p>scrub price: {property.price.scrub}</p>
+  <div className=" mb-2 m-1">
+    <Carousel>
+      <CarouselContent>
+        <CarouselItem>
+          <Image
+            src={property.photos[0]}
+            alt={property.title}
+            width={400}
+            height={400}
+            className="rounded-xl"
+          />
+        </CarouselItem>
+        <CarouselItem>
+          <Image
+            src={property.photos[0]}
+            alt={property.title}
+            width={400}
+            height={400}
+            className="rounded-xl"
+          />
+        </CarouselItem>
+      </CarouselContent>
+    </Carousel>
+    <div>
+      <p className="text-xs">
+        {property.contact.city} / {property.contact.district}
+      </p>
+      <h2 className="text-xl font-bold text-slate-700"> {property.title}</h2>
+      <span className="bg-emerald-500 text-white px-2 py-[.1rem] rounded-xl">
+        {" "}
+        {property.vibe}
+      </span>
+      <p className="flex gap-4 mt-2 ml-1">
+        {property.amenities.map((amenity: any, index: number) => (
+          <HoverComponent amenity={amenity} />
+        ))}
+      </p>
     </div>
 
-    <div className="bg-green-200">
-      <p>city: {property.contact.city}</p>
-      <p>district: {property.contact.district}</p>
-      <p>address: {property.contact.address}</p>
-      <p>location: {property.contact.location}</p>
-      <p>phone: {property.contact.phone}</p>
-    </div>
-    <div className="bg-blue-200">
-      <p>monday: {}</p>
+    <div className=" flex h-16 mt-2 ">
+      <div className=" flex-1 flex flex-col items-center justify-center">
+        <p className="font-bold">Adult</p>
+        <p>
+          {property.price.adult}{" "}
+          <FaTurkishLiraSign className="inline-block pb-1" />
+        </p>
+      </div>
+      <div className="w-[.1rem] flex items-center">
+        <div className="bg-black w-[.1rem] h-8 "></div>
+      </div>
+
+      <div className=" flex-1 flex flex-col items-center justify-center">
+        <p className="font-bold">Child</p>
+        <p>
+          {property.price.adult}{" "}
+          <FaTurkishLiraSign className="inline-block pb-1" />
+        </p>
+      </div>
+      <div className="w-[.1rem] flex items-center">
+        <div className="bg-black w-[.1rem] h-8 "></div>
+      </div>
+      <div className=" flex-1 flex flex-col items-center justify-center">
+        <p className="font-bold">Body Scrub</p>
+        <p>
+          {property.price.adult}
+          <FaTurkishLiraSign className="inline-block pb-1" />
+        </p>
+      </div>
     </div>
   </div>
 );
