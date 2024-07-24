@@ -43,11 +43,11 @@ const Card = ({ property }: any) => (
         </span>
         {property.sex === 1 ? (
           <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ml-2">
-            Men's Only
+            Men&apos;s Only
           </span>
         ) : property.sex === 2 ? (
           <span className="bg-red-500 text-white px-2 py-[.1rem] rounded-xl ml-2">
-            Women's Only
+            Women&apos;s Only
           </span>
         ) : null}
       </div>
