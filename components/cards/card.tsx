@@ -6,6 +6,8 @@ import {
 } from "@/components/ui/carousel";
 import HoverComponent from "./hover";
 import { FaTurkishLiraSign } from "react-icons/fa6";
+import { Divide } from "lucide-react";
+import { Span } from "next/dist/trace";
 
 const Card = ({ property }: any) => (
   <div className=" mb-2 m-1">
@@ -33,13 +35,23 @@ const Card = ({ property }: any) => (
     </Carousel>
     <div>
       <h2 className="text-xl font-bold text-slate-700 my-2">
-        {" "}
         {property.title}
       </h2>
-      <span className="bg-emerald-500 text-white px-2 py-[.1rem] rounded-xl">
-        {" "}
-        {property.vibe}
-      </span>
+      <div>
+        <span className="bg-emerald-500 text-white px-2 py-[.1rem] rounded-xl">
+          {property.vibe}
+        </span>
+        {property.sex === 1 ? (
+          <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ml-2">
+            Men's Only
+          </span>
+        ) : property.sex === 2 ? (
+          <span className="bg-red-500 text-white px-2 py-[.1rem] rounded-xl ml-2">
+            Women's Only
+          </span>
+        ) : null}
+      </div>
+
       <p className="flex gap-4 mt-2 ml-1">
         {property.amenities.map((amenity: any, index: number) => (
           <HoverComponent key={index} amenity={amenity} />
