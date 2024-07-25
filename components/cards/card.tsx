@@ -11,24 +11,17 @@ const Card = ({ property }: any) => (
   <div className=" mb-2 m-1">
     <Carousel>
       <CarouselContent>
-        <CarouselItem>
-          <Image
-            src={property.photos[0]}
-            alt={property.title}
-            width={400}
-            height={400}
-            className="rounded-xl"
-          />
-        </CarouselItem>
-        <CarouselItem>
-          <Image
-            src={property.photos[0]}
-            alt={property.title}
-            width={400}
-            height={400}
-            className="rounded-xl"
-          />
-        </CarouselItem>
+        {property.photos.map((photo: string) => (
+          <CarouselItem key={photo}>
+            <Image
+              src={photo}
+              alt={property.title}
+              width={400}
+              height={400}
+              className="rounded-xl"
+            />
+          </CarouselItem>
+        ))}
       </CarouselContent>
     </Carousel>
     <div>
