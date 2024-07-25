@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import HeaderComponent from "../header";
 import Cards from "../cards";
 import { request } from "@/services/axios";
+import { TApiResponse } from "@/types";
 
 const HomePage = () => {
-  const [properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState<TApiResponse>(
+    {} as TApiResponse
+  );
 
   useEffect(() => {
     const fetchProperties = async () => {
@@ -15,10 +18,7 @@ const HomePage = () => {
           endpoint: "property",
         });
 
-        console.log(response.data.data);
-        setProperties(
-          Array.isArray(response.data.data) ? response.data.data : []
-        );
+        setProperties(Array.isArray(response.data.data) ? response.data : {});
       } catch (error) {
         console.error("Error fetching properties:", error);
       }
@@ -30,7 +30,7 @@ const HomePage = () => {
   return (
     <div>
       <HeaderComponent />
-      <Cards data={properties} />
+      <Cards res={properties} />
     </div>
   );
 };

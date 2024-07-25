@@ -16,11 +16,16 @@ const request = (credentials: {
   type: "get" | "put" | "post" | "delete";
   endpoint: string;
   payload?: any;
+  params?: any; // Add the params property
 }) => {
-  return axiosInstance[credentials.type](
-    `/${credentials.endpoint}`,
-    credentials.payload
-  );
+  const config = {
+    method: credentials.type,
+    url: `/${credentials.endpoint}`,
+    data: credentials.payload,
+    params: credentials.params,
+  };
+
+  return axiosInstance.request(config);
 };
 
 export { request };

@@ -6,8 +6,6 @@ import {
 } from "@/components/ui/carousel";
 import HoverComponent from "./hover";
 import { FaTurkishLiraSign } from "react-icons/fa6";
-import { Divide } from "lucide-react";
-import { Span } from "next/dist/trace";
 
 const Card = ({ property }: any) => (
   <div className=" mb-2 m-1">
@@ -64,7 +62,7 @@ const Card = ({ property }: any) => (
         <p className="font-bold">Adult</p>
         <p>
           {property.price.adult}{" "}
-          <FaTurkishLiraSign className="inline-block pb-1" />
+          <FaTurkishLiraSign className="inline-block pb-1 " />
         </p>
       </div>
       <div className="w-[.1rem] flex items-center">
