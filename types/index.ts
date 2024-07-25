@@ -50,5 +50,5 @@ export interface TApiResponse {
   page: number;
   max_page: number;
   limit: number;
-  data: Property[];
+  data: TProperty[];
 }
