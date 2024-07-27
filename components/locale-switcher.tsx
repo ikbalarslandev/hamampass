@@ -19,12 +19,16 @@ const LocaleSwitcher = () => {
 
   return (
     <Select onValueChange={handleOnLocaleChange} defaultValue={defaultLocale}>
-      <SelectTrigger className="w-[180px] bg-cyan-600">
+      <SelectTrigger className=" text-2xl bg-cyan-600">
         <SelectValue placeholder="Language" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="en">English</SelectItem>
-        <SelectItem value="tr">Turkish</SelectItem>
+        <SelectItem className="text-2xl" value="en">
+          🇺🇸
+        </SelectItem>
+        <SelectItem className="text-2xl" value="tr">
+          🇹🇷
+        </SelectItem>
       </SelectContent>
     </Select>
   );
