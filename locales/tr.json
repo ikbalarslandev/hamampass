@@ -7,5 +7,12 @@
   "sex": {
     "men": "Erkeklere Özel",
     "women": "Kadınlara Özel"
+  },
+  "vibe": {
+    "Historical": "Tarihi",
+    "Budget": "Ekonomik",
+    "Couple_Friendly": "Çiftlere Uygun",
+    "Family_Friendly": "Ailelere Uygun",
+    "Luxury": "Lüks"
   }
 }

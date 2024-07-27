@@ -7,5 +7,12 @@
   "sex": {
     "men": "Men's Only",
     "women": "Women's Only"
+  },
+  "vibe": {
+    "Historical": "Historical",
+    "Budget": "Budget",
+    "Couple_Friendly": "Couple Friendly",
+    "Family_Friendly": "Family Friendly",
+    "Luxury": "Luxury"
   }
 }
