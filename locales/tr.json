@@ -1,5 +1,7 @@
 {
-  "Index": {
-    "title": "Merhaba dunya!"
+  "card": {
+    "adult": "Yetişkin",
+    "child": "Çocuk",
+    "scrub": "Kese"
   }
 }

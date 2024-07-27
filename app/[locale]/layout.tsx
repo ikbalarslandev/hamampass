@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
+import { Inter } from "next/font/google";
+import type { Metadata } from "next";
+import "./globals.css";
+import { loadMessages } from "@/utils/loadMessages";
 
 const inter = Inter({ subsets: ["latin"] });
 const locales = ["en", "tr"];
@@ -18,15 +20,21 @@ interface LocaleLayoutProps {
   };
 }
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params: { locale },
 }: LocaleLayoutProps) {
-  if (!locales.includes(locale as any)) notFound();
+  if (!locales.includes(locale)) notFound();
+
+  const messages = await loadMessages(locale);
 
   return (
     <html lang={locale}>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }

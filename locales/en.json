@@ -1,5 +1,7 @@
 {
-  "Index": {
-    "title": "Hello world!"
+  "card": {
+    "adult": "Adult",
+    "child": "Child",
+    "scrub": "Body Scrub"
   }
 }
