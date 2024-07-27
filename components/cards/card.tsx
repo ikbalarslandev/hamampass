@@ -15,6 +15,7 @@ interface CardProps {
 
 const Card = ({ property }: CardProps) => {
   const t = useTranslations("card");
+  const s = useTranslations("sex");
   return (
     <div className=" mb-2 m-1">
       <Carousel>
@@ -42,11 +43,11 @@ const Card = ({ property }: CardProps) => {
           </span>
           {property.sex === 1 ? (
             <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ml-2">
-              Men&apos;s Only
+              {s("men")}
             </span>
           ) : property.sex === 2 ? (
             <span className="bg-red-500 text-white px-2 py-[.1rem] rounded-xl ml-2">
-              Women&apos;s Only
+              {s("women")}
             </span>
           ) : null}
         </div>

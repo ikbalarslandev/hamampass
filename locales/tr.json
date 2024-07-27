@@ -3,5 +3,9 @@
     "adult": "Yetişkin",
     "child": "Çocuk",
     "scrub": "Kese"
+  },
+  "sex": {
+    "men": "Erkeklere Özel",
+    "women": "Kadınlara Özel"
   }
 }

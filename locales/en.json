@@ -3,5 +3,9 @@
     "adult": "Adult",
     "child": "Child",
     "scrub": "Body Scrub"
+  },
+  "sex": {
+    "men": "Men's Only",
+    "women": "Women's Only"
   }
 }
