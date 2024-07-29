@@ -17,5 +17,8 @@
     "Couple_Friendly": "Couple Friendly",
     "Family_Friendly": "Family Friendly",
     "Luxury": "Luxury"
+  },
+  "single": {
+    "location": "Location"
   }
 }

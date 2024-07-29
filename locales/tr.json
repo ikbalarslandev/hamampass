@@ -17,5 +17,8 @@
     "Couple_Friendly": "Çiftlere Uygun",
     "Family_Friendly": "Ailelere Uygun",
     "Luxury": "Lüks"
+  },
+  "single": {
+    "location": "Konum"
   }
 }
