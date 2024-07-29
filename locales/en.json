@@ -19,6 +19,7 @@
     "Luxury": "Luxury"
   },
   "single": {
-    "location": "Location"
+    "location": "Contact",
+    "tel": "Phone Number :"
   }
 }

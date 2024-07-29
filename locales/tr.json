@@ -19,6 +19,7 @@
     "Luxury": "Lüks"
   },
   "single": {
-    "location": "Konum"
+    "location": "İletişim",
+    "tel": "İletişim Numarası :"
   }
 }
