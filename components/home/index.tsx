@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import HeaderComponent from "../header";
 import Cards from "../cards";
 import { request } from "@/services/axios";
 import { TApiResponse } from "@/types";
@@ -29,7 +28,6 @@ const HomePage = () => {
 
   return (
     <div>
-      <HeaderComponent />
       <Cards res={properties} />
     </div>
   );
