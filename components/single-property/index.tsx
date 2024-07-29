@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { request } from "@/services/axios";
+import Slider from "./slider";
 
 const SinglePropertyPage = () => {
   let { title } = useParams();
@@ -21,7 +22,7 @@ const SinglePropertyPage = () => {
 
   return (
     <div>
-      <h1>{data.title}</h1>
+      <Slider data={data} />
     </div>
   );
 };

@@ -9,7 +9,7 @@ import { FaTurkishLiraSign } from "react-icons/fa6";
 import { TProperty } from "@/types";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-
+import { photos } from "@/mock/photos";
 import { useParams } from "next/navigation";
 
 interface CardProps {
@@ -51,18 +51,30 @@ const Card = ({ property }: CardProps) => {
   return (
     <div className=" mb-2 m-1">
       <Carousel>
-        <CarouselContent>
-          {property.photos.map((photo: string) => (
-            <CarouselItem key={photo}>
-              <Image
-                src={photo}
-                alt={property.title}
-                width={400}
-                height={400}
-                className="rounded-xl"
-              />
-            </CarouselItem>
-          ))}
+        <CarouselContent className="rounded-xl aspect-video">
+          {property.photos.length < 2
+            ? photos.map((photo: string) => (
+                <CarouselItem key={photo} className="rounded-xl">
+                  <Image
+                    src={photo}
+                    alt={property.title}
+                    width={400}
+                    height={400}
+                    className="rounded-xl"
+                  />
+                </CarouselItem>
+              ))
+            : property.photos.map((photo: string) => (
+                <CarouselItem key={photo}>
+                  <Image
+                    src={photo}
+                    alt={property.title}
+                    width={400}
+                    height={400}
+                    className="rounded-xl"
+                  />
+                </CarouselItem>
+              ))}
         </CarouselContent>
       </Carousel>
       <div>
