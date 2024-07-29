@@ -8,15 +8,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useRouter } from "next/navigation";
-import { usePathname } from "next/navigation";
 import { useParams } from "next/navigation";
 
 const LocaleSwitcher = () => {
   const router = useRouter();
   const { locale } = useParams();
+  const { title } = useParams();
 
   const handleOnLocaleChange = (locale: string) => {
-    router.push(`/${locale}`);
+    title ? router.push(`/${locale}/${title}`) : router.push(`/${locale}`);
   };
 
   return (
