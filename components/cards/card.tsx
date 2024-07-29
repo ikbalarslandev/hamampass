@@ -78,7 +78,10 @@ const Card = ({ property }: CardProps) => {
         </CarouselContent>
       </Carousel>
       <div>
-        <h2 className="text-xl font-bold text-slate-700 my-2">
+        <h2
+          className="text-xl font-bold text-slate-700 my-2"
+          onClick={handleCardClick}
+        >
           {property.title}
         </h2>
         <div>
