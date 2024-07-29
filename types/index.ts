@@ -1,4 +1,4 @@
-interface Contact {
+export interface TContact {
   id: string;
   phone: string;
   city: string;
@@ -40,7 +40,7 @@ export interface TProperty {
   sex: number;
   createdAt: string;
   updatedAt: string;
-  contact: Contact;
+  contact: TContact;
   price: Price;
   days: Day[];
 }

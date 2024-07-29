@@ -6,6 +6,7 @@ import Slider from "./slider";
 import { CiLocationOn } from "react-icons/ci";
 import { TProperty } from "@/types";
 import { useTranslations } from "next-intl";
+import LocationComponent from "./location";
 
 const SinglePropertyPage = () => {
   let { title } = useParams();
@@ -37,6 +38,7 @@ const SinglePropertyPage = () => {
             {v(data?.vibe || "Historical")}
           </span>
         </div>
+        {data && <LocationComponent contact={data?.contact} />}
       </div>
     </div>
   );
