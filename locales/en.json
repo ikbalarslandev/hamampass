@@ -20,6 +20,16 @@
   },
   "single": {
     "location": "Contact",
-    "tel": "Phone Number :"
+    "tel": "Phone Number :",
+    "amenity": "Amenities"
+  },
+  "amenities": {
+    "Turkish_Bath": "Turkish Bath",
+    "Shower": "Shower",
+    "Sauna": "Sauna",
+    "Steam_Room": "Steam Room",
+    "Jacuzzi": "Jacuzzi",
+    "Pool": "Pool",
+    "Shock_Pool": "Shock Pool"
   }
 }

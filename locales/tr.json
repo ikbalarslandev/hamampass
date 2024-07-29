@@ -20,6 +20,16 @@
   },
   "single": {
     "location": "İletişim",
-    "tel": "İletişim Numarası :"
+    "tel": "İletişim Numarası :",
+    "amenity": "Hizmetler"
+  },
+  "amenities": {
+    "Turkish_Bath": "Hamam",
+    "Shower": "Duş",
+    "Sauna": "Sauna",
+    "Steam_Room": "Buhar Odası",
+    "Jacuzzi": "Jakuzi",
+    "Pool": "Havuz",
+    "Shock_Pool": "Şok Havuz"
   }
 }
