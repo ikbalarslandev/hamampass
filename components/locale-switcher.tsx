@@ -9,18 +9,21 @@ import {
 } from "@/components/ui/select";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
 
 const LocaleSwitcher = () => {
   const router = useRouter();
-  const pathname = usePathname();
-  const defaultLocale = pathname.split("/")[1] || "en";
+  const { locale } = useParams();
 
   const handleOnLocaleChange = (locale: string) => {
     router.push(`/${locale}`);
   };
 
   return (
-    <Select onValueChange={handleOnLocaleChange} defaultValue={defaultLocale}>
+    <Select
+      onValueChange={handleOnLocaleChange}
+      defaultValue={locale as string}
+    >
       <SelectTrigger className=" text-2xl bg-cyan-600">
         <SelectValue placeholder="Language" />
       </SelectTrigger>

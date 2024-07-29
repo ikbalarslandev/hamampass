@@ -19,7 +19,6 @@ const SinglePropertyPage = () => {
       endpoint: `property/${title}`,
     });
     res.then((res: any) => {
-      console.log("hhh", res.data);
       setData(res.data);
     });
   }, [title]);
@@ -35,7 +34,7 @@ const SinglePropertyPage = () => {
         <h1 className="font-bold text-2xl text-slate-700">{data?.title}</h1>
         <div className="my-2">
           <span className=" rounded-lg px-2 py-1 bg-teal-700 text-white">
-            {v(data?.vibe)}
+            {v(data?.vibe || "Historical")}
           </span>
         </div>
       </div>
