@@ -15,7 +15,7 @@ const Slider = (property: any) => {
               <CarouselItem key={photo}>
                 <Image
                   src={photo}
-                  alt={property.title}
+                  alt={property.title || "property"}
                   width={400}
                   height={400}
                   className="w-full"
