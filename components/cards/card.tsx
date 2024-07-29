@@ -10,11 +10,14 @@ import { TProperty } from "@/types";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 
+import { useParams } from "next/navigation";
+
 interface CardProps {
   property: TProperty;
 }
 
 const Card = ({ property }: CardProps) => {
+  const { locale } = useParams();
   const t = useTranslations("card");
   const s = useTranslations("sex");
   const v = useTranslations("vibe");
@@ -27,7 +30,7 @@ const Card = ({ property }: CardProps) => {
       property.title.replace(/ /g, "-")
     );
 
-    router.push(`/en/${convertedTitle}`);
+    router.push(`/${locale}/${convertedTitle}`);
   };
 
   switch (property.sex) {

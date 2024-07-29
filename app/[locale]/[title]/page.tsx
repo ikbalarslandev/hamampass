@@ -1,17 +1,7 @@
-import { request } from "@/services/axios";
-interface Params {
-  title: string;
-}
+import SinglePropertyPage from "@/components/single-property";
 
-const SingleProperty = ({ params }: { params: Params }) => {
-  const title = decodeURIComponent(params.title as string).replace(/-/g, " ");
-
-  const data: any = request({
-    type: "get",
-    endpoint: `property/${title}`,
-  });
-
-  return <div>My Post: {data.title}</div>;
+const SingleProperty = () => {
+  return <SinglePropertyPage />;
 };
 
 export default SingleProperty;
