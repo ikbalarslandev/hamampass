@@ -10,7 +10,7 @@ const Slider = (property: any) => {
   return (
     <Carousel className="rounded-none">
       <CarouselContent className="rounded-none">
-        {property.data.photos?.length < 2
+        {property?.data?.photos?.length < 2
           ? photos.map((photo: string) => (
               <CarouselItem key={photo}>
                 <Image
@@ -22,7 +22,7 @@ const Slider = (property: any) => {
                 />
               </CarouselItem>
             ))
-          : property.data.photos?.map((photo: string) => (
+          : property?.data?.photos?.map((photo: string) => (
               <CarouselItem key={photo}>
                 <Image
                   src={photo}
