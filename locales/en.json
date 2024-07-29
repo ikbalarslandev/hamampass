@@ -2,11 +2,14 @@
   "card": {
     "adult": "Adult",
     "child": "Child",
-    "scrub": "Body Scrub"
+    "scrub": "Body Scrub",
+    "button": "Load More"
   },
   "sex": {
     "men": "Men's Only",
-    "women": "Women's Only"
+    "women": "Women's Only",
+    "unisex": "Unisex",
+    "seperate": "Womens and Mens Seperate"
   },
   "vibe": {
     "Historical": "Historical",

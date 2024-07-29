@@ -4,6 +4,7 @@ import Card from "./card";
 import { TApiResponse, TProperty } from "@/types";
 import { Button } from "../ui/button";
 import { request } from "@/services/axios";
+import { useTranslations } from "next-intl";
 
 interface CardsProps {
   res: TApiResponse;
@@ -46,6 +47,8 @@ const Cards: React.FC<CardsProps> = ({ res }) => {
     }
   };
 
+  const c = useTranslations("card");
+
   return (
     <div className="flex flex-col items-center">
       {properties.map((property: TProperty) => (
@@ -57,7 +60,7 @@ const Cards: React.FC<CardsProps> = ({ res }) => {
           className="bg-cyan-500 w-4/5 mt-2 mb-4"
           onClick={handleLoadMore}
         >
-          Load More
+          {c("button")}
         </Button>
       )}
     </div>

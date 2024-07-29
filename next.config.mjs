@@ -9,6 +9,7 @@ const nextConfig = {
       "purepng.com",
       "external-content.duckduckgo.com",
       "duckduckgo.com",
+      "www.tooistanbul.com",
     ],
   },
 };

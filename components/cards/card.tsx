@@ -8,6 +8,7 @@ import HoverComponent from "./hover";
 import { FaTurkishLiraSign } from "react-icons/fa6";
 import { TProperty } from "@/types";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 interface CardProps {
   property: TProperty;
@@ -17,6 +18,33 @@ const Card = ({ property }: CardProps) => {
   const t = useTranslations("card");
   const s = useTranslations("sex");
   const v = useTranslations("vibe");
+  let sex;
+
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    const convertedTitle = encodeURIComponent(
+      property.title.replace(/ /g, "-")
+    );
+
+    router.push(`/en/${convertedTitle}`);
+  };
+
+  switch (property.sex) {
+    case 1:
+      sex = s("men");
+      break;
+    case 2:
+      sex = s("women");
+      break;
+    case 3:
+      sex = s("unisex");
+      break;
+    case 4:
+      sex = s("seperate");
+      break;
+  }
+
   return (
     <div className=" mb-2 m-1">
       <Carousel>
@@ -42,15 +70,9 @@ const Card = ({ property }: CardProps) => {
           <span className="bg-emerald-500 text-white px-2 py-[.1rem] rounded-xl">
             {v(property.vibe)}
           </span>
-          {property.sex === 1 ? (
-            <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ml-2">
-              {s("men")}
-            </span>
-          ) : property.sex === 2 ? (
-            <span className="bg-red-500 text-white px-2 py-[.1rem] rounded-xl ml-2">
-              {s("women")}
-            </span>
-          ) : null}
+          <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ml-2">
+            {sex}
+          </span>
         </div>
 
         <p className="flex gap-4 mt-2 ml-1">
@@ -60,7 +82,7 @@ const Card = ({ property }: CardProps) => {
         </p>
       </div>
 
-      <div className=" flex h-16 mt-2 ">
+      <div className=" flex h-16 mt-2 " onClick={handleCardClick}>
         <div className=" flex-1 flex flex-col items-center justify-center">
           <p className="font-bold">{t("adult")}</p>
 

@@ -2,11 +2,14 @@
   "card": {
     "adult": "Yetişkin",
     "child": "Çocuk",
-    "scrub": "Kese"
+    "scrub": "Kese",
+    "button": "Daha Fazla Yükle"
   },
   "sex": {
     "men": "Erkeklere Özel",
-    "women": "Kadınlara Özel"
+    "women": "Kadınlara Özel",
+    "unisex": "Unisex",
+    "seperate": "Kadın ve Erkek Ayrı"
   },
   "vibe": {
     "Historical": "Tarihi",
