@@ -5,11 +5,13 @@ import { request } from "@/services/axios";
 import Slider from "./slider";
 import { CiLocationOn } from "react-icons/ci";
 import { TProperty } from "@/types";
+import { useTranslations } from "next-intl";
 
 const SinglePropertyPage = () => {
   let { title } = useParams();
   title = decodeURIComponent(title as string);
   const [data, setData] = useState<TProperty>();
+  const v = useTranslations("vibe");
 
   useEffect(() => {
     const res: any = request({
@@ -31,6 +33,11 @@ const SinglePropertyPage = () => {
           {data?.contact.district} / {data?.contact.city}
         </div>
         <h1 className="font-bold text-2xl text-slate-700">{data?.title}</h1>
+        <div className="my-2">
+          <span className=" rounded-lg px-2 py-1 bg-teal-700 text-white">
+            {v(data?.vibe)}
+          </span>
+        </div>
       </div>
     </div>
   );
