@@ -4,7 +4,7 @@ export interface TContact {
   city: string;
   district: string;
   address: string;
-  location: string;
+  location: number[];
   createdAt: string;
   updatedAt: string;
 }

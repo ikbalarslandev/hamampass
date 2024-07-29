@@ -5,7 +5,7 @@ const LocationComponent = ({ contact }: { contact: TContact }) => {
   return (
     <div>
       {contact.phone}
-      <GoogleMapComponent />
+      <GoogleMapComponent contact={contact.location} />
     </div>
   );
 };

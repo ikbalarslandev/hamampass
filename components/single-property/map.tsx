@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { useState, useEffect } from "react";
 
 const containerStyle = {
   width: "100%",
@@ -13,27 +12,37 @@ const center = {
   lng: 43.37828351185324,
 };
 
-const GoogleMapComponent = () => {
-  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string;
 
+interface GoogleMapComponentProps {
+  contact: number[];
+}
+
+const GoogleMapComponent: React.FC<GoogleMapComponentProps> = ({ contact }) => {
+  const [coordinates, setCoordinates] = useState(center);
   const [key, setKey] = useState(googleMapsApiKey);
 
   useEffect(() => {
+    if (contact) {
+      setCoordinates({ lat: contact[0], lng: contact[1] });
+    }
     setKey(googleMapsApiKey);
-  }, [googleMapsApiKey]);
+  }, [contact, googleMapsApiKey]);
 
   if (!googleMapsApiKey) {
     return <div>Error: Google Maps API key is missing.</div>;
   }
 
   return (
-    key && (
-      <LoadScript googleMapsApiKey={key}>
-        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
-          <Marker position={center} />
-        </GoogleMap>
-      </LoadScript>
-    )
+    <LoadScript googleMapsApiKey={key}>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={coordinates}
+        zoom={12}
+      >
+        <Marker position={coordinates} />
+      </GoogleMap>
+    </LoadScript>
   );
 };
 
