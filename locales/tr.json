@@ -37,12 +37,12 @@
     "open": "Açılış",
     "close": "Kapanış",
     "day": "Gün",
-    "monday": "Pazartesi",
-    "tuesday": "Salı",
-    "wednesday": "Çarşamba",
-    "thursday": "Perşembe",
-    "friday": "Cuma",
-    "saturday": "Cumartesi",
-    "sunday": "Pazar"
+    "Monday": "Pazartesi",
+    "Tuesday": "Salı",
+    "Wednesday": "Çarşamba",
+    "Thursday": "Perşembe",
+    "Friday": "Cuma",
+    "Saturday": "Cumartesi",
+    "Sunday": "Pazar"
   }
 }

@@ -18,7 +18,7 @@ interface Price {
   updatedAt: string;
 }
 
-interface Day {
+export interface TDay {
   id: string;
   day: string;
   openTime: string;
@@ -42,7 +42,7 @@ export interface TProperty {
   updatedAt: string;
   contact: TContact;
   price: Price;
-  days: Day[];
+  days: TDay[];
 }
 
 export interface TApiResponse {

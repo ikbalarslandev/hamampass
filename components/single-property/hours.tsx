@@ -1,20 +1,36 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { TDay } from "@/types";
+import { useState, useEffect } from "react";
 
-const HoursComponent = () => {
+interface HoursComponentProps {
+  data: TDay[];
+}
+
+interface Hour {
+  day: string;
+  open: string;
+  close: string;
+}
+
+const HoursComponent: React.FC<HoursComponentProps> = ({ data }) => {
   const t = useTranslations("single");
   const h = useTranslations("hours");
 
-  const hours = [
-    { day: h("monday"), open: "09:00", close: "17:00" },
-    { day: h("tuesday"), open: "09:00", close: "17:00" },
-    { day: h("wednesday"), open: "09:00", close: "17:00" },
-    { day: h("thursday"), open: "09:00", close: "17:00" },
-    { day: h("friday"), open: "09:00", close: "17:00" },
-    { day: h("saturday"), open: "10:00", close: "15:00" },
-    { day: h("sunday"), open: "Closed", close: "" },
-  ];
+  const [hours, setHours] = useState<Hour[]>([]);
+
+  useEffect(() => {
+    setHours(
+      data.map((day) => {
+        return {
+          day: h(day.day),
+          open: day.openTime,
+          close: day.closeTime,
+        };
+      })
+    );
+  }, [data]);
 
   return (
     <div>
