@@ -8,6 +8,7 @@ import { TProperty } from "@/types";
 import { useTranslations } from "next-intl";
 import LocationComponent from "./location";
 import AmenityComponent from "./amenities";
+import HoursComponent from "./hours";
 
 const SinglePropertyPage = () => {
   let { title } = useParams();
@@ -39,6 +40,7 @@ const SinglePropertyPage = () => {
             {v(data?.vibe || "Historical")}
           </span>
         </div>
+        <HoursComponent />
         <AmenityComponent data={data?.amenities} />
         {data && <LocationComponent contact={data?.contact} />}
       </div>

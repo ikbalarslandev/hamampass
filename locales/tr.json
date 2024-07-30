@@ -21,7 +21,8 @@
   "single": {
     "location": "İletişim",
     "tel": "İletişim Numarası :",
-    "amenity": "Hizmetler"
+    "amenity": "Hizmetler",
+    "hours": "Çalışma Saatleri"
   },
   "amenities": {
     "Turkish_Bath": "Hamam",
@@ -31,5 +32,17 @@
     "Jacuzzi": "Jakuzi",
     "Pool": "Havuz",
     "Shock_Pool": "Şok Havuz"
+  },
+  "hours": {
+    "open": "Açılış",
+    "close": "Kapanış",
+    "day": "Gün",
+    "monday": "Pazartesi",
+    "tuesday": "Salı",
+    "wednesday": "Çarşamba",
+    "thursday": "Perşembe",
+    "friday": "Cuma",
+    "saturday": "Cumartesi",
+    "sunday": "Pazar"
   }
 }

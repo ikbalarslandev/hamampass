@@ -21,7 +21,8 @@
   "single": {
     "location": "Contact",
     "tel": "Phone Number :",
-    "amenity": "Amenities"
+    "amenity": "Amenities",
+    "hours": "Hours"
   },
   "amenities": {
     "Turkish_Bath": "Turkish Bath",
@@ -31,5 +32,17 @@
     "Jacuzzi": "Jacuzzi",
     "Pool": "Pool",
     "Shock_Pool": "Shock Pool"
+  },
+  "hours": {
+    "open": "Open",
+    "close": "Close",
+    "day": "Day",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
   }
 }
