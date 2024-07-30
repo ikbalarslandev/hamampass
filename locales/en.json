@@ -44,5 +44,11 @@
     "Friday": "Friday",
     "Saturday": "Saturday",
     "Sunday": "Sunday"
+  },
+  "sex-number": {
+    "1": "Men's Only",
+    "2": "Women's Only",
+    "3": "Unisex",
+    "4": "Womens and Mens Seperate"
   }
 }

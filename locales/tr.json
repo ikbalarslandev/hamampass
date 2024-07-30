@@ -44,5 +44,11 @@
     "Friday": "Cuma",
     "Saturday": "Cumartesi",
     "Sunday": "Pazar"
+  },
+  "sex-number": {
+    "1": "Erkeklere Özel",
+    "2": "Kadınlara Özel",
+    "3": "Unisex",
+    "4": "Kadın ve Erkek Ayrı"
   }
 }

@@ -12,11 +12,13 @@ interface Hour {
   day: string;
   open: string;
   close: string;
+  sex: number;
 }
 
 const HoursComponent: React.FC<HoursComponentProps> = ({ data }) => {
   const t = useTranslations("single");
   const h = useTranslations("hours");
+  const s = useTranslations("sex-number");
 
   const [hours, setHours] = useState<Hour[]>([]);
 
@@ -27,13 +29,14 @@ const HoursComponent: React.FC<HoursComponentProps> = ({ data }) => {
           day: h(day.day),
           open: day.openTime,
           close: day.closeTime,
+          sex: day.sex,
         };
       })
     );
   }, [data]);
 
   return (
-    <div>
+    <div className="my-2 mt-6">
       <h2 className="font-bold text-xl text-gray-600">{t("hours")}</h2>
       <table className="min-w-full divide-y divide-gray-200 mt-4">
         <thead className="bg-gray-50">
@@ -52,8 +55,13 @@ const HoursComponent: React.FC<HoursComponentProps> = ({ data }) => {
         <tbody className="bg-white divide-y divide-gray-200">
           {hours.map((hour, index) => (
             <tr key={index}>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                {hour.day}
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 flex flex-col">
+                <p>{hour.day}</p>
+                <div>
+                  <span className="bg-teal-600 text-white rounded px-1 inline-block">
+                    {s(hour.sex.toString())}
+                  </span>
+                </div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {hour.open}
