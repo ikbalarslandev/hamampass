@@ -23,6 +23,7 @@ const SinglePropertyPage = () => {
     });
     res.then((res: any) => {
       setData(res.data);
+      console.log(res.data);
     });
   }, [title]);
 
