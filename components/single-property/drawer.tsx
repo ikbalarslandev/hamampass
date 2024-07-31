@@ -30,8 +30,10 @@ const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
           </DrawerTitle>
           <DrawerDescription>
             {data[`details_${locale}` as keyof typeof data].map(
-              (item: { item: string }) => (
-                <p className="text-left">{item}</p>
+              (item: { item: string }, index: any) => (
+                <p className="text-left" key={index}>
+                  {item}
+                </p>
               )
             )}
           </DrawerDescription>
