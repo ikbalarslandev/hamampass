@@ -28,15 +28,14 @@ const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
           <DrawerTitle>
             {data[`name_${locale}` as keyof typeof data]}
           </DrawerTitle>
-          <DrawerDescription>
-            {data[`details_${locale}` as keyof typeof data].map(
-              (item: { item: string }, index: any) => (
-                <p className="text-left" key={index}>
-                  {item}
-                </p>
-              )
-            )}
-          </DrawerDescription>
+
+          {data[`details_${locale}` as keyof typeof data].map(
+            (item: string, index: any) => (
+              <DrawerDescription className="text-left" key={index}>
+                {item}
+              </DrawerDescription>
+            )
+          )}
         </DrawerHeader>
         <DrawerFooter></DrawerFooter>
       </DrawerContent>
