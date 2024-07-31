@@ -10,6 +10,7 @@ import LocationComponent from "./location";
 import AmenityComponent from "./amenities";
 import HoursComponent from "./hours";
 import PriceComponent from "./price";
+import ProductsComponent from "./products";
 
 const SinglePropertyPage = () => {
   let { title } = useParams();
@@ -43,6 +44,7 @@ const SinglePropertyPage = () => {
           </span>
         </div>
         {data && <PriceComponent data={data?.price} />}{" "}
+        {data && <ProductsComponent />}
         {data && <HoursComponent data={data?.days} />}
         <AmenityComponent data={data?.amenities} />
         {data && <LocationComponent contact={data?.contact} />}

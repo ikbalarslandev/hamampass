@@ -18,6 +18,16 @@ export interface TPrice {
   updatedAt: string;
 }
 
+export interface TProduct {
+  id: string;
+  name_tr: string;
+  name_en: string;
+  price: number;
+  detais_tr: string[];
+  details_en: string[];
+  tags: string[];
+}
+
 export interface TDay {
   id: string;
   day: string;
@@ -41,6 +51,7 @@ export interface TProperty {
   createdAt: string;
   updatedAt: string;
   contact: TContact;
+  products: TProduct[];
   price: TPrice;
   days: TDay[];
 }
