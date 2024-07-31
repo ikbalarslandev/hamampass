@@ -36,8 +36,8 @@ const SelectComponent = () => {
         <SelectValue placeholder="Sort the prices" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="to-cheap">expensive to cheap</SelectItem>
-        <SelectItem value="to-expensive">cheap to expensive</SelectItem>
+        <SelectItem value="expensive">expensive to cheap</SelectItem>
+        <SelectItem value="cheap">cheap to expensive</SelectItem>
       </SelectContent>
     </Select>
   );
