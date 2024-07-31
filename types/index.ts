@@ -9,7 +9,7 @@ export interface TContact {
   updatedAt: string;
 }
 
-interface Price {
+export interface TPrice {
   id: string;
   adult: number;
   child: number;
@@ -41,7 +41,7 @@ export interface TProperty {
   createdAt: string;
   updatedAt: string;
   contact: TContact;
-  price: Price;
+  price: TPrice;
   days: TDay[];
 }
 

@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl";
 import LocationComponent from "./location";
 import AmenityComponent from "./amenities";
 import HoursComponent from "./hours";
+import PriceComponent from "./price";
 
 const SinglePropertyPage = () => {
   let { title } = useParams();
@@ -41,6 +42,7 @@ const SinglePropertyPage = () => {
             {v(data?.vibe || "Historical")}
           </span>
         </div>
+        {data && <PriceComponent data={data?.price} />}{" "}
         {data && <HoursComponent data={data?.days} />}
         <AmenityComponent data={data?.amenities} />
         {data && <LocationComponent contact={data?.contact} />}

@@ -3,7 +3,9 @@
     "adult": "Yetişkin",
     "child": "Çocuk",
     "scrub": "Kese",
-    "button": "Daha Fazla Yükle"
+    "button": "Daha Fazla Yükle",
+    "adult-desc": "13 yaşından büyük",
+    "child-desc": "5-13 yaş arası"
   },
   "sex": {
     "men": "Erkeklere Özel",
