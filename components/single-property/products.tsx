@@ -4,6 +4,7 @@ import { TProduct } from "@/types";
 import { useEffect } from "react";
 import { useParams } from "next/navigation";
 import DrawerComponent from "./drawer";
+import { PiFlowerLotus } from "react-icons/pi";
 
 interface Props {
   data: TProduct[];
@@ -18,7 +19,7 @@ const ProductsComponent = ({ data }: Props) => {
   return (
     <div>
       {/* <h1>Products</h1> */}
-      <div className=" flex flex-col gap-5 my-4">
+      <div className=" flex flex-col gap-3 my-4">
         {data.map((item) => (
           <DrawerComponent
             key={item.id}
@@ -26,10 +27,14 @@ const ProductsComponent = ({ data }: Props) => {
             trigger={
               <div
                 key={item.id}
-                className="flex justify-around border bg-green-600 text-white shadow-sm rounded"
+                className="flex justify-between items-center px-5 border  shadow rounded-lg py-3"
               >
-                <h2>{item[`name_${locale}` as keyof typeof item]}</h2>
-                <p>{item.price}</p>
+                <div className="flex gap-3 items-center">
+                  <PiFlowerLotus className="text-3xl" />
+                  <h2>{item[`name_${locale}` as keyof typeof item]}</h2>
+                </div>
+
+                <p>₺ {item.price}</p>
               </div>
             }
           />
