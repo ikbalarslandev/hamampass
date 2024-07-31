@@ -19,6 +19,7 @@ const Slider = (property: any) => {
                   width={400}
                   height={400}
                   className="w-full"
+                  priority={true}
                 />
               </CarouselItem>
             ))

@@ -1,7 +1,6 @@
 "use client";
 
 import { TProduct } from "@/types";
-import { useEffect } from "react";
 import { useParams } from "next/navigation";
 import DrawerComponent from "./drawer";
 import { PiFlowerLotus } from "react-icons/pi";
@@ -13,12 +12,8 @@ interface Props {
 const ProductsComponent = ({ data }: Props) => {
   const { locale } = useParams();
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
   return (
     <div>
-      {/* <h1>Products</h1> */}
       <div className=" flex flex-col gap-3 my-4">
         {data.map((item) => (
           <DrawerComponent
