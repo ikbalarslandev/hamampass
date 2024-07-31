@@ -26,6 +26,7 @@ export interface TProduct {
   detais_tr: string[];
   details_en: string[];
   tags: string[];
+  [key: string]: any;
 }
 
 export interface TDay {

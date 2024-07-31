@@ -25,7 +25,6 @@ const SinglePropertyPage = () => {
     });
     res.then((res: any) => {
       setData(res.data);
-      console.log(res.data);
     });
   }, [title]);
 
@@ -44,7 +43,7 @@ const SinglePropertyPage = () => {
           </span>
         </div>
         {data && <PriceComponent data={data?.price} />}{" "}
-        {data && <ProductsComponent />}
+        {data && <ProductsComponent data={data?.products} />}
         {data && <HoursComponent data={data?.days} />}
         <AmenityComponent data={data?.amenities} />
         {data && <LocationComponent contact={data?.contact} />}
