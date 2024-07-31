@@ -42,7 +42,7 @@ const SinglePropertyPage = () => {
             {v(data?.vibe || "Historical")}
           </span>
         </div>
-        {data && <PriceComponent data={data?.price} />}{" "}
+        {data && <PriceComponent data={data?.price} />}
         {data && <ProductsComponent data={data?.products} />}
         {data && <HoursComponent data={data?.days} />}
         <AmenityComponent data={data?.amenities} />
