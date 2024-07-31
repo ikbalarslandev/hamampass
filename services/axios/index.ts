@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://hp-backend-tkb5.onrender.com/";
+const baseURL = "https://hp-backend-tkb5.onrender.com/api";
 
 const axiosInstance = axios.create({
   baseURL,
