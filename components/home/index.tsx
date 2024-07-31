@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Cards from "../cards";
 import { request } from "@/services/axios";
 import { TApiResponse } from "@/types";
+import SelectComponent from "./select";
 
 const HomePage = () => {
   const [properties, setProperties] = useState<TApiResponse>(
@@ -28,6 +29,7 @@ const HomePage = () => {
 
   return (
     <div>
+      <SelectComponent />
       <Cards res={properties} />
     </div>
   );

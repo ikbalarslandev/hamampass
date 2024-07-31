@@ -77,57 +77,55 @@ const Card = ({ property }: CardProps) => {
               ))}
         </CarouselContent>
       </Carousel>
-      <div>
-        <h2
-          className="text-xl font-bold text-slate-700 my-2"
-          onClick={handleCardClick}
-        >
-          {property.title}
-        </h2>
+      <div onClick={handleCardClick}>
         <div>
-          <span className="bg-emerald-500 text-white px-2 py-[.1rem] rounded-xl">
-            {v(property.vibe)}
-          </span>
-          <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ml-2">
-            {sex}
-          </span>
+          <h2 className="text-xl font-bold text-slate-700 my-2">
+            {property.title}
+          </h2>
+          <div>
+            <span className="bg-emerald-500 text-white px-2 py-[.1rem] rounded-xl">
+              {v(property.vibe)}
+            </span>
+            <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ml-2">
+              {sex}
+            </span>
+          </div>
+
+          <p className="flex gap-4 mt-2 ml-1">
+            {property.amenities.map((amenity: any, index: number) => (
+              <HoverComponent key={index} amenity={amenity} />
+            ))}
+          </p>
         </div>
+        <div className=" flex h-16 mt-2 ">
+          <div className=" flex-1 flex flex-col items-center justify-center">
+            <p className="font-bold">{t("adult")}</p>
 
-        <p className="flex gap-4 mt-2 ml-1">
-          {property.amenities.map((amenity: any, index: number) => (
-            <HoverComponent key={index} amenity={amenity} />
-          ))}
-        </p>
-      </div>
+            <span className=" font-semibold text-green-600">
+              ₺ {property.price.adult}
+            </span>
+          </div>
+          <div className="w-[.1rem] flex items-center">
+            <div className="bg-black w-[.1rem] h-8 "></div>
+          </div>
 
-      <div className=" flex h-16 mt-2 " onClick={handleCardClick}>
-        <div className=" flex-1 flex flex-col items-center justify-center">
-          <p className="font-bold">{t("adult")}</p>
+          <div className=" flex-1 flex flex-col items-center justify-center">
+            <p className="font-bold">{t("child")}</p>
 
-          <span className=" font-semibold text-green-600">
-            ₺ {property.price.adult}
-          </span>
-        </div>
-        <div className="w-[.1rem] flex items-center">
-          <div className="bg-black w-[.1rem] h-8 "></div>
-        </div>
+            <span className=" font-semibold text-green-600">
+              ₺ {property.price.child}
+            </span>
+          </div>
+          <div className="w-[.1rem] flex items-center">
+            <div className="bg-black w-[.1rem] h-8 "></div>
+          </div>
+          <div className=" flex-1 flex flex-col items-center justify-center">
+            <p className="font-bold">{t("scrub")}</p>
 
-        <div className=" flex-1 flex flex-col items-center justify-center">
-          <p className="font-bold">{t("child")}</p>
-
-          <span className=" font-semibold text-green-600">
-            ₺ {property.price.child}
-          </span>
-        </div>
-        <div className="w-[.1rem] flex items-center">
-          <div className="bg-black w-[.1rem] h-8 "></div>
-        </div>
-        <div className=" flex-1 flex flex-col items-center justify-center">
-          <p className="font-bold">{t("scrub")}</p>
-
-          <span className=" font-semibold text-green-600">
-            ₺ {property.price.scrub}
-          </span>
+            <span className=" font-semibold text-green-600">
+              ₺ {property.price.scrub}
+            </span>
+          </div>
         </div>
       </div>
     </div>
