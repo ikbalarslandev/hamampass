@@ -9,23 +9,29 @@ interface PriceComponentProps {
 const PriceComponent = ({ data }: PriceComponentProps) => {
   const p = useTranslations("card");
   return (
-    <div className="border-t pt-3">
+    <div className="border rounded-xl  py-3 shadow-lg mt-5">
       <div className="space-y-3">
-        <p className="text-gray-700">
-          <span className="font-semibold text-gray-900">{p("adult")}:</span>{" "}
-          {p("adult-desc")}
+        <div className="text-gray-700 flex items-center justify-between px-5">
+          <div className="flex flex-col">
+            <span className="font-semibold text-gray-900">{p("adult")}:</span>{" "}
+            <span className="text-sm">({p("adult-desc")})</span>
+          </div>
+
           <span className="ml-2 font-semibold text-green-600">
             ₺{data.adult}
           </span>
-        </p>
-        <p className="text-gray-700">
-          <span className="font-semibold text-gray-900">{p("child")}:</span>{" "}
-          {p("child-desc")}
+        </div>
+        <div className="text-gray-700 flex items-center justify-between px-5">
+          <div className="flex flex-col">
+            <span className="font-semibold text-gray-900">{p("child")}:</span>{" "}
+            <span className="text-sm">({p("child-desc")})</span>
+          </div>
+
           <span className="ml-2 font-semibold text-green-600">
             ₺{data.child}
           </span>
-        </p>
-        <p className="text-gray-700">
+        </div>
+        <p className="text-gray-700 flex items-center justify-between px-5">
           <span className="font-semibold text-gray-900">{p("scrub")}:</span>
           <span className="ml-2 font-semibold text-green-600">
             ₺{data.scrub}

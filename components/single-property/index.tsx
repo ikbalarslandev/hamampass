@@ -44,8 +44,8 @@ const SinglePropertyPage = () => {
         </div>
         {data && <PriceComponent data={data?.price} />}
         {data && <ProductsComponent data={data?.products} />}
-        {data && <HoursComponent data={data?.days} />}
         <AmenityComponent data={data?.amenities} />
+        {data && <HoursComponent data={data?.days} />}
         {data && <LocationComponent contact={data?.contact} />}
       </div>
     </div>
