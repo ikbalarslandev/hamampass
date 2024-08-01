@@ -9,7 +9,7 @@ const districtData = ["Kadıköy", "Beşiktaş", "Üsküdar"];
 
 // Helper function to normalize text for accent-insensitive comparison
 const normalizeText = (text: string): string => {
-  return text.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove accents
+  return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 };
 
 const DistrictComponent: React.FC = () => {
@@ -34,7 +34,6 @@ const DistrictComponent: React.FC = () => {
         normalizeText(district).toLowerCase().includes(normalizedInput)
       );
       setFilteredDistricts(filtered);
-      setIsOpen(true);
     } else {
       setFilteredDistricts([]);
       setIsOpen(false);
@@ -76,7 +75,7 @@ const DistrictComponent: React.FC = () => {
 
   const handleItemClick = (value: string): void => {
     setInputValue(value);
-    setIsOpen(false); // Close the list after selecting an item
+    setIsOpen(false);
   };
 
   return (
