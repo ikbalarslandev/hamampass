@@ -20,7 +20,7 @@ const DistrictComponent: React.FC = () => {
 
   // Update the input value from URL params on initial render
   useEffect(() => {
-    const district = searchParams.get("contact_district");
+    const district = searchParams.get("district");
     if (district) {
       setInputValue(district);
     }
@@ -47,9 +47,9 @@ const DistrictComponent: React.FC = () => {
     const newParams = new URLSearchParams(searchParams.toString());
 
     if (isExactMatch) {
-      newParams.set("contact_district", inputValue);
+      newParams.set("district", inputValue);
     } else {
-      newParams.delete("contact_district");
+      newParams.delete("district");
     }
 
     window.history.replaceState(
