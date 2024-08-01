@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent, MouseEvent } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useSearchParams } from "next/navigation";
@@ -8,14 +8,14 @@ import { useSearchParams } from "next/navigation";
 const districtData = ["Kadıköy", "Beşiktaş", "Üsküdar"];
 
 // Helper function to normalize text for accent-insensitive comparison
-const normalizeText = (text) => {
+const normalizeText = (text: string): string => {
   return text.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove accents
 };
 
-const DistrictComponent = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [filteredDistricts, setFilteredDistricts] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
+const DistrictComponent: React.FC = () => {
+  const [inputValue, setInputValue] = useState<string>("");
+  const [filteredDistricts, setFilteredDistricts] = useState<string[]>([]);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const searchParams = useSearchParams();
 
   // Update the input value from URL params on initial render
@@ -59,7 +59,7 @@ const DistrictComponent = () => {
     );
   }, [inputValue, searchParams]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setInputValue(e.target.value);
     // Keep the recommendation list open only if the input value is non-empty
     if (e.target.value) {
@@ -67,14 +67,14 @@ const DistrictComponent = () => {
     }
   };
 
-  const handleInputClick = () => {
+  const handleInputClick = (e: MouseEvent<HTMLInputElement>): void => {
     // Open the list only if it hasn't been opened yet
     if (filteredDistricts.length > 0 && !isOpen) {
       setIsOpen(true);
     }
   };
 
-  const handleItemClick = (value) => {
+  const handleItemClick = (value: string): void => {
     setInputValue(value);
     setIsOpen(false); // Close the list after selecting an item
   };
