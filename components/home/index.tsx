@@ -24,7 +24,7 @@ const HomePage = () => {
           endpoint: "property",
           params: {
             sort: sortParam,
-            district: districtParam,
+            contact_district: districtParam,
           },
         });
 
