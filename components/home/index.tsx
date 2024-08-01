@@ -5,6 +5,7 @@ import { request } from "@/services/axios";
 import { TApiResponse } from "@/types";
 import SelectComponent from "./select";
 import { useSearchParams } from "next/navigation";
+import DistrictComponent from "./district";
 
 const HomePage = () => {
   const [properties, setProperties] = useState<TApiResponse>(
@@ -14,6 +15,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const sortParam = searchParams.get("sort");
+    const districtParam = searchParams.get("district");
 
     const fetchProperties = async () => {
       try {
@@ -22,6 +24,7 @@ const HomePage = () => {
           endpoint: "property",
           params: {
             sort: sortParam,
+            district: districtParam,
           },
         });
 
@@ -37,6 +40,7 @@ const HomePage = () => {
   return (
     <div>
       <SelectComponent />
+      <DistrictComponent />
       <Cards res={properties} />
     </div>
   );
