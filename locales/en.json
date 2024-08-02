@@ -14,11 +14,11 @@
     "seperate": "Womens and Mens Seperate"
   },
   "vibe": {
-    "Historical": "Historical",
-    "Budget": "Budget",
-    "Couple_Friendly": "Couple Friendly",
-    "Family_Friendly": "Family Friendly",
-    "Luxury": "Luxury"
+    "0": "Historical",
+    "1": "Budget",
+    "2": "Couple Friendly",
+    "3": "Family Friendly",
+    "4": "Luxury"
   },
   "single": {
     "location": "Contact",

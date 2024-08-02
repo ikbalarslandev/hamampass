@@ -14,11 +14,11 @@
     "seperate": "Kadın ve Erkek Ayrı"
   },
   "vibe": {
-    "Historical": "Tarihi",
-    "Budget": "Ekonomik",
-    "Couple_Friendly": "Çiftlere Uygun",
-    "Family_Friendly": "Ailelere Uygun",
-    "Luxury": "Lüks"
+    "0": "Tarihi",
+    "1": "Ekonomik",
+    "2": "Çiftlere Uygun",
+    "3": "Ailelere Uygun",
+    "4": "Lüks"
   },
   "single": {
     "location": "İletişim",

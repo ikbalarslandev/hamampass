@@ -48,6 +48,38 @@ const Card = ({ property }: CardProps) => {
       break;
   }
 
+  // enum EAmenities {
+  //   Turkish_Bath === 0
+  //   Shower   === 1
+  //   Sauna    === 2
+  //   Steam_Room  === 3
+  //   Jacuzzi     === 4
+  //   Pool       === 5
+  //   Shock_Pool   === 6
+  //   Spa      === 7
+  // }
+
+  const convertToAmenity = (id: number) => {
+    switch (id) {
+      case 0:
+        return "Turkish_Bath";
+      case 1:
+        return "Shower";
+      case 2:
+        return "Sauna";
+      case 3:
+        return "Steam_Room";
+      case 4:
+        return "Jacuzzi";
+      case 5:
+        return "Pool";
+      case 6:
+        return "Shock_Pool";
+      case 7:
+        return "Spa";
+    }
+  };
+
   return (
     <div className=" mb-2 m-1">
       <Carousel>
@@ -84,7 +116,7 @@ const Card = ({ property }: CardProps) => {
           </h2>
           <div>
             <span className="bg-emerald-500 text-white px-2 py-[.1rem] rounded-xl">
-              {v(property.vibe)}
+              {v(property.vibe.toString())}
             </span>
             <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ml-2">
               {sex}
@@ -92,8 +124,8 @@ const Card = ({ property }: CardProps) => {
           </div>
 
           <p className="flex gap-4 mt-2 ml-1">
-            {property.amenities.map((amenity: any, index: number) => (
-              <HoverComponent key={index} amenity={amenity} />
+            {property.amenities.map((id: number, index: number) => (
+              <HoverComponent key={index} amenity={convertToAmenity(id)} />
             ))}
           </p>
         </div>

@@ -46,7 +46,7 @@ export interface TProperty {
   contactId: string;
   priceId: string;
   vibe: string;
-  amenities: string[];
+  amenities: number[];
   photos: string[];
   sex: number;
   createdAt: string;
