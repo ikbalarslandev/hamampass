@@ -7,6 +7,7 @@ import SelectComponent from "./select";
 import { useSearchParams } from "next/navigation";
 import DistrictComponent from "./district";
 import VibeComponent from "./vibe";
+import AmenityComponent from "./amenity";
 
 const HomePage = () => {
   const [properties, setProperties] = useState<TApiResponse>(
@@ -18,6 +19,7 @@ const HomePage = () => {
     const sortParam = searchParams.get("sort");
     const districtParam = searchParams.get("district");
     const vibeParam = searchParams.get("vibe");
+    const amenityParam = searchParams.get("amenity");
 
     const fetchProperties = async () => {
       try {
@@ -28,6 +30,7 @@ const HomePage = () => {
             sort: sortParam,
             contact_district: districtParam,
             vibe: vibeParam,
+            amenity: amenityParam,
           },
         });
 
@@ -44,7 +47,8 @@ const HomePage = () => {
     <div>
       {/* <SelectComponent />
       <DistrictComponent /> */}
-      <VibeComponent />
+      {/* <VibeComponent /> */}
+      <AmenityComponent />
 
       <Cards res={properties} />
     </div>

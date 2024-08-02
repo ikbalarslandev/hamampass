@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useSearchParams } from "next/navigation";
 
-const CheckboxComponent = ({ id, name }: any) => {
+const CheckboxComponent = ({ id, name, paramName }: any) => {
   const [isChecked, setIsChecked] = useState(false);
   const searchParams = useSearchParams();
 
@@ -14,8 +14,8 @@ const CheckboxComponent = ({ id, name }: any) => {
 
     // Update URL parameters
     const urlParams = new URLSearchParams(window.location.search);
-    let vibeArray: number[] = urlParams.has("vibe")
-      ? JSON.parse(urlParams.get("vibe") || "[]")
+    let vibeArray: number[] = urlParams.has(paramName)
+      ? JSON.parse(urlParams.get(paramName) || "[]")
       : [];
 
     if (newCheckedState) {
@@ -27,18 +27,18 @@ const CheckboxComponent = ({ id, name }: any) => {
     }
 
     if (vibeArray.length > 0) {
-      urlParams.set("vibe", JSON.stringify(vibeArray));
+      urlParams.set(paramName, JSON.stringify(vibeArray));
     } else {
-      urlParams.delete("vibe");
+      urlParams.delete(paramName);
     }
 
     window.history.replaceState(null, "", `?${urlParams.toString()}`);
-    console.log("URL Params:", urlParams.get("vibe"));
+    console.log("URL Params:", urlParams.get(paramName));
   };
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    const vibeParam = urlParams.get("vibe");
+    const vibeParam = urlParams.get(paramName);
     const vibeArray: number[] = vibeParam ? JSON.parse(vibeParam) : [];
     setIsChecked(vibeArray.includes(id));
   }, [searchParams]);
