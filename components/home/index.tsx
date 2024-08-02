@@ -45,10 +45,10 @@ const HomePage = () => {
 
   return (
     <div>
-      {/* <SelectComponent />
-      <DistrictComponent /> */}
+      {/* <SelectComponent /> */}
+      <DistrictComponent />
       {/* <VibeComponent /> */}
-      <AmenityComponent />
+      {/* <AmenityComponent /> */}
 
       <Cards res={properties} />
     </div>

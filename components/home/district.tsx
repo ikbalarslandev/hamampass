@@ -4,6 +4,9 @@ import React, { useState, useEffect, ChangeEvent, MouseEvent } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useSearchParams } from "next/navigation";
+import { IoSearchSharp } from "react-icons/io5";
+import { Button } from "../ui/button";
+import { VscSettings } from "react-icons/vsc";
 
 const districtData = ["Kadıköy", "Beşiktaş", "Üsküdar"];
 
@@ -79,8 +82,8 @@ const DistrictComponent: React.FC = () => {
   };
 
   return (
-    <div className="relative grid w-full max-w-sm items-center gap-1.5">
-      <Label htmlFor="district">İlçe</Label>
+    <div className="flex items-center border rounded-lg mx-4 my-2 shadow-md  gap-1 relative">
+      <IoSearchSharp size={22} className="mb-[.1rem] ml-2" />
       <Input
         type="text"
         id="district"
@@ -88,22 +91,24 @@ const DistrictComponent: React.FC = () => {
         value={inputValue}
         onChange={handleInputChange}
         onClick={handleInputClick}
+        className="flex-1"
       />
-      <div className="relative">
-        {isOpen && filteredDistricts.length > 0 && (
-          <ul className="absolute z-10 w-full border border-gray-300 bg-white shadow-lg">
-            {filteredDistricts.map((district, index) => (
-              <li
-                key={index}
-                className="cursor-pointer px-4 py-2 hover:bg-gray-200"
-                onClick={() => handleItemClick(district)}
-              >
-                {district}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+      <Button variant="filter" onClick={() => console.log("hhhh")}>
+        <VscSettings size={20} />
+      </Button>
+      {isOpen && filteredDistricts.length > 0 && (
+        <ul className="absolute top-full   z-10 w-full border border-gray-300 bg-white shadow-lg">
+          {filteredDistricts.map((district, index) => (
+            <li
+              key={index}
+              className="cursor-pointer px-4 py-2 hover:bg-gray-200"
+              onClick={() => handleItemClick(district)}
+            >
+              {district}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
