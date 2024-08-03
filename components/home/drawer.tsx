@@ -40,10 +40,7 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
           <VibeComponent />
           <AmenityComponent />
         </div>
-        <DrawerFooter>
-          <hr />
-          <Button className="mt-3">Apply</Button>
-        </DrawerFooter>
+        <DrawerFooter></DrawerFooter>
       </DrawerContent>
     </Drawer>
   );

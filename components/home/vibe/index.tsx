@@ -48,7 +48,7 @@ const VibeComponent = () => {
     >
       <AccordionItem value="vibe">
         <AccordionTrigger className="text-lg">Vibes</AccordionTrigger>
-        <AccordionContent>
+        <AccordionContent className="flex flex-col gap-2">
           {vibeData.map((vibe) => (
             <CheckboxComponent key={vibe.id} {...vibe} />
           ))}

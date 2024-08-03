@@ -44,9 +44,13 @@ const CheckboxComponent = ({ id, name, paramName }: any) => {
   }, [searchParams]);
 
   return (
-    <label className="flex items-center gap-2">
-      <Checkbox checked={isChecked} onClick={handleCheckboxChange} />
+    <label className="flex items-center gap-2 justify-between pr-1">
       <span>{name}</span>
+      <Checkbox
+        checked={isChecked}
+        onClick={handleCheckboxChange}
+        className="w-6 h-6"
+      />
     </label>
   );
 };
