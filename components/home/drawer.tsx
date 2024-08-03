@@ -13,6 +13,8 @@ import {
 import React from "react";
 import { Button } from "../ui/button";
 import { IoClose } from "react-icons/io5";
+import VibeComponent from "./vibe";
+import AmenityComponent from "./amenity";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
@@ -34,7 +36,10 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
           </Button>
         </DrawerHeader>
         <hr />
-        <div></div>
+        <div>
+          <VibeComponent />
+          <AmenityComponent />
+        </div>
         <DrawerFooter>
           <hr />
           <Button className="mt-3">Apply</Button>
