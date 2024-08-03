@@ -39,7 +39,7 @@ const DistrictComponent: React.FC = () => {
       );
       setFilteredDistricts(filtered);
     } else {
-      setFilteredDistricts([]);
+      setFilteredDistricts(districtData);
       setIsOpen(false);
     }
   }, [inputValue]);
@@ -70,8 +70,7 @@ const DistrictComponent: React.FC = () => {
     }
   };
 
-  const handleInputClick = (e: MouseEvent<HTMLInputElement>): void => {
-    // Open the list only if it hasn't been opened yet
+  const handleInputClick = (): void => {
     if (filteredDistricts.length > 0 && !isOpen) {
       setIsOpen(true);
     }
