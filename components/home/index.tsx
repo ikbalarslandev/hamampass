@@ -41,14 +41,12 @@ const HomePage = () => {
     };
 
     fetchProperties();
-  }, [searchParams]); // Dependency array includes searchParams
+  }, [searchParams]);
 
   return (
     <div>
       {/* <SelectComponent /> */}
       <DistrictComponent />
-      {/* <VibeComponent /> */}
-      {/* <AmenityComponent /> */}
 
       <Cards res={properties} />
     </div>

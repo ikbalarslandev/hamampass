@@ -60,8 +60,10 @@ const AmenityComponent = () => {
       onValueChange={setOpenValue}
     >
       <AccordionItem value="amenity">
-        <AccordionTrigger className="text-lg">{t("atitle")}</AccordionTrigger>
-        <AccordionContent className="flex flex-col gap-2">
+        <AccordionTrigger className="text-lg font-bold">
+          {t("atitle")}
+        </AccordionTrigger>
+        <AccordionContent className="flex flex-col gap-2 ">
           {amenityData.map((amenity) => (
             <CheckboxComponent
               key={amenity.id}

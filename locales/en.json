@@ -56,7 +56,10 @@
   "filter": {
     "placeholder": "Search district in Istanbul",
     "title": "Filters",
+    "stitle": "Sort",
     "vtitle": "Vibes",
-    "atitle": "Amenities"
+    "atitle": "Amenities",
+    "expensive": "Expensive to Cheap",
+    "cheap": "Cheap to Expensive"
   }
 }

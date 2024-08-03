@@ -56,7 +56,10 @@
   "filter": {
     "placeholder": "İstanbul'da semt ara",
     "title": "Filtreler",
+    "stitle": "Sırala",
     "vtitle": "Durumlar",
-    "atitle": "Hizmetler"
+    "atitle": "Hizmetler",
+    "expensive": "Pahalıdan Ucuza",
+    "cheap": "Ucuzdan Pahalıya"
   }
 }

@@ -34,7 +34,7 @@ const AmenityComponent = ({ data }: any) => {
       <div className="flex flex-col gap-4 mt-2 ml-1">
         {data &&
           data.map((id: any, index: number) => (
-            <HoverComponent key={index} amenity={convertToAmenity(id)} />
+            <HoverComponent key={index} amenity={id} />
           ))}
       </div>
     </div>

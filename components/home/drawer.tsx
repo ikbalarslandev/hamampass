@@ -15,6 +15,7 @@ import { IoClose } from "react-icons/io5";
 import VibeComponent from "./vibe";
 import AmenityComponent from "./amenity";
 import { useTranslations } from "next-intl";
+import SortComponent from "./sort";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
@@ -34,6 +35,7 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
         </DrawerHeader>
         <hr />
         <div className="mx-5">
+          <SortComponent />
           <VibeComponent />
           <AmenityComponent />
         </div>

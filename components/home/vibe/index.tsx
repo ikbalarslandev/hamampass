@@ -50,7 +50,9 @@ const VibeComponent = () => {
       onValueChange={setOpenValue}
     >
       <AccordionItem value="vibe">
-        <AccordionTrigger className="text-lg">{t("vtitle")}</AccordionTrigger>
+        <AccordionTrigger className="text-lg font-bold">
+          {t("vtitle")}
+        </AccordionTrigger>
         <AccordionContent className="flex flex-col gap-2">
           {vibeData.map((vibe) => (
             <CheckboxComponent
