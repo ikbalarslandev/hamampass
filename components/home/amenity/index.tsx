@@ -1,29 +1,75 @@
-import CheckboxComponent from "../vibe/checkbox";
+"use client";
 
-// enum EAmenities {
-//   Turkish_Bath === 0
-//   Shower   === 1
-//   Sauna    === 2
-//   Steam_Room  === 3
-//   Jacuzzi     === 4
-//   Pool       === 5
-//   Shock_Pool   === 6
-//   Spa      === 7
-// }
+import CheckboxComponent from "../vibe/checkbox";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { useState } from "react";
+
+const amenityData = [
+  {
+    id: 0,
+    name: "Turkish Bath",
+    paramName: "amenity",
+  },
+  {
+    id: 1,
+    name: "Shower",
+    paramName: "amenity",
+  },
+  {
+    id: 2,
+    name: "Sauna",
+    paramName: "amenity",
+  },
+  {
+    id: 3,
+    name: "Steam Room",
+    paramName: "amenity",
+  },
+  {
+    id: 4,
+    name: "Jacuzzi",
+    paramName: "amenity",
+  },
+  {
+    id: 5,
+    name: "Pool",
+    paramName: "amenity",
+  },
+  {
+    id: 6,
+    name: "Shock Pool",
+    paramName: "amenity",
+  },
+  {
+    id: 7,
+    name: "Spa",
+    paramName: "amenity",
+  },
+];
 
 const AmenityComponent = () => {
+  const [openValue, setOpenValue] = useState("amenity");
   return (
-    <div>
-      <h2>Amenities</h2>
-      <CheckboxComponent id={0} name="Turkish Bath" paramName="amenity" />
-      <CheckboxComponent id={1} name="Shower" paramName="amenity" />
-      <CheckboxComponent id={2} name="Sauna" paramName="amenity" />
-      <CheckboxComponent id={3} name="Steam Room" paramName="amenity" />
-      <CheckboxComponent id={4} name="Jacuzzi" paramName="amenity" />
-      <CheckboxComponent id={5} name="Pool" paramName="amenity" />
-      <CheckboxComponent id={6} name="Shock Pool" paramName="amenity" />
-      <CheckboxComponent id={7} name="Spa" paramName="amenity" />
-    </div>
+    <Accordion
+      type="single"
+      collapsible
+      value={openValue}
+      onValueChange={setOpenValue}
+    >
+      <AccordionItem value="amenity">
+        <AccordionTrigger className="text-lg">Amenities</AccordionTrigger>
+        <AccordionContent>
+          {amenityData.map((amenity) => (
+            <CheckboxComponent key={amenity.id} {...amenity} />
+          ))}
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
   );
 };
 
