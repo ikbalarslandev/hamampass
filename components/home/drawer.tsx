@@ -36,7 +36,7 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
           </Button>
         </DrawerHeader>
         <hr />
-        <div>
+        <div className="mx-5">
           <VibeComponent />
           <AmenityComponent />
         </div>
