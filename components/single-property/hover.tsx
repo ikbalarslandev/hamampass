@@ -85,7 +85,6 @@ const HoverComponent = ({ amenity }: any) => {
         <p className="text-2xl">{item.Icon}</p>
         <p>{t(amenity.toString())}</p>
       </HoverCardTrigger>
-      <HoverCardContent>{t(amenity)}</HoverCardContent>
     </HoverCard>
   );
 };

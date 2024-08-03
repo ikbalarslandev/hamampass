@@ -24,43 +24,43 @@ const HoverComponent = ({ amenity }: any) => {
 
   useEffect(() => {
     switch (amenity) {
-      case "Turkish_Bath":
+      case "0":
         setItem({
           Icon: <FaBath />,
           title: "Turkish Bath",
         });
         break;
-      case "Shower":
+      case "1":
         setItem({
           Icon: <FaShower />,
           title: "Shower",
         });
         break;
-      case "Sauna":
+      case "2":
         setItem({
           Icon: <FaHotjar />,
           title: "Sauna",
         });
         break;
-      case "Steam_Room":
+      case "3":
         setItem({
           Icon: <FaCloudRain />,
           title: "Steam Room",
         });
         break;
-      case "Jacuzzi":
+      case "4":
         setItem({
           Icon: <FaHotTub />,
           title: "Jacuzzi",
         });
         break;
-      case "Pool":
+      case "5":
         setItem({
           Icon: <FaSwimmingPool />,
           title: "Pool",
         });
         break;
-      case "Shock_Pool":
+      case "6":
         setItem({
           Icon: <MdOutlineSevereCold />,
           title: "Shock Pool",

@@ -59,27 +59,6 @@ const Card = ({ property }: CardProps) => {
   //   Spa      === 7
   // }
 
-  const convertToAmenity = (id: number) => {
-    switch (id) {
-      case 0:
-        return "Turkish_Bath";
-      case 1:
-        return "Shower";
-      case 2:
-        return "Sauna";
-      case 3:
-        return "Steam_Room";
-      case 4:
-        return "Jacuzzi";
-      case 5:
-        return "Pool";
-      case 6:
-        return "Shock_Pool";
-      case 7:
-        return "Spa";
-    }
-  };
-
   return (
     <div className=" mb-2 m-1">
       <Carousel>
@@ -125,7 +104,7 @@ const Card = ({ property }: CardProps) => {
 
           <p className="flex gap-4 mt-2 ml-1">
             {property.amenities.map((id: number, index: number) => (
-              <HoverComponent key={index} amenity={convertToAmenity(id)} />
+              <HoverComponent key={index} amenity={id.toString()} />
             ))}
           </p>
         </div>
