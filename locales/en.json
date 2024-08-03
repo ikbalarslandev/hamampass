@@ -27,13 +27,13 @@
     "hours": "Hours"
   },
   "amenities": {
-    "Turkish_Bath": "Turkish Bath",
-    "Shower": "Shower",
-    "Sauna": "Sauna",
-    "Steam_Room": "Steam Room",
-    "Jacuzzi": "Jacuzzi",
-    "Pool": "Pool",
-    "Shock_Pool": "Shock Pool"
+    "0": "Turkish Bath",
+    "1": "Shower",
+    "2": "Sauna",
+    "3": "Steam Room",
+    "4": "Jacuzzi",
+    "5": "Pool",
+    "6": "Shock Pool"
   },
   "hours": {
     "open": "Open",
@@ -52,5 +52,11 @@
     "2": "Women's Only",
     "3": "Unisex",
     "4": "Womens and Mens Seperate"
+  },
+  "filter": {
+    "placeholder": "Search district in Istanbul",
+    "title": "Filters",
+    "vtitle": "Vibes",
+    "atitle": "Amenities"
   }
 }

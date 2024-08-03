@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 const amenityData = [
   {
@@ -45,15 +46,12 @@ const amenityData = [
     name: "Shock Pool",
     paramName: "amenity",
   },
-  {
-    id: 7,
-    name: "Spa",
-    paramName: "amenity",
-  },
 ];
 
 const AmenityComponent = () => {
   const [openValue, setOpenValue] = useState("amenity");
+  const t = useTranslations("filter");
+  const a = useTranslations("amenities");
   return (
     <Accordion
       type="single"
@@ -62,10 +60,15 @@ const AmenityComponent = () => {
       onValueChange={setOpenValue}
     >
       <AccordionItem value="amenity">
-        <AccordionTrigger className="text-lg">Amenities</AccordionTrigger>
+        <AccordionTrigger className="text-lg">{t("atitle")}</AccordionTrigger>
         <AccordionContent className="flex flex-col gap-2">
           {amenityData.map((amenity) => (
-            <CheckboxComponent key={amenity.id} {...amenity} />
+            <CheckboxComponent
+              key={amenity.id}
+              id={amenity.id}
+              name={a(amenity.id.toString())}
+              paramName="amenity"
+            />
           ))}
         </AccordionContent>
       </AccordionItem>

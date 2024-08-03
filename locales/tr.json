@@ -27,13 +27,13 @@
     "hours": "Çalışma Saatleri"
   },
   "amenities": {
-    "Turkish_Bath": "Hamam",
-    "Shower": "Duş",
-    "Sauna": "Sauna",
-    "Steam_Room": "Buhar Odası",
-    "Jacuzzi": "Jakuzi",
-    "Pool": "Havuz",
-    "Shock_Pool": "Şok Havuz"
+    "0": "Hamam",
+    "1": "Duş",
+    "2": "Sauna",
+    "3": "Buhar Odası",
+    "4": "Jakuzi",
+    "5": "Havuz",
+    "6": "Şok Havuz"
   },
   "hours": {
     "open": "Açılış",
@@ -52,5 +52,11 @@
     "2": "Kadınlara Özel",
     "3": "Unisex",
     "4": "Kadın ve Erkek Ayrı"
+  },
+  "filter": {
+    "placeholder": "İstanbul'da semt ara",
+    "title": "Filtreler",
+    "vtitle": "Durumlar",
+    "atitle": "Hizmetler"
   }
 }

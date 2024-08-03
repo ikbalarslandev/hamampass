@@ -2,12 +2,11 @@
 
 import React, { useState, useEffect, ChangeEvent, MouseEvent } from "react";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useSearchParams } from "next/navigation";
 import { IoSearchSharp } from "react-icons/io5";
-import { Button } from "../ui/button";
 import { VscSettings } from "react-icons/vsc";
 import DrawerComponent from "./drawer";
+import { useTranslations } from "next-intl";
 
 const districtData = ["Kadıköy", "Beşiktaş", "Üsküdar"];
 
@@ -21,6 +20,7 @@ const DistrictComponent: React.FC = () => {
   const [filteredDistricts, setFilteredDistricts] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const searchParams = useSearchParams();
+  const t = useTranslations("filter");
 
   // Update the input value from URL params on initial render
   useEffect(() => {
@@ -88,7 +88,7 @@ const DistrictComponent: React.FC = () => {
       <Input
         type="text"
         id="district"
-        placeholder="İlçe Seçiniz"
+        placeholder={t("placeholder")}
         value={inputValue}
         onChange={handleInputChange}
         onClick={handleInputClick}

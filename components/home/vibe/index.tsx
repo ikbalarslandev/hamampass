@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 const vibeData = [
   {
@@ -16,22 +17,22 @@ const vibeData = [
     paramName: "vibe",
   },
   {
-    id: 2,
+    id: 1,
     name: "Budget",
     paramName: "vibe",
   },
   {
-    id: 3,
+    id: 2,
     name: "Couple Friendly",
     paramName: "vibe",
   },
   {
-    id: 4,
+    id: 3,
     name: "Family Friendly",
     paramName: "vibe",
   },
   {
-    id: 5,
+    id: 4,
     name: "Luxury",
     paramName: "vibe",
   },
@@ -39,6 +40,8 @@ const vibeData = [
 
 const VibeComponent = () => {
   const [openValue, setOpenValue] = useState("vibe");
+  const t = useTranslations("filter");
+  const v = useTranslations("vibe");
   return (
     <Accordion
       type="single"
@@ -47,10 +50,15 @@ const VibeComponent = () => {
       onValueChange={setOpenValue}
     >
       <AccordionItem value="vibe">
-        <AccordionTrigger className="text-lg">Vibes</AccordionTrigger>
+        <AccordionTrigger className="text-lg">{t("vtitle")}</AccordionTrigger>
         <AccordionContent className="flex flex-col gap-2">
           {vibeData.map((vibe) => (
-            <CheckboxComponent key={vibe.id} {...vibe} />
+            <CheckboxComponent
+              key={vibe.id}
+              id={vibe.id}
+              name={v(vibe.id.toString())}
+              paramName="vibe"
+            />
           ))}
         </AccordionContent>
       </AccordionItem>
