@@ -3,8 +3,17 @@
 import { useState, useEffect } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useSearchParams } from "next/navigation";
+import { Label } from "@/components/ui/label";
+import HoverComponent from "@/components/cards/hover";
 
-const CheckboxComponent = ({ id, name, paramName }: any) => {
+interface CheckboxProps {
+  id: number;
+  name: string;
+  paramName: string;
+  isIcon?: boolean;
+}
+
+const CheckboxComponent = ({ id, name, paramName, isIcon }: CheckboxProps) => {
   const [isChecked, setIsChecked] = useState(false);
   const searchParams = useSearchParams();
 
@@ -44,14 +53,22 @@ const CheckboxComponent = ({ id, name, paramName }: any) => {
   }, [searchParams]);
 
   return (
-    <label className="flex items-center gap-2 justify-between ">
-      <span>{name}</span>
+    <Label className="flex items-center gap-2 justify-between ">
+      {isIcon ? (
+        <div className="flex gap-2">
+          <HoverComponent amenity={id.toString()} />
+          <span>{name}</span>
+        </div>
+      ) : (
+        <span>{name}</span>
+      )}
+
       <Checkbox
         checked={isChecked}
         onClick={handleCheckboxChange}
         className="w-6 h-6"
       />
-    </label>
+    </Label>
   );
 };
 

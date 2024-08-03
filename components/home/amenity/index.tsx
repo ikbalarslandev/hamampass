@@ -70,6 +70,7 @@ const AmenityComponent = () => {
               id={amenity.id}
               name={a(amenity.id.toString())}
               paramName="amenity"
+              isIcon={true}
             />
           ))}
         </AccordionContent>
