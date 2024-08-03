@@ -3,11 +3,9 @@ import { useEffect, useState } from "react";
 import Cards from "../cards";
 import { request } from "@/services/axios";
 import { TApiResponse } from "@/types";
-import SelectComponent from "./select";
 import { useSearchParams } from "next/navigation";
 import DistrictComponent from "./district";
-import VibeComponent from "./vibe";
-import AmenityComponent from "./amenity";
+import { useTranslations } from "next-intl";
 
 const HomePage = () => {
   const [properties, setProperties] = useState<TApiResponse>(
@@ -15,9 +13,11 @@ const HomePage = () => {
   );
   const searchParams = useSearchParams();
 
+  const districtParam = searchParams.get("district");
+  const t = useTranslations("card");
+
   useEffect(() => {
     const sortParam = searchParams.get("sort");
-    const districtParam = searchParams.get("district");
     const vibeParam = searchParams.get("vibe");
     const amenityParam = searchParams.get("amenity");
 
@@ -45,9 +45,14 @@ const HomePage = () => {
 
   return (
     <div>
-      {/* <SelectComponent /> */}
       <DistrictComponent />
-
+      <hr />
+      <h1 className="text-center text-xl my-3">
+        {t("title")}{" "}
+        <span className="text-orange-600">
+          İstanbul{districtParam && `/${districtParam}`}
+        </span>
+      </h1>
       <Cards res={properties} />
     </div>
   );
