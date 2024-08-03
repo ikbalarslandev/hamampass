@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import { IoSearchSharp } from "react-icons/io5";
 import { Button } from "../ui/button";
 import { VscSettings } from "react-icons/vsc";
+import DrawerComponent from "./drawer";
 
 const districtData = ["Kadıköy", "Beşiktaş", "Üsküdar"];
 
@@ -93,9 +94,8 @@ const DistrictComponent: React.FC = () => {
         onClick={handleInputClick}
         className="flex-1"
       />
-      <Button variant="filter" onClick={() => console.log("hhhh")}>
-        <VscSettings size={20} />
-      </Button>
+      <DrawerComponent trigger={<VscSettings size={20} />} />
+
       {isOpen && filteredDistricts.length > 0 && (
         <ul className="absolute top-full   z-10 w-full border border-gray-300 bg-white shadow-lg">
           {filteredDistricts.map((district, index) => (
