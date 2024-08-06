@@ -11,6 +11,7 @@ import AmenityComponent from "./amenities";
 import HoursComponent from "./hours";
 import PriceComponent from "./price";
 import ProductsComponent from "./products";
+import ReviewButton from "./review/review-button";
 
 const SinglePropertyPage = () => {
   let { title } = useParams();
@@ -31,6 +32,7 @@ const SinglePropertyPage = () => {
   return (
     <div>
       <Slider data={data} />
+      {data && <ReviewButton propertyId={data?.id} />}
       <div className="flex flex-col mx-2 pt-5">
         <div className="flex gap-1 text-sm  ">
           <CiLocationOn className="text-orange-600 mt-[.1rem]" size={16} />

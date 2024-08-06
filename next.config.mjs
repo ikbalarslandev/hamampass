@@ -10,6 +10,7 @@ const nextConfig = {
       "external-content.duckduckgo.com",
       "duckduckgo.com",
       "www.tooistanbul.com",
+      "lh3.googleusercontent.com",
     ],
   },
 };

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -29,10 +30,12 @@
     "next-intl": "^3.17.2",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.52.2",
     "react-icons": "^5.2.1",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
-    "vaul": "^0.9.1"
+    "vaul": "^0.9.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",

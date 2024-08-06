@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { loadMessages } from "@/utils/loadMessages";
 import HeaderComponent from "@/components/header";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 const locales = ["en", "tr"];
@@ -19,11 +20,13 @@ interface LocaleLayoutProps {
   params: {
     locale: string;
   };
+  session: any;
 }
 
 export default async function LocaleLayout({
   children,
   params: { locale },
+  session,
 }: LocaleLayoutProps) {
   if (!locales.includes(locale)) notFound();
 
@@ -33,8 +36,10 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <HeaderComponent />
-          {children}
+          <SessionProvider session={session}>
+            <HeaderComponent />
+            {children}
+          </SessionProvider>
         </NextIntlClientProvider>
       </body>
     </html>
