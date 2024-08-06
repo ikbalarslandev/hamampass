@@ -20,13 +20,11 @@ interface LocaleLayoutProps {
   params: {
     locale: string;
   };
-  session: any;
 }
 
 export default async function LocaleLayout({
   children,
   params: { locale },
-  session,
 }: LocaleLayoutProps) {
   if (!locales.includes(locale)) notFound();
 
@@ -36,7 +34,7 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <SessionProvider session={session}>
+          <SessionProvider>
             <HeaderComponent />
             {children}
           </SessionProvider>
