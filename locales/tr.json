@@ -60,7 +60,7 @@
     "stitle": "Sırala",
     "vtitle": "Durumlar",
     "atitle": "Hizmetler",
-    "expensive": "Pahalıdan Ucuza",
-    "cheap": "Ucuzdan Pahalıya"
+    "expensive": "Fiyat (önce en yüksek)",
+    "cheap": "Fiyat (önce en düşük)"
   }
 }

@@ -60,7 +60,7 @@
     "stitle": "Sort",
     "vtitle": "Vibes",
     "atitle": "Amenities",
-    "expensive": "Expensive to Cheap",
-    "cheap": "Cheap to Expensive"
+    "expensive": "Price (Highest first)",
+    "cheap": "Price (Lowest first)"
   }
 }
