@@ -106,7 +106,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
         />
         <DrawerClose
           type="submit"
-          className="bg-gray-400 px-2 py-1 text-white rounded mt-5"
+          className="bg-gray-400 px-2 py-1 text-white rounded my-5"
         >
           Submit
         </DrawerClose>
