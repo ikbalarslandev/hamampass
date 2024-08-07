@@ -26,7 +26,7 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
   return (
     <Drawer>
       <DrawerTrigger className=" border-l  p-2">{trigger}</DrawerTrigger>
-      <DrawerContent className="h-[98%]">
+      <DrawerContent>
         <DrawerHeader className="flex items-center justify-between">
           <DrawerTitle className="text-lg ">{t("title")}</DrawerTitle>{" "}
           <DrawerClose>
