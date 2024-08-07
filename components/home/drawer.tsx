@@ -25,21 +25,27 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
   const t = useTranslations("filter");
   return (
     <Drawer>
-      <DrawerTrigger className=" border-l  p-2">{trigger}</DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader className="flex items-center justify-between">
+      <DrawerTrigger className=" border-l  py-2">{trigger}</DrawerTrigger>
+      <DrawerContent className="h-[96%] ">
+        <DrawerHeader className="flex items-center justify-between ">
           <DrawerTitle className="text-lg ">{t("title")}</DrawerTitle>{" "}
           <DrawerClose>
             <IoClose size={28} />
           </DrawerClose>
         </DrawerHeader>
         <hr />
-        <div className="mx-5">
+        <div className="px-5 overflow-y-auto">
           <SortComponent />
           <VibeComponent />
           <AmenityComponent />
         </div>
-        <DrawerFooter></DrawerFooter>
+        <DrawerFooter>
+          <DrawerClose>
+            <p className="bg-cyan-500 mx-4 py-2 my-1 rounded-md text-white">
+              Show Results
+            </p>
+          </DrawerClose>
+        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   );
