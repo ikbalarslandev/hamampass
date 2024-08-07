@@ -93,7 +93,7 @@ const DistrictComponent: React.FC = () => {
         onClick={handleInputClick}
         className="flex-1"
       />
-      <DrawerComponent trigger={<VscSettings size={20} />} />
+      <DrawerComponent trigger={<VscSettings className="mx-2" size={20} />} />
 
       {isOpen && filteredDistricts.length > 0 && (
         <ul className="absolute top-full   z-10 w-full border border-gray-300 bg-white shadow-lg">
