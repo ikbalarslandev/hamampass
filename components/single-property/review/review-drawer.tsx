@@ -22,7 +22,7 @@ const ReviewDrawerComponent = ({ id }: any) => {
       <DrawerTrigger className="bg-gray-500 rounded p-1 text-white m-1">
         Review Now
       </DrawerTrigger>
-      <DrawerContent className="h-[60%]">
+      <DrawerContent>
         <DrawerHeader className="text-left">
           <DrawerTitle className="text-center mb-2">Review</DrawerTitle>
           <div className="flex items-center gap-2">

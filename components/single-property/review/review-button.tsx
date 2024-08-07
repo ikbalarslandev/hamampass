@@ -19,7 +19,7 @@ const ReviewButton = ({ propertyId }: IReviewButton) => {
       const res = await request({
         type: "get",
         endpoint: `review`,
-        payload: { propertyId, email: session.data?.user?.email },
+        params: { propertyId, email: session.data?.user?.email },
       });
 
       setIsExist(res.data.isExist);

@@ -3,17 +3,14 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { useSession } from "next-auth/react";
 import { request } from "@/services/axios";
 import { Textarea } from "@/components/ui/textarea";
@@ -24,6 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { DrawerClose } from "@/components/ui/drawer";
 
 const formSchema = z.object({
   rate: z.string().min(1).max(1), // Adjusted to string because Select values are strings
@@ -36,7 +34,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      rate: "1",
+      rate: "5",
       comment: "",
     },
   });
@@ -57,12 +55,15 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
       payload: req,
     });
 
-    console.log("Review Added");
+    window.location.reload();
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex flex-col gap-3"
+      >
         <FormField
           control={form.control}
           name="rate"
@@ -103,7 +104,12 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <DrawerClose
+          type="submit"
+          className="bg-gray-400 px-2 py-1 text-white rounded mt-5"
+        >
+          Submit
+        </DrawerClose>
       </form>
     </Form>
   );
