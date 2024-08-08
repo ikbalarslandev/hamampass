@@ -55,6 +55,8 @@ export interface TProperty {
   products: TProduct[];
   price: TPrice;
   days: TDay[];
+  rating: TRating;
+  reviews: TReview[];
 }
 
 export interface TApiResponse {
@@ -63,4 +65,22 @@ export interface TApiResponse {
   max_page: number;
   limit: number;
   data: TProperty[];
+}
+
+export interface TRating {
+  id: string;
+  sum: number;
+  count: number;
+}
+
+export interface TReview {
+  id: string;
+  name: string;
+  email: string;
+  img: string;
+  rate: number;
+  comment: string;
+  createdAt: string;
+  updatedAt: string;
+  belongsToId: string;
 }

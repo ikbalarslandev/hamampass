@@ -6,18 +6,21 @@ import Slider from "./slider";
 import { CiLocationOn } from "react-icons/ci";
 import { TProperty } from "@/types";
 import { useTranslations } from "next-intl";
-import LocationComponent from "./location";
-import AmenityComponent from "./amenities";
-import HoursComponent from "./hours";
-import PriceComponent from "./price";
-import ProductsComponent from "./products";
+
 import ReviewButton from "./review/review-button";
+import RatingComponent from "../cards/rating";
+import SwithchComponent from "./swithch";
+import DetailsComponent from "./swithch/details";
+import ReviewsComponent from "./swithch/reviews";
 
 const SinglePropertyPage = () => {
   let { title } = useParams();
   title = decodeURIComponent(title as string);
   const [data, setData] = useState<TProperty>();
   const v = useTranslations("vibe");
+  const [selectedTab, setSelectedTab] = useState<"details" | "reviews">(
+    "details"
+  );
 
   useEffect(() => {
     const res: any = request({
@@ -39,16 +42,20 @@ const SinglePropertyPage = () => {
           {data?.contact.district} / {data?.contact.city}
         </div>
         <h1 className="font-bold text-2xl text-slate-700">{data?.title}</h1>
-        <div className="my-2">
+        <div className="my-2 flex gap-3">
           <span className=" rounded-lg px-2 py-1 bg-teal-700 text-white">
             {data && v(data?.vibe.toString())}
           </span>
+          {data && <RatingComponent rating={data?.rating} />}
         </div>
-        {data && <PriceComponent data={data?.price} />}
-        {data && <ProductsComponent data={data?.products} />}
-        <AmenityComponent data={data?.amenities} />
-        {data && <HoursComponent data={data?.days} />}
-        {data && <LocationComponent contact={data?.contact} />}
+        <SwithchComponent
+          selectedTab={selectedTab}
+          setSelectedTab={setSelectedTab}
+        />
+
+        {selectedTab === "reviews"
+          ? data && <ReviewsComponent reviews={data.reviews} />
+          : data && <DetailsComponent data={data} />}
       </div>
     </div>
   );

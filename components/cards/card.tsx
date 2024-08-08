@@ -5,12 +5,12 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import HoverComponent from "./hover";
-import { FaTurkishLiraSign } from "react-icons/fa6";
 import { TProperty } from "@/types";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { photos } from "@/mock/photos";
 import { useParams } from "next/navigation";
+import RatingComponent from "./rating";
 
 interface CardProps {
   property: TProperty;
@@ -93,13 +93,14 @@ const Card = ({ property }: CardProps) => {
           <h2 className="text-xl font-bold text-slate-700 my-2">
             {property.title}
           </h2>
-          <div>
+          <div className="flex gap-2 items-center">
             <span className="bg-emerald-500 text-white px-2 py-[.1rem] rounded-xl">
               {v(property.vibe.toString())}
             </span>
-            <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ml-2">
+            <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ">
               {sex}
             </span>
+            <RatingComponent rating={property.rating} />
           </div>
 
           <p className="flex gap-4 mt-2 ml-1">
