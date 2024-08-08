@@ -22,8 +22,6 @@ const HomePage = () => {
     const amenityParam = searchParams.get("amenity");
     const sexParam = searchParams.get("sex");
 
-    console.log("sexParam", sexParam);
-
     const fetchProperties = async () => {
       try {
         const response = await request({

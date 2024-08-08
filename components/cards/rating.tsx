@@ -2,6 +2,8 @@ import { IoStar, IoStarHalf } from "react-icons/io5";
 import { TRating } from "@/types";
 
 const RatingComponent = ({ rating }: { rating: TRating }) => {
+  rating ??= { id: "1", sum: 0, count: 0 };
+
   const fullStars = Math.floor(rating.sum);
   const hasHalfStar = rating.sum % 1 !== 0;
   const totalStars = 5;

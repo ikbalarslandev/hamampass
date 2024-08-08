@@ -69,6 +69,7 @@
   "review": {
     "login": "Login to review",
     "review": "Review Now",
-    "reviewed": "Reviewed"
+    "reviewed": "Reviewed",
+    "no-review": "No reviews yet"
   }
 }

@@ -69,6 +69,7 @@
   "review": {
     "login": "Yorum yapmak için giriş yapın",
     "review": "Yorum Yap",
-    "reviewed": "Yorum Yapıldı"
+    "reviewed": "Yorum Yapıldı",
+    "no-review": "Henüz yorum yapılmadı"
   }
 }

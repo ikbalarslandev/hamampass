@@ -8,7 +8,7 @@ import { VscSettings } from "react-icons/vsc";
 import DrawerComponent from "./drawer";
 import { useTranslations } from "next-intl";
 
-const districtData = ["Kadıköy", "Beşiktaş", "Üsküdar"];
+const districtData = ["Kadıköy"];
 
 // Helper function to normalize text for accent-insensitive comparison
 const normalizeText = (text: string): string => {
