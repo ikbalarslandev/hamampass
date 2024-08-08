@@ -35,13 +35,17 @@ const SinglePropertyPage = () => {
   return (
     <div>
       <Slider data={data} />
-      {data && <ReviewButton propertyId={data?.id} />}
+
       <div className="flex flex-col mx-2 pt-5">
-        <div className="flex gap-1 text-sm  ">
-          <CiLocationOn className="text-orange-600 mt-[.1rem]" size={16} />
-          {data?.contact.district} / {data?.contact.city}
+        <div className="flex justify-between items-center">
+          <div className="flex gap-1 text-sm ">
+            <CiLocationOn className="text-orange-600 mt-[.1rem]" size={16} />
+            {data?.contact.district} / {data?.contact.city}
+          </div>
+          {data && <ReviewButton propertyId={data?.id} />}
         </div>
-        <h1 className="font-bold text-2xl text-slate-700">{data?.title}</h1>
+
+        <h1 className="font-bold text-2xl text-slate-700 ">{data?.title}</h1>
         <div className="my-2 flex gap-3">
           <span className=" rounded-lg px-2 py-1 bg-teal-700 text-white">
             {data && v(data?.vibe.toString())}

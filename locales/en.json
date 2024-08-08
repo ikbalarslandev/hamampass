@@ -25,7 +25,9 @@
     "location": "Contact",
     "tel": "Phone Number :",
     "amenity": "Amenities",
-    "hours": "Hours"
+    "hours": "Hours",
+    "details": "Details",
+    "reviews": "Reviews"
   },
   "amenities": {
     "0": "Turkish Bath",
@@ -62,5 +64,10 @@
     "atitle": "Amenities",
     "expensive": "Price (Highest first)",
     "cheap": "Price (Lowest first)"
+  },
+  "review": {
+    "login": "Login to review",
+    "review": "Review Now",
+    "reviewed": "Reviewed"
   }
 }

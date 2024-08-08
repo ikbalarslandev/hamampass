@@ -25,7 +25,9 @@
     "location": "İletişim",
     "tel": "İletişim Numarası :",
     "amenity": "Hizmetler",
-    "hours": "Çalışma Saatleri"
+    "hours": "Çalışma Saatleri",
+    "details": "Detaylar",
+    "reviews": "Yorumlar"
   },
   "amenities": {
     "0": "Hamam",
@@ -62,5 +64,10 @@
     "atitle": "Hizmetler",
     "expensive": "Fiyat (önce en yüksek)",
     "cheap": "Fiyat (önce en düşük)"
+  },
+  "review": {
+    "login": "Yorum yapmak için giriş yapın",
+    "review": "Yorum Yap",
+    "reviewed": "Yorum Yapıldı"
   }
 }

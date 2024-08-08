@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 interface SwitchComponentProps {
   selectedTab: "details" | "reviews";
   setSelectedTab: (tab: "details" | "reviews") => void;
@@ -7,13 +9,14 @@ const SwitchComponent = ({
   selectedTab,
   setSelectedTab,
 }: SwitchComponentProps) => {
+  const s = useTranslations("single");
   return (
     <div className="relative w-full flex text-center mt-5">
       <div className="flex-1" onClick={() => setSelectedTab("details")}>
-        Details
+        {s("details")}
       </div>
       <div className="flex-1" onClick={() => setSelectedTab("reviews")}>
-        Reviews
+        {s("reviews")}
       </div>
 
       <div

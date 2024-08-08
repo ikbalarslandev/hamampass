@@ -4,6 +4,7 @@ import { signIn } from "next-auth/react";
 import { request } from "@/services/axios";
 import ReviewDrawerComponent from "./review-drawer";
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 interface IReviewButton {
   propertyId: string;
@@ -11,8 +12,8 @@ interface IReviewButton {
 
 const ReviewButton = ({ propertyId }: IReviewButton) => {
   const session = useSession();
-
   const [isExist, setIsExist] = useState(false);
+  const r = useTranslations("review");
 
   useEffect(() => {
     const handleIsExist = async () => {
@@ -36,17 +37,15 @@ const ReviewButton = ({ propertyId }: IReviewButton) => {
 
   if (session.data) {
     if (isExist) {
-      return (
-        <div className="flex">
-          <div className="bg-green-700 text-white rounded py-1 px-2 m-1">
-            this property reviewed
-          </div>
-        </div>
-      );
+      return <p className="text-cyan-600 text-sm">{r("reviewed")}</p>;
     }
     return <ReviewDrawerComponent id={propertyId} />;
   } else {
-    return <Button onClick={handleClick}>Login to Review</Button>;
+    return (
+      <p className="text-cyan-600 text-sm" onClick={handleClick}>
+        {r("login")}
+      </p>
+    );
   }
 };
 

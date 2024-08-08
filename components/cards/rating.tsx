@@ -8,6 +8,8 @@ const RatingComponent = ({ rating }: { rating: TRating }) => {
 
   rating.sum = parseFloat(rating.sum.toFixed(1));
 
+  const averageRating = rating.sum % 1 === 0 ? rating.sum + ".0" : rating.sum;
+
   return (
     <div className="flex my-2 items-center gap-2 text-cyan-500">
       <span className="flex gap-1">
@@ -22,7 +24,7 @@ const RatingComponent = ({ rating }: { rating: TRating }) => {
         ))}
       </span>
       <div className="flex gap-1 items-center">
-        <span className="text-sm">{rating.sum}</span>
+        <span className="text-sm">{averageRating}</span>
         <span className="text-sm">({rating.count})</span>
       </div>
     </div>

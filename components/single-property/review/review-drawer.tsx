@@ -13,14 +13,16 @@ import React from "react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import ReviewFormComponent from "./review-form";
+import { useTranslations } from "next-intl";
 
 const ReviewDrawerComponent = ({ id }: any) => {
   const session = useSession();
   const user = session?.data?.user;
+  const r = useTranslations("review");
   return (
     <Drawer>
-      <DrawerTrigger className="bg-gray-500 rounded p-1 text-white m-1">
-        Review Now
+      <DrawerTrigger className="text-cyan-600 text-sm">
+        {r("review")}
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
