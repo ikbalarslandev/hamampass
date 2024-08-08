@@ -16,6 +16,7 @@ import VibeComponent from "./vibe";
 import AmenityComponent from "./amenity";
 import { useTranslations } from "next-intl";
 import SortComponent from "./sort";
+import SexComponent from "./sex";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
@@ -36,6 +37,7 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
         <hr />
         <div className="px-5 overflow-y-auto">
           <SortComponent />
+          <SexComponent />
           <VibeComponent />
           <AmenityComponent />
         </div>

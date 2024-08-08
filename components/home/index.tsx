@@ -20,6 +20,9 @@ const HomePage = () => {
     const sortParam = searchParams.get("sort");
     const vibeParam = searchParams.get("vibe");
     const amenityParam = searchParams.get("amenity");
+    const sexParam = searchParams.get("sex");
+
+    console.log("sexParam", sexParam);
 
     const fetchProperties = async () => {
       try {
@@ -31,6 +34,7 @@ const HomePage = () => {
             contact_district: districtParam,
             vibe: vibeParam,
             amenity: amenityParam,
+            sex: sexParam,
           },
         });
 

@@ -1,6 +1,6 @@
 "use client";
 
-import CheckboxComponent from "./checkbox";
+import CheckboxComponent from "@/components/home/vibe/checkbox";
 import {
   Accordion,
   AccordionContent,
@@ -10,12 +10,12 @@ import {
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 
-const vibeData = [0, 1, 2, 3, 4];
+const sexData = [1, 2, 3, 4];
 
-const VibeComponent = () => {
+const SexComponent = () => {
   const [openValue, setOpenValue] = useState("vibe");
   const t = useTranslations("filter");
-  const v = useTranslations("vibe");
+  const s = useTranslations("sex-number");
   return (
     <Accordion
       type="single"
@@ -25,15 +25,15 @@ const VibeComponent = () => {
     >
       <AccordionItem value="vibe">
         <AccordionTrigger className="text-lg font-bold">
-          {t("vtitle")}
+          {t("sextitle")}
         </AccordionTrigger>
         <AccordionContent className="flex flex-col gap-2">
-          {vibeData.map((vibe) => (
+          {sexData.map((sex) => (
             <CheckboxComponent
-              key={vibe}
-              id={vibe}
-              name={v(vibe.toString())}
-              paramName="vibe"
+              key={sex}
+              id={sex}
+              name={s(sex.toString())}
+              paramName="sex"
             />
           ))}
         </AccordionContent>
@@ -42,4 +42,4 @@ const VibeComponent = () => {
   );
 };
 
-export default VibeComponent;
+export default SexComponent;
