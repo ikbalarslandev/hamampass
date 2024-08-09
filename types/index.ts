@@ -49,6 +49,7 @@ export interface TProperty {
   amenities: number[];
   photos: string[];
   sex: number;
+  pay: number;
   createdAt: string;
   updatedAt: string;
   contact: TContact;

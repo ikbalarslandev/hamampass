@@ -28,7 +28,13 @@
     "amenity": "Hizmetler",
     "hours": "Çalışma Saatleri",
     "details": "Detaylar",
-    "reviews": "Yorumlar"
+    "reviews": "Yorumlar",
+    "cash": "Sadece Nakit",
+    "credit": "Kredi Kartı Geçerli"
+  },
+  "pay": {
+    "0": "Sadece Nakit",
+    "1": "Kredi Kartı Geçerli"
   },
   "amenities": {
     "0": "Duş",

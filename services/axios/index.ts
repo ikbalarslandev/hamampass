@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://hp-backend-u94e.onrender.com/api";
+const baseURL = "https://hp-backend-2hy8.onrender.com/api";
 // const baseURL = "http://localhost:3003/api";
 
 const axiosInstance = axios.create({

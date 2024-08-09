@@ -18,6 +18,7 @@ const SinglePropertyPage = () => {
   title = decodeURIComponent(title as string);
   const [data, setData] = useState<TProperty>();
   const v = useTranslations("vibe");
+  const p = useTranslations("pay");
   const [selectedTab, setSelectedTab] = useState<"details" | "reviews">(
     "details"
   );
@@ -52,6 +53,11 @@ const SinglePropertyPage = () => {
           </span>
           {data && <RatingComponent rating={data?.rating} />}
         </div>
+
+        <div className="bg-emerald-500 text-white rounded text-center">
+          {p(data?.pay.toString())}
+        </div>
+
         <SwithchComponent
           selectedTab={selectedTab}
           setSelectedTab={setSelectedTab}

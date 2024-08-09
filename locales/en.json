@@ -24,6 +24,10 @@
     "details": "Details",
     "reviews": "Reviews"
   },
+  "pay": {
+    "0": "Cash Only",
+    "1": "Accepts Credit Cards"
+  },
   "amenities": {
     "0": "Shower",
     "1": "Sauna",
