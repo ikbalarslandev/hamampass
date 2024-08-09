@@ -10,7 +10,7 @@ import {
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 
-const amenityData = [0, 1, 2, 3, 4, 5, 6];
+const amenityData = [0, 1, 2, 3, 4, 5, 6, 7];
 
 const AmenityComponent = () => {
   const [openValue, setOpenValue] = useState("amenity");

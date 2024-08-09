@@ -25,13 +25,14 @@
     "reviews": "Reviews"
   },
   "amenities": {
-    "0": "Turkish Bath",
-    "1": "Shower",
-    "2": "Sauna",
-    "3": "Steam Room",
-    "4": "Jacuzzi",
-    "5": "Pool",
-    "6": "Ice Bath"
+    "0": "Shower",
+    "1": "Sauna",
+    "2": "Steam Room",
+    "3": "Jacuzzi",
+    "4": "Pool",
+    "5": "Massage",
+    "6": "Ice Bucket",
+    "7": "Ice Pool"
   },
   "hours": {
     "open": "Open",

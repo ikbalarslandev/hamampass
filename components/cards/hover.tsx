@@ -6,8 +6,8 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
-import { FaBath } from "react-icons/fa";
 import { FaShower } from "react-icons/fa6";
 import { FaHotTub } from "react-icons/fa";
 import { FaCloudRain } from "react-icons/fa";
@@ -15,62 +15,61 @@ import { FaHotjar } from "react-icons/fa6";
 import { FaSwimmingPool } from "react-icons/fa";
 import { MdOutlineSevereCold } from "react-icons/md";
 import { IoIosWarning } from "react-icons/io";
+import { TbMassage } from "react-icons/tb";
+import { PiThermometerColdFill } from "react-icons/pi";
 
 const HoverComponent = ({ amenity }: any) => {
   const [item, setItem] = useState({
-    Icon: <FaBath />,
-    title: "",
+    Icon: <IoIosWarning />,
   });
+
+  const a = useTranslations("amenities");
 
   useEffect(() => {
     switch (amenity) {
       case "0":
         setItem({
-          Icon: <FaBath />,
-          title: "Turkish Bath",
+          Icon: <FaShower />,
         });
         break;
       case "1":
         setItem({
-          Icon: <FaShower />,
-          title: "Shower",
+          Icon: <FaHotjar />,
         });
         break;
       case "2":
         setItem({
-          Icon: <FaHotjar />,
-          title: "Sauna",
+          Icon: <FaCloudRain />,
         });
         break;
       case "3":
         setItem({
-          Icon: <FaCloudRain />,
-          title: "Steam Room",
+          Icon: <FaHotTub />,
         });
         break;
       case "4":
         setItem({
-          Icon: <FaHotTub />,
-          title: "Jacuzzi",
+          Icon: <FaSwimmingPool />,
         });
         break;
       case "5":
         setItem({
-          Icon: <FaSwimmingPool />,
-          title: "Pool",
+          Icon: <TbMassage />,
         });
         break;
       case "6":
         setItem({
           Icon: <MdOutlineSevereCold />,
-          title: "Shock Pool",
         });
         break;
-
+      case "7":
+        setItem({
+          Icon: <PiThermometerColdFill />,
+        });
+        break;
       default:
         setItem({
           Icon: <IoIosWarning />,
-          title: "",
         });
         break;
     }
@@ -81,7 +80,7 @@ const HoverComponent = ({ amenity }: any) => {
       <HoverCardTrigger className="text-slate-500">
         {item.Icon}
       </HoverCardTrigger>
-      <HoverCardContent>{item.title}</HoverCardContent>
+      <HoverCardContent>{a(amenity.toString())}</HoverCardContent>
     </HoverCard>
   );
 };

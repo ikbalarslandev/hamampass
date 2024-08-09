@@ -42,7 +42,6 @@ const CheckboxComponent = ({ id, name, paramName, isIcon }: CheckboxProps) => {
     }
 
     window.history.replaceState(null, "", `?${urlParams.toString()}`);
-    console.log("URL Params:", urlParams.get(paramName));
   };
 
   useEffect(() => {

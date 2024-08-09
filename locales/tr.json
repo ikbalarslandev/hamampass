@@ -31,13 +31,14 @@
     "reviews": "Yorumlar"
   },
   "amenities": {
-    "0": "Hamam",
-    "1": "Duş",
-    "2": "Sauna",
-    "3": "Buhar Odası",
-    "4": "Jakuzi",
-    "5": "Havuz",
-    "6": "Şok Havuz"
+    "0": "Duş",
+    "1": "Sauna",
+    "2": "Buhar Odası",
+    "3": "Jakuzi",
+    "4": "Havuz",
+    "5": "Masaj",
+    "6": "Buz Kovası",
+    "7": "Şok Havuzu"
   },
   "hours": {
     "open": "Açılış",

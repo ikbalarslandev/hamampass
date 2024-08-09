@@ -6,27 +6,6 @@ import { useTranslations } from "next-intl";
 const AmenityComponent = ({ data }: any) => {
   const s = useTranslations("single");
 
-  const convertToAmenity = (id: number) => {
-    switch (id) {
-      case 0:
-        return "Turkish_Bath";
-      case 1:
-        return "Shower";
-      case 2:
-        return "Sauna";
-      case 3:
-        return "Steam_Room";
-      case 4:
-        return "Jacuzzi";
-      case 5:
-        return "Pool";
-      case 6:
-        return "Shock_Pool";
-      case 7:
-        return "Spa";
-    }
-  };
-
   return (
     <div className="flex flex-col gap-2">
       <hr />
