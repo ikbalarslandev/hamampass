@@ -18,6 +18,7 @@ import { useTranslations } from "next-intl";
 import SortComponent from "./sort";
 import SexComponent from "./sex";
 import { useSearchParams } from "next/navigation";
+import PaymentMethodComponent from "./pay";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
@@ -44,6 +45,7 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
         <hr />
         <div className="px-5 overflow-y-auto">
           <SortComponent />
+          <PaymentMethodComponent />
           <SexComponent />
           <VibeComponent />
           <AmenityComponent />

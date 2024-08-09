@@ -60,11 +60,14 @@
     "placeholder": "Search district in Istanbul",
     "title": "Filters",
     "stitle": "Sort",
+    "ptitle": "Payment Method",
     "sextitle": "Genders",
     "vtitle": "Vibes",
     "atitle": "Amenities",
     "expensive": "Price (Highest first)",
-    "cheap": "Price (Lowest first)"
+    "cheap": "Price (Lowest first)",
+    "cash": "Cash Only",
+    "card": "Accepts Credit Cards"
   },
   "review": {
     "login": "Login to review",

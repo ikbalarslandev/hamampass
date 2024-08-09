@@ -21,6 +21,7 @@ const HomePage = () => {
     const vibeParam = searchParams.get("vibe");
     const amenityParam = searchParams.get("amenity");
     const sexParam = searchParams.get("sex");
+    const payParam = searchParams.get("pay");
 
     const fetchProperties = async () => {
       try {
@@ -33,6 +34,7 @@ const HomePage = () => {
             vibe: vibeParam,
             amenity: amenityParam,
             sex: sexParam,
+            pay: payParam,
           },
         });
 

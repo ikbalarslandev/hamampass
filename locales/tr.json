@@ -68,11 +68,14 @@
     "placeholder": "İstanbul'da semt ara",
     "title": "Filtreler",
     "stitle": "Sırala",
+    "ptitle": "Ödeme Yöntemi",
     "sextitle": "Cinsiyet",
     "vtitle": "Tarzlar",
     "atitle": "Hizmetler",
     "expensive": "Fiyat (önce en yüksek)",
-    "cheap": "Fiyat (önce en düşük)"
+    "cheap": "Fiyat (önce en düşük)",
+    "cash": "Sadece Nakit",
+    "card": "Kredi Kartı Geçerli"
   },
   "review": {
     "login": "Yorum yapmak için giriş yapın",
