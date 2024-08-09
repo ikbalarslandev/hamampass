@@ -112,16 +112,6 @@ const Card = ({ property }: CardProps) => {
               ₺ {property.price.child}
             </span>
           </div>
-          <div className="w-[.1rem] flex items-center">
-            <div className="bg-black w-[.1rem] h-8 "></div>
-          </div>
-          <div className=" flex-1 flex flex-col items-center justify-center">
-            <p className="font-bold">{t("scrub")}</p>
-
-            <span className=" font-semibold text-green-600">
-              ₺ {property.price.scrub}
-            </span>
-          </div>
         </div>
       </div>
     </div>
