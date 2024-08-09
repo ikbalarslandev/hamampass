@@ -10,43 +10,7 @@ import {
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 
-const amenityData = [
-  {
-    id: 0,
-    name: "Turkish Bath",
-    paramName: "amenity",
-  },
-  {
-    id: 1,
-    name: "Shower",
-    paramName: "amenity",
-  },
-  {
-    id: 2,
-    name: "Sauna",
-    paramName: "amenity",
-  },
-  {
-    id: 3,
-    name: "Steam Room",
-    paramName: "amenity",
-  },
-  {
-    id: 4,
-    name: "Jacuzzi",
-    paramName: "amenity",
-  },
-  {
-    id: 5,
-    name: "Pool",
-    paramName: "amenity",
-  },
-  {
-    id: 6,
-    name: "Shock Pool",
-    paramName: "amenity",
-  },
-];
+const amenityData = [0, 1, 2, 3, 4, 5, 6];
 
 const AmenityComponent = () => {
   const [openValue, setOpenValue] = useState("amenity");
@@ -66,9 +30,9 @@ const AmenityComponent = () => {
         <AccordionContent className="flex flex-col gap-2 ">
           {amenityData.map((amenity) => (
             <CheckboxComponent
-              key={amenity.id}
-              id={amenity.id}
-              name={a(amenity.id.toString())}
+              key={amenity}
+              id={amenity}
+              name={a(amenity.toString())}
               paramName="amenity"
               isIcon={true}
             />

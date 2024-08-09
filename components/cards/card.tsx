@@ -19,9 +19,8 @@ interface CardProps {
 const Card = ({ property }: CardProps) => {
   const { locale } = useParams();
   const t = useTranslations("card");
-  const s = useTranslations("sex");
+  const s = useTranslations("sex-number");
   const v = useTranslations("vibe");
-  let sex;
 
   const router = useRouter();
 
@@ -32,21 +31,6 @@ const Card = ({ property }: CardProps) => {
 
     router.push(`/${locale}/${convertedTitle}`);
   };
-
-  switch (property.sex) {
-    case 1:
-      sex = s("men");
-      break;
-    case 2:
-      sex = s("women");
-      break;
-    case 3:
-      sex = s("unisex");
-      break;
-    case 4:
-      sex = s("seperate");
-      break;
-  }
 
   // enum EAmenities {
   //   Turkish_Bath === 0
@@ -98,7 +82,7 @@ const Card = ({ property }: CardProps) => {
               {v(property.vibe.toString())}
             </span>
             <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ">
-              {sex}
+              {s(property.sex.toString())}
             </span>
             <RatingComponent rating={property.rating} />
           </div>

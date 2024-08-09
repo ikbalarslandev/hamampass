@@ -8,12 +8,6 @@
     "child-desc": "Between 5-13 years old",
     "title": "Turkish Baths in "
   },
-  "sex": {
-    "men": "Men's Only",
-    "women": "Women's Only",
-    "unisex": "Unisex",
-    "seperate": "Womens and Mens Seperate"
-  },
   "vibe": {
     "0": "Historical",
     "1": "Budget",
@@ -36,7 +30,7 @@
     "3": "Steam Room",
     "4": "Jacuzzi",
     "5": "Pool",
-    "6": "Shock Pool"
+    "6": "Ice Bath"
   },
   "hours": {
     "open": "Open",
@@ -54,7 +48,7 @@
     "1": "Men's Only",
     "2": "Women's Only",
     "3": "Unisex",
-    "4": "Womens and Mens Seperate"
+    "4": "Segregated"
   },
   "filter": {
     "placeholder": "Search district in Istanbul",
