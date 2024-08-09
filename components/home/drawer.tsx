@@ -17,6 +17,7 @@ import AmenityComponent from "./amenity";
 import { useTranslations } from "next-intl";
 import SortComponent from "./sort";
 import SexComponent from "./sex";
+import { useSearchParams } from "next/navigation";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
@@ -24,9 +25,15 @@ interface DrawerComponentProps {
 
 const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
   const t = useTranslations("filter");
+  const searchParams = useSearchParams();
+
   return (
     <Drawer>
-      <DrawerTrigger className=" border-l  py-2">{trigger}</DrawerTrigger>
+      <DrawerTrigger
+        className={` border-l ${searchParams.size && "border-cyan-500"} py-2`}
+      >
+        {trigger}
+      </DrawerTrigger>
       <DrawerContent className="h-[96%] ">
         <DrawerHeader className="flex items-center justify-between ">
           <DrawerTitle className="text-lg ">{t("title")}</DrawerTitle>{" "}
