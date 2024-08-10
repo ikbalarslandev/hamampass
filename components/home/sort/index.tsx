@@ -7,7 +7,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useTranslations } from "next-intl";
-import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -22,6 +21,18 @@ const SortComponent = () => {
   );
 
   const handleSelectChange = (value: string) => {
+    if (selectedValue === value) {
+      setSelectedValue("");
+      const newParams = new URLSearchParams(searchParams.toString());
+      newParams.delete("sort");
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}?${newParams.toString()}`
+      );
+      return;
+    }
+
     setSelectedValue(value);
     const newParams = new URLSearchParams(searchParams.toString());
     newParams.set("sort", value);

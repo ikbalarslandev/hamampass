@@ -21,6 +21,18 @@ const PaymentMethodComponent = () => {
   );
 
   const handleSelectChange = (value: string) => {
+    if (selectedValue === value) {
+      setSelectedValue("");
+      const newParams = new URLSearchParams(searchParams.toString());
+      newParams.delete("pay");
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}?${newParams.toString()}`
+      );
+      return;
+    }
+
     setSelectedValue(value);
     const newParams = new URLSearchParams(searchParams.toString());
     newParams.set("pay", value);
