@@ -96,7 +96,7 @@ const DistrictComponent: React.FC = () => {
       <DrawerComponent trigger={<VscSettings className="mx-2" size={20} />} />
 
       {searchParams.size !== 0 && (
-        <div className="py-0.5 px-[.28rem] text-center text-xs/3 bg-cyan-500 rounded-full text-white absolute -right-1 -top-1">
+        <div className="py-0.5 px-[.28rem] text-cente min-w-3 text-xs/3 bg-cyan-500 rounded-full text-white absolute -right-1 -top-1">
           {searchParams.size}
         </div>
       )}
