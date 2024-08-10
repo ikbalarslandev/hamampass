@@ -1,6 +1,6 @@
 "use client";
 
-import CheckboxComponent from "../vibe/checkbox";
+import CheckboxComponent from "../checkbox";
 import {
   Accordion,
   AccordionContent,

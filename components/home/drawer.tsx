@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/drawer";
 import React from "react";
 import { IoClose } from "react-icons/io5";
-import VibeComponent from "./vibe";
 import AmenityComponent from "./amenity";
 import { useTranslations } from "next-intl";
 import SortComponent from "./sort";
@@ -47,7 +46,6 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
           <SortComponent />
           <PaymentMethodComponent />
           <SexComponent />
-          <VibeComponent />
           <AmenityComponent />
         </div>
         <DrawerFooter>

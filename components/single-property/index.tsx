@@ -50,9 +50,6 @@ const SinglePropertyPage = () => {
 
         <h1 className="font-bold text-2xl text-slate-700 ">{data?.title}</h1>
         <div className="my-2 flex gap-3">
-          <span className=" rounded-lg px-2 py-1 bg-teal-700 text-white">
-            {data && v(data?.vibe.toString())}
-          </span>
           {data && <RatingComponent rating={data?.rating} />}
         </div>
 

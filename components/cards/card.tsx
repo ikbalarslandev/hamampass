@@ -78,9 +78,6 @@ const Card = ({ property }: CardProps) => {
             {property.title}
           </h2>
           <div className="flex gap-2 items-center">
-            <span className="bg-emerald-500 text-white px-2 py-[.1rem] rounded-xl">
-              {v(property.vibe.toString())}
-            </span>
             <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ">
               {s(property.sex.toString())}
             </span>
