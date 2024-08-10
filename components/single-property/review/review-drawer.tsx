@@ -26,7 +26,7 @@ const ReviewDrawerComponent = ({ id }: any) => {
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
-          <DrawerTitle className="text-center mb-2">Review</DrawerTitle>
+          <DrawerTitle className="text-center mb-2">{r("title")}</DrawerTitle>
           <div className="flex items-center gap-2">
             <DrawerDescription>
               <Image

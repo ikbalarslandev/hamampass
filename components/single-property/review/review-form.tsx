@@ -21,6 +21,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useTranslations } from "next-intl";
+import RatingComponent from "./rating";
 import { DrawerClose } from "@/components/ui/drawer";
 
 const formSchema = z.object({
@@ -30,6 +32,7 @@ const formSchema = z.object({
 
 const ReviewFormComponent = ({ id }: { id: string }) => {
   const session = useSession();
+  const t = useTranslations("review");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -69,7 +72,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
           name="rate"
           render={({ field }) => (
             <FormItem className="flex">
-              <FormLabel className="mr-2 mt-5">Rate</FormLabel>
+              <FormLabel className="mr-2 mt-5">{t("rate")}</FormLabel>
               <FormControl>
                 <Select
                   value={field.value}
@@ -79,11 +82,21 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
                     <SelectValue placeholder="Rate" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="1">1</SelectItem>
-                    <SelectItem value="2">2</SelectItem>
-                    <SelectItem value="3">3</SelectItem>
-                    <SelectItem value="4">4</SelectItem>
-                    <SelectItem value="5">5</SelectItem>
+                    <SelectItem value="1">
+                      <RatingComponent rating={1} />
+                    </SelectItem>
+                    <SelectItem value="2">
+                      <RatingComponent rating={2} />
+                    </SelectItem>
+                    <SelectItem value="3">
+                      <RatingComponent rating={3} />
+                    </SelectItem>
+                    <SelectItem value="4">
+                      <RatingComponent rating={4} />
+                    </SelectItem>
+                    <SelectItem value="5">
+                      <RatingComponent rating={5} />
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </FormControl>
@@ -96,9 +109,9 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
           name="comment"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="mr-2">Comment</FormLabel>
+              <FormLabel className="mr-2">{t("comment")}</FormLabel>
               <FormControl>
-                <Textarea placeholder="Your comment..." {...field} />
+                <Textarea placeholder={t("comment-placeholder")} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -108,7 +121,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
           type="submit"
           className="bg-gray-400 px-2 py-1 text-white rounded my-5"
         >
-          Submit
+          {t("submit")}
         </DrawerClose>
       </form>
     </Form>

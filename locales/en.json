@@ -73,6 +73,11 @@
     "login": "Login to review",
     "review": "Review Now",
     "reviewed": "Reviewed",
-    "no-review": "No reviews yet"
+    "no-review": "No reviews yet",
+    "title": "Review",
+    "rate": "Rate",
+    "comment": "Comment",
+    "comment-placeholder": "Your comment...",
+    "submit": "Submit"
   }
 }

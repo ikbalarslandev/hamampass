@@ -81,6 +81,11 @@
     "login": "Yorum yapmak için giriş yapın",
     "review": "Yorum Yap",
     "reviewed": "Yorum Yapıldı",
-    "no-review": "Henüz yorum yapılmadı"
+    "no-review": "Henüz yorum yapılmadı",
+    "title": "Yorum Yap",
+    "rate": "Puanla",
+    "comment": "Yorum Yap",
+    "comment-placeholder": "Yorumunuz ...",
+    "submit": "Gönder"
   }
 }

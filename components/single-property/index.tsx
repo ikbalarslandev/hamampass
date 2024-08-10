@@ -13,6 +13,8 @@ import SwithchComponent from "./swithch";
 import DetailsComponent from "./swithch/details";
 import ReviewsComponent from "./swithch/reviews";
 
+import ReviewFormComponent from "./review/review-form";
+
 const SinglePropertyPage = () => {
   let { title } = useParams();
   title = decodeURIComponent(title as string);
