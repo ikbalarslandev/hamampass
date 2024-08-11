@@ -5,50 +5,15 @@ import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 import RangeSlider from "@/components/ui/slider";
 import React, { useState } from "react";
 import MinMax from "./min-max";
+import { useEffect } from "react";
+import { request } from "@/services/axios";
+import { TApiResponse } from "@/types";
+import { useSearchParams } from "next/navigation";
 
-const chartData = [
-  { price: 200, property: 2 },
-  { price: 250, property: 2 },
-  { price: 300, property: 2 },
-  { price: 350, property: 20 },
-  { price: 400, property: 2 },
-  { price: 450, property: 2 },
-  { price: 500, property: 2 },
-  { price: 550, property: 20 },
-  { price: 600, property: 2 },
-  { price: 650, property: 2 },
-  { price: 700, property: 20 },
-  { price: 750, property: 2 },
-  { price: 800, property: 0 },
-  { price: 850, property: 20 },
-  { price: 900, property: 2 },
-  { price: 950, property: 2 },
-  { price: 1000, property: 2 },
-  { price: 1050, property: 20 },
-  { price: 1100, property: 2 },
-  { price: 1150, property: 2 },
-  { price: 1200, property: 2 },
-  { price: 1250, property: 2 },
-  { price: 1300, property: 2 },
-  { price: 1350, property: 2 },
-  { price: 1400, property: 2 },
-  { price: 1450, property: 2 },
-  { price: 1500, property: 2 },
-  { price: 1550, property: 2 },
-  { price: 1600, property: 2 },
-  { price: 1650, property: 2 },
-  { price: 1700, property: 20 },
-  { price: 1750, property: 2 },
-  { price: 1800, property: 2 },
-  { price: 1850, property: 2 },
-  { price: 1900, property: 2 },
-  { price: 1950, property: 2 },
-  { price: 2000, property: 2 },
-  { price: 2050, property: 2 },
-  { price: 2100, property: 20 },
-  { price: 2150, property: 2 },
-  { price: 2200, property: 2 },
-];
+let chartData = Array.from({ length: 41 }, (_, index) => ({
+  price: 200 + index * 50,
+  property: 0,
+}));
 
 const chartConfig = {
   property: {
@@ -64,6 +29,58 @@ const Chart = () => {
       ? chartConfig.property.color
       : "#6B7280";
   };
+
+  const [properties, setProperties] = useState<TApiResponse>(
+    {} as TApiResponse
+  );
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const sortParam = searchParams.get("sort");
+    const vibeParam = searchParams.get("vibe");
+    const amenityParam = searchParams.get("amenity");
+    const sexParam = searchParams.get("sex");
+    const payParam = searchParams.get("pay");
+    const districtParam = searchParams.get("district");
+
+    const fetchProperties = async () => {
+      try {
+        const response = await request({
+          type: "get",
+          endpoint: "property",
+          params: {
+            sort: sortParam,
+            contact_district: districtParam,
+            vibe: vibeParam,
+            amenity: amenityParam,
+            sex: sexParam,
+            pay: payParam,
+          },
+        });
+
+        setProperties(Array.isArray(response.data.data) ? response.data : {});
+      } catch (error) {
+        console.error("Error fetching properties:", error);
+      }
+    };
+
+    fetchProperties();
+  }, [searchParams]);
+
+  useEffect(() => {
+    if (properties.data) {
+      const newChartData = chartData.map((entry) => {
+        const propertyCount = properties.data.filter(
+          (property) =>
+            property.price.adult <= entry.price &&
+            property.price.adult > entry.price - 50
+        ).length;
+        return { ...entry, property: propertyCount };
+      });
+
+      chartData = newChartData;
+    }
+  }, [properties]);
 
   return (
     <div>
