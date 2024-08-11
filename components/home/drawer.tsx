@@ -19,6 +19,9 @@ import SexComponent from "./sex";
 import { useSearchParams } from "next/navigation";
 import PaymentMethodComponent from "./pay";
 import RangeComponent from "./range";
+import { useState, useEffect } from "react";
+import { request } from "@/services/axios";
+import { TApiResponse } from "@/types";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
@@ -27,6 +30,43 @@ interface DrawerComponentProps {
 const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
   const t = useTranslations("filter");
   const searchParams = useSearchParams();
+  const [properties, setProperties] = useState<TApiResponse>(
+    {} as TApiResponse
+  );
+
+  useEffect(() => {
+    const sortParam = searchParams.get("sort");
+    const vibeParam = searchParams.get("vibe");
+    const amenityParam = searchParams.get("amenity");
+    const sexParam = searchParams.get("sex");
+    const payParam = searchParams.get("pay");
+    const rangeParam = searchParams.get("range");
+    const districtParam = searchParams.get("district");
+
+    const fetchProperties = async () => {
+      try {
+        const response = await request({
+          type: "get",
+          endpoint: "property",
+          params: {
+            sort: sortParam,
+            contact_district: districtParam,
+            vibe: vibeParam,
+            amenity: amenityParam,
+            sex: sexParam,
+            pay: payParam,
+            range: rangeParam,
+          },
+        });
+
+        setProperties(Array.isArray(response.data.data) ? response.data : {});
+      } catch (error) {
+        console.error("Error fetching properties:", error);
+      }
+    };
+
+    fetchProperties();
+  }, [searchParams]);
 
   return (
     <Drawer>
@@ -53,7 +93,7 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
         <DrawerFooter>
           <DrawerClose>
             <p className="bg-cyan-500 mx-4 py-2 my-1 rounded-md text-white">
-              Show Results
+              {properties.all_items} {t("show")}
             </p>
           </DrawerClose>
         </DrawerFooter>

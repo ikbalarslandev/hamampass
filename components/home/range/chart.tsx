@@ -23,7 +23,13 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 const Chart = () => {
-  const [range, setRange] = useState<number[]>([200, 2200]);
+  const searchParams = useSearchParams();
+
+  const urlRange = JSON.parse(searchParams.get("range") || "[]");
+
+  const [range, setRange] = useState<number[]>(
+    urlRange == 0 ? [200, 2200] : urlRange
+  );
   const getColor = (price: number) => {
     return price >= range[0] && price <= range[1]
       ? chartConfig.property.color
@@ -33,7 +39,6 @@ const Chart = () => {
   const [properties, setProperties] = useState<TApiResponse>(
     {} as TApiResponse
   );
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     const sortParam = searchParams.get("sort");
@@ -104,8 +109,8 @@ const Chart = () => {
       </ChartContainer>
       <div>
         <RangeSlider
-          min={200}
-          max={2200}
+          min={urlRange[0] ?? 200}
+          max={urlRange[1] ?? 2200}
           onRangeChange={(newRange: number[]) => setRange(newRange)}
         />
       </div>
