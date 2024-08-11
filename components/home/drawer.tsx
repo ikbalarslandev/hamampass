@@ -18,6 +18,7 @@ import SortComponent from "./sort";
 import SexComponent from "./sex";
 import { useSearchParams } from "next/navigation";
 import PaymentMethodComponent from "./pay";
+import RangeComponent from "./range";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
@@ -45,6 +46,7 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
         <div className="px-5 overflow-y-auto">
           <SortComponent />
           <PaymentMethodComponent />
+          <RangeComponent />
           <SexComponent />
           <AmenityComponent />
         </div>
