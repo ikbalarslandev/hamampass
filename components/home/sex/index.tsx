@@ -7,22 +7,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 
 const sexData = [1, 2, 3, 4];
 
 const SexComponent = () => {
-  const [openValue, setOpenValue] = useState("vibe");
   const t = useTranslations("filter");
   const s = useTranslations("sex-number");
   return (
-    <Accordion
-      type="single"
-      collapsible
-      value={openValue}
-      onValueChange={setOpenValue}
-    >
+    <Accordion type="single" collapsible>
       <AccordionItem value="vibe">
         <AccordionTrigger className="text-lg font-bold">
           {t("sextitle")}

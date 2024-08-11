@@ -22,6 +22,7 @@ const HomePage = () => {
     const amenityParam = searchParams.get("amenity");
     const sexParam = searchParams.get("sex");
     const payParam = searchParams.get("pay");
+    const rangeParam = searchParams.get("range");
 
     const fetchProperties = async () => {
       try {
@@ -35,6 +36,7 @@ const HomePage = () => {
             amenity: amenityParam,
             sex: sexParam,
             pay: payParam,
+            range: rangeParam,
           },
         });
 

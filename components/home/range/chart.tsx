@@ -3,7 +3,7 @@
 import { Bar, BarChart, Cell } from "recharts";
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 import RangeSlider from "@/components/ui/slider";
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import MinMax from "./min-max";
 import { useEffect } from "react";
 import { request } from "@/services/axios";
@@ -81,6 +81,15 @@ const Chart = () => {
       chartData = newChartData;
     }
   }, [properties]);
+
+  useEffect(() => {
+    if (JSON.stringify(range) === JSON.stringify([200, 2200])) return;
+
+    // add range to the search params
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set("range", JSON.stringify(range));
+    window.history.replaceState(null, "", `?${urlParams.toString()}`);
+  }, [range]);
 
   return (
     <div>

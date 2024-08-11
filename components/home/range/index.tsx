@@ -8,13 +8,20 @@ import {
 } from "@/components/ui/accordion";
 import { useTranslations } from "next-intl";
 import Chart from "./chart";
+import React, { useState } from "react";
 
 const RangeComponent = () => {
   const t = useTranslations("filter");
+  const [openValue, setOpenValue] = useState("rate");
 
   return (
-    <Accordion type="single" collapsible>
-      <AccordionItem value="pay">
+    <Accordion
+      type="single"
+      collapsible
+      value={openValue}
+      onValueChange={setOpenValue}
+    >
+      <AccordionItem value="rate">
         <AccordionTrigger className="text-lg font-bold">
           {t("rtitle")}
         </AccordionTrigger>
