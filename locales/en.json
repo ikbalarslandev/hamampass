@@ -22,7 +22,8 @@
     "amenity": "Amenities",
     "hours": "Hours",
     "details": "Details",
-    "reviews": "Reviews"
+    "reviews": "Reviews",
+    "enflation": "Due to enflation, the price may up to 10% higher than the price shown on the website."
   },
   "pay": {
     "0": "Cash Only",

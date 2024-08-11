@@ -30,7 +30,8 @@
     "details": "Detaylar",
     "reviews": "Yorumlar",
     "cash": "Sadece Nakit",
-    "credit": "Kredi Kartı Geçerli"
+    "credit": "Kredi Kartı Geçerli",
+    "enflation": "Enflasyon nedeniyle fiyatlar sitede gösterilen fiyattan %10 daha yüksek olabilir."
   },
   "pay": {
     "0": "Sadece Nakit",
