@@ -3,22 +3,21 @@
 import * as React from "react";
 import * as Slider from "@radix-ui/react-slider";
 
-const RangeSlider = ({ min, max, onRangeChange }) => {
+const RangeSlider = ({ min, max, onRangeChange }: any) => {
   const [value, setValue] = React.useState([min, max]);
 
-  // Handle value change and pass the new range to the parent component
-  const handleValueChange = (newValue) => {
+  const handleValueChange = (newValue: any) => {
     setValue(newValue);
-    onRangeChange(newValue); // Call the callback with the new range
+    onRangeChange(newValue);
   };
 
   return (
     <Slider.Root
       className="relative flex w-full touch-none select-none items-center"
       defaultValue={[min, max]}
-      max={2200} // Set the maximum value based on your use case
-      min={200} // Set the minimum value based on your use case
-      step={1} // Adjust the step size if needed
+      max={2200}
+      min={200}
+      step={1}
       minStepsBetweenThumbs={1}
       value={value}
       onValueChange={handleValueChange}
