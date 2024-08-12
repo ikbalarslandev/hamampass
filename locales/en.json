@@ -57,6 +57,10 @@
     "3": "Unisex",
     "4": "Segregated"
   },
+  "gender": {
+    "0": "Female",
+    "1": "Male"
+  },
   "filter": {
     "placeholder": "Search district in Istanbul",
     "title": "Filters",
@@ -82,5 +86,11 @@
     "comment": "Comment",
     "comment-placeholder": "Your comment...",
     "submit": "Submit"
+  },
+  "review-type": {
+    "0": "Solo",
+    "1": "Couple",
+    "2": "Family",
+    "3": "Friends"
   }
 }

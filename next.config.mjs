@@ -11,6 +11,7 @@ const nextConfig = {
       "duckduckgo.com",
       "www.tooistanbul.com",
       "lh3.googleusercontent.com",
+      "flagsoftheworld.info",
     ],
   },
 };

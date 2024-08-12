@@ -65,6 +65,10 @@
     "3": "Unisex",
     "4": "Kadın ve Erkek Ayrı"
   },
+  "gender": {
+    "0": "Kadın",
+    "1": "Erkek"
+  },
   "filter": {
     "placeholder": "İstanbul'da semt ara",
     "title": "Filtreler",
@@ -90,5 +94,11 @@
     "comment": "Yorum Yap",
     "comment-placeholder": "Yorumunuz ...",
     "submit": "Gönder"
+  },
+  "review-type": {
+    "0": "yalnız",
+    "1": "Çift",
+    "2": "Aile",
+    "3": "Arkadaş"
   }
 }

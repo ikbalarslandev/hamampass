@@ -1,3 +1,5 @@
+import exp from "constants";
+
 export interface TContact {
   id: string;
   phone: string;
@@ -81,6 +83,8 @@ export interface TReview {
   rate_overall: number;
   comment: string;
 
+  user: TUser;
+
   rata_location: number;
   rate_staff: number;
   rate_atmosphere: number;
@@ -90,4 +94,24 @@ export interface TReview {
 
   createdAt: string;
   updatedAt: string;
+}
+
+interface TUser {
+  id: string;
+  name: string;
+  email: string;
+  image: string;
+  nationality: string;
+  age_range: number;
+  gender: number;
+  reviews: TReview[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface TCountry {
+  tld: string;
+  name_en: string;
+  name_tr: string;
+  image: string;
 }
