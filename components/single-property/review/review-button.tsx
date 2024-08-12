@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 import { signIn } from "next-auth/react";
 import { request } from "@/services/axios";
 import ReviewDrawerComponent from "./review-drawer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { useTranslations } from "next-intl";
 
 interface IReviewButton {
@@ -20,7 +20,7 @@ const ReviewButton = ({ propertyId }: IReviewButton) => {
       const res = await request({
         type: "get",
         endpoint: `review`,
-        params: { propertyId, email: session.data?.user?.email },
+        params: { propertyId, userId: "147758c3-2e23-49e4-9101-bbecf98245ae" },
       });
 
       setIsExist(res.data.isExist);

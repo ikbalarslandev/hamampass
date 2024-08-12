@@ -75,12 +75,19 @@ export interface TRating {
 
 export interface TReview {
   id: string;
-  name: string;
-  email: string;
-  img: string;
-  rate: number;
+  userId: string;
+  propertyId: string;
+  type: number;
+  rate_overall: number;
   comment: string;
+
+  rata_location: number;
+  rate_staff: number;
+  rate_atmosphere: number;
+  rate_cleanliness: number;
+  rate_facilities: number;
+  rate_value_for_money: number;
+
   createdAt: string;
   updatedAt: string;
-  belongsToId: string;
 }
