@@ -12,6 +12,7 @@ import RatingComponent from "../cards/rating";
 import SwithchComponent from "./swithch";
 import DetailsComponent from "./swithch/details";
 import ReviewsComponent from "./swithch/reviews";
+import { IoStar } from "react-icons/io5";
 
 const SinglePropertyPage = () => {
   let { title } = useParams();
@@ -46,9 +47,14 @@ const SinglePropertyPage = () => {
           {data && <ReviewButton propertyId={data?.id} />}
         </div>
 
-        <h1 className="font-bold text-2xl text-slate-700 ">{data?.title}</h1>
-        <div className="my-2 flex gap-3">
-          {data && <RatingComponent rating={data?.rating} />}
+        <div className="  flex items-center justify-between mb-5">
+          <h1 className="font-bold text-2xl text-slate-700"> {data?.title}</h1>
+          <div className="flex items-center gap-1">
+            <IoStar className="text-cyan-500 w-5 h-5" />
+            <span className="font-bold text-xl">
+              {data && parseFloat(data?.rating.sum.toFixed(1))}
+            </span>
+          </div>
         </div>
 
         {data && (
