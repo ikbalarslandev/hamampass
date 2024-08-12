@@ -31,7 +31,7 @@ const PriceComponent = ({ data }: PriceComponentProps) => {
             ₺{data.child}
           </span>
         </div>
-        <p className="text-gray-700 flex items-center justify-between px-5">
+        <div className="text-gray-700 flex items-center justify-between px-5">
           <div className="flex flex-col">
             <span className="font-semibold text-gray-900">{p("scrub")}:</span>{" "}
             <span className="text-sm">({p("scrub-desc")})</span>
@@ -39,7 +39,7 @@ const PriceComponent = ({ data }: PriceComponentProps) => {
           <span className="ml-2 font-semibold text-green-600">
             ₺{data.scrub}
           </span>
-        </p>
+        </div>
       </div>
     </div>
   );

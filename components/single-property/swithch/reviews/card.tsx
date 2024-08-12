@@ -20,10 +20,6 @@ const ReviewsCard = ({ review }: { review: TReview }) => {
   const { locale } = useParams();
 
   useEffect(() => {
-    console.log(review);
-  }, [review]);
-
-  useEffect(() => {
     const res: any = request({
       type: "get",
       endpoint: `country/${review.user.nationality}`,
@@ -33,10 +29,6 @@ const ReviewsCard = ({ review }: { review: TReview }) => {
       setCountry(res.data);
     });
   }, [review.user.nationality]);
-
-  useEffect(() => {
-    console.log(country);
-  }, [country]);
 
   return (
     <div className="shadow rounded border pb-3">
@@ -61,7 +53,10 @@ const ReviewsCard = ({ review }: { review: TReview }) => {
             {/* Smaller Image */}
             <div className="absolute -bottom-[.15rem] -right-[.15rem]">
               <Image
-                src={country?.image ?? ""}
+                src={
+                  country?.image ??
+                  "https://flagsoftheworld.info/wp-content/uploads/2022/12/united-states-flag.webp"
+                }
                 alt="small avatar"
                 width={15}
                 height={15}

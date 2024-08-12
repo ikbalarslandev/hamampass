@@ -13,8 +13,6 @@ import SwithchComponent from "./swithch";
 import DetailsComponent from "./swithch/details";
 import ReviewsComponent from "./swithch/reviews";
 
-import ReviewFormComponent from "./review/review-form";
-
 const SinglePropertyPage = () => {
   let { title } = useParams();
   title = decodeURIComponent(title as string);
@@ -53,9 +51,11 @@ const SinglePropertyPage = () => {
           {data && <RatingComponent rating={data?.rating} />}
         </div>
 
-        <div className="bg-emerald-500 text-white rounded text-center">
-          {p(data?.pay.toString())}
-        </div>
+        {data && (
+          <div className="bg-emerald-500 text-white rounded text-center">
+            {p(data?.pay.toString())}
+          </div>
+        )}
 
         <div className="bg-orange-500 text-gray-100 rounded text-center text-sm mt-3 py-1">
           {s("enflation")}
