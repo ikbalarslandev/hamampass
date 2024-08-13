@@ -2,8 +2,9 @@ import { TReview } from "@/types";
 import Image from "next/image";
 
 import { useEffect, useState } from "react";
-import { format } from "date-fns";
-import { enUS, tr } from "date-fns/locale";
+import moment from "moment";
+import "moment/locale/tr";
+import "moment/locale/en-gb";
 import { IoStar } from "react-icons/io5";
 
 import { useTranslations } from "next-intl";
@@ -16,12 +17,8 @@ const ReviewsCard = ({ review }: { review: TReview }) => {
   const g = useTranslations("gender");
   const r = useTranslations("review-type");
   const p = useTranslations("product-type");
-  const { locale } = useParams();
-  const dateLocale = locale === "tr" ? tr : enUS;
+  const { locale } = useParams<{ locale: string }>();
 
-  review.updatedAt = format(new Date(review.updatedAt), "MMMM yyyy", {
-    locale: dateLocale,
-  });
   review.rate = parseFloat(review.rate.toFixed(1));
   const [country, setCountry] = useState<TCountry>();
 
@@ -38,11 +35,17 @@ const ReviewsCard = ({ review }: { review: TReview }) => {
     getCountry();
   }, [review.user.nationality]);
 
+  const formatedDate = moment(review.updatedAt).format("DD MMMM YYYY");
+
+  useEffect(() => {
+    moment.locale(locale);
+  }, [locale]);
+
   return (
     <div className=" border-t border-gray-300 pb-3">
       <div className="flex items-center gap-3 p-2 flex-col">
         <div className="w-full flex items-center justify-between">
-          <p className="text-xs text-gray-400">Stayed in {review.updatedAt}</p>
+          <p className="text-xs text-gray-400"> {formatedDate}</p>
           <div className="flex items-center gap-1">
             <IoStar className="w-4 h-4 text-cyan-500" />
             <p> {review.rate}</p>
