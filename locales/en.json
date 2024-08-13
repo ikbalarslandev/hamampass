@@ -85,7 +85,14 @@
     "rate": "Rate",
     "comment": "Comment",
     "comment-placeholder": "Your comment...",
-    "submit": "Submit"
+    "submit": "Submit",
+
+    "location": "Location",
+    "staff": "Staff",
+    "atmosphere": "Atmosphere",
+    "cleanliness": "Cleanliness",
+    "facilities": "Facilities",
+    "value": "Value for Money"
   },
   "review-type": {
     "0": "Solo",
