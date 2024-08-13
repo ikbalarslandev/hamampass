@@ -1,16 +1,17 @@
 "use client";
 
 import { TProduct } from "@/types";
-import { useParams } from "next/navigation";
 import DrawerComponent from "./drawer";
 import { PiFlowerLotus } from "react-icons/pi";
+import { useTranslations } from "next-intl";
 
 interface Props {
   data: TProduct[];
 }
 
 const ProductsComponent = ({ data }: Props) => {
-  const { locale } = useParams();
+ 
+  const t = useTranslations("product-type");
 
   return (
     <div>
@@ -26,7 +27,7 @@ const ProductsComponent = ({ data }: Props) => {
               >
                 <div className="flex gap-3 items-center">
                   <PiFlowerLotus className="text-3xl" />
-                  <h2>{item[`name_${locale}` as keyof typeof item]}</h2>
+                  <h2>{t(item.type.toString())}</h2>
                 </div>
 
                 <p>₺ {item.price}</p>

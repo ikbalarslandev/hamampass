@@ -92,5 +92,13 @@
     "1": "Couple",
     "2": "Family",
     "3": "Friends"
+  },
+  "product-type": {
+    "0": "Basic",
+    "1": "Regular"
+  },
+  "product-desc": {
+    "0": "Only entrance fee , no extra service  included",
+    "1": "Full Access to all facilities extra body scrub and soap massage included"
   }
 }

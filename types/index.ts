@@ -22,13 +22,8 @@ export interface TPrice {
 
 export interface TProduct {
   id: string;
-  name_tr: string;
-  name_en: string;
+  type: number;
   price: number;
-  detais_tr: string[];
-  details_en: string[];
-  tags: string[];
-  [key: string]: any;
 }
 
 export interface TDay {
@@ -87,6 +82,7 @@ export interface TReview {
   userId: string;
   propertyId: string;
   type: number;
+  product_type: number;
   comment: string;
   rate: number;
   user: TUser;

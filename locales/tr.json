@@ -100,5 +100,13 @@
     "1": "Çift",
     "2": "Aile",
     "3": "Arkadaş"
+  },
+  "product-type": {
+    "0": "Basit",
+    "1": "Standart"
+  },
+  "product-desc": {
+    "0": "Sadece giriş ücreti extra hizmetler dahil değil",
+    "1": "Tüm Islak Alan kullanımı extra olarak kese ve köpük masajı dahil"
   }
 }

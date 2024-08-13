@@ -1,8 +1,9 @@
 import { TReview } from "@/types";
 import Image from "next/image";
 
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { format } from "date-fns";
+import { enUS, tr } from "date-fns/locale";
 import { IoStar } from "react-icons/io5";
 
 import { useTranslations } from "next-intl";
@@ -14,10 +15,15 @@ import { TCountry } from "@/types";
 const ReviewsCard = ({ review }: { review: TReview }) => {
   const g = useTranslations("gender");
   const r = useTranslations("review-type");
-  review.updatedAt = format(new Date(review.updatedAt), "MMM yyyy");
+  const p = useTranslations("product-type");
+  const { locale } = useParams();
+  const dateLocale = locale === "tr" ? tr : enUS;
+
+  review.updatedAt = format(new Date(review.updatedAt), "MMMM yyyy", {
+    locale: dateLocale,
+  });
   review.rate = parseFloat(review.rate.toFixed(1));
   const [country, setCountry] = useState<TCountry>();
-  const { locale } = useParams();
 
   useEffect(() => {
     const getCountry = async () => {
@@ -74,7 +80,12 @@ const ReviewsCard = ({ review }: { review: TReview }) => {
                 <p> {convertAgeRange(review.user.age_range)},</p>
                 <p> {country && country[`name_${locale}` as keyof TCountry]}</p>
               </div>
-              <div>{r(review.type.toString())}</div>
+
+              <div className="flex  items-end gap-1">
+                <p>{r(review.type.toString())}</p>
+
+                <p className="text-xs">({p(review.product_type.toString())})</p>
+              </div>
             </div>
           </div>
         </div>

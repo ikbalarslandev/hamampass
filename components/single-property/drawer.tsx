@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/drawer";
 import React from "react";
 import { TProduct } from "@/types";
+import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 
 interface DrawerComponentProps {
@@ -19,22 +20,19 @@ interface DrawerComponentProps {
 }
 
 const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
+  const t = useTranslations("product-type");
+  const d = useTranslations("product-desc");
   const { locale } = useParams();
   return (
     <Drawer>
       <DrawerTrigger>{trigger}</DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent className="h-[70%]">
         <DrawerHeader>
-          <DrawerTitle>
-            {data[`name_${locale}` as keyof typeof data]}
-          </DrawerTitle>
-
-          {data[`details_${locale}` as keyof typeof data].map(
-            (item: string, index: any) => (
-              <DrawerDescription className="text-left" key={index}>
-                {item}
-              </DrawerDescription>
-            )
+          <DrawerTitle>{t(data.type.toString())}</DrawerTitle>
+          {locale === "en" ? (
+            <DrawerDescription>{d(data.type.toString())}</DrawerDescription>
+          ) : (
+            <DrawerDescription>{data.type.toString()}</DrawerDescription>
           )}
         </DrawerHeader>
         <DrawerFooter></DrawerFooter>
