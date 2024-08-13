@@ -10,7 +10,6 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { photos } from "@/mock/photos";
 import { useParams } from "next/navigation";
-import RatingComponent from "./rating";
 import { IoStar } from "react-icons/io5";
 
 interface CardProps {
