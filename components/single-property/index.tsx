@@ -8,7 +8,6 @@ import { TProperty } from "@/types";
 import { useTranslations } from "next-intl";
 
 import ReviewButton from "./review/review-button";
-import RatingComponent from "../cards/rating";
 import SwithchComponent from "./swithch";
 import DetailsComponent from "./swithch/details";
 import ReviewsComponent from "./swithch/reviews";
