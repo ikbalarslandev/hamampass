@@ -1,7 +1,7 @@
 import { TReview } from "@/types";
 import Image from "next/image";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { format } from "date-fns";
 import { IoStar } from "react-icons/io5";
 
@@ -15,29 +15,31 @@ const ReviewsCard = ({ review }: { review: TReview }) => {
   const g = useTranslations("gender");
   const r = useTranslations("review-type");
   review.updatedAt = format(new Date(review.updatedAt), "MMM yyyy");
-  review.rate_overall = parseFloat(review.rate_overall.toFixed(1));
+  review.rate = parseFloat(review.rate.toFixed(1));
   const [country, setCountry] = useState<TCountry>();
   const { locale } = useParams();
 
   useEffect(() => {
-    const res: any = request({
-      type: "get",
-      endpoint: `country/${review.user.nationality}`,
-    });
+    const getCountry = async () => {
+      const res: any = await request({
+        type: "get",
+        endpoint: `country/${review.user.nationality}`,
+      });
 
-    res.then((res: any) => {
       setCountry(res.data);
-    });
+    };
+
+    getCountry();
   }, [review.user.nationality]);
 
   return (
-    <div className="shadow rounded border pb-3">
+    <div className=" border-t border-gray-300 pb-3">
       <div className="flex items-center gap-3 p-2 flex-col">
         <div className="w-full flex items-center justify-between">
           <p className="text-xs text-gray-400">Stayed in {review.updatedAt}</p>
           <div className="flex items-center gap-1">
             <IoStar className="w-4 h-4 text-cyan-500" />
-            <p> {review.rate_overall}</p>
+            <p> {review.rate}</p>
           </div>
         </div>
         <div className="flex items-center gap-2 w-full">

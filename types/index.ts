@@ -71,8 +71,15 @@ export interface TApiResponse {
 
 export interface TRating {
   id: string;
-  sum: number;
   count: number;
+  rate_overall: number;
+
+  rate_location: number;
+  rate_staff: number;
+  rate_atmosphere: number;
+  rate_cleanliness: number;
+  rate_facilities: number;
+  rate_value_for_money: number;
 }
 
 export interface TReview {
@@ -80,17 +87,9 @@ export interface TReview {
   userId: string;
   propertyId: string;
   type: number;
-  rate_overall: number;
   comment: string;
-
+  rate: number;
   user: TUser;
-
-  rata_location: number;
-  rate_staff: number;
-  rate_atmosphere: number;
-  rate_cleanliness: number;
-  rate_facilities: number;
-  rate_value_for_money: number;
 
   createdAt: string;
   updatedAt: string;

@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { photos } from "@/mock/photos";
 import { useParams } from "next/navigation";
 import RatingComponent from "./rating";
+import { IoStar } from "react-icons/io5";
 
 interface CardProps {
   property: TProperty;
@@ -74,14 +75,23 @@ const Card = ({ property }: CardProps) => {
       </Carousel>
       <div onClick={handleCardClick}>
         <div>
-          <h2 className="text-xl font-bold text-slate-700 my-2">
-            {property.title}
-          </h2>
-          <div className="flex gap-2 items-center">
+          <div className="flex  items-center justify-between">
+            <h2 className="text-xl font-bold text-slate-700 my-2">
+              {property.title}
+            </h2>
+            <div className="flex items-start gap-1 mr-2">
+              <IoStar className="text-cyan-500 w-5 h-5 " />
+              <p className="font-semibold">
+                {parseFloat(property.rating.rate_overall.toFixed(1))} (
+                {property.rating.count})
+              </p>
+            </div>
+          </div>
+
+          <div className="flex gap-2 items-center justify-between">
             <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ">
               {s(property.sex.toString())}
             </span>
-            <RatingComponent rating={property.rating} />
           </div>
 
           <p className="flex gap-4 mt-2 ml-1">
