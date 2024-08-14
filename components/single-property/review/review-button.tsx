@@ -16,14 +16,13 @@ const ReviewButton = ({ propertyId }: IReviewButton) => {
   const [isExist, setIsExist] = useState(false);
   const r = useTranslations("review");
   const { locale } = useParams();
-  const router = useRouter();
 
   useEffect(() => {
     const handleIsExist = async () => {
       const res = await request({
         type: "get",
         endpoint: `review`,
-        params: { propertyId, userId: "147758c3-2e23-49e4-9101-bbecf98245ae" },
+        params: { propertyId, userId: session?.data?.user.id },
       });
 
       setIsExist(res.data.isExist);

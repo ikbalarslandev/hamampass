@@ -2,7 +2,7 @@
 
 import { Bar, BarChart, Cell } from "recharts";
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
-import RangeSlider from "@/components/ui/slider";
+import RangeSlider from "@/components/ui/range-slider";
 import React, { useEffect, useState } from "react";
 import MinMax from "./min-max";
 import { request } from "@/services/axios";
