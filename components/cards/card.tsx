@@ -21,6 +21,7 @@ const Card = ({ property }: CardProps) => {
   const t = useTranslations("card");
   const s = useTranslations("sex-number");
   const v = useTranslations("vibe");
+  const p = useTranslations("product-type");
 
   const router = useRouter();
 
@@ -31,17 +32,6 @@ const Card = ({ property }: CardProps) => {
 
     router.push(`/${locale}/${convertedTitle}`);
   };
-
-  // enum EAmenities {
-  //   Turkish_Bath === 0
-  //   Shower   === 1
-  //   Sauna    === 2
-  //   Steam_Room  === 3
-  //   Jacuzzi     === 4
-  //   Pool       === 5
-  //   Shock_Pool   === 6
-  //   Spa      === 7
-  // }
 
   return (
     <div className=" mb-2 m-1">
@@ -99,25 +89,16 @@ const Card = ({ property }: CardProps) => {
             ))}
           </p>
         </div>
-        <div className=" flex h-16 mt-2 ">
-          <div className=" flex-1 flex flex-col items-center justify-center">
-            <p className="font-bold">{t("adult")}</p>
+        <div className=" flex h-16 mt-4 gap-2  ">
+          {property.products.map((product) => (
+            <div className=" flex-1 flex flex-col items-center justify-center border shadow-md rounded-lg">
+              <p className="font-bold">{p(product.type.toString())}</p>
 
-            <span className=" font-semibold text-green-600">
-              ₺ {property.price.adult}
-            </span>
-          </div>
-          <div className="w-[.1rem] flex items-center">
-            <div className="bg-black w-[.1rem] h-8 "></div>
-          </div>
-
-          <div className=" flex-1 flex flex-col items-center justify-center">
-            <p className="font-bold">{t("child")}</p>
-
-            <span className=" font-semibold text-green-600">
-              ₺ {property.price.child}
-            </span>
-          </div>
+              <span className=" font-semibold text-green-600">
+                ₺ {product.price}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
