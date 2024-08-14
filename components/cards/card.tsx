@@ -91,7 +91,10 @@ const Card = ({ property }: CardProps) => {
         </div>
         <div className=" flex h-16 mt-4 gap-2  ">
           {property.products.map((product) => (
-            <div className=" flex-1 flex flex-col items-center justify-center border shadow-md rounded-lg">
+            <div
+              key={product.id}
+              className=" flex-1 flex flex-col items-center justify-center border shadow-md rounded-lg"
+            >
               <p className="font-bold">{p(product.type.toString())}</p>
 
               <span className=" font-semibold text-green-600">
