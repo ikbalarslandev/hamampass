@@ -38,7 +38,7 @@ const ReviewButton = ({ propertyId }: IReviewButton) => {
   };
 
   if (session.data) {
-    if (isExist) {
+    if (isExist && session.data.user.id) {
       return <p className="text-cyan-600 text-sm">{r("reviewed")}</p>;
     }
     return <ReviewDrawerComponent id={propertyId} />;

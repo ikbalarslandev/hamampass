@@ -89,7 +89,7 @@ const ReviewDrawerComponent = ({ id }: any) => {
               <h1 className="font-semibold ">{user?.name}</h1>
               <div className="flex justify-between text-sm text-gray-600  ">
                 <div className="flex items-center gap-2">
-                  <p>{g(user?.gender.toString())},</p>
+                  {user?.gender && <p>{g(user?.gender.toString())},</p>}
                   <p> {convertAgeRange(user?.age_range || 0)},</p>
                   <p>
                     {" "}

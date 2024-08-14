@@ -24,8 +24,8 @@ import {
 
 const formSchema = z.object({
   nationality: z.string().min(2).max(2),
-  age_range: z.number().min(0).max(1), // Adjusted to match SelectItem values
-  gender: z.number().min(0).max(1), // Adjusted to match SelectItem values
+  age_range: z.number().min(0).max(4),
+  gender: z.number().min(0).max(1),
 });
 
 const FormComponent = ({ user }: { user: TSessionUser }) => {
@@ -76,6 +76,9 @@ const FormComponent = ({ user }: { user: TSessionUser }) => {
                   <SelectContent>
                     <SelectItem value="us">USA</SelectItem>
                     <SelectItem value="tr">Turkey</SelectItem>
+                    <SelectItem value="de">Germany</SelectItem>
+                    <SelectItem value="au">Australia</SelectItem>
+                    <SelectItem value="nl">Netherlands</SelectItem>
                   </SelectContent>
                 </Select>
               </FormControl>
@@ -99,7 +102,10 @@ const FormComponent = ({ user }: { user: TSessionUser }) => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="0">0 - 17</SelectItem>
-                    <SelectItem value="1">18 - 25</SelectItem>
+                    <SelectItem value="1">18 - 24</SelectItem>
+                    <SelectItem value="2">25 - 30</SelectItem>
+                    <SelectItem value="3">31 - 40</SelectItem>
+                    <SelectItem value="4">41+</SelectItem>
                   </SelectContent>
                 </Select>
               </FormControl>
