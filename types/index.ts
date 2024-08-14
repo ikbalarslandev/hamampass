@@ -91,7 +91,13 @@ export interface TReview {
   updatedAt: string;
 }
 
-interface TUser {
+export interface TSessionUser {
+  name: string;
+  email: string;
+  image: string;
+}
+
+export interface TUser {
   id: string;
   name: string;
   email: string;

@@ -14,14 +14,30 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import ReviewFormComponent from "./review-form";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
+import { useState } from "react";
 
 const ReviewDrawerComponent = ({ id }: any) => {
+  const { locale } = useParams();
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+
   const session = useSession();
   const user = session?.data?.user;
   const r = useTranslations("review");
+
+  const handleTrigger = () => {
+    if (!session?.data?.user.id) {
+      router.push(`/${locale}/profile`);
+      return null;
+    }
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <Drawer>
-      <DrawerTrigger className="text-cyan-600 text-sm">
+    <Drawer open={isOpen}>
+      <DrawerTrigger className="text-cyan-600 text-sm" onClick={handleTrigger}>
         {r("review")}
       </DrawerTrigger>
       <DrawerContent>
