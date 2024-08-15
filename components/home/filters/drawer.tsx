@@ -21,6 +21,7 @@ import SortComponent from "@/components/home/filters/sort";
 import SexComponent from "@/components/home/filters/sex";
 import PaymentMethodComponent from "@/components/home/filters/pay";
 import RangeComponent from "@/components/home/filters/range";
+import { useSelector } from "react-redux";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
@@ -30,41 +31,10 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
   const title = useTranslations("home.filters.titles");
   const btn = useTranslations("home.filters");
   const searchParams = useSearchParams();
-  const [properties, setProperties] = useState<TApiResponse>();
 
-  useEffect(() => {
-    const sortParam = searchParams.get("sort");
-    const vibeParam = searchParams.get("vibe");
-    const amenityParam = searchParams.get("amenity");
-    const sexParam = searchParams.get("sex");
-    const payParam = searchParams.get("pay");
-    const rangeParam = searchParams.get("range");
-    const districtParam = searchParams.get("district");
-
-    const fetchProperties = async () => {
-      try {
-        const response = await request({
-          type: "get",
-          endpoint: "property",
-          params: {
-            sort: sortParam,
-            contact_district: districtParam,
-            vibe: vibeParam,
-            amenity: amenityParam,
-            sex: sexParam,
-            pay: payParam,
-            range: rangeParam,
-          },
-        });
-
-        setProperties(Array.isArray(response.data.data) ? response.data : {});
-      } catch (error) {
-        console.error("Error fetching properties:", error);
-      }
-    };
-
-    fetchProperties();
-  }, [searchParams]);
+  const properties = useSelector(
+    (state: any) => state.properties.propertyState
+  );
 
   return (
     <Drawer>

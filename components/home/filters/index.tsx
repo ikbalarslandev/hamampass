@@ -10,6 +10,8 @@ import { normalizeText } from "@/utils/normalize";
 import DrawerComponent from "@/components/home/filters/drawer";
 import { Input } from "@/components/ui/input";
 
+import { useSelector } from "react-redux";
+
 const districtData = ["Kadıköy"];
 
 const FilterComponent: React.FC = () => {

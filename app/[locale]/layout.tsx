@@ -6,6 +6,11 @@ import "./globals.css";
 import { loadMessages } from "@/utils/loadMessages";
 import HeaderComponent from "@/components/header";
 import { SessionProvider } from "next-auth/react";
+import dynamic from "next/dynamic";
+
+const ReduxProvider = dynamic(() => import("@/lib/store/redux-provider"), {
+  ssr: false,
+});
 
 const inter = Inter({ subsets: ["latin"] });
 const locales = ["en", "tr"];
@@ -33,12 +38,14 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <SessionProvider>
-            <HeaderComponent />
-            {children}
-          </SessionProvider>
-        </NextIntlClientProvider>
+        <ReduxProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <SessionProvider>
+              <HeaderComponent />
+              {children}
+            </SessionProvider>
+          </NextIntlClientProvider>
+        </ReduxProvider>
       </body>
     </html>
   );
