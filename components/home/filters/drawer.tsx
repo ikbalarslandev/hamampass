@@ -1,4 +1,11 @@
 "use client";
+import { useTranslations } from "next-intl";
+import { useSearchParams } from "next/navigation";
+import { useState, useEffect } from "react";
+
+import { IoClose } from "react-icons/io5";
+import { request } from "@/services/axios";
+import { TApiResponse } from "@/types";
 
 import {
   Drawer,
@@ -9,18 +16,11 @@ import {
   DrawerTrigger,
   DrawerClose,
 } from "@/components/ui/drawer";
-import React from "react";
-import { IoClose } from "react-icons/io5";
-import AmenityComponent from "./amenity";
-import { useTranslations } from "next-intl";
-import SortComponent from "./sort";
-import SexComponent from "./sex";
-import { useSearchParams } from "next/navigation";
-import PaymentMethodComponent from "./pay";
-import RangeComponent from "./range";
-import { useState, useEffect } from "react";
-import { request } from "@/services/axios";
-import { TApiResponse } from "@/types";
+import AmenityComponent from "@/components/home/filters/amenity";
+import SortComponent from "@/components/home/filters/sort";
+import SexComponent from "@/components/home/filters/sex";
+import PaymentMethodComponent from "@/components/home/filters/pay";
+import RangeComponent from "@/components/home/filters/range";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
@@ -30,9 +30,7 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
   const title = useTranslations("home.filters.titles");
   const btn = useTranslations("home.filters");
   const searchParams = useSearchParams();
-  const [properties, setProperties] = useState<TApiResponse>(
-    {} as TApiResponse
-  );
+  const [properties, setProperties] = useState<TApiResponse>();
 
   useEffect(() => {
     const sortParam = searchParams.get("sort");
@@ -93,7 +91,7 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
         <DrawerFooter>
           <DrawerClose>
             <p className="bg-cyan-500 mx-4 py-2 my-1 rounded-md text-white">
-              {properties.all_items} {btn("show")}
+              {properties && properties.all_items} {btn("show")}
             </p>
           </DrawerClose>
         </DrawerFooter>

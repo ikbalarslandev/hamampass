@@ -21,6 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   nationality: z.string().min(2).max(2),
@@ -29,6 +30,8 @@ const formSchema = z.object({
 });
 
 const FormComponent = ({ user }: { user: TSessionUser }) => {
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -50,7 +53,7 @@ const FormComponent = ({ user }: { user: TSessionUser }) => {
       payload: req,
     });
 
-    window.location.reload();
+    router.push("/");
   }
 
   return (
