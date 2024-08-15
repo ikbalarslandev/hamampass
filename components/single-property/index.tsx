@@ -7,7 +7,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { TProperty } from "@/types";
 import { useTranslations } from "next-intl";
 
-import ReviewButton from "./review/review-button";
+import ReviewButton from "./review-btn/review-button";
 import SwithchComponent from "./swithch";
 import DetailsComponent from "./swithch/details";
 import ReviewsComponent from "./swithch/reviews";
@@ -18,7 +18,8 @@ const SinglePropertyPage = () => {
   title = decodeURIComponent(title as string);
   const [data, setData] = useState<TProperty>();
   const s = useTranslations("single");
-  const p = useTranslations("pay");
+  const payment_details = useTranslations("home.filters.payment_methods");
+
   const [selectedTab, setSelectedTab] = useState<"details" | "reviews">(
     "details"
   );
@@ -58,7 +59,7 @@ const SinglePropertyPage = () => {
 
         {data && (
           <div className="bg-emerald-500 text-white rounded text-center">
-            {p(data?.pay.toString())}
+            {payment_details(data?.pay.toString())}
           </div>
         )}
 

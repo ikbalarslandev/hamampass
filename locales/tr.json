@@ -1,119 +1,116 @@
 {
-  "card": {
-    "adult": "Yetişkin",
-    "child": "Çocuk",
-    "scrub": "Kese",
-    "button": "Daha Fazla Yükle",
-    "adult-desc": "13 yaşından büyük",
-    "child-desc": "5-13 yaş arası",
-    "scrub-desc": "Ekstra",
-    "title": "Hamamlar - "
+  "home": {
+    "title": "Hamamlar - ",
+    "filters": {
+      "titles": {
+        "title": "Filtreler",
+        "amenity_title": "Hizmetler",
+        "pay_title": "Ödeme Yöntemi",
+        "range_title": "Fiyat Aralığı",
+        "sex_title": "Cinsiyet",
+        "sort_title": "Sırala",
+        "review-title": "Yorumlar",
+        "hours-title": "Çalışma Saatleri"
+      },
+      "amenities": {
+        "0": "Duş",
+        "1": "Sauna",
+        "2": "Buhar Odası",
+        "3": "Jakuzi",
+        "4": "Havuz",
+        "5": "Masaj",
+        "6": "Buz Kovası",
+        "7": "Şok Havuzu"
+      },
+      "payment_methods": {
+        "0": "Sadece Nakit",
+        "1": "Kredi Kartı Geçerli"
+      },
+      "sex": {
+        "1": "Erkeklere Özel",
+        "2": "Kadınlara Özel",
+        "3": "Unisex",
+        "4": "Kadın ve Erkek Ayrı"
+      },
+      "price": {
+        "expensive": "Fiyat (önce en yüksek)",
+        "cheap": "Fiyat (önce en düşük)"
+      },
+      "placeholder": "İstanbul'da semt ara",
+      "show": "Sonuçları Göster"
+    },
+    "product-type": {
+      "0": "Basit",
+      "1": "Standart"
+    }
   },
-  "sex": {
-    "men": "Erkeklere Özel",
-    "women": "Kadınlara Özel",
-    "unisex": "Unisex",
-    "seperate": "Kadın ve Erkek Ayrı"
-  },
-  "vibe": {
-    "0": "Tarihi",
-    "1": "Ekonomik",
-    "2": "Çiftlere Uygun",
-    "3": "Ailelere Uygun",
-    "4": "Lüks"
-  },
-  "single": {
-    "location": "İletişim",
-    "tel": "İletişim Numarası :",
-    "amenity": "Hizmetler",
-    "hours": "Çalışma Saatleri",
-    "details": "Detaylar",
-    "reviews": "Yorumlar",
-    "cash": "Sadece Nakit",
-    "credit": "Kredi Kartı Geçerli",
-    "enflation": "Enflasyon nedeniyle fiyatlar sitede gösterilen fiyattan %10 daha yüksek olabilir."
-  },
-  "pay": {
-    "0": "Sadece Nakit",
-    "1": "Kredi Kartı Geçerli"
-  },
-  "amenities": {
-    "0": "Duş",
-    "1": "Sauna",
-    "2": "Buhar Odası",
-    "3": "Jakuzi",
-    "4": "Havuz",
-    "5": "Masaj",
-    "6": "Buz Kovası",
-    "7": "Şok Havuzu"
-  },
-  "hours": {
-    "open": "Açılış",
-    "close": "Kapanış",
-    "day": "Gün",
-    "Monday": "Pazartesi",
-    "Tuesday": "Salı",
-    "Wednesday": "Çarşamba",
-    "Thursday": "Perşembe",
-    "Friday": "Cuma",
-    "Saturday": "Cumartesi",
-    "Sunday": "Pazar"
-  },
-  "sex-number": {
-    "1": "Erkeklere Özel",
-    "2": "Kadınlara Özel",
-    "3": "Unisex",
-    "4": "Kadın ve Erkek Ayrı"
-  },
-  "gender": {
-    "0": "Kadın",
-    "1": "Erkek"
-  },
-  "filter": {
-    "placeholder": "İstanbul'da semt ara",
-    "title": "Filtreler",
-    "stitle": "Sırala",
-    "ptitle": "Ödeme Yöntemi",
-    "rtitle": "Fiyat Aralığı",
-    "sextitle": "Cinsiyet",
-    "vtitle": "Tarzlar",
-    "atitle": "Hizmetler",
-    "show": "Sonuçları Göster",
-    "expensive": "Fiyat (önce en yüksek)",
-    "cheap": "Fiyat (önce en düşük)",
-    "cash": "Sadece Nakit",
-    "card": "Kredi Kartı Geçerli"
-  },
-  "review": {
-    "login": "Yorum yapmak için giriş yapın",
-    "review": "Yorum Yap",
-    "reviewed": "Yorum Yapıldı",
-    "no-review": "Henüz yorum yapılmadı",
-    "title": "Yorum Yap",
-    "rate": "Puanla",
-    "comment": "Yorum Yap",
-    "comment-placeholder": "Yorumunuz ...",
-    "submit": "Gönder",
 
-    "location": "Konum",
-    "staff": "Personel",
-    "atmosphere": "Atmosfer",
-    "cleanliness": "Temizlik",
-    "facilities": "Tesis Durumu",
-    "value": "Fiyat Performans"
-  },
-  "review-type": {
-    "0": "yalnız",
-    "1": "Çift",
-    "2": "Aile",
-    "3": "Arkadaş"
-  },
-  "product-type": {
-    "0": "Basit",
-    "1": "Standart"
-  },
-  "product-desc": {
-    "0": "Sadece giriş ücreti extra hizmetler dahil değil",
-    "1": "Tüm Islak Alan kullanımı extra olarak kese ve köpük masajı dahil"
+  "single": {
+    "enflation": "Enflasyon nedeniyle fiyatlar sitede gösterilen fiyattan %10 daha yüksek olabilir.",
+    "switch": {
+      "details": "Detaylar",
+      "reviews": "Yorumlar"
+    },
+    "card": {
+      "adult": "Yetişkin",
+      "child": "Çocuk",
+      "scrub": "Kese",
+      "button": "Daha Fazla Yükle",
+      "adult-desc": "13 yaşından büyük",
+      "child-desc": "5-13 yaş arası",
+      "scrub-desc": "Ekstra"
+    },
+    "review": {
+      "no-review": "Henüz yorum yapılmadı",
+      "main": {
+        "location": "Konum",
+        "staff": "Personel",
+        "atmosphere": "Atmosfer",
+        "cleanliness": "Temizlik",
+        "facilities": "Tesis Durumu",
+        "value": "Fiyat Performans"
+      },
+      "gender": {
+        "0": "Kadın",
+        "1": "Erkek"
+      },
+      "type": {
+        "0": "yalnız",
+        "1": "Çift",
+        "2": "Aile",
+        "3": "Arkadaş"
+      },
+      "btn": {
+        "reviewed": "Yorum Yapıldı",
+        "login": "Yorum yapmak için giriş yapın",
+        "review": "Yorum Yap"
+      },
+      "drawer": {
+        "title": "Yorum Yap",
+        "rate": "Puanla",
+        "comment": "Yorum Yap",
+        "comment-placeholder": "Yorumunuz ...",
+        "submit": "Gönder"
+      }
+    },
+    "hours": {
+      "open": "Açılış",
+      "close": "Kapanış",
+      "day": "Gün",
+      "Monday": "Pazartesi",
+      "Tuesday": "Salı",
+      "Wednesday": "Çarşamba",
+      "Thursday": "Perşembe",
+      "Friday": "Cuma",
+      "Saturday": "Cumartesi",
+      "Sunday": "Pazar"
+    },
+    "product-desc": {
+      "0": "Sadece giriş ücreti extra hizmetler dahil değil",
+      "1": "Tüm Islak Alan kullanımı extra olarak kese ve köpük masajı dahil"
+    },
+
+    "location": "İletişim",
+    "tel": "İletişim Numarası :"
   }
 }

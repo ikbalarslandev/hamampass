@@ -1,111 +1,116 @@
 {
-  "card": {
-    "adult": "Adult",
-    "child": "Child",
-    "scrub": "Body Scrub",
-    "button": "Load More",
-    "adult-desc": "Older than 13 years old",
-    "child-desc": "Between 5-13 years old",
-    "scrub-desc": "Add-on",
-    "title": "Turkish Baths in "
+  "home": {
+    "title": "Turkish Baths in ",
+    "filters": {
+      "titles": {
+        "title": "Filters",
+        "amenity_title": "Amenities",
+        "pay_title": "Payment Method",
+        "range_title": "Price Range",
+        "sex_title": "Genders",
+        "sort_title": "Sort",
+        "review-title": "Reviews",
+        "hours-title": "Hours"
+      },
+      "amenities": {
+        "0": "Shower",
+        "1": "Sauna",
+        "2": "Steam Room",
+        "3": "Jacuzzi",
+        "4": "Pool",
+        "5": "Massage",
+        "6": "Ice Bucket",
+        "7": "Ice Pool"
+      },
+      "payment_methods": {
+        "0": "Cash Only",
+        "1": "Accepts Credit Cards"
+      },
+      "sex": {
+        "1": "Men's Only",
+        "2": "Women's Only",
+        "3": "Unisex",
+        "4": "Segregated"
+      },
+      "price": {
+        "expensive": "Price (Highest first)",
+        "cheap": "Price (Lowest first)"
+      },
+      "placeholder": "Search district in Istanbul",
+      "show": "Show Results"
+    },
+    "product-type": {
+      "0": "Basic",
+      "1": "Regular"
+    }
   },
-  "vibe": {
-    "0": "Historical",
-    "1": "Budget",
-    "2": "Couple Friendly",
-    "3": "Family Friendly",
-    "4": "Luxury"
-  },
-  "single": {
-    "location": "Contact",
-    "tel": "Phone Number :",
-    "amenity": "Amenities",
-    "hours": "Hours",
-    "details": "Details",
-    "reviews": "Reviews",
-    "enflation": "Due to inflation, the price may be up to 10% higher than the price shown on the website."
-  },
-  "pay": {
-    "0": "Cash Only",
-    "1": "Accepts Credit Cards"
-  },
-  "amenities": {
-    "0": "Shower",
-    "1": "Sauna",
-    "2": "Steam Room",
-    "3": "Jacuzzi",
-    "4": "Pool",
-    "5": "Massage",
-    "6": "Ice Bucket",
-    "7": "Ice Pool"
-  },
-  "hours": {
-    "open": "Open",
-    "close": "Close",
-    "day": "Day",
-    "Monday": "Monday",
-    "Tuesday": "Tuesday",
-    "Wednesday": "Wednesday",
-    "Thursday": "Thursday",
-    "Friday": "Friday",
-    "Saturday": "Saturday",
-    "Sunday": "Sunday"
-  },
-  "sex-number": {
-    "1": "Men's Only",
-    "2": "Women's Only",
-    "3": "Unisex",
-    "4": "Segregated"
-  },
-  "gender": {
-    "0": "Female",
-    "1": "Male"
-  },
-  "filter": {
-    "placeholder": "Search district in Istanbul",
-    "title": "Filters",
-    "stitle": "Sort",
-    "ptitle": "Payment Method",
-    "rtitle": "Pay Range",
-    "sextitle": "Genders",
-    "vtitle": "Vibes",
-    "atitle": "Amenities",
-    "show": "Show Results",
-    "expensive": "Price (Highest first)",
-    "cheap": "Price (Lowest first)",
-    "cash": "Cash Only",
-    "card": "Accepts Credit Cards"
-  },
-  "review": {
-    "login": "Login to review",
-    "review": "Review Now",
-    "reviewed": "Reviewed",
-    "no-review": "No reviews yet",
-    "title": "Review",
-    "rate": "Rate",
-    "comment": "Comment",
-    "comment-placeholder": "Your comment...",
-    "submit": "Submit",
 
-    "location": "Location",
-    "staff": "Staff",
-    "atmosphere": "Atmosphere",
-    "cleanliness": "Cleanliness",
-    "facilities": "Facilities",
-    "value": "Value for Money"
-  },
-  "review-type": {
-    "0": "Solo",
-    "1": "Couple",
-    "2": "Family",
-    "3": "Friends"
-  },
-  "product-type": {
-    "0": "Basic",
-    "1": "Regular"
-  },
-  "product-desc": {
-    "0": "Only entrance fee , no extra service  included",
-    "1": "Full Access to all facilities extra body scrub and soap massage included"
+  "single": {
+    "enflation": "Due to inflation, the price may be up to 10% higher than the price shown on the website.",
+    "switch": {
+      "details": "Details",
+      "reviews": "Reviews"
+    },
+    "card": {
+      "adult": "Adult",
+      "child": "Child",
+      "scrub": "Body Scrub",
+      "button": "Load More",
+      "adult-desc": "Older than 13 years old",
+      "child-desc": "Between 5-13 years old",
+      "scrub-desc": "Add-on"
+    },
+    "review": {
+      "no-review": "No reviews yet",
+      "main": {
+        "location": "Location",
+        "staff": "Staff",
+        "atmosphere": "Atmosphere",
+        "cleanliness": "Cleanliness",
+        "facilities": "Facilities",
+        "value": "Value for Money"
+      },
+      "gender": {
+        "0": "Female",
+        "1": "Male"
+      },
+      "type": {
+        "0": "Solo",
+        "1": "Couple",
+        "2": "Family",
+        "3": "Friends"
+      },
+      "btn": {
+        "login": "Login to review",
+        "review": "Review Now",
+        "reviewed": "Reviewed"
+      },
+      "drawer": {
+        "title": "Review",
+        "rate": "Rate",
+        "comment": "Comment",
+        "comment-placeholder": "Your comment...",
+        "submit": "Submit"
+      }
+    },
+    "hours": {
+      "open": "Open",
+      "close": "Close",
+      "day": "Day",
+      "Monday": "Monday",
+      "Tuesday": "Tuesday",
+      "Wednesday": "Wednesday",
+      "Thursday": "Thursday",
+      "Friday": "Friday",
+      "Saturday": "Saturday",
+      "Sunday": "Sunday"
+    },
+    "product-desc": {
+      "0": "Only entrance fee , no extra service  included",
+      "1": "Full Access to all facilities extra body scrub and soap massage included"
+    },
+
+    "location": "Contact",
+    "tel": "Phone Number :"
   }
 }

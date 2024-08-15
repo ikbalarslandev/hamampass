@@ -3,7 +3,7 @@ import ReviewsCard from "./card";
 import { useTranslations } from "next-intl";
 
 const ReviewsComponent = ({ reviews }: { reviews: TReview[] }) => {
-  const t = useTranslations("review");
+  const t = useTranslations("single.review");
   return (
     <div className="mt-6 flex flex-col gap-2">
       {reviews.length > 0 ? (

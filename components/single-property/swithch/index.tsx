@@ -9,14 +9,14 @@ const SwitchComponent = ({
   selectedTab,
   setSelectedTab,
 }: SwitchComponentProps) => {
-  const s = useTranslations("single");
+  const switch_type = useTranslations("single.switch");
   return (
     <div className="relative w-full flex text-center mt-5">
       <div className="flex-1" onClick={() => setSelectedTab("details")}>
-        {s("details")}
+        {switch_type("details")}
       </div>
       <div className="flex-1" onClick={() => setSelectedTab("reviews")}>
-        {s("reviews")}
+        {switch_type("reviews")}
       </div>
 
       <div

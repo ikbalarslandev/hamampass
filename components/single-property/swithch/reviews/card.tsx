@@ -14,9 +14,9 @@ import { useParams } from "next/navigation";
 import { TCountry } from "@/types";
 
 const ReviewsCard = ({ review }: { review: TReview }) => {
-  const g = useTranslations("gender");
-  const r = useTranslations("review-type");
-  const p = useTranslations("product-type");
+  const g = useTranslations("single.review.gender");
+  const p = useTranslations("home.product-type");
+  const r = useTranslations("single.review.type");
   const { locale } = useParams<{ locale: string }>();
 
   review.rate = parseFloat(review.rate.toFixed(1));
