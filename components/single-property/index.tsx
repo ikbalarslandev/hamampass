@@ -74,7 +74,7 @@ const SinglePropertyPage = () => {
 
         {selectedTab === "reviews"
           ? data && <ReviewsComponent reviews={data.reviews} />
-          : data && <DetailsComponent data={data} />}
+          : data && <DetailsComponent data={data} reviews={data.reviews} />}
       </div>
     </div>
   );

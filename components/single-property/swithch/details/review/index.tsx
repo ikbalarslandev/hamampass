@@ -1,10 +1,16 @@
-import { TRating } from "@/types";
+import { TRating, TReview } from "@/types";
 import { IoStar } from "react-icons/io5";
 import { useTranslations } from "next-intl";
 import Rate from "./rate";
 import Cards from "./cards";
 
-const ReviewComponent = ({ data }: { data: TRating }) => {
+const ReviewComponent = ({
+  data,
+  reviews,
+}: {
+  data: TRating;
+  reviews: TReview[];
+}) => {
   const num = Number.isInteger(data.rate_overall)
     ? `${data.rate_overall}.0`
     : data.rate_overall.toFixed(1);
@@ -24,7 +30,7 @@ const ReviewComponent = ({ data }: { data: TRating }) => {
         </p>
       </div>
       <Rate data={data} />
-      <Cards />
+      <Cards reviews={reviews} />
     </div>
   );
 };

@@ -12,35 +12,9 @@ import { convertAgeRange } from "@/utils/db_translations";
 import { request } from "@/services/axios";
 import { useParams } from "next/navigation";
 import { TCountry } from "@/types";
+import { TReview } from "@/types";
 
-const Card = () => {
-  const review = {
-    id: "9b7d19af-6e40-4c84-9052-c04fba5e6283",
-    type: 2,
-    rate: 6.333333333333333,
-    comment:
-      // "The property was excellent, but the atmosphere could use some improvement.",
-      "The property was excellent, but the atmosphere could use some improvement.The property was excellent, but the atmosphere could use some improvement.The property was excellent, but the atmosphere could use some improvement.The property was excellent, but the atmosphere could use some improvement.",
-    product_type: 0,
-    createdAt: "2024-08-13T17:34:00.519Z",
-    updatedAt: "2024-08-13T17:34:00.519Z",
-    propertyId: "b3ed53ea-535f-4761-bfa0-d8e150cbf463",
-    userId: "cd5dbaab-7d03-4533-b839-2907b8d5b499",
-    user: {
-      id: "cd5dbaab-7d03-4533-b839-2907b8d5b499",
-      name: "John Doe",
-      email: "john.doe@example.com",
-      image:
-        "https://lh3.googleusercontent.com/a/ACg8ocK5tzFl1-ugfh6BapsBUlLg1u45Q39k_CXYcov7792AwFwByQ=s96-c",
-      nationality: "us",
-      age_range: 2,
-      gender: 1,
-      role: 0,
-      createdAt: "2024-08-13T17:27:27.150Z",
-      updatedAt: "2024-08-13T17:40:48.020Z",
-    },
-  };
-
+const Card = ({ review }: { review: TReview }) => {
   const g = useTranslations("single.review.gender");
 
   const { locale } = useParams<{ locale: string }>();
