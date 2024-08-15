@@ -42,7 +42,8 @@
     "product-type": {
       "0": "Basit",
       "1": "Standart"
-    }
+    },
+    "load-btn": "Daha Fazla Yükle"
   },
 
   "single": {

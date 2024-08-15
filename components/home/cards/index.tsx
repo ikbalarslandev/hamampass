@@ -49,7 +49,7 @@ const Cards: React.FC<CardsProps> = ({ res }) => {
     }
   };
 
-  const c = useTranslations("card");
+  const c = useTranslations("home.load-btn");
 
   return (
     <div className="flex flex-col items-center">

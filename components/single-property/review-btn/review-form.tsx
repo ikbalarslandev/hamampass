@@ -79,120 +79,122 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
   }
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-3"
-      >
-        <FormField
-          control={form.control}
-          name="type"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-2">{type("title")}</FormLabel>
-              <FormControl>
-                <Select
-                  value={field.value.toString()}
-                  onValueChange={(value) => field.onChange(Number(value))}
-                >
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="0">{type("0")}</SelectItem>
-                    <SelectItem value="1">{type("1")}</SelectItem>
-                    <SelectItem value="2">{type("2")}</SelectItem>
-                    <SelectItem value="3">{type("3")}</SelectItem>
-                  </SelectContent>
-                </Select>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="product_type"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-2">{Package("title")}</FormLabel>
-              <FormControl>
-                <Select
-                  value={field.value.toString()}
-                  onValueChange={(value) => field.onChange(Number(value))}
-                >
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="0">{Package("0")}</SelectItem>
-                    <SelectItem value="1">{Package("1")}</SelectItem>
-                  </SelectContent>
-                </Select>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <ProgressComponent
-          title={rate_types("location")}
-          name="rate_location"
-          control={form.control}
-          defaultValue={0}
-        />
-        <ProgressComponent
-          title={rate_types("staff")}
-          name="rate_staff"
-          control={form.control}
-          defaultValue={0}
-        />
-        <ProgressComponent
-          title={rate_types("atmosphere")}
-          name="rate_atmosphere"
-          control={form.control}
-          defaultValue={0}
-        />
-        <ProgressComponent
-          title={rate_types("cleanliness")}
-          name="rate_cleanliness"
-          control={form.control}
-          defaultValue={0}
-        />
-        <ProgressComponent
-          title={rate_types("facilities")}
-          name="rate_facilities"
-          control={form.control}
-          defaultValue={0}
-        />
-        <ProgressComponent
-          title={rate_types("value")}
-          name="rate_value_for_money"
-          control={form.control}
-          defaultValue={0}
-        />
-
-        <FormField
-          control={form.control}
-          name="comment"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-2">{t("comment")}</FormLabel>
-              <FormControl>
-                <Textarea placeholder={t("comment-placeholder")} {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <DrawerClose
-          type="submit"
-          className="bg-gray-400 px-2 py-1 text-white rounded my-5"
+    <div className="max-h-[calc(100vh-100px)] overflow-y-auto p-4">
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex flex-col gap-3 "
         >
-          {t("submit")}
-        </DrawerClose>
-      </form>
-    </Form>
+          <FormField
+            control={form.control}
+            name="type"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="mr-2">{type("title")}</FormLabel>
+                <FormControl>
+                  <Select
+                    value={field.value.toString()}
+                    onValueChange={(value) => field.onChange(Number(value))}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="0">{type("0")}</SelectItem>
+                      <SelectItem value="1">{type("1")}</SelectItem>
+                      <SelectItem value="2">{type("2")}</SelectItem>
+                      <SelectItem value="3">{type("3")}</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="product_type"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="mr-2">{Package("title")}</FormLabel>
+                <FormControl>
+                  <Select
+                    value={field.value.toString()}
+                    onValueChange={(value) => field.onChange(Number(value))}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="0">{Package("0")}</SelectItem>
+                      <SelectItem value="1">{Package("1")}</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <ProgressComponent
+            title={rate_types("location")}
+            name="rate_location"
+            control={form.control}
+            defaultValue={0}
+          />
+          <ProgressComponent
+            title={rate_types("staff")}
+            name="rate_staff"
+            control={form.control}
+            defaultValue={0}
+          />
+          <ProgressComponent
+            title={rate_types("atmosphere")}
+            name="rate_atmosphere"
+            control={form.control}
+            defaultValue={0}
+          />
+          <ProgressComponent
+            title={rate_types("cleanliness")}
+            name="rate_cleanliness"
+            control={form.control}
+            defaultValue={0}
+          />
+          <ProgressComponent
+            title={rate_types("facilities")}
+            name="rate_facilities"
+            control={form.control}
+            defaultValue={0}
+          />
+          <ProgressComponent
+            title={rate_types("value")}
+            name="rate_value_for_money"
+            control={form.control}
+            defaultValue={0}
+          />
+
+          <FormField
+            control={form.control}
+            name="comment"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="mr-2">{t("comment")}</FormLabel>
+                <FormControl>
+                  <Textarea placeholder={t("comment-placeholder")} {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <DrawerClose
+            type="submit"
+            className="bg-gray-400 px-2 py-1 text-white rounded my-5"
+          >
+            {t("submit")}
+          </DrawerClose>
+        </form>
+      </Form>
+    </div>
   );
 };
 

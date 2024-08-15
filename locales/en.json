@@ -42,7 +42,8 @@
     "product-type": {
       "0": "Basic",
       "1": "Regular"
-    }
+    },
+    "load-btn": "Load More"
   },
 
   "single": {

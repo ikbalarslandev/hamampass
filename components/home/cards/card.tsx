@@ -42,6 +42,7 @@ const Card = ({ property }: { property: TProperty }) => {
                     alt={property.title}
                     width={400}
                     height={400}
+                    priority={true}
                     className="rounded-xl"
                   />
                 </CarouselItem>
@@ -53,6 +54,7 @@ const Card = ({ property }: { property: TProperty }) => {
                     alt={property.title}
                     width={400}
                     height={400}
+                    priority={true}
                     className="rounded-xl"
                   />
                 </CarouselItem>
@@ -80,11 +82,11 @@ const Card = ({ property }: { property: TProperty }) => {
             </span>
           </div>
 
-          <p className="flex gap-4 mt-2 ml-1">
+          <div className="flex gap-4 mt-2 ml-1">
             {property.amenities.map((id: number, index: number) => (
               <HoverComponent key={index} amenity={id} />
             ))}
-          </p>
+          </div>
         </div>
         <div className=" flex h-16 mt-4 gap-2  ">
           {property.products.map((product) => (
