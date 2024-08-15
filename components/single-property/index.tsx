@@ -35,7 +35,7 @@ const SinglePropertyPage = () => {
   }, [title]);
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <Slider data={data} />
 
       <div className="flex flex-col mx-2 pt-5">
