@@ -24,6 +24,7 @@ import {
 import { useTranslations } from "next-intl";
 import { DrawerClose } from "@/components/ui/drawer";
 import ProgressComponent from "./progress";
+import { title } from "process";
 
 const formSchema = z.object({
   type: z.number().min(0).max(3),
@@ -42,6 +43,9 @@ const formSchema = z.object({
 const ReviewFormComponent = ({ id }: { id: string }) => {
   const session = useSession();
   const t = useTranslations("single.review.drawer");
+  const type = useTranslations("single.review.drawer.type");
+  const Package = useTranslations("single.review.drawer.package");
+  const rate_types = useTranslations("single.review.main");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -85,7 +89,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
           name="type"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="mr-2">How did you go there</FormLabel>
+              <FormLabel className="mr-2">{type("title")}</FormLabel>
               <FormControl>
                 <Select
                   value={field.value.toString()}
@@ -95,10 +99,10 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="0">Solo</SelectItem>
-                    <SelectItem value="1">Couple</SelectItem>
-                    <SelectItem value="2">Family</SelectItem>
-                    <SelectItem value="3">Friends</SelectItem>
+                    <SelectItem value="0">{type("0")}</SelectItem>
+                    <SelectItem value="1">{type("1")}</SelectItem>
+                    <SelectItem value="2">{type("2")}</SelectItem>
+                    <SelectItem value="3">{type("3")}</SelectItem>
                   </SelectContent>
                 </Select>
               </FormControl>
@@ -111,9 +115,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
           name="product_type"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="mr-2">
-                Which Package did you choose
-              </FormLabel>
+              <FormLabel className="mr-2">{Package("title")}</FormLabel>
               <FormControl>
                 <Select
                   value={field.value.toString()}
@@ -123,8 +125,8 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="0">Basic</SelectItem>
-                    <SelectItem value="1">Regular</SelectItem>
+                    <SelectItem value="0">{Package("0")}</SelectItem>
+                    <SelectItem value="1">{Package("1")}</SelectItem>
                   </SelectContent>
                 </Select>
               </FormControl>
@@ -134,37 +136,37 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
         />
 
         <ProgressComponent
-          title="Location"
+          title={rate_types("location")}
           name="rate_location"
           control={form.control}
           defaultValue={0}
         />
         <ProgressComponent
-          title="Staff"
+          title={rate_types("staff")}
           name="rate_staff"
           control={form.control}
           defaultValue={0}
         />
         <ProgressComponent
-          title="Atmosphere"
+          title={rate_types("atmosphere")}
           name="rate_atmosphere"
           control={form.control}
           defaultValue={0}
         />
         <ProgressComponent
-          title="Cleanliness"
+          title={rate_types("cleanliness")}
           name="rate_cleanliness"
           control={form.control}
           defaultValue={0}
         />
         <ProgressComponent
-          title="Facilities"
+          title={rate_types("facilities")}
           name="rate_facilities"
           control={form.control}
           defaultValue={0}
         />
         <ProgressComponent
-          title="Value for Money"
+          title={rate_types("value")}
           name="rate_value_for_money"
           control={form.control}
           defaultValue={0}

@@ -90,7 +90,19 @@
         "rate": "Rate",
         "comment": "Comment",
         "comment-placeholder": "Your comment...",
-        "submit": "Submit"
+        "submit": "Submit",
+        "type": {
+          "title": "Who did you go with",
+          "0": "Solo",
+          "1": "as Couple",
+          "2": "with Family",
+          "3": "with Friends"
+        },
+        "package": {
+          "title": "Which Package did you choose",
+          "0": "Basic",
+          "1": "Regular"
+        }
       }
     },
     "hours": {

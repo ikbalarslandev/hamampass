@@ -26,7 +26,7 @@ const ReviewDrawerComponent = ({ id }: any) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [country, setCountry] = useState<TCountry>();
-  const g = useTranslations("gender");
+  const g = useTranslations("single.review.gender");
 
   const session = useSession();
   const user = session?.data?.user;

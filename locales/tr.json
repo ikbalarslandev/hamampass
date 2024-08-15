@@ -90,7 +90,19 @@
         "rate": "Puanla",
         "comment": "Yorum Yap",
         "comment-placeholder": "Yorumunuz ...",
-        "submit": "Gönder"
+        "submit": "Gönder",
+        "type": {
+          "title": "Kiminle Gittiniz",
+          "0": "Yalnız",
+          "1": "Çift olarak",
+          "2": "Aile ile",
+          "3": "Arkadaşlarla"
+        },
+        "package": {
+          "title": "Hangi Paketi Seçtiniz",
+          "0": "Basit",
+          "1": "Standart"
+        }
       }
     },
     "hours": {
