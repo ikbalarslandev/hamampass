@@ -40,7 +40,12 @@ const ProfilePageComponent = () => {
       {u?.id ? (
         <InfoComponent user={user as TUser} />
       ) : (
-        <FormComponent user={user} />
+        <div className="flex flex-col mt-5">
+          <p className="text-center  font-semibold text-gray-700">
+            Please complete your profile
+          </p>
+          <FormComponent user={user} />
+        </div>
       )}
     </div>
   );

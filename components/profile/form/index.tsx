@@ -145,7 +145,7 @@ const FormComponent = ({ user }: { user: TSessionUser }) => {
           type="submit"
           className="bg-gray-400 px-2 py-1  text-white rounded my-5"
         >
-          Submit
+          Complete Profile
         </Button>
       </form>
     </Form>
