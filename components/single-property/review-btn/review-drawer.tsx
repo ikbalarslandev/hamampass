@@ -54,8 +54,14 @@ const ReviewDrawerComponent = ({ id }: any) => {
 
   return (
     <Drawer open={isOpen}>
-      <DrawerTrigger className="text-cyan-600 text-sm" onClick={handleTrigger}>
-        {b("review")}
+      <DrawerTrigger
+        className="fixed bottom-0 w-full p-3 bg-cyan-500 z-20"
+        onClick={handleTrigger}
+      >
+        <p className="text-cyan-600 text-sm w-full bg-white py-2 px-4 rounded text-center">
+          {" "}
+          {b("review")}
+        </p>
       </DrawerTrigger>
       <DrawerContent className="h-full">
         <DrawerHeader className="text-left">

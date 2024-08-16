@@ -5,6 +5,7 @@ import ReviewDrawerComponent from "./review-drawer";
 import { useState, useEffect, use } from "react";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
 
 interface IReviewButton {
   propertyId: string;
@@ -38,14 +39,25 @@ const ReviewButton = ({ propertyId }: IReviewButton) => {
 
   if (session.data) {
     if (isExist && session.data.user.id) {
-      return <p className="text-cyan-600 text-sm">{r("reviewed")}</p>;
+      return (
+        <div className="fixed bottom-0 w-full  bg-cyan-500 z-20">
+          <p className="text-white text-sm m-0 p- w-full text-center">
+            {r("reviewed")}
+          </p>
+        </div>
+      );
     }
     return <ReviewDrawerComponent id={propertyId} />;
   } else {
     return (
-      <p className="text-cyan-600 text-sm" onClick={handleClick}>
-        {r("login")}
-      </p>
+      <div className="fixed bottom-0 w-full px-4 py-3 bg-cyan-500 z-20">
+        <Button
+          className="text-cyan-600 text-sm w-full   bg-white rounded text-center"
+          onClick={handleClick}
+        >
+          {r("login")}
+        </Button>
+      </div>
     );
   }
 };
