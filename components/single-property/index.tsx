@@ -8,9 +8,7 @@ import { TProperty } from "@/types";
 import { useTranslations } from "next-intl";
 
 import ReviewButton from "./review-btn/review-button";
-import SwithchComponent from "./swithch";
-import DetailsComponent from "./swithch/details";
-import ReviewsComponent from "./swithch/reviews";
+import DetailsComponent from "./details";
 import { IoStar } from "react-icons/io5";
 
 const SinglePropertyPage = () => {
@@ -19,10 +17,6 @@ const SinglePropertyPage = () => {
   const [data, setData] = useState<TProperty>();
   const s = useTranslations("single");
   const payment_details = useTranslations("home.filters.payment_methods");
-
-  const [selectedTab, setSelectedTab] = useState<"details" | "reviews">(
-    "details"
-  );
 
   useEffect(() => {
     const res: any = request({
@@ -67,14 +61,7 @@ const SinglePropertyPage = () => {
           {s("enflation")}
         </div>
 
-        <SwithchComponent
-          selectedTab={selectedTab}
-          setSelectedTab={setSelectedTab}
-        />
-
-        {selectedTab === "reviews"
-          ? data && <ReviewsComponent reviews={data.reviews} />
-          : data && <DetailsComponent data={data} reviews={data.reviews} />}
+        {data && <DetailsComponent data={data} reviews={data.reviews} />}
       </div>
     </div>
   );

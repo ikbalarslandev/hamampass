@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/drawer";
 import React from "react";
 import { useTranslations } from "next-intl";
-import ReviewsComponent from "../../../reviews";
+import ReviewsComponent from "./drawer-content";
 
 const ReviewDrawerComponent = ({ trigger, reviews }: any) => {
   const title = useTranslations("home.filters.titles");

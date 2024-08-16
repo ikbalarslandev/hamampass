@@ -17,7 +17,7 @@ interface Hour {
 
 const HoursComponent: React.FC<HoursComponentProps> = ({ data }) => {
   const title = useTranslations("home.filters.titles");
-  const h = useTranslations("hours");
+  const h = useTranslations("single.hours");
   const sex = useTranslations("home.filters.sex");
 
   const [hours, setHours] = useState<Hour[]>([]);
