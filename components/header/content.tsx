@@ -13,7 +13,10 @@ const HamburgerContent = ({ setOpen }: any) => {
   return (
     <div>
       <button onClick={handleProfileClick}>My Profile</button>
-      <LocaleSwitcher />
+      <div className="flex items-center absolute bottom-0">
+        <p>Language : </p>
+        <LocaleSwitcher />
+      </div>
     </div>
   );
 };

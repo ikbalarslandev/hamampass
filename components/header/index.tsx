@@ -17,7 +17,7 @@ const HeaderComponent = () => {
   return (
     <header className="flex items-center justify-center  h-[8vh] bg-cyan-600 text-white px-2">
       <h1
-        className="text-3xl py-3 flex-1 text-center "
+        className="text-3xl py-3 flex-1 text-center z-40 "
         onClick={handleHeaderClick}
       >
         Hamam Pass

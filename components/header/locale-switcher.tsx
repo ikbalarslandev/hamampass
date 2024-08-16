@@ -24,7 +24,7 @@ const LocaleSwitcher = () => {
       onValueChange={handleOnLocaleChange}
       defaultValue={locale as string}
     >
-      <SelectTrigger className=" text-lg  bg-gray-800">
+      <SelectTrigger className=" text-lg   bg-gray-800">
         <SelectValue placeholder="Language" />
       </SelectTrigger>
       <SelectContent>
