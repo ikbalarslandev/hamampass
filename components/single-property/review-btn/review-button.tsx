@@ -52,7 +52,7 @@ const ReviewButton = ({ propertyId }: IReviewButton) => {
     return (
       <div className="fixed bottom-0 w-full px-4 py-3 bg-cyan-500 z-20">
         <Button
-          className="text-cyan-600 text-sm w-full   bg-white rounded text-center"
+          className="text-cyan-600 text-sm w-full  focus:text-white bg-white rounded text-center"
           onClick={handleClick}
         >
           {r("login")}

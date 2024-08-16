@@ -1,6 +1,6 @@
 import { TUser } from "@/types";
 import { signOut } from "next-auth/react";
-
+import { Button } from "@/components/ui/button";
 const InfoComponent = ({ user }: { user: TUser }) => {
   const handleSignOut = () => {
     signOut({ callbackUrl: "/" });
@@ -9,9 +9,12 @@ const InfoComponent = ({ user }: { user: TUser }) => {
     <div>
       <div className="m-3">
         <p>nationality : {user.nationality}</p>
-        <p>age_range : {user.age_range}</p>
+        <p>age : {user.age_range} </p>
         <p>gender : {user.gender}</p>
-        <button onClick={handleSignOut}>Sign Out</button>
+
+        <Button className="mt-10" onClick={handleSignOut}>
+          Sign Out
+        </Button>
       </div>
     </div>
   );

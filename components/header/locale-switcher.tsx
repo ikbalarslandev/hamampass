@@ -24,15 +24,15 @@ const LocaleSwitcher = () => {
       onValueChange={handleOnLocaleChange}
       defaultValue={locale as string}
     >
-      <SelectTrigger className=" text-2xl bg-cyan-600">
+      <SelectTrigger className=" text-lg  bg-gray-800">
         <SelectValue placeholder="Language" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem className="text-2xl" value="en">
-          🇺🇸
+        <SelectItem className="" value="en">
+          English
         </SelectItem>
-        <SelectItem className="text-2xl" value="tr">
-          🇹🇷
+        <SelectItem className="" value="tr">
+          Türkçe
         </SelectItem>
       </SelectContent>
     </Select>

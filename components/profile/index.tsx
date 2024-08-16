@@ -21,16 +21,22 @@ const ProfilePageComponent = () => {
 
   if (!user) return <div>loading...</div>;
   return (
-    <div>
-      <Image
-        src={user.image}
-        alt={user.name}
-        width={40}
-        height={40}
-        className="rounded-full"
-      />
-      <p>name : {user.name}</p>
-      <p>email : {user.email}</p>
+    <div className="mx-3">
+      <h1 className="text-center font-bold text-lg my-5 text-gray-700">
+        Profile Page
+      </h1>
+
+      <div className="flex items-center gap-5">
+        <Image
+          src={user.image}
+          alt={user.name}
+          width={50}
+          height={50}
+          className="rounded-full"
+        />
+        <p className="font-semibold text-lg"> {user.name}</p>
+      </div>
+
       {u?.id ? (
         <InfoComponent user={user as TUser} />
       ) : (
