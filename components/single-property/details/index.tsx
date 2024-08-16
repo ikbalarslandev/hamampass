@@ -25,4 +25,6 @@ const DetailsComponent = forwardRef<
   );
 });
 
+DetailsComponent.displayName = "DetailsComponent";
+
 export default DetailsComponent;

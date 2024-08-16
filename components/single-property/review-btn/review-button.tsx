@@ -5,7 +5,6 @@ import ReviewDrawerComponent from "./review-drawer";
 import { useState, useEffect, use } from "react";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
-import { useRouter } from "next/navigation";
 
 interface IReviewButton {
   propertyId: string;
@@ -31,7 +30,7 @@ const ReviewButton = ({ propertyId }: IReviewButton) => {
     if (session.data) {
       handleIsExist();
     }
-  }, [session.data]);
+  }, [session.data, propertyId]);
 
   const handleClick = async () => {
     await signIn("google", { callbackUrl: `/${locale}/profile` });
