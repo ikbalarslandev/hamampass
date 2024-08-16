@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 const ReviewsComponent = ({ reviews }: { reviews: TReview[] }) => {
   const t = useTranslations("single.review");
   return (
-    <div className="mt-6 flex flex-col gap-2">
+    <div className="flex flex-col gap-2  ">
       {reviews.length > 0 ? (
         reviews.map((review, index) => (
           <ReviewsCard key={index} review={review} />

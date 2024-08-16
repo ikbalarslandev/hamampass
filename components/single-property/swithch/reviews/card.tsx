@@ -42,7 +42,7 @@ const ReviewsCard = ({ review }: { review: TReview }) => {
   }, [locale]);
 
   return (
-    <div className=" border-t border-gray-300 pb-3">
+    <div className=" border-b border-gray-300 pb-3">
       <div className="flex items-center gap-3 p-2 flex-col">
         <div className="w-full flex items-center justify-between">
           <p className="text-xs text-gray-400"> {formatedDate}</p>

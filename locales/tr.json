@@ -63,6 +63,7 @@
     },
     "review": {
       "no-review": "Henüz yorum yapılmadı",
+      "see-all": "Tüm Yorumları Gör ",
       "main": {
         "location": "Konum",
         "staff": "Personel",
