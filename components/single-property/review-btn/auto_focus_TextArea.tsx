@@ -25,8 +25,8 @@ const AutoFocusTextarea = (props: TextareaProps) => {
   }, []);
 
   useEffect(() => {
-    if (isKeyboardOpen) {
-      const handleResize = () => {
+    const handleResize = () => {
+      if (isKeyboardOpen) {
         const screenHeight = window.innerHeight;
         const rect = textareaRef.current?.getBoundingClientRect();
         const bottomSpace = screenHeight - (rect?.bottom || 0);
@@ -34,16 +34,31 @@ const AutoFocusTextarea = (props: TextareaProps) => {
         if (bottomSpace < 0) {
           window.scrollTo(0, document.body.scrollHeight);
         }
-      };
+      }
+    };
 
+    const checkIfShouldBlur = () => {
+      if (textareaRef.current) {
+        const screenHeight = window.innerHeight;
+        const rect = textareaRef.current.getBoundingClientRect();
+        const bottomSpace = screenHeight - (rect?.bottom || 0);
+
+        // Unfocus the textarea if it's closer than 10% to the bottom
+        if (bottomSpace / screenHeight < 0.1) {
+          textareaRef.current.blur();
+        }
+      }
+    };
+
+    if (isKeyboardOpen) {
       window.addEventListener("resize", handleResize);
-
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    } else if (textareaRef.current) {
-      textareaRef.current.blur(); // Automatically blur the textarea when the keyboard closes
+    } else {
+      checkIfShouldBlur();
     }
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [isKeyboardOpen]);
 
   return (
