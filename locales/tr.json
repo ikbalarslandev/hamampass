@@ -80,7 +80,8 @@
         "0": "yalnız",
         "1": "Çift",
         "2": "Aile",
-        "3": "Arkadaş"
+        "3": "Arkadaş",
+        "4": "İş Arkadaşları"
       },
       "btn": {
         "reviewed": "Yorum Yapıldı",
@@ -98,7 +99,8 @@
           "0": "Yalnız",
           "1": "Çift olarak",
           "2": "Aile ile",
-          "3": "Arkadaşlarla"
+          "3": "Arkadaşlarla",
+          "4": "İş Arkadaşlarıyla"
         },
         "package": {
           "title": "Hangi Paketi Seçtiniz",

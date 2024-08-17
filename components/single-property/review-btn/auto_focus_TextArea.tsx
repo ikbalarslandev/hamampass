@@ -31,14 +31,17 @@ const AutoFocusTextarea = (props: TextareaProps) => {
       const rect = textareaRef.current?.getBoundingClientRect();
       const bottomSpace = currentViewportHeight - (rect?.bottom || 0);
 
-      // Check if the viewport height increased, which likely means the keyboard was closed
-      if (currentViewportHeight > viewportHeight) {
+      // If the distance to the bottom is more than 5vh, close the keyboard
+      if (bottomSpace > currentViewportHeight * 0.05) {
         setIsKeyboardOpen(false);
+      }
 
-        // Unfocus the textarea if it's closer than 5vh to the bottom
-        if (bottomSpace < currentViewportHeight * 0.05) {
-          textareaRef.current?.blur();
-        }
+      // If the viewport height increases (keyboard closed), blur the textarea if necessary
+      if (
+        currentViewportHeight > viewportHeight &&
+        bottomSpace < currentViewportHeight * 0.05
+      ) {
+        textareaRef.current?.blur();
       }
 
       setViewportHeight(currentViewportHeight);

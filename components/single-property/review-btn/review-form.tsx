@@ -104,6 +104,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
                       <SelectItem value="1">{type("1")}</SelectItem>
                       <SelectItem value="2">{type("2")}</SelectItem>
                       <SelectItem value="3">{type("3")}</SelectItem>
+                      <SelectItem value="4">{type("4")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </FormControl>

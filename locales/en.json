@@ -80,7 +80,8 @@
         "0": "Solo",
         "1": "Couple",
         "2": "Family",
-        "3": "Friends"
+        "3": "Friends",
+        "4": "Colleagues"
       },
       "btn": {
         "login": "Login to review",
@@ -98,7 +99,8 @@
           "0": "Solo",
           "1": "as Couple",
           "2": "with Family",
-          "3": "with Friends"
+          "3": "with Friends",
+          "4": "with Colleagues"
         },
         "package": {
           "title": "Which Package did you choose",
