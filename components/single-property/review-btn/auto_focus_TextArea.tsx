@@ -37,9 +37,12 @@ const AutoFocusTextarea = (props: TextareaProps) => {
       };
 
       window.addEventListener("resize", handleResize);
+
       return () => {
         window.removeEventListener("resize", handleResize);
       };
+    } else if (textareaRef.current) {
+      textareaRef.current.blur(); // Automatically blur the textarea when the keyboard closes
     }
   }, [isKeyboardOpen]);
 
@@ -50,7 +53,9 @@ const AutoFocusTextarea = (props: TextareaProps) => {
       style={{
         position: isKeyboardOpen ? "fixed" : "relative",
         bottom: isKeyboardOpen ? "10px" : "auto",
-        width: "100%",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "calc(100% - 20px)", // Adjusted to ensure it stays within the viewport with some padding
         zIndex: 1000,
       }}
     />
