@@ -15,7 +15,7 @@ const HamburgerContent = ({ setOpen }: any) => {
   };
 
   const handleLoginClick = async () => {
-    await signIn("google", { callbackUrl: `/${locale}/profile` });
+    await signIn("google", { callbackUrl: `/${locale}/auth/signIn` });
   };
 
   return (

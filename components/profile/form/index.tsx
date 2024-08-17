@@ -1,6 +1,6 @@
 "use client";
 
-import { TSessionUser } from "@/types";
+import { TUser } from "@/types";
 import { request } from "@/services/axios";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -22,6 +22,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useRouter } from "next/navigation";
+import { useSession, getSession } from "next-auth/react";
+import { get } from "http";
 
 const formSchema = z.object({
   nationality: z.string().min(2).max(2),
@@ -29,8 +31,10 @@ const formSchema = z.object({
   gender: z.number().min(0).max(1),
 });
 
-const FormComponent = ({ user }: { user: TSessionUser }) => {
+const FormComponent = () => {
   const router = useRouter();
+  const { data } = useSession();
+  const user = data?.user as TUser;
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -52,6 +56,8 @@ const FormComponent = ({ user }: { user: TSessionUser }) => {
       endpoint: "user",
       payload: req,
     });
+
+    await getSession();
 
     router.push("/");
   }

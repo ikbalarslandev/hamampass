@@ -15,7 +15,6 @@ const ReviewButton = ({ propertyId }: IReviewButton) => {
   const session = useSession();
   const [isExist, setIsExist] = useState(false);
   const r = useTranslations("single.review.btn");
-  const { locale } = useParams();
 
   useEffect(() => {
     const handleIsExist = async () => {
@@ -33,10 +32,6 @@ const ReviewButton = ({ propertyId }: IReviewButton) => {
     }
   }, [session.data, propertyId]);
 
-  const handleClick = async () => {
-    await signIn("google", { callbackUrl: `/${locale}/profile` });
-  };
-
   if (session.data) {
     if (isExist && session.data.user.id) {
       return (
@@ -50,13 +45,10 @@ const ReviewButton = ({ propertyId }: IReviewButton) => {
     return <ReviewDrawerComponent id={propertyId} />;
   } else {
     return (
-      <div className="fixed bottom-0 w-full px-4 py-3 bg-cyan-500 z-20">
-        <Button
-          className="text-cyan-600 text-sm w-full  focus:text-white bg-white rounded text-center"
-          onClick={handleClick}
-        >
+      <div className="fixed bottom-0 w-full px-4 py-3 bg-cyan-600 z-20">
+        <p className="text-white text-sm w-full  focus:text-white  rounded text-center ">
           {r("login")}
-        </Button>
+        </p>
       </div>
     );
   }

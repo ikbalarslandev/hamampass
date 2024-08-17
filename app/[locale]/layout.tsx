@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 import { loadMessages } from "@/utils/loadMessages";
-import HeaderComponent from "@/components/header";
 import { SessionProvider } from "next-auth/react";
 import dynamic from "next/dynamic";
 
@@ -40,10 +39,7 @@ export default async function LocaleLayout({
       <body className={inter.className}>
         <ReduxProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            <SessionProvider>
-              <HeaderComponent />
-              {children}
-            </SessionProvider>
+            <SessionProvider>{children}</SessionProvider>
           </NextIntlClientProvider>
         </ReduxProvider>
       </body>

@@ -10,14 +10,14 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import React from "react";
-import { useSession } from "next-auth/react";
+import { useSession, getSession } from "next-auth/react";
 import Image from "next/image";
 import ReviewFormComponent from "./review-form";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 import { convertAgeRange } from "@/utils/db_translations";
-import { TCountry, TReview } from "@/types";
+import { TCountry } from "@/types";
 import { useEffect, useState } from "react";
 import { request } from "@/services/axios";
 
@@ -28,13 +28,14 @@ const ReviewDrawerComponent = ({ id }: any) => {
   const [country, setCountry] = useState<TCountry>();
   const g = useTranslations("single.review.gender");
 
-  const session = useSession();
-  const user = session?.data?.user;
+  const { data, status } = useSession();
+  const [user, setUser] = useState(data?.user);
+
   const r = useTranslations("single.review.drawer");
   const b = useTranslations("single.review.btn");
 
   const handleTrigger = () => {
-    if (!session?.data?.user.id) {
+    if (!user?.id) {
       router.push(`/${locale}/profile`);
       return null;
     }
@@ -42,14 +43,33 @@ const ReviewDrawerComponent = ({ id }: any) => {
   };
 
   useEffect(() => {
+    const fetchSession = async () => {
+      const session = await getSession();
+      if (session?.user) {
+        setUser(session.user);
+      }
+    };
+
+    fetchSession();
+  }, []);
+
+  useEffect(() => {
+    if (data?.user) {
+      setUser(data.user);
+    }
+  }, [data]);
+
+  useEffect(() => {
     const getCountry = async () => {
       const res = await request({
         type: "get",
         endpoint: `country/${user?.nationality}`,
       });
-      return setCountry(res.data);
+      setCountry(res.data);
     };
-    getCountry();
+    if (user?.nationality) {
+      getCountry();
+    }
   }, [user?.nationality]);
 
   return (
@@ -59,7 +79,6 @@ const ReviewDrawerComponent = ({ id }: any) => {
         onClick={handleTrigger}
       >
         <p className="text-cyan-600 text-sm w-full bg-white py-2 px-4 rounded text-center">
-          {" "}
           {b("review")}
         </p>
       </DrawerTrigger>
@@ -90,14 +109,13 @@ const ReviewDrawerComponent = ({ id }: any) => {
                 />
               </div>
             </div>
-            <div className="flex flex-col  w-full">
-              <h1 className="font-semibold ">{user?.name}</h1>
-              <div className="flex justify-between text-sm text-gray-600  ">
+            <div className="flex flex-col w-full">
+              <h1 className="font-semibold">{user?.name}</h1>
+              <div className="flex justify-between text-sm text-gray-600">
                 <div className="flex items-center gap-2">
                   {user?.gender && <p>{g(user?.gender.toString())},</p>}
                   <p> {convertAgeRange(user?.age_range || 0)},</p>
                   <p>
-                    {" "}
                     {country && country[`name_${locale}` as keyof TCountry]}
                   </p>
                 </div>
