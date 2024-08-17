@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState, useRef } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -24,19 +25,16 @@ import {
 import { useTranslations } from "next-intl";
 import { DrawerClose } from "@/components/ui/drawer";
 import ProgressComponent from "./progress";
-import { title } from "process";
 
 const formSchema = z.object({
   type: z.number().min(0).max(3),
   product_type: z.number().min(0).max(1),
-
   rate_location: z.number().min(1).max(10),
   rate_staff: z.number().min(1).max(10),
   rate_atmosphere: z.number().min(1).max(10),
   rate_cleanliness: z.number().min(1).max(10),
   rate_facilities: z.number().min(1).max(10),
   rate_value_for_money: z.number().min(1).max(10),
-
   comment: z.string().min(1).max(1000),
 });
 
@@ -46,6 +44,8 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
   const type = useTranslations("single.review.drawer.type");
   const Package = useTranslations("single.review.drawer.package");
   const rate_types = useTranslations("single.review.main");
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -61,6 +61,29 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
       comment: "",
     },
   });
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (
+        window.visualViewport &&
+        window.visualViewport.height < window.innerHeight
+      ) {
+        setIsKeyboardOpen(true);
+        textareaRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      } else {
+        setIsKeyboardOpen(false);
+      }
+    };
+
+    window.visualViewport?.addEventListener("resize", handleResize);
+
+    return () => {
+      window.visualViewport?.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const req = {
@@ -111,6 +134,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
               </FormItem>
             )}
           />
+
           <FormField
             control={form.control}
             name="product_type"
@@ -180,7 +204,14 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
               <FormItem>
                 <FormLabel className="mr-2">{t("comment")}</FormLabel>
                 <FormControl>
-                  <Textarea placeholder={t("comment-placeholder")} {...field} />
+                  <Textarea
+                    placeholder={t("comment-placeholder")}
+                    {...field}
+                    ref={textareaRef}
+                    style={{
+                      marginTop: isKeyboardOpen ? "10vh" : "0",
+                    }}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

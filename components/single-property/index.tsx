@@ -37,7 +37,7 @@ const SinglePropertyPage = () => {
   };
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden mb-16">
       <Slider data={data} />
       {data && <ReviewStickBtn propertyId={data?.id} />}
 
