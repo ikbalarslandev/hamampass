@@ -11,6 +11,7 @@ import { useTranslations } from "next-intl";
 import ReviewStickBtn from "./review-btn";
 import DetailsComponent from "./details";
 import { IoStar } from "react-icons/io5";
+import MapDrawerComponent from "./map";
 
 const SinglePropertyPage = () => {
   let { title } = useParams();
@@ -43,10 +44,18 @@ const SinglePropertyPage = () => {
 
       <div className="flex flex-col mx-2 pt-5">
         <div className="flex justify-between items-center">
-          <div className="flex gap-1 text-sm ">
-            <CiLocationOn className="text-orange-600 mt-[.1rem]" size={16} />
-            {data?.contact.district} / {data?.contact.city}
-          </div>
+          <MapDrawerComponent
+            trigger={
+              <div className="flex gap-1 text-sm ">
+                <CiLocationOn
+                  className="text-orange-600 mt-[.1rem]"
+                  size={16}
+                />
+                {data?.contact.district} / {data?.contact.city}
+              </div>
+            }
+          />
+
           {/* review star  */}
           <div className="flex items-center gap-1" onClick={scrollToReview}>
             <IoStar className="text-cyan-500 w-5 h-5" />

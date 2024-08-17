@@ -14,7 +14,7 @@ const LocationComponent = ({ contact }: { contact: TContact }) => {
       </p>
       <div>
         <p className="text-gray-500">{contact.address}</p>
-        <GoogleMapComponent contact={contact.location} />
+        {/* <GoogleMapComponent contact={contact.location} /> */}
       </div>
     </div>
   );
