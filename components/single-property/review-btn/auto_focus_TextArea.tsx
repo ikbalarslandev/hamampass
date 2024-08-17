@@ -4,6 +4,7 @@ import { Textarea, TextareaProps } from "@/components/ui/textarea";
 const AutoFocusTextarea = (props: TextareaProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
 
   useEffect(() => {
     const handleFocus = () => {
@@ -25,26 +26,22 @@ const AutoFocusTextarea = (props: TextareaProps) => {
   }, []);
 
   useEffect(() => {
-    let lastViewportHeight = window.innerHeight;
-
     const handleResize = () => {
       const currentViewportHeight = window.innerHeight;
       const rect = textareaRef.current?.getBoundingClientRect();
       const bottomSpace = currentViewportHeight - (rect?.bottom || 0);
 
-      // Detect if the keyboard has closed by checking if the viewport height has increased
-      if (
-        currentViewportHeight > lastViewportHeight &&
-        bottomSpace < currentViewportHeight * 0.05
-      ) {
-        textareaRef.current?.blur();
+      // Check if the viewport height increased, which likely means the keyboard was closed
+      if (currentViewportHeight > viewportHeight) {
+        setIsKeyboardOpen(false);
+
+        // Unfocus the textarea if it's closer than 5vh to the bottom
+        if (bottomSpace < currentViewportHeight * 0.05) {
+          textareaRef.current?.blur();
+        }
       }
 
-      lastViewportHeight = currentViewportHeight;
-
-      if (isKeyboardOpen && bottomSpace < 0) {
-        window.scrollTo(0, document.body.scrollHeight);
-      }
+      setViewportHeight(currentViewportHeight);
     };
 
     window.addEventListener("resize", handleResize);
@@ -52,7 +49,7 @@ const AutoFocusTextarea = (props: TextareaProps) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [isKeyboardOpen]);
+  }, [viewportHeight]);
 
   return (
     <Textarea
