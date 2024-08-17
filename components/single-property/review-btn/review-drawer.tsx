@@ -73,7 +73,7 @@ const ReviewDrawerComponent = ({ id }: any) => {
   }, [user?.nationality]);
 
   return (
-    <Drawer open={isOpen}>
+    <Drawer open={isOpen} handleOnly={true}>
       <DrawerTrigger
         className="fixed bottom-0 w-full p-3 bg-cyan-500 z-20"
         onClick={handleTrigger}
@@ -113,7 +113,7 @@ const ReviewDrawerComponent = ({ id }: any) => {
               <h1 className="font-semibold">{user?.name}</h1>
               <div className="flex justify-between text-sm text-gray-600">
                 <div className="flex items-center gap-2">
-                  {user?.gender && <p>{g(user?.gender.toString())},</p>}
+                  {<p>{g(user?.gender.toString())},</p>}
                   <p> {convertAgeRange(user?.age_range || 0)},</p>
                   <p>
                     {country && country[`name_${locale}` as keyof TCountry]}
