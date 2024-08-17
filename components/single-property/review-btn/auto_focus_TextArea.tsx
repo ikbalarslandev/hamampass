@@ -43,8 +43,8 @@ const AutoFocusTextarea = (props: TextareaProps) => {
         const rect = textareaRef.current.getBoundingClientRect();
         const bottomSpace = screenHeight - (rect?.bottom || 0);
 
-        // Unfocus the textarea if it's closer than 10% to the bottom
-        if (bottomSpace / screenHeight < 0.1) {
+        // Unfocus the textarea if it's closer than 5vh (5% of the viewport height) to the bottom
+        if (bottomSpace < screenHeight * 0.05) {
           textareaRef.current.blur();
         }
       }
