@@ -25,36 +25,29 @@ const AutoFocusTextarea = (props: TextareaProps) => {
   }, []);
 
   useEffect(() => {
+    let lastViewportHeight = window.innerHeight;
+
     const handleResize = () => {
-      if (isKeyboardOpen) {
-        const screenHeight = window.innerHeight;
-        const rect = textareaRef.current?.getBoundingClientRect();
-        const bottomSpace = screenHeight - (rect?.bottom || 0);
+      const currentViewportHeight = window.innerHeight;
+      const rect = textareaRef.current?.getBoundingClientRect();
+      const bottomSpace = currentViewportHeight - (rect?.bottom || 0);
 
-        if (bottomSpace < 0) {
-          window.scrollTo(0, document.body.scrollHeight);
-        }
+      // Detect if the keyboard has closed by checking if the viewport height has increased
+      if (
+        currentViewportHeight > lastViewportHeight &&
+        bottomSpace < currentViewportHeight * 0.05
+      ) {
+        textareaRef.current?.blur();
+      }
+
+      lastViewportHeight = currentViewportHeight;
+
+      if (isKeyboardOpen && bottomSpace < 0) {
+        window.scrollTo(0, document.body.scrollHeight);
       }
     };
 
-    const checkIfShouldBlur = () => {
-      if (textareaRef.current) {
-        const screenHeight = window.innerHeight;
-        const rect = textareaRef.current.getBoundingClientRect();
-        const bottomSpace = screenHeight - (rect?.bottom || 0);
-
-        // Unfocus the textarea if it's closer than 5vh (5% of the viewport height) to the bottom
-        if (bottomSpace < screenHeight * 0.05) {
-          textareaRef.current.blur();
-        }
-      }
-    };
-
-    if (isKeyboardOpen) {
-      window.addEventListener("resize", handleResize);
-    } else {
-      checkIfShouldBlur();
-    }
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
