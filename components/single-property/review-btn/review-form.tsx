@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import {
   Form,
   FormControl,
@@ -25,31 +25,46 @@ import { useTranslations } from "next-intl";
 import { DrawerClose } from "@/components/ui/drawer";
 import ProgressComponent from "./progress";
 import AutoFocusTextarea from "./auto_focus_TextArea";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 
+// Define the schema for validation using Zod
 const formSchema = z.object({
   type: z.number().min(0).max(3),
   product_type: z.number().min(0).max(1),
-
   rate_location: z.number().min(1).max(10),
   rate_staff: z.number().min(1).max(10),
   rate_atmosphere: z.number().min(1).max(10),
   rate_cleanliness: z.number().min(1).max(10),
   rate_facilities: z.number().min(1).max(10),
   rate_value_for_money: z.number().min(1).max(10),
-
   comment: z.string().min(1).max(1000),
 });
 
+// Define the local storage key
+
 const ReviewFormComponent = ({ id }: { id: string }) => {
+  const { title } = useParams();
+
+  const LOCAL_STORAGE_KEY = `review-${title}`;
+
   const session = useSession();
   const t = useTranslations("single.review.drawer");
   const type = useTranslations("single.review.drawer.type");
   const Package = useTranslations("single.review.drawer.package");
   const rate_types = useTranslations("single.review.main");
 
+  // Initialize the form state from local storage
+  const [initialValues, setInitialValues] = useState<
+    z.infer<typeof formSchema>
+  >(() => {
+    const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
+    return savedData ? JSON.parse(savedData) : undefined;
+  });
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
+    defaultValues: initialValues || {
       type: 0,
       product_type: 0,
       rate_location: 0,
@@ -62,6 +77,17 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
     },
   });
 
+  // Watch form fields for changes
+  const watchedValues = useWatch({
+    control: form.control,
+  });
+
+  // Save form data to local storage whenever the form values change
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(watchedValues));
+  }, [watchedValues]);
+
+  // Submit handler for the form
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const req = {
       ...values,
@@ -69,12 +95,17 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
       userId: session?.data?.user.id,
     };
 
+    // Send the request to the server
     await request({
       type: "post",
       endpoint: "review",
       payload: req,
     });
 
+    // Clear the form data from local storage after successful submission
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
+
+    // Reload the page after submission
     window.location.reload();
   }
 
