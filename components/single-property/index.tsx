@@ -33,7 +33,15 @@ const SinglePropertyPage = () => {
 
   const scrollToReview = () => {
     if (reviewRef.current) {
-      reviewRef.current.scrollIntoView({ behavior: "smooth" });
+      const headerOffset = window.innerHeight * 0.09;
+      const elementPosition = reviewRef.current.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
