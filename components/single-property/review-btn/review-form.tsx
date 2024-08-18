@@ -24,7 +24,6 @@ import {
 import { useTranslations } from "next-intl";
 import { DrawerClose } from "@/components/ui/drawer";
 import ProgressComponent from "./progress";
-import AutoFocusTextarea from "./auto_focus_TextArea";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
@@ -212,10 +211,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
               <FormItem>
                 <FormLabel className="mr-2">{t("comment")}</FormLabel>
                 <FormControl>
-                  <AutoFocusTextarea
-                    placeholder={t("comment-placeholder")}
-                    {...field}
-                  />
+                  <Textarea {...field} placeholder={t("comment-placeholder")} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
