@@ -79,13 +79,7 @@ const SinglePropertyPage = () => {
           {s("enflation")}
         </div>
 
-        {data && (
-          <DetailsComponent
-            data={data}
-            reviews={data.reviews}
-            ref={reviewRef}
-          />
-        )}
+        {data && <DetailsComponent data={data} ref={reviewRef} />}
       </div>
     </div>
   );
