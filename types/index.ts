@@ -53,7 +53,6 @@ export interface TProperty {
   price: TPrice;
   days: TDay[];
   rating: TRating;
-  reviews: TReview[];
 }
 
 export interface TApiResponse {
