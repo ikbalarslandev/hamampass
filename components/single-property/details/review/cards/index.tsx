@@ -4,9 +4,24 @@ import { TReview } from "@/types";
 import { FaGreaterThan } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import ReviewDrawerComponent from "./drawer";
+import { request } from "@/services/axios";
+import { useEffect, useState } from "react";
 
-const Cards = ({ reviews }: { reviews: TReview[] }) => {
+const Cards = ({ propertyId }: { propertyId: string }) => {
   const btn = useTranslations("single.review");
+
+  const [reviews, setReviews] = useState<TReview[]>([]);
+  useEffect(() => {
+    const fetchReviews = async () => {
+      const req = await request({
+        type: "get",
+        endpoint: `review/${propertyId}`,
+      });
+
+      setReviews(req.data.data);
+    };
+    fetchReviews();
+  }, [propertyId]);
   return (
     <div className=" bg-cyan-300 rotate-3 my-10  px-2 rounded w-[105vw] -ml-4 relative">
       <Carousel className="rounded-none py-5  -rotate-3  ">
@@ -24,7 +39,7 @@ const Cards = ({ reviews }: { reviews: TReview[] }) => {
               {btn("see-all")}
             </p>
           }
-          reviews={reviews}
+          propertyId={propertyId}
         />
 
         <FaGreaterThan size={10} />

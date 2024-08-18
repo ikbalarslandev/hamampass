@@ -3,8 +3,6 @@ import { IoStar } from "react-icons/io5";
 import { useTranslations } from "next-intl";
 import Rate from "./rate";
 import Cards from "./cards";
-import { request } from "@/services/axios";
-import { useEffect, useState } from "react";
 
 const ReviewComponent = ({
   data,
@@ -13,19 +11,6 @@ const ReviewComponent = ({
   data: TRating;
   propertyId: string;
 }) => {
-  const [reviews, setReviews] = useState<TReview[]>([]);
-  useEffect(() => {
-    const fetchReviews = async () => {
-      const req = await request({
-        type: "get",
-        endpoint: `review/${propertyId}`,
-      });
-
-      setReviews(req.data.data);
-    };
-    fetchReviews();
-  }, [data]);
-
   const num = Number.isInteger(data.rate_overall)
     ? `${data.rate_overall}.0`
     : data.rate_overall.toFixed(1);
@@ -45,7 +30,7 @@ const ReviewComponent = ({
         </p>
       </div>
       <Rate data={data} />
-      <Cards reviews={reviews} />
+      <Cards propertyId={propertyId} />
     </div>
   );
 };
