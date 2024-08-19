@@ -11,9 +11,9 @@ const ReviewComponent = ({
   data: TRating;
   propertyId: string;
 }) => {
-  const num = Number.isInteger(data.rate_overall)
-    ? `${data.rate_overall}.0`
-    : data.rate_overall.toFixed(1);
+  const num = Number.isInteger(data?.rate_overall)
+    ? `${data?.rate_overall}.0`
+    : data?.rate_overall?.toFixed(1) || "";
 
   const s = useTranslations("home.filters.titles");
 
@@ -26,7 +26,7 @@ const ReviewComponent = ({
         <p className="text-3xl font-semibold">
           {num}
 
-          <span className="text-lg text-gray-700"> ({data.count})</span>
+          <span className="text-lg text-gray-700"> ({data?.count || 0})</span>
         </p>
       </div>
       <Rate data={data} />

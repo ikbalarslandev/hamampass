@@ -65,12 +65,15 @@ const SinglePropertyPage = () => {
           />
 
           {/* review star  */}
-          <div className="flex items-center gap-1" onClick={scrollToReview}>
-            <IoStar className="text-cyan-500 w-5 h-5" />
-            <span className="font-bold text-xl">
-              {data && parseFloat(data?.rating.rate_overall.toFixed(1))}
-            </span>
-          </div>
+          {data?.rating && (
+            <div className="flex items-center gap-1" onClick={scrollToReview}>
+              <IoStar className="text-cyan-500 w-5 h-5" />
+              <span className="font-bold text-xl">
+                {(data && parseFloat(data?.rating?.rate_overall?.toFixed(1))) ||
+                  ""}
+              </span>
+            </div>
+          )}
         </div>
 
         <h1 className="font-bold text-2xl text-slate-700 mb-10">

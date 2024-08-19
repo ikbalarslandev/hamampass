@@ -100,10 +100,8 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
       endpoint: "review",
       payload: req,
     });
-
     // Clear the form data from local storage after successful submission
     localStorage.removeItem(LOCAL_STORAGE_KEY);
-
     // Reload the page after submission
     window.location.reload();
   }
@@ -217,6 +215,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
               </FormItem>
             )}
           />
+
           <DrawerClose
             type="submit"
             className="bg-gray-400 px-2 py-1 text-white rounded my-5"

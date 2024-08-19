@@ -23,6 +23,9 @@ const ProgressComponent = ({ data, title }: TProgress) => {
 
 const Rate = ({ data }: { data: TRating }) => {
   const r = useTranslations("single.review.main");
+
+  if (!data) return null;
+
   return (
     <div className="flex flex-col  ">
       <ProgressComponent data={data.rate_location} title={r("location")} />

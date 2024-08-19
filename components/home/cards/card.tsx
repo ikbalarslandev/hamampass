@@ -67,13 +67,15 @@ const Card = ({ property }: { property: TProperty }) => {
             <h2 className="text-xl font-bold text-slate-700 my-2">
               {property.title}
             </h2>
-            <div className="flex items-start gap-1 mr-2">
-              <IoStar className="text-cyan-500 w-5 h-5 " />
-              <p className="font-semibold">
-                {parseFloat(property.rating.rate_overall.toFixed(1))} (
-                {property.rating.count})
-              </p>
-            </div>
+            {property.rating && (
+              <div className="flex items-start gap-1 mr-2">
+                <IoStar className="text-cyan-500 w-5 h-5 " />
+                <p className="font-semibold">
+                  {parseFloat(property?.rating?.rate_overall?.toFixed(1)) || ""}{" "}
+                  ({property?.rating?.count || 0})
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="flex gap-2 items-center justify-between">
