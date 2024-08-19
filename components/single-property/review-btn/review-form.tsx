@@ -40,20 +40,15 @@ const formSchema = z.object({
   comment: z.string().min(1).max(1000),
 });
 
-// Define the local storage key
-
 const ReviewFormComponent = ({ id }: { id: string }) => {
   const { title } = useParams();
-
   const LOCAL_STORAGE_KEY = `review-${title}`;
-
   const session = useSession();
   const t = useTranslations("single.review.drawer");
   const type = useTranslations("single.review.drawer.type");
   const Package = useTranslations("single.review.drawer.package");
   const rate_types = useTranslations("single.review.main");
 
-  // Initialize the form state from local storage
   const [initialValues, setInitialValues] = useState<
     z.infer<typeof formSchema>
   >(() => {
@@ -74,19 +69,22 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
       rate_value_for_money: 0,
       comment: "",
     },
+    mode: "onSubmit", // Ensure validation happens on submit
   });
 
-  // Watch form fields for changes
-  const watchedValues = useWatch({
-    control: form.control,
-  });
+  const watchedValues = useWatch({ control: form.control });
 
-  // Save form data to local storage whenever the form values change
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(watchedValues));
   }, [watchedValues]);
 
-  // Submit handler for the form
+  // Mark the form as dirty if it has initial values from local storage
+  useEffect(() => {
+    if (initialValues) {
+      form.reset(initialValues);
+    }
+  }, [initialValues, form]);
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const req = {
       ...values,
@@ -100,9 +98,8 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
       endpoint: "review",
       payload: req,
     });
-    // Clear the form data from local storage after successful submission
+
     localStorage.removeItem(LOCAL_STORAGE_KEY);
-    // Reload the page after submission
     window.location.reload();
   }
 
@@ -111,7 +108,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col gap-3 "
+          className="flex flex-col gap-3"
         >
           <FormField
             control={form.control}
@@ -132,7 +129,6 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
                       <SelectItem value="1">{type("1")}</SelectItem>
                       <SelectItem value="2">{type("2")}</SelectItem>
                       <SelectItem value="3">{type("3")}</SelectItem>
-                      <SelectItem value="4">{type("4")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </FormControl>
