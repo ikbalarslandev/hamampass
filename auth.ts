@@ -12,6 +12,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           endpoint: `user/${session.user.email}`,
         });
         const data = await res.data;
+
         const user = session.user;
 
         if (data) {

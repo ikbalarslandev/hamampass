@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseURL = "https://hp-backend-90q9.onrender.com/api";
-// const baseURL = "http://localhost:3003/api";
+// const baseURL = "http://localhost:3000";
+const baseURL = "https://www.hamampass.com";
 
 const axiosInstance = axios.create({
   baseURL,
@@ -21,7 +21,7 @@ const request = (credentials: {
 }) => {
   const config = {
     method: credentials.type,
-    url: `/${credentials.endpoint}`,
+    url: `/api/${credentials.endpoint}`,
     data: credentials.payload,
     params: credentials.params,
   };
