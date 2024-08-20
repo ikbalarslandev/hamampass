@@ -22,7 +22,7 @@ const getReviewsForProperty = async (req: NextRequest) => {
     },
   });
 
-  reviews.sort((a, b) => {
+  reviews.sort((a: any, b: any) => {
     return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
   });
 
