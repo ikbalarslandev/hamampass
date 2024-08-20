@@ -84,4 +84,64 @@ const getPropertyByTitle = async (req: NextRequest) => {
   return property;
 };
 
-export { getAllProperties, getPropertyByTitle };
+const createProperty = async (req: NextRequest) => {
+  const {
+    title,
+    vibe,
+    amenities,
+    photos,
+    days,
+    contact,
+    price,
+    sex,
+    products,
+  } = await req.json();
+
+  try {
+    // Create Contact record
+    const contactRecord = await prisma.contact.create({
+      data: {
+        phone: contact.phone,
+        city: contact.city,
+        district: contact.district,
+        address: contact.address,
+        location: contact.location,
+      },
+    });
+
+    // Create Price record
+    const priceRecord = await prisma.price.create({
+      data: {
+        adult: price.adult,
+        child: price.child,
+        scrub: price.scrub,
+      },
+    });
+
+    // Create Property record with references to Contact and Price records
+    const property = await prisma.property.create({
+      data: {
+        title,
+        vibe,
+        amenities,
+        photos,
+        sex,
+        days: {
+          create: days,
+        },
+        contactId: contactRecord.id,
+        priceId: priceRecord.id,
+        products: {
+          create: products,
+        },
+      },
+    });
+
+    return property;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to create property");
+  }
+};
+
+export { getAllProperties, getPropertyByTitle, createProperty };

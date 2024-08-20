@@ -13,4 +13,23 @@ const getCountryByTld = async (req: NextRequest) => {
   return country;
 };
 
-export { getCountryByTld };
+const getCountries = async () => {
+  const countries = await prisma.country.findMany();
+  return countries;
+};
+
+const createCountry = async (req: NextRequest) => {
+  const { tld, name_tr, name_en, image } = await req.json();
+
+  const country = await prisma.country.create({
+    data: {
+      tld,
+      name_tr,
+      name_en,
+      image,
+    },
+  });
+  return country;
+};
+
+export { getCountryByTld, getCountries, createCountry };

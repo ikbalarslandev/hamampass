@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCountryByTld } from "@/actions/country";
+import { getCountryByTld, createCountry } from "@/actions/country";
 
 export async function GET(req: NextRequest) {
   try {
@@ -9,6 +9,19 @@ export async function GET(req: NextRequest) {
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to fetch country" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function POST(req: NextRequest) {
+  try {
+    const country = await createCountry(req);
+
+    return NextResponse.json(country);
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Failed to create country" },
       { status: 500 }
     );
   }
