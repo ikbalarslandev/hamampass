@@ -18,7 +18,7 @@ const MapDrawerComponent = ({ trigger }: any) => {
 
   const location = [40.95416482162608, 29.09357972545057];
   return (
-    <Drawer>
+    <Drawer handleOnly={true}>
       <DrawerTrigger>{trigger}</DrawerTrigger>
       <DrawerContent className="h-full">
         <DrawerHeader className=" flex justify-between items-center mt-2">

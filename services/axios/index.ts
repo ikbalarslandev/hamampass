@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const baseURL = "http://localhost:3000";
-const baseURL = "https://www.hamampass.com";
+const baseURL = "http://localhost:3000";
+// const baseURL = "https://www.hamampass.com";
 
 const axiosInstance = axios.create({
   baseURL,

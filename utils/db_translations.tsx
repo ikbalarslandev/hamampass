@@ -7,6 +7,8 @@ import { MdOutlineSevereCold } from "react-icons/md";
 import { IoIosWarning } from "react-icons/io";
 import { TbMassage } from "react-icons/tb";
 import { PiThermometerColdFill } from "react-icons/pi";
+import { IoBodyOutline } from "react-icons/io5";
+import { IoTicketOutline } from "react-icons/io5";
 
 const convertAgeRange = (n: number) => {
   switch (n) {
@@ -48,4 +50,15 @@ const convertAmenityIcon = (id: number) => {
   }
 };
 
-export { convertAgeRange, convertAmenityIcon };
+const convertProductIcon = (type: number) => {
+  const classN = "text-3xl";
+
+  switch (type.toString()) {
+    case "0":
+      return <IoTicketOutline className={classN} />;
+    case "1":
+      return <IoBodyOutline className={classN} />;
+  }
+};
+
+export { convertAgeRange, convertAmenityIcon, convertProductIcon };

@@ -94,15 +94,16 @@ const Card = ({ property }: { property: TProperty }) => {
           {property.products.map((product) => (
             <div
               key={product.id}
-              className=" flex-1 flex flex-col items-center justify-center border shadow-md rounded-lg"
+              className=" flex-1 flex flex-col items-center justify-center "
             >
-              <p className="font-bold">
-                {product_type(product.type.toString())}
-              </p>
+              <p>{product_type(product.type.toString())}</p>
 
-              <span className=" font-semibold text-green-600">
-                ₺ {product.adult_price}
-              </span>
+              <div className="flex gap-1 items-center">
+                <span className=" font-bold text-xl">
+                  ₺{product.adult_price}
+                </span>
+                <span className="text-sm text-gray-500">TL</span>
+              </div>
             </div>
           ))}
         </div>

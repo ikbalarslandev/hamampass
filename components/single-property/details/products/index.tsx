@@ -4,6 +4,7 @@ import { TProduct } from "@/types";
 import DrawerComponent from "./drawer";
 import { PiFlowerLotus } from "react-icons/pi";
 import { useTranslations } from "next-intl";
+import { convertProductIcon } from "@/utils/db_translations";
 
 interface Props {
   data: TProduct[];
@@ -26,7 +27,8 @@ const ProductsComponent = ({ data }: Props) => {
                 className="flex justify-between items-center px-5 border  shadow rounded-lg py-3"
               >
                 <div className="flex gap-3 items-center">
-                  <PiFlowerLotus className="text-3xl" />
+                  {convertProductIcon(item.type)}
+
                   <h2>{t(item.type.toString())}</h2>
                 </div>
 
