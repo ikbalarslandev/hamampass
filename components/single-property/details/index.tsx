@@ -11,7 +11,7 @@ const DetailsComponent = forwardRef<HTMLDivElement, { data: TProperty }>(
   ({ data }, ref) => {
     return (
       <div>
-        {data && <PriceComponent data={data?.price} />}
+        {/* {data && <PriceComponent data={data?.price} />} */}
         {data && <ProductsComponent data={data?.products} />}
         <div ref={ref}>
           {data.rating && (

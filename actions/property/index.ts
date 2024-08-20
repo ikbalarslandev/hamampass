@@ -30,7 +30,6 @@ async function getAllProperties(req: NextRequest) {
   try {
     const properties = await prisma.property.findMany({
       include: {
-        price: true,
         rating: true,
         products: true,
       },
@@ -74,7 +73,6 @@ const getPropertyByTitle = async (req: NextRequest) => {
     },
     include: {
       contact: true,
-      price: true,
       days: true,
       products: true,
       rating: true,
@@ -85,17 +83,8 @@ const getPropertyByTitle = async (req: NextRequest) => {
 };
 
 const createProperty = async (req: NextRequest) => {
-  const {
-    title,
-    vibe,
-    amenities,
-    photos,
-    days,
-    contact,
-    price,
-    sex,
-    products,
-  } = await req.json();
+  const { title, vibe, amenities, photos, days, contact, sex, products } =
+    await req.json();
 
   try {
     // Create Contact record
@@ -106,15 +95,6 @@ const createProperty = async (req: NextRequest) => {
         district: contact.district,
         address: contact.address,
         location: contact.location,
-      },
-    });
-
-    // Create Price record
-    const priceRecord = await prisma.price.create({
-      data: {
-        adult: price.adult,
-        child: price.child,
-        scrub: price.scrub,
       },
     });
 
@@ -130,7 +110,6 @@ const createProperty = async (req: NextRequest) => {
           create: days,
         },
         contactId: contactRecord.id,
-        priceId: priceRecord.id,
         products: {
           create: products,
         },

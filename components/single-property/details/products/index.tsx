@@ -13,7 +13,8 @@ const ProductsComponent = ({ data }: Props) => {
   const t = useTranslations("home.product-type");
 
   return (
-    <div>
+    <div className="mt-4">
+      <h2 className="font-bold text-xl text-gray-600">Products</h2>
       <div className=" flex flex-col gap-3 my-4">
         {data.map((item) => (
           <DrawerComponent
@@ -29,7 +30,7 @@ const ProductsComponent = ({ data }: Props) => {
                   <h2>{t(item.type.toString())}</h2>
                 </div>
 
-                <p>₺ {item.price}</p>
+                <p>₺ {item.adult_price} TL</p>
               </div>
             }
           />

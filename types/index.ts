@@ -1,5 +1,3 @@
-import exp from "constants";
-
 export interface TContact {
   id: string;
   phone: string;
@@ -11,19 +9,18 @@ export interface TContact {
   updatedAt: string;
 }
 
-export interface TPrice {
-  id: string;
-  adult: number;
-  child: number;
-  scrub: number;
-  createdAt: string;
-  updatedAt: string;
-}
-
 export interface TProduct {
   id: string;
   type: number;
-  price: number;
+  adult_price: number;
+  age: number; // +13
+  child_price: number;
+
+  detail_tr: string[];
+  detail_en: string[];
+
+  desc_tr: string;
+  desc_en: string;
 }
 
 export interface TDay {
@@ -50,7 +47,6 @@ export interface TProperty {
   updatedAt: string;
   contact: TContact;
   products: TProduct[];
-  price: TPrice;
   days: TDay[];
   rating: TRating;
 }

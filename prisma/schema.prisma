@@ -60,9 +60,9 @@ datasource db {
 // friends === 3
 // }
 
-// enum Porduct_Type{
-  // basic === 0
-  // regular === 1
+// enum Porduct_Type{ 
+// basic === 0  // only entry
+// regular === 1   // entry + body scrub
 // }
 
 model Property {
@@ -73,11 +73,8 @@ model Property {
   contact   Contact? @relation(fields: [contactId], references: [id])
   contactId String?
 
-  price   Price?  @relation(fields: [priceId], references: [id])
-  priceId String?
-
   rating   Rating? @relation(fields: [ratingId], references: [id])
-  ratingId String?  @unique
+  ratingId String? @unique
 
   vibe      Int?
   days      Day[]
@@ -85,9 +82,9 @@ model Property {
   products  Product[]
   reviews   Review[]
 
-  photos String[]
-  sex    Int
-  pay    Int      @default(0)
+  photos  String[]
+  sex     Int
+  pay     Int      @default(0)
   desc_tr String?
   desc_en String?
 
@@ -133,15 +130,15 @@ model Contact {
 }
 
 model Rating {
-  id    String @id @default(uuid())
-  count Int
-  rate_overall   Float
+  id           String @id @default(uuid())
+  count        Int
+  rate_overall Float
 
-  rate_location      Float
-  rate_staff         Float
-  rate_atmosphere    Float
-  rate_cleanliness   Float
-  rate_facilities    Float
+  rate_location        Float
+  rate_staff           Float
+  rate_atmosphere      Float
+  rate_cleanliness     Float
+  rate_facilities      Float
   rate_value_for_money Float
 
   createdAt DateTime   @default(now())
@@ -149,21 +146,22 @@ model Rating {
   Property  Property[]
 }
 
-model Price {
-  id    String @id @default(uuid())
-  adult Float
-  child Float
-  scrub Float
-
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  Property  Property[]
-}
-
 model Product {
-  id          String   @id @default(uuid())
-  type        Int
-  price       Float
+  id String @id @default(uuid())
+
+  type Int
+
+  adult_price   Float
+  age Int  // +13
+  child_price Float?
+
+
+  detail_tr String[]
+  detail_en String[]
+
+  desc_tr String
+  desc_en String
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   belongsToId String
@@ -171,10 +169,10 @@ model Product {
 }
 
 model Review {
-  id         String   @id @default(uuid())
-  type       Int
-  rate       Float
-  comment    String
+  id           String @id @default(uuid())
+  type         Int
+  rate         Float
+  comment      String
   product_type Int
 
   createdAt  DateTime @default(now())
@@ -199,10 +197,9 @@ model User {
   updatedAt   DateTime @updatedAt
 }
 
-
 model Country {
-  tld      String   @id @default(uuid())
-  name_tr       String
-  name_en       String
-  image         String
+  tld     String @id @default(uuid())
+  name_tr String
+  name_en String
+  image   String
 }

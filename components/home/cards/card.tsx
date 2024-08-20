@@ -101,7 +101,7 @@ const Card = ({ property }: { property: TProperty }) => {
               </p>
 
               <span className=" font-semibold text-green-600">
-                ₺ {product.price}
+                ₺ {product.adult_price}
               </span>
             </div>
           ))}
