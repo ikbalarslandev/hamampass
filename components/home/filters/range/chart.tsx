@@ -61,11 +61,18 @@ const Chart = () => {
   useEffect(() => {
     if (properties.data) {
       const newChartData = chartData.map((entry) => {
-        const propertyCount = properties.data.filter(
-          (property) =>
-            property.price.adult <= entry.price &&
-            property.price.adult > entry.price - 50
-        ).length;
+        const propertyCount = properties.data.filter((property) => {
+          const lowestTypeProduct = property.products.reduce(
+            (prev, current) => (prev.type < current.type ? prev : current),
+            property?.products[0]
+          );
+
+          return (
+            lowestTypeProduct.adult_price <= entry.price &&
+            lowestTypeProduct.adult_price > entry.price - 50
+          );
+        }).length;
+
         return { ...entry, property: propertyCount };
       });
 

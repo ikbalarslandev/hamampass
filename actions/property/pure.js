@@ -35,7 +35,16 @@ const filterByRange = (range) => (properties) =>
   range
     ? properties.filter((property) => {
         const [min, max] = JSON.parse(range);
-        return property.price.adult >= min && property.price.adult <= max;
+
+        const lowestTypeProduct = property.products.reduce(
+          (prev, current) => (prev.type < current.type ? prev : current),
+          property.products[0]
+        );
+
+        return (
+          lowestTypeProduct.adult_price >= min &&
+          lowestTypeProduct.adult_price <= max
+        );
       })
     : properties;
 
