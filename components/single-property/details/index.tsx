@@ -1,5 +1,4 @@
 import React, { forwardRef } from "react";
-import PriceComponent from "./price";
 import ProductsComponent from "./products";
 import AmenityComponent from "./amenities";
 import HoursComponent from "./hours";
@@ -11,7 +10,6 @@ const DetailsComponent = forwardRef<HTMLDivElement, { data: TProperty }>(
   ({ data }, ref) => {
     return (
       <div>
-        {/* {data && <PriceComponent data={data?.price} />} */}
         {data && <ProductsComponent data={data?.products} />}
         <div ref={ref}>
           {data.rating && (
