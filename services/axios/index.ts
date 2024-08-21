@@ -1,10 +1,7 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:3000";
-// const baseURL = "https://www.hamampass.com";
-
 const axiosInstance = axios.create({
-  baseURL,
+  baseURL: process.env.BASE_URL,
   withCredentials: false,
   headers: {
     "Content-Type": "application/json",
