@@ -73,11 +73,7 @@ const ReviewDrawerComponent = ({ id }: any) => {
   }, [user?.nationality]);
 
   return (
-    <Drawer
-      open={isOpen}
-
-      // handleOnly={true}
-    >
+    <Drawer open={isOpen}>
       <DrawerTrigger
         className="fixed bottom-0 w-full p-3 bg-cyan-500 z-20"
         onClick={handleTrigger}

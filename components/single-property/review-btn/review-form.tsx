@@ -56,6 +56,8 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
     return savedData ? JSON.parse(savedData) : undefined;
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: initialValues || {
@@ -69,7 +71,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
       rate_value_for_money: 0,
       comment: "",
     },
-    mode: "onSubmit", // Ensure validation happens on submit
+    mode: "onSubmit",
   });
 
   const watchedValues = useWatch({ control: form.control });
@@ -78,7 +80,6 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(watchedValues));
   }, [watchedValues]);
 
-  // Mark the form as dirty if it has initial values from local storage
   useEffect(() => {
     if (initialValues) {
       form.reset(initialValues);
@@ -86,21 +87,25 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
   }, [initialValues, form]);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const req = {
-      ...values,
-      propertyId: id,
-      userId: session?.data?.user.id,
-    };
+    setIsSubmitting(true);
+    try {
+      const req = {
+        ...values,
+        propertyId: id,
+        userId: session?.data?.user.id,
+      };
 
-    // Send the request to the server
-    await request({
-      type: "post",
-      endpoint: "review",
-      payload: req,
-    });
+      await request({
+        type: "post",
+        endpoint: "review",
+        payload: req,
+      });
 
-    localStorage.removeItem(LOCAL_STORAGE_KEY);
-    window.location.reload();
+      localStorage.removeItem(LOCAL_STORAGE_KEY);
+      window.location.reload();
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -136,6 +141,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
               </FormItem>
             )}
           />
+
           <FormField
             control={form.control}
             name="product_type"
@@ -214,7 +220,10 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
 
           <DrawerClose
             type="submit"
-            className="bg-gray-400 px-2 py-1 text-white rounded my-5"
+            className={`bg-gray-400 px-2 py-1 text-white rounded my-5 ${
+              isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            disabled={isSubmitting}
           >
             {t("submit")}
           </DrawerClose>
