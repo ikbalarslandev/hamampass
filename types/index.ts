@@ -21,6 +21,8 @@ export interface TProduct {
 
   desc_tr: string;
   desc_en: string;
+
+  [key: string]: any;
 }
 
 export interface TDay {
