@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/select";
 import { useRouter } from "next/navigation";
 import { useSession, getSession } from "next-auth/react";
-import { get } from "http";
+import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
   nationality: z.string().min(2).max(2),
@@ -35,6 +35,7 @@ const FormComponent = () => {
   const router = useRouter();
   const { data } = useSession();
   const user = data?.user as TUser;
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -58,6 +59,13 @@ const FormComponent = () => {
     });
 
     await getSession();
+
+    toast({
+      title: "Profile Created",
+      description: "You have successfully created your profile.",
+      className: "text-white bg-green-500 px-1 py-2",
+      duration: 500,
+    });
 
     router.push("/");
   }

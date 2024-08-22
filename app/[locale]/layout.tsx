@@ -6,6 +6,7 @@ import "./globals.css";
 import { loadMessages } from "@/utils/loadMessages";
 import { SessionProvider } from "next-auth/react";
 import dynamic from "next/dynamic";
+import { Toaster } from "@/components/ui/toaster";
 
 const ReduxProvider = dynamic(() => import("@/lib/store/redux-provider"), {
   ssr: false,
@@ -39,7 +40,9 @@ export default async function LocaleLayout({
       <body className={`${inter.className} touch-pan-y`}>
         <ReduxProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            <SessionProvider>{children}</SessionProvider>
+            <SessionProvider>
+              {children} <Toaster />
+            </SessionProvider>
           </NextIntlClientProvider>
         </ReduxProvider>
       </body>

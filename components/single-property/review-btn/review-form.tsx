@@ -26,6 +26,7 @@ import { DrawerClose } from "@/components/ui/drawer";
 import ProgressComponent from "./progress";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 // Define the schema for validation using Zod
 const formSchema = z.object({
@@ -48,6 +49,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
   const type = useTranslations("single.review.drawer.type");
   const Package = useTranslations("single.review.drawer.package");
   const rate_types = useTranslations("single.review.main");
+  const { toast } = useToast();
 
   const [initialValues, setInitialValues] = useState<
     z.infer<typeof formSchema>
@@ -103,6 +105,13 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
 
       localStorage.removeItem(LOCAL_STORAGE_KEY);
       window.location.reload();
+
+      toast({
+        title: "Review submitted",
+        description: "You have successfully submited review.",
+        className: "text-white bg-green-500 px-1 py-2",
+        duration: 500,
+      });
     } finally {
       setIsSubmitting(false);
     }
