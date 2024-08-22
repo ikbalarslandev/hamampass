@@ -51,6 +51,9 @@ export interface TProperty {
   products: TProduct[];
   days: TDay[];
   rating: TRating;
+  desc_tr: string;
+  desc_en: string;
+  [key: string]: any;
 }
 
 export interface TApiResponse {

@@ -72,6 +72,7 @@ const ReviewDrawerComponent = ({ id }: any) => {
     }
   }, [user?.nationality]);
 
+  if (!user?.id) return null;
   return (
     <Drawer open={isOpen}>
       <DrawerTrigger

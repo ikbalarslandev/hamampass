@@ -23,7 +23,6 @@ interface DrawerComponentProps {
 
 const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
   const t = useTranslations("home.product-type");
-  const d = useTranslations("single.product-desc");
   const { locale } = useParams();
   return (
     <Drawer>
