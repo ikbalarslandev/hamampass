@@ -62,6 +62,7 @@ const SinglePropertyPage = () => {
                 {data?.contact.district} / {data?.contact.city}
               </div>
             }
+            location={data?.contact.location}
           />
 
           {/* review star  */}
