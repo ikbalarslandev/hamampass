@@ -11,7 +11,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { useSession } from "next-auth/react";
+import { useSession, getSession } from "next-auth/react";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
@@ -100,10 +100,17 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
       try {
+        // Fetch the updated session
+        const updatedSession = await getSession();
+
+        if (!updatedSession?.user?.id) {
+          throw new Error("User not logged in.");
+        }
+
         const req = {
           ...values,
           propertyId: id,
-          userId: session?.data?.user.id,
+          userId: updatedSession.user.id, // Use the updated session data
         };
 
         await request({
@@ -125,7 +132,7 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
         console.error(error);
         toast({
           title: "Error",
-          description: "An error occurred while submitting review.",
+          description: "An error occurred while submitting your review.",
           className: "text-white bg-red-500 px-1 py-2",
           duration: 500,
         });
