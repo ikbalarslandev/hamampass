@@ -13,8 +13,11 @@ const SignInPage: React.FC = () => {
     return <div>Already signed in</div>;
   }
   return (
-    <div>
-      Sign In Page
+    <div className=" ">
+      <h1 className="text-xl font-semibold text-slate-700 mt-8 mb-2 text-center bg-slate-400/80">
+        Please complete your Profile
+      </h1>
+
       <FormComponent />
     </div>
   );

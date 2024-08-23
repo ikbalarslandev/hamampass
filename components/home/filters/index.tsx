@@ -9,8 +9,7 @@ import { normalizeText } from "@/utils/normalize";
 
 import DrawerComponent from "@/components/home/filters/drawer";
 import { Input } from "@/components/ui/input";
-
-import { useSelector } from "react-redux";
+import { divide } from "ramda";
 
 const districtData = ["Kadıköy"];
 
@@ -81,7 +80,7 @@ const FilterComponent: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center border rounded-lg mx-4 my-2 shadow-md  gap-1 relative">
+    <div className="flex items-center border rounded-lg mx-8 my-2 shadow-md  gap-1 relative">
       <IoSearchSharp size={22} className="mb-[.1rem] ml-2" />
       <Input
         type="text"
@@ -92,7 +91,9 @@ const FilterComponent: React.FC = () => {
         onClick={handleInputClick}
         className="flex-1"
       />
-      <DrawerComponent trigger={<VscSettings className="mx-2" size={20} />} />
+      <DrawerComponent
+        trigger={<p className="mx-2 underline text-slate-600">filters</p>}
+      />
 
       {searchParams.size !== 0 && (
         <div className="py-0.5 px-[.28rem] text-cente min-w-3 text-xs/3 bg-cyan-500 rounded-full text-white absolute -right-1 -top-1">

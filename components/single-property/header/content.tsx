@@ -14,21 +14,46 @@ const HamburgerContent = ({ setOpen }: any) => {
     setOpen(false);
   };
 
+  const handleHomeClick = () => {
+    router.push(`/${locale}`);
+    setOpen(false);
+  };
+
   const handleLoginClick = async () => {
     await signIn("google", { callbackUrl: `/${locale}/auth/signIn` });
   };
 
   return (
     <div className="flex flex-col items-start gap-6">
-      <button className="text-2xl scale-x-115">Home</button>
+      <button
+        className="text-2xl scale-x-115  w-full text-left py-2"
+        onClick={handleHomeClick}
+      >
+        Home
+      </button>
 
       {data?.user ? (
-        <button className="text-2xl scale-x-115" onClick={handleProfileClick}>
+        <button
+          className="text-2xl scale-x-115  w-full text-left py-2"
+          onClick={handleProfileClick}
+        >
           Profile
         </button>
       ) : (
-        <button className="text-2xl scale-x-115" onClick={handleLoginClick}>
+        <button
+          className="text-2xl scale-x-115  w-full text-left py-2"
+          onClick={handleLoginClick}
+        >
           Login
+        </button>
+      )}
+
+      {data?.user && (
+        <button
+          className="text-2xl scale-x-115  w-full text-left py-2"
+          onClick={() => router.push(`/${locale}/api/auth/signOut`)}
+        >
+          My Reviews
         </button>
       )}
 

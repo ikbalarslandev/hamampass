@@ -74,7 +74,7 @@ const FormComponent = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-3"
+        className="flex flex-col gap-3 mx-6 mt-4"
       >
         <FormField
           control={form.control}
