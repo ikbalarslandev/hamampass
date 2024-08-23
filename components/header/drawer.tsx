@@ -24,7 +24,7 @@ const HamburgerDrawerComponent = ({
       </button>
 
       <div
-        className={`fixed bottom-0 left-0 w-full bg-gray-800 text-white transition-transform transform z-20 h-full ${
+        className={`fixed bottom-0 left-0 w-full bg-gray-800 text-white transition-transform transform z-20 h-full touch-none ${
           isOpen ? "translate-y-0" : "translate-y-full"
         }`}
       >
