@@ -5,6 +5,8 @@ import AboutDrawerComponent from "./drawer";
 const AboutComponent = ({ desc }: any) => {
   const description = <JsxParser components={{}} jsx={desc} />;
 
+  if (!desc) return null;
+
   return (
     <div>
       <h2 className="font-bold text-xl text-gray-600 mt-5 mb-3">About </h2>

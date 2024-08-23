@@ -31,20 +31,20 @@ const ProfilePageComponent = () => {
   if (!user) return <div>No user found</div>;
 
   return (
-    <div className="mx-3">
+    <div className="mx-3 ">
       <h1 className="text-center font-bold text-lg my-5 text-gray-700">
         Profile Page
       </h1>
 
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-3">
         <Image
           src={user.image}
           alt={user.name}
-          width={50}
-          height={50}
+          width={32}
+          height={32}
           className="rounded-full"
         />
-        <p className="font-semibold text-lg"> {user.name}</p>
+        <p className="text-lg"> {user.name}</p>
       </div>
       <InfoComponent user={user as TUser} />
     </div>
