@@ -12,7 +12,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useSession } from "next-auth/react";
-import { request } from "@/services/axios";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
@@ -24,15 +23,19 @@ import {
 import { useTranslations } from "next-intl";
 import { DrawerClose } from "@/components/ui/drawer";
 import ProgressComponent from "./progress";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useParams } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
+import { request } from "@/services/axios";
 
 // Define the schema for validation using Zod
 const formSchema = z.object({
   type: z.number().min(0).max(3),
   product_type: z.number().min(0).max(1),
-  rate_location: z.number().min(1).max(10),
+  rate_location: z
+    .number()
+    .min(1, { message: "Rating must be at least 1" })
+    .max(10),
   rate_staff: z.number().min(1).max(10),
   rate_atmosphere: z.number().min(1).max(10),
   rate_cleanliness: z.number().min(1).max(10),
@@ -51,70 +54,83 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
   const rate_types = useTranslations("single.review.main");
   const { toast } = useToast();
 
-  const [initialValues, setInitialValues] = useState<
-    z.infer<typeof formSchema>
-  >(() => {
-    const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
-    return savedData ? JSON.parse(savedData) : undefined;
-  });
+  // State to track if the form has loaded stored values
+  const [formLoaded, setFormLoaded] = useState(false);
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // State for managing submission state
+  const [isPending, startTransition] = useTransition();
+
+  // Load stored values from local storage or use default values
+  const [initialValues, setInitialValues] = useState(() => {
+    const storedValues = localStorage.getItem(LOCAL_STORAGE_KEY);
+    return storedValues
+      ? JSON.parse(storedValues)
+      : {
+          type: 0,
+          product_type: 0,
+          rate_location: 1,
+          rate_staff: 1,
+          rate_atmosphere: 1,
+          rate_cleanliness: 1,
+          rate_facilities: 1,
+          rate_value_for_money: 1,
+          comment: "",
+        };
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: initialValues || {
-      type: 0,
-      product_type: 0,
-      rate_location: 0,
-      rate_staff: 0,
-      rate_atmosphere: 0,
-      rate_cleanliness: 0,
-      rate_facilities: 0,
-      rate_value_for_money: 0,
-      comment: "",
-    },
+    defaultValues: initialValues,
     mode: "onSubmit",
   });
 
+  // Prevent overwriting local storage with default values on mount
+  useEffect(() => {
+    setFormLoaded(true);
+  }, []);
+
+  // Watch form values and save to local storage on change, but only after the form has loaded
   const watchedValues = useWatch({ control: form.control });
-
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(watchedValues));
-  }, [watchedValues]);
-
-  useEffect(() => {
-    if (initialValues) {
-      form.reset(initialValues);
+    if (formLoaded) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(watchedValues));
     }
-  }, [initialValues, form]);
+  }, [watchedValues, LOCAL_STORAGE_KEY, formLoaded]);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
-    try {
-      const req = {
-        ...values,
-        propertyId: id,
-        userId: session?.data?.user.id,
-      };
+    startTransition(async () => {
+      try {
+        const req = {
+          ...values,
+          propertyId: id,
+          userId: session?.data?.user.id,
+        };
 
-      await request({
-        type: "post",
-        endpoint: "review",
-        payload: req,
-      });
+        await request({
+          type: "post",
+          endpoint: "review",
+          payload: req,
+        });
 
-      localStorage.removeItem(LOCAL_STORAGE_KEY);
-      window.location.reload();
+        localStorage.removeItem(LOCAL_STORAGE_KEY);
+        window.location.reload();
 
-      toast({
-        title: "Review submitted",
-        description: "You have successfully submited review.",
-        className: "text-white bg-green-500 px-1 py-2",
-        duration: 500,
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+        toast({
+          title: "Review submitted",
+          description: "Your review has been submitted successfully.",
+          className: "text-white bg-green-500 px-1 py-2",
+          duration: 500,
+        });
+      } catch (error) {
+        console.error(error);
+        toast({
+          title: "Error",
+          description: "An error occurred while submitting review.",
+          className: "text-white bg-red-500 px-1 py-2",
+          duration: 500,
+        });
+      }
+    });
   }
 
   return (
@@ -180,37 +196,37 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
             title={rate_types("location")}
             name="rate_location"
             control={form.control}
-            defaultValue={0}
+            defaultValue={1}
           />
           <ProgressComponent
             title={rate_types("staff")}
             name="rate_staff"
             control={form.control}
-            defaultValue={0}
+            defaultValue={1}
           />
           <ProgressComponent
             title={rate_types("atmosphere")}
             name="rate_atmosphere"
             control={form.control}
-            defaultValue={0}
+            defaultValue={1}
           />
           <ProgressComponent
             title={rate_types("cleanliness")}
             name="rate_cleanliness"
             control={form.control}
-            defaultValue={0}
+            defaultValue={1}
           />
           <ProgressComponent
             title={rate_types("facilities")}
             name="rate_facilities"
             control={form.control}
-            defaultValue={0}
+            defaultValue={1}
           />
           <ProgressComponent
             title={rate_types("value")}
             name="rate_value_for_money"
             control={form.control}
-            defaultValue={0}
+            defaultValue={1}
           />
 
           <FormField
@@ -230,9 +246,9 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
           <DrawerClose
             type="submit"
             className={`bg-gray-400 px-2 py-1 text-white rounded my-5 ${
-              isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+              isPending ? "opacity-50 cursor-not-allowed" : ""
             }`}
-            disabled={isSubmitting}
+            disabled={isPending}
           >
             {t("submit")}
           </DrawerClose>
