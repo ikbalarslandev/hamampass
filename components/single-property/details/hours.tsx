@@ -1,81 +1,48 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { TDay } from "@/types";
-import { useState, useEffect } from "react";
+import { THour } from "@/types";
+import { FaRegClock } from "react-icons/fa";
 
 interface HoursComponentProps {
-  data: TDay[];
-}
-
-interface Hour {
-  day: string;
-  open: string;
-  close: string;
-  sex: number;
+  data: THour;
 }
 
 const HoursComponent: React.FC<HoursComponentProps> = ({ data }) => {
   const title = useTranslations("home.filters.titles");
-  const h = useTranslations("single.hours");
   const sex = useTranslations("home.filters.sex");
 
-  const [hours, setHours] = useState<Hour[]>([]);
-
-  useEffect(() => {
-    setHours(
-      data.map((day) => {
-        return {
-          day: h(day.day),
-          open: day.openTime,
-          close: day.closeTime,
-          sex: day.sex,
-        };
-      })
-    );
-  }, [data]);
-
   return (
-    <div className="my-2 mt-6 ">
-      <h2 className="font-bold text-xl text-gray-600">
+    <div className="my-2 mt-6 mb-4 ">
+      <h2 className="font-bold text-xl mb-3 text-gray-600">
         {title("hours-title")}
       </h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200 mt-4">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                {h("day")}
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                {h("open")}
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                {h("close")}
-              </th>
-            </tr>
-          </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            {hours.map((hour, index) => (
-              <tr key={index}>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 flex flex-col">
-                  <p>{hour.day}</p>
-                  <div>
-                    <span className="bg-teal-600 text-white rounded px-1 inline-block">
-                      {sex(hour.sex.toString())}
-                    </span>
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {hour.open}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {hour.close}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+
+      <div className="flex flex-col gap-1">
+        <div className="flex items-start  gap-4">
+          <FaRegClock className=" text-gray-500 mt-[3px]" size={20} />
+
+          <div className="flex flex-col  items-start justify-between mr-20">
+            <p className="text-slate-800">
+              Weekdays <span className="text-xs">(monday-friday)</span>{" "}
+            </p>
+            <p className="text-slate-500 text-sm">
+              {data.weekdays[0]} - {data.weekdays[1]}
+            </p>
+          </div>
+        </div>
+        <div className="flex items-start  gap-4">
+          <FaRegClock className=" text-gray-500 mt-[3px]" size={20} />
+
+          <div className="flex flex-col  items-start justify-between mr-20">
+            <p className="text-slate-800">
+              Weekend <span className="text-xs">(saturday-sunday)</span>{" "}
+            </p>
+            <p className="text-slate-500 text-sm">
+              {data.weekends[0]} - {data.weekends[1]}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -73,11 +73,12 @@ model Property {
   contact   Contact? @relation(fields: [contactId], references: [id])
   contactId String?
 
+  hour   Hour?   @relation(fields: [hourId], references: [id])
+  hourId String?
+
   rating   Rating? @relation(fields: [ratingId], references: [id])
   ratingId String? @unique
 
-  vibe      Int?
-  days      Day[]
   amenities Int[]
   products  Product[]
   reviews   Review[]
@@ -90,30 +91,6 @@ model Property {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-}
-
-enum EDays {
-  Monday
-  Tuesday
-  Wednesday
-  Thursday
-  Friday
-  Saturday
-  Sunday
-}
-
-model Day {
-  id        String @id @default(uuid())
-  day       EDays
-  openTime  String
-  closeTime String
-  sex       Int
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  belongsToId String
-  belongsTo   Property @relation(fields: [belongsToId], references: [id])
 }
 
 model Contact {
@@ -146,15 +123,32 @@ model Rating {
   Property  Property[]
 }
 
+model Hour {
+  id String @id @default(uuid())
+
+  sex Int
+  weekdays String[]  // ["09:00", "21:00"]
+  weekends  String[]
+  outsiders Json[]
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Property  Property[]
+}
+
+//outsider {
+// sex: 0
+// day : 0
+// }
+
 model Product {
   id String @id @default(uuid())
 
   type Int
 
-  adult_price   Float
-  age Int  // +13
+  adult_price Float
+  age         Int // +13
   child_price Float?
-
 
   detail_tr String[]
   detail_en String[]

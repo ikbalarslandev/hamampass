@@ -9,7 +9,8 @@ import { IoChevronBack } from "react-icons/io5";
 const HeaderComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { title }: { title: string } = useParams();
-  const h_title = title.split("-").join(" ");
+  const decoded = decodeURIComponent(title);
+  const h_title = decoded.replace(/-/g, " ");
 
   const handleBack = () => {
     window.history.back();

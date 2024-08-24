@@ -65,7 +65,8 @@ async function getAllProperties(req: NextRequest) {
 }
 const getPropertyByTitle = async (req: NextRequest) => {
   const url = new URL(req.url);
-  const title = url.pathname.split("/").pop()?.replace(/-/g, " ") || "";
+  const pre_title = url.pathname.split("/").pop()?.replace(/-/g, " ") || "";
+  const title = decodeURI(pre_title);
 
   const property = await prisma.property.findFirst({
     where: {
@@ -73,17 +74,19 @@ const getPropertyByTitle = async (req: NextRequest) => {
     },
     include: {
       contact: true,
-      days: true,
+      hour: true,
       products: true,
       rating: true,
     },
   });
 
+  console.log(property);
+
   return property;
 };
 
 const createProperty = async (req: NextRequest) => {
-  const { title, vibe, amenities, photos, days, contact, sex, products } =
+  const { title, amenities, photos, hour, contact, sex, products } =
     await req.json();
 
   try {
@@ -98,18 +101,25 @@ const createProperty = async (req: NextRequest) => {
       },
     });
 
+    // Create Hour record
+    const hourRecord = await prisma.hour.create({
+      data: {
+        sex,
+        weekdays: hour.weekdays,
+        weekends: hour.weekends,
+        outsiders: hour.outsiders || [],
+      },
+    });
+
     // Create Property record with references to Contact and Price records
     const property = await prisma.property.create({
       data: {
         title,
-        vibe,
         amenities,
         photos,
         sex,
-        days: {
-          create: days,
-        },
         contactId: contactRecord.id,
+        hourId: hourRecord.id,
         products: {
           create: products,
         },

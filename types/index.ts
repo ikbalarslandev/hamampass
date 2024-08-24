@@ -1,3 +1,5 @@
+import { Dhurjati } from "next/font/google";
+
 export interface TContact {
   id: string;
   phone: string;
@@ -25,15 +27,16 @@ export interface TProduct {
   [key: string]: any;
 }
 
-export interface TDay {
-  id: string;
-  day: string;
-  openTime: string;
-  closeTime: string;
+export interface THour {
   sex: number;
-  createdAt: string;
-  updatedAt: string;
-  belongsToId: string;
+  weekdays: string[];
+  weekends: string[];
+  outsiders: TOutsider[];
+}
+
+interface TOutsider {
+  sex: number;
+  day: string;
 }
 
 export interface TProperty {
@@ -41,6 +44,7 @@ export interface TProperty {
   title: string;
   contactId: string;
   priceId: string;
+  hourId: string;
   amenities: number[];
   photos: string[];
   sex: number;
@@ -49,8 +53,8 @@ export interface TProperty {
   updatedAt: string;
   contact: TContact;
   products: TProduct[];
-  days: TDay[];
   rating: TRating;
+  hour: THour;
   desc_tr: string;
   desc_en: string;
   [key: string]: any;

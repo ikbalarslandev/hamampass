@@ -1,14 +1,11 @@
--- CreateEnum
-CREATE TYPE "EDays" AS ENUM ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
-
 -- CreateTable
 CREATE TABLE "Property" (
     "id" TEXT NOT NULL,
     "adminId" TEXT,
     "title" TEXT NOT NULL,
     "contactId" TEXT,
+    "hourId" TEXT,
     "ratingId" TEXT,
-    "vibe" INTEGER,
     "amenities" INTEGER[],
     "photos" TEXT[],
     "sex" INTEGER NOT NULL,
@@ -19,20 +16,6 @@ CREATE TABLE "Property" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Property_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "Day" (
-    "id" TEXT NOT NULL,
-    "day" "EDays" NOT NULL,
-    "openTime" TEXT NOT NULL,
-    "closeTime" TEXT NOT NULL,
-    "sex" INTEGER NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
-    "belongsToId" TEXT NOT NULL,
-
-    CONSTRAINT "Day_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -64,6 +47,19 @@ CREATE TABLE "Rating" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Rating_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Hour" (
+    "id" TEXT NOT NULL,
+    "sex" INTEGER NOT NULL,
+    "weekdays" TEXT[],
+    "weekends" TEXT[],
+    "outsiders" JSONB[],
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Hour_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -141,10 +137,10 @@ CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 ALTER TABLE "Property" ADD CONSTRAINT "Property_contactId_fkey" FOREIGN KEY ("contactId") REFERENCES "Contact"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Property" ADD CONSTRAINT "Property_ratingId_fkey" FOREIGN KEY ("ratingId") REFERENCES "Rating"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "Property" ADD CONSTRAINT "Property_hourId_fkey" FOREIGN KEY ("hourId") REFERENCES "Hour"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Day" ADD CONSTRAINT "Day_belongsToId_fkey" FOREIGN KEY ("belongsToId") REFERENCES "Property"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Property" ADD CONSTRAINT "Property_ratingId_fkey" FOREIGN KEY ("ratingId") REFERENCES "Rating"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Product" ADD CONSTRAINT "Product_belongsToId_fkey" FOREIGN KEY ("belongsToId") REFERENCES "Property"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
