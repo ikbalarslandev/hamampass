@@ -14,7 +14,8 @@ const HoursComponent: React.FC<HoursComponentProps> = ({ data }) => {
 
   return (
     <div className="my-2 mt-6 mb-4 ">
-      <h2 className="font-bold text-xl mb-3 text-gray-600">
+      <hr />
+      <h2 className="font-bold text-xl mb-3 mt-4 text-gray-600">
         {title("hours-title")}
       </h2>
 
