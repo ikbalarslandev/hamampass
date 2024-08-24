@@ -1,9 +1,36 @@
 {
+  "hamburger": {
+    "home": "Home",
+    "profile": "Profile",
+    "login": "Login",
+    "my-reviews": "My Reviews",
+    "language": "Language :"
+  },
+  "profile": {
+    "title": "Profile Page",
+    "loading": "Loading...",
+    "nationality": "Nationality",
+    "age": "Age",
+    "gender": "Gender",
+    "logout": "Sign Out",
+    "complete": {
+      "title": "Complete Your Profile",
+      "desc": "Complete your profile to get the best experience",
+      "button": "Complete Profile"
+    },
+    "toast": {
+      "title": "Profile Completed",
+      "desc": "You have successfully completed your profile"
+    }
+  },
   "home": {
     "title": "Turkish Baths in ",
     "filters": {
+      "filter": "filters",
       "titles": {
         "title": "Filters",
+        "about_title": "About",
+        "products_title": "Products",
         "amenity_title": "Amenities",
         "pay_title": "Payment Method",
         "range_title": "Price Range",
@@ -48,6 +75,9 @@
 
   "single": {
     "enflation": "Due to inflation, the price may be up to 10% higher than the price shown on the website.",
+    "view-map": "View on Map",
+    "read-more": "Read more",
+    "copy": "Address copied to clipboard",
     "switch": {
       "details": "Details",
       "reviews": "Reviews"
@@ -110,19 +140,14 @@
       }
     },
     "hours": {
-      "open": "Open",
-      "close": "Close",
-      "day": "Day",
-      "Monday": "Monday",
-      "Tuesday": "Tuesday",
-      "Wednesday": "Wednesday",
-      "Thursday": "Thursday",
-      "Friday": "Friday",
-      "Saturday": "Saturday",
-      "Sunday": "Sunday"
+      "weekdays": "Weekdays",
+      "weekdays-desc": "(Monday - Friday)",
+      "weekend": "Weekend",
+      "weekend-desc": "(Saturday - Sunday)"
     },
 
     "location": "Contact",
+    "map": "Map",
     "tel": "Phone Number :"
   }
 }

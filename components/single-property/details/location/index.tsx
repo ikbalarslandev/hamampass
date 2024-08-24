@@ -14,7 +14,7 @@ const LocationComponent = ({ contact }: { contact: TContact }) => {
   const handleCopy = () => {
     navigator.clipboard.writeText(contact.address);
     toast({
-      title: "Address copied to clipboard",
+      title: s("copy"),
       className: "bg-green-500 text-white py-2",
       duration: 300,
     });
@@ -46,7 +46,7 @@ const LocationComponent = ({ contact }: { contact: TContact }) => {
         <MapDrawerComponent
           trigger={
             <p className="bg-opacity-0 border border-gray-500 px-8 py-2 rounded-lg flex items-center gap-1">
-              Map <MdKeyboardArrowRight size={24} />
+              {s("map")} <MdKeyboardArrowRight size={24} />
             </p>
           }
           location={contact?.location}

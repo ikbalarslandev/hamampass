@@ -3,10 +3,12 @@
 import FormComponent from "@/components/profile/form";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 const SignInPage: React.FC = () => {
   const { data } = useSession();
   const router = useRouter();
+  const t = useTranslations("profile.complete");
 
   if (data?.user?.id) {
     router.push("/");
@@ -15,7 +17,7 @@ const SignInPage: React.FC = () => {
   return (
     <div className=" ">
       <h1 className="text-xl font-semibold text-slate-700 mt-8 mb-2 text-center bg-slate-400/80">
-        Please complete your Profile
+        {t("title")}
       </h1>
 
       <FormComponent />

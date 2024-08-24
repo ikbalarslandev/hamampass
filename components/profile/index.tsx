@@ -5,10 +5,12 @@ import InfoComponent from "./info";
 import { TSessionUser, TUser } from "@/types";
 import { useSession, getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 const ProfilePageComponent = () => {
   const [user, setUser] = useState<TUser | TSessionUser>();
   const { data, status } = useSession();
+  const t = useTranslations("profile");
 
   useEffect(() => {
     const fetchSession = async () => {
@@ -27,13 +29,13 @@ const ProfilePageComponent = () => {
     }
   }, [data]);
 
-  if (status === "loading") return <div>loading...</div>;
+  if (status === "loading") return <div>{t("loading")}</div>;
   if (!user) return <div>No user found</div>;
 
   return (
     <div className="mx-3 ">
       <h1 className="text-center font-bold text-lg my-5 text-gray-700">
-        Profile Page
+        {t("title")}
       </h1>
 
       <div className="flex items-center gap-3">

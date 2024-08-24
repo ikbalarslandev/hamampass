@@ -21,6 +21,7 @@ const SinglePropertyPage = () => {
   const [data, setData] = useState<TProperty>();
   const reviewRef = useRef<HTMLDivElement>(null);
   const sex = useTranslations("home.filters.sex");
+  const view = useTranslations("single");
   const payment_details = useTranslations("home.filters.payment_methods");
 
   useEffect(() => {
@@ -65,7 +66,7 @@ const SinglePropertyPage = () => {
                   {data?.contact.district} / {data?.contact.city}
                 </div>
                 <GoDotFill className="text-gray-500" size={10} />
-                <p className="text-xs">View on Map </p>
+                <p className="text-xs">{view("view-map")} </p>
               </div>
             }
             location={data?.contact.location}

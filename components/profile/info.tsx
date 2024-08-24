@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 
 const InfoComponent = ({ user }: { user: TUser }) => {
   const t = useTranslations("single.review.gender");
+  const p = useTranslations("profile");
 
   const handleSignOut = () => {
     signOut({ callbackUrl: "/" });
@@ -13,15 +14,21 @@ const InfoComponent = ({ user }: { user: TUser }) => {
   return (
     <div>
       <div className="m-3 flex-1">
-        <p>nationality : {user?.nationality}</p>
-        <p>age : {convertAgeRange(user?.age_range)} </p>
-        <p>gender : {t(user?.gender?.toString())}</p>
+        <p>
+          {p("nationality")} : {user?.nationality}
+        </p>
+        <p>
+          {p("age")} : {convertAgeRange(user?.age_range)}{" "}
+        </p>
+        <p>
+          {p("gender")} : {t(user?.gender?.toString())}
+        </p>
 
         <Button
           className="absolute bottom-10 right-5 bg-gray-500"
           onClick={handleSignOut}
         >
-          Sign Out
+          {p("logout")}
         </Button>
       </div>
     </div>

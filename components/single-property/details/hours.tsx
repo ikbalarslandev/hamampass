@@ -10,7 +10,7 @@ interface HoursComponentProps {
 
 const HoursComponent: React.FC<HoursComponentProps> = ({ data }) => {
   const title = useTranslations("home.filters.titles");
-  const sex = useTranslations("home.filters.sex");
+  const h = useTranslations("single.hours");
 
   return (
     <div className="my-2 mt-6 mb-4 ">
@@ -25,7 +25,8 @@ const HoursComponent: React.FC<HoursComponentProps> = ({ data }) => {
 
           <div className="flex flex-col  items-start justify-between mr-20">
             <p className="text-slate-800">
-              Weekdays <span className="text-xs">(monday-friday)</span>{" "}
+              {h("weekdays")}{" "}
+              <span className="text-xs">{h("weekdays-desc")}</span>{" "}
             </p>
             <p className="text-slate-500 text-sm">
               {data.weekdays[0]} - {data.weekdays[1]}
@@ -37,7 +38,8 @@ const HoursComponent: React.FC<HoursComponentProps> = ({ data }) => {
 
           <div className="flex flex-col  items-start justify-between mr-20">
             <p className="text-slate-800">
-              Weekend <span className="text-xs">(saturday-sunday)</span>{" "}
+              {h("weekend")}{" "}
+              <span className="text-xs">{h("weekend-desc")}</span>{" "}
             </p>
             <p className="text-slate-500 text-sm">
               {data.weekends[0]} - {data.weekends[1]}

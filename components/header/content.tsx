@@ -3,10 +3,12 @@ import { useParams } from "next/navigation";
 import LocaleSwitcher from "./locale-switcher";
 import { useSession } from "next-auth/react";
 import { signIn } from "next-auth/react";
+import { useTranslations } from "next-intl";
 
 const HamburgerContent = ({ setOpen }: any) => {
   const { locale } = useParams();
   const router = useRouter();
+  const t = useTranslations("hamburger");
 
   const { data } = useSession();
   const handleProfileClick = () => {
@@ -29,7 +31,7 @@ const HamburgerContent = ({ setOpen }: any) => {
         className="text-2xl scale-x-115  w-full text-left py-2"
         onClick={handleHomeClick}
       >
-        Home
+        {t("home")}
       </button>
 
       {data?.user ? (
@@ -37,14 +39,14 @@ const HamburgerContent = ({ setOpen }: any) => {
           className="text-2xl scale-x-115  w-full text-left py-2"
           onClick={handleProfileClick}
         >
-          Profile
+          {t("profile")}
         </button>
       ) : (
         <button
           className="text-2xl scale-x-115  w-full text-left py-2"
           onClick={handleLoginClick}
         >
-          Login
+          {t("login")}
         </button>
       )}
 
@@ -53,12 +55,12 @@ const HamburgerContent = ({ setOpen }: any) => {
           className="text-2xl scale-x-115  w-full text-left py-2"
           onClick={() => router.push(`/${locale}/api/auth/signOut`)}
         >
-          My Reviews
+          {t("my-reviews")}
         </button>
       )}
 
       <div className="flex items-center absolute bottom-0">
-        <p>Language : </p>
+        <p>{t("language")} </p>
         <LocaleSwitcher />
       </div>
     </div>

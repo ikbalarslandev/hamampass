@@ -12,10 +12,13 @@ interface Props {
 
 const ProductsComponent = ({ data }: Props) => {
   const t = useTranslations("home.product-type");
+  const title = useTranslations("home.filters.titles");
 
   return (
     <div className="mt-4">
-      <h2 className="font-bold text-xl text-gray-600">Products</h2>
+      <h2 className="font-bold text-xl text-gray-600">
+        {title("products_title")}
+      </h2>
       <div className=" flex flex-col gap-3 my-4">
         {data.map((item) => (
           <DrawerComponent

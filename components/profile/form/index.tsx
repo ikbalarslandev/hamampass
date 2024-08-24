@@ -24,6 +24,8 @@ import {
 import { useRouter } from "next/navigation";
 import { useSession, getSession } from "next-auth/react";
 import { useToast } from "@/components/ui/use-toast";
+import { useTranslations } from "next-intl";
+import { use } from "react";
 
 const formSchema = z.object({
   nationality: z.string().min(2).max(2),
@@ -36,6 +38,9 @@ const FormComponent = () => {
   const { data } = useSession();
   const user = data?.user as TUser;
   const { toast } = useToast();
+  const t = useTranslations("profile");
+  const p = useTranslations("profile.complete");
+  const to = useTranslations("profile.toast");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -61,8 +66,8 @@ const FormComponent = () => {
     await getSession();
 
     toast({
-      title: "Profile Created",
-      description: "You have successfully created your profile.",
+      title: to("title"),
+      description: to("desc"),
       className: "text-white bg-green-500 px-1 py-2",
       duration: 500,
     });
@@ -81,7 +86,7 @@ const FormComponent = () => {
           name="nationality"
           render={({ field }) => (
             <FormItem className="flex">
-              <FormLabel className="mr-2 mt-5">Nationality</FormLabel>
+              <FormLabel className="mr-2 mt-5">{t("nationality")}</FormLabel>
               <FormControl>
                 <Select
                   value={field.value}
@@ -92,10 +97,6 @@ const FormComponent = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="us">USA</SelectItem>
-                    <SelectItem value="tr">Turkey</SelectItem>
-                    <SelectItem value="de">Germany</SelectItem>
-                    <SelectItem value="au">Australia</SelectItem>
-                    <SelectItem value="nl">Netherlands</SelectItem>
                   </SelectContent>
                 </Select>
               </FormControl>
@@ -108,7 +109,7 @@ const FormComponent = () => {
           name="age_range"
           render={({ field }) => (
             <FormItem className="flex">
-              <FormLabel className="mr-2 mt-5">Age Range</FormLabel>
+              <FormLabel className="mr-2 mt-5">{t("age")}</FormLabel>
               <FormControl>
                 <Select
                   value={field.value.toString()} // Convert number to string
@@ -135,7 +136,7 @@ const FormComponent = () => {
           name="gender"
           render={({ field }) => (
             <FormItem className="flex mb-12">
-              <FormLabel className="mr-2 mt-5">Gender</FormLabel>
+              <FormLabel className="mr-2 mt-5">{t("gender")}</FormLabel>
               <FormControl>
                 <Select
                   value={field.value.toString()}
@@ -159,7 +160,7 @@ const FormComponent = () => {
           type="submit"
           className="bg-gray-400 px-2 py-1  text-white rounded my-5"
         >
-          Complete Profile
+          {p("title")}
         </Button>
       </form>
     </Form>

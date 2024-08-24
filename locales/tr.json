@@ -1,9 +1,34 @@
 {
+  "hamburger": {
+    "home": "Anasayfa",
+    "profile": "Profilim",
+    "login": "Giriş Yap",
+    "my-reviews": "Yorumlarım",
+    "language": "Dil :"
+  },
+  "profile": {
+    "title": "Profil Sayfası",
+    "loading": "Yükleniyor...",
+    "nationality": "Uyruk",
+    "age": "Yaş",
+    "gender": "Cinsiyet",
+    "logout": "Çıkış Yap",
+    "complete": {
+      "title": "Profilinizi Tamamlayın"
+    },
+    "toast": {
+      "title": "Profiliniz Tamamlandı",
+      "desc": "Basarili bir sekilde profilinizi tamamladiniz"
+    }
+  },
   "home": {
     "title": "Hamamlar - ",
     "filters": {
+      "filter": "filtrele",
       "titles": {
         "title": "Filtreler",
+        "about_title": "Hakkında",
+        "products_title": "Ürünler",
         "amenity_title": "Hizmetler",
         "pay_title": "Ödeme Yöntemi",
         "range_title": "Fiyat Aralığı",
@@ -48,6 +73,9 @@
 
   "single": {
     "enflation": "Enflasyon nedeniyle fiyatlar sitede gösterilen fiyattan %10 daha yüksek olabilir.",
+    "view-map": "Haritada Gör",
+    "read-more": "Daha Fazla Oku",
+    "copy": "Adres panoya kopyalandı",
     "switch": {
       "details": "Detaylar",
       "reviews": "Yorumlar"
@@ -109,20 +137,16 @@
         }
       }
     },
+
     "hours": {
-      "open": "Açılış",
-      "close": "Kapanış",
-      "day": "Gün",
-      "Monday": "Pazartesi",
-      "Tuesday": "Salı",
-      "Wednesday": "Çarşamba",
-      "Thursday": "Perşembe",
-      "Friday": "Cuma",
-      "Saturday": "Cumartesi",
-      "Sunday": "Pazar"
+      "weekdays": "Hafta İçi",
+      "weekdays-desc": "(Pazartesi - Cuma)",
+      "weekend": "Hafta Sonu",
+      "weekend-desc": "(Cumartesi - Pazar)"
     },
 
     "location": "İletişim",
+    "map": "Harita",
     "tel": "İletişim Numarası :"
   }
 }

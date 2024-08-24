@@ -4,12 +4,10 @@ import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 
 import { IoSearchSharp } from "react-icons/io5";
-import { VscSettings } from "react-icons/vsc";
 import { normalizeText } from "@/utils/normalize";
 
 import DrawerComponent from "@/components/home/filters/drawer";
 import { Input } from "@/components/ui/input";
-import { divide } from "ramda";
 
 const districtData = ["Kadıköy"];
 
@@ -92,7 +90,9 @@ const FilterComponent: React.FC = () => {
         className="flex-1"
       />
       <DrawerComponent
-        trigger={<p className="mx-2 underline text-slate-600">filters</p>}
+        trigger={
+          <p className="mx-2 underline text-slate-600">{input("filter")}</p>
+        }
       />
 
       {searchParams.size !== 0 && (
