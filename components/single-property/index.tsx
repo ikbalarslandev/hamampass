@@ -13,14 +13,14 @@ import DetailsComponent from "./details";
 import { IoStar } from "react-icons/io5";
 import MapDrawerComponent from "./map";
 import { FaTurkishLiraSign } from "react-icons/fa6";
-import { F } from "ramda";
+import { IoMdMan } from "react-icons/io";
 
 const SinglePropertyPage = () => {
   let { title } = useParams();
   title = decodeURIComponent(title as string);
   const [data, setData] = useState<TProperty>();
   const reviewRef = useRef<HTMLDivElement>(null);
-  const s = useTranslations("single");
+  const sex = useTranslations("home.filters.sex");
   const payment_details = useTranslations("home.filters.payment_methods");
 
   useEffect(() => {
@@ -84,7 +84,10 @@ const SinglePropertyPage = () => {
         </h1>
 
         {data && (
-          <div className="flex">
+          <div className="flex gap-4">
+            <div className="border flex items-center gap-3 p-2 px-4 rounded-2xl bg-teal-500 text-white h-3">
+              <p>{sex(data.sex.toString())}</p>
+            </div>
             <div className="border flex items-center gap-3 p-2 pr-4 rounded-2xl bg-orange-500 text-white h-3">
               <FaTurkishLiraSign
                 size={30}
