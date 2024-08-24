@@ -26,7 +26,7 @@ const ProgressComponent = ({
             <>
               <Slider
                 value={[value]}
-                max={10}
+                max={5}
                 min={1}
                 step={1}
                 onValueChange={(newValue) => onChange(newValue[0])}
