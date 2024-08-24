@@ -12,6 +12,8 @@ import ReviewStickBtn from "./review-btn";
 import DetailsComponent from "./details";
 import { IoStar } from "react-icons/io5";
 import MapDrawerComponent from "./map";
+import { FaTurkishLiraSign } from "react-icons/fa6";
+import { F } from "ramda";
 
 const SinglePropertyPage = () => {
   let { title } = useParams();
@@ -77,19 +79,21 @@ const SinglePropertyPage = () => {
           )}
         </div>
 
-        <h1 className="font-bold text-2xl text-slate-700 mb-10">
+        <h1 className="font-bold text-2xl text-slate-700 mb-2">
           {data?.title}
         </h1>
 
         {data && (
-          <div className="bg-emerald-500 text-white rounded text-center">
-            {payment_details(data?.pay.toString())}
+          <div className="flex">
+            <div className="border flex items-center gap-3 p-2 pr-4 rounded-2xl bg-orange-500 text-white h-3">
+              <FaTurkishLiraSign
+                size={30}
+                className="bg-white text-orange-500 rounded-full p-1"
+              />
+              <p>{payment_details(data?.pay.toString())}</p>
+            </div>
           </div>
         )}
-
-        <div className="bg-orange-500 text-gray-100 rounded text-center text-sm mt-3 py-1">
-          {s("enflation")}
-        </div>
 
         {data && <DetailsComponent data={data} ref={reviewRef} />}
       </div>
