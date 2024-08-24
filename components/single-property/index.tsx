@@ -13,7 +13,7 @@ import DetailsComponent from "./details";
 import { IoStar } from "react-icons/io5";
 import MapDrawerComponent from "./map";
 import { FaTurkishLiraSign } from "react-icons/fa6";
-import { IoMdMan } from "react-icons/io";
+import { GoDotFill } from "react-icons/go";
 
 const SinglePropertyPage = () => {
   let { title } = useParams();
@@ -52,16 +52,20 @@ const SinglePropertyPage = () => {
       <Slider data={data} />
       {data && <ReviewStickBtn propertyId={data?.id} />}
 
-      <div className="flex flex-col mx-2 pt-5">
+      <div className="flex flex-col mx-2 pt-5 ">
         <div className="flex justify-between items-center">
           <MapDrawerComponent
             trigger={
-              <div className="flex gap-1 text-sm ">
-                <CiLocationOn
-                  className="text-orange-600 mt-[.1rem]"
-                  size={16}
-                />
-                {data?.contact.district} / {data?.contact.city}
+              <div className="text-sm flex items-center gap-1">
+                <div className="flex gap-1 ">
+                  <CiLocationOn
+                    className="text-orange-600 mt-[.1rem]"
+                    size={16}
+                  />
+                  {data?.contact.district} / {data?.contact.city}
+                </div>
+                <GoDotFill className="text-gray-500" size={10} />
+                <p className="text-xs">View on Map </p>
               </div>
             }
             location={data?.contact.location}
@@ -84,16 +88,16 @@ const SinglePropertyPage = () => {
         </h1>
 
         {data && (
-          <div className="flex gap-4">
-            <div className="border flex items-center gap-3 p-2 px-4 rounded-2xl bg-teal-500 text-white h-3">
-              <p>{sex(data.sex.toString())}</p>
-            </div>
+          <div className="flex gap-2">
             <div className="border flex items-center gap-3 p-2 pr-4 rounded-2xl bg-orange-500 text-white h-3">
               <FaTurkishLiraSign
                 size={30}
                 className="bg-white text-orange-500 rounded-full p-1"
               />
               <p>{payment_details(data?.pay.toString())}</p>
+            </div>
+            <div className="border flex items-center gap-3 p-2 px-4 rounded-2xl bg-teal-500 text-white h-3">
+              <p>{sex(data.sex.toString())}</p>
             </div>
           </div>
         )}
