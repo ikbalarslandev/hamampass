@@ -10,6 +10,7 @@ const getCountryByTld = async (req: NextRequest) => {
       tld,
     },
   });
+
   return country;
 };
 

@@ -5,12 +5,19 @@ import { FaLocationDot } from "react-icons/fa6";
 import { BsCopy } from "react-icons/bs";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import MapDrawerComponent from "@/components/single-property/map";
+import { useToast } from "@/components/ui/use-toast";
 
 const LocationComponent = ({ contact }: { contact: TContact }) => {
   const s = useTranslations("single");
+  const { toast } = useToast();
 
   const handleCopy = () => {
     navigator.clipboard.writeText(contact.address);
+    toast({
+      title: "Address copied to clipboard",
+      className: "bg-green-500 text-white py-2",
+      duration: 300,
+    });
   };
 
   return (
