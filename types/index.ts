@@ -119,4 +119,5 @@ export interface TCountry {
   name_en: string;
   name_tr: string;
   image: string;
+  [key: string]: any;
 }

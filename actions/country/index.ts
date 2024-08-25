@@ -1,5 +1,6 @@
 import prisma from "@/prisma/db";
 import { NextRequest } from "next/server";
+import { sort } from "ramda";
 
 const getCountryByTld = async (req: NextRequest) => {
   const url = new URL(req.url);
@@ -16,6 +17,7 @@ const getCountryByTld = async (req: NextRequest) => {
 
 const getCountries = async () => {
   const countries = await prisma.country.findMany();
+
   return countries;
 };
 

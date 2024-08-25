@@ -1,6 +1,6 @@
 "use client";
 
-import { TUser } from "@/types";
+import { TCountry, TUser } from "@/types";
 import { request } from "@/services/axios";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -25,7 +25,9 @@ import { useRouter } from "next/navigation";
 import { useSession, getSession } from "next-auth/react";
 import { useToast } from "@/components/ui/use-toast";
 import { useTranslations } from "next-intl";
-import { use } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+import Image from "next/image";
 
 const formSchema = z.object({
   nationality: z.string().min(2).max(2),
@@ -41,6 +43,22 @@ const FormComponent = () => {
   const t = useTranslations("profile");
   const p = useTranslations("profile.complete");
   const to = useTranslations("profile.toast");
+  const { locale } = useParams();
+
+  const [countries, setCountries] = useState<TCountry[]>();
+
+  useEffect(() => {
+    async function fetchCountries() {
+      const res = await request({ type: "get", endpoint: "country" });
+      const sorted = res.data.sort((a: TCountry, b: TCountry) =>
+        a[`name_${locale}`].localeCompare(b[`name_${locale}`])
+      );
+
+      setCountries(sorted);
+    }
+
+    fetchCountries();
+  }, []);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -95,8 +113,23 @@ const FormComponent = () => {
                   <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
+
                   <SelectContent>
-                    <SelectItem value="us">USA</SelectItem>
+                    {countries?.map((country) => (
+                      <SelectItem key={country.tld} value={country.tld}>
+                        <div className="flex items-center">
+                          <Image
+                            src={country.image}
+                            alt={country[`name_${locale}`]}
+                            width={20}
+                            height={20}
+                            className="mr-2 aspect-video"
+                          />
+
+                          <span>{country[`name_${locale}`]}</span>
+                        </div>
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </FormControl>
@@ -135,7 +168,7 @@ const FormComponent = () => {
           control={form.control}
           name="gender"
           render={({ field }) => (
-            <FormItem className="flex mb-12">
+            <FormItem className="flex ">
               <FormLabel className="mr-2 mt-5">{t("gender")}</FormLabel>
               <FormControl>
                 <Select
@@ -158,7 +191,7 @@ const FormComponent = () => {
 
         <Button
           type="submit"
-          className="bg-gray-400 px-2 py-1  text-white rounded my-5"
+          className="bg-gray-400 px-2 py-1 mt-5  text-white rounded  "
         >
           {p("title")}
         </Button>
