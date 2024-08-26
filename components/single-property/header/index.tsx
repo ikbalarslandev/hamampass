@@ -5,15 +5,17 @@ import HamburgerDrawerComponent from "./drawer";
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import { IoChevronBack } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 const HeaderComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { title }: { title: string } = useParams();
   const decoded = decodeURIComponent(title);
   const h_title = decoded.replace(/-/g, " ");
+  const router = useRouter();
 
   const handleBack = () => {
-    window.history.back();
+    router.push("/");
   };
 
   return (

@@ -14,7 +14,7 @@ const ProgressComponent = ({ data, title }: TProgress) => {
     <div className="flex items-center ">
       <h1 className="text-gray-700 flex-1">{title}</h1>
       <div className="flex items-center gap-2 flex-1  ">
-        <Progress value={data * 10} />
+        <Progress value={data * 20} />
         <p className="font-semibold">{num}</p>
       </div>
     </div>

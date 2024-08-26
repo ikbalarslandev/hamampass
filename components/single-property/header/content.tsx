@@ -50,14 +50,14 @@ const HamburgerContent = ({ setOpen }: any) => {
         </button>
       )}
 
-      {data?.user && (
+      {/* {data?.user && (
         <button
           className="text-2xl scale-x-115  w-full text-left py-2"
           onClick={() => router.push(`/${locale}/api/auth/signOut`)}
         >
           {t("my-reviews")}
         </button>
-      )}
+      )} */}
 
       <div className="flex items-center absolute bottom-0">
         <p>{t("language")}</p>
