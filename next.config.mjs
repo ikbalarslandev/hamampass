@@ -12,6 +12,7 @@ const nextConfig = {
       "www.tooistanbul.com",
       "lh3.googleusercontent.com",
       "flagsoftheworld.info",
+      "utfs.io",
     ],
   },
 };

@@ -80,8 +80,6 @@ const getPropertyByTitle = async (req: NextRequest) => {
     },
   });
 
-  console.log(property);
-
   return property;
 };
 

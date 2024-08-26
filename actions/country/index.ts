@@ -35,4 +35,14 @@ const createCountry = async (req: NextRequest) => {
   return country;
 };
 
-export { getCountryByTld, getCountries, createCountry };
+const createManyCountries = async (req: NextRequest) => {
+  const countries = await req.json();
+
+  const createdCountries = await prisma.country.createMany({
+    data: countries,
+  });
+
+  return createdCountries;
+};
+
+export { getCountryByTld, getCountries, createCountry, createManyCountries };

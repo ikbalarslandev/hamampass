@@ -30,7 +30,7 @@ const Slider = (property: any) => {
                   alt={property.title}
                   width={400}
                   height={400}
-                  className="rounded-xl"
+                  className="w-full"
                 />
               </CarouselItem>
             ))}
