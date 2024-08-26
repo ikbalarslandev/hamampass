@@ -52,7 +52,7 @@ const Cards: React.FC<CardsProps> = ({ res }) => {
   const c = useTranslations("home.load-btn");
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center mx-4 gap-6">
       {properties.map((property: TProperty) => (
         <Card key={property.id} property={property} />
       ))}

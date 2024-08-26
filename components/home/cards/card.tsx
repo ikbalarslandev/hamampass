@@ -6,13 +6,8 @@ import Image from "next/image";
 import { TProperty } from "@/types";
 import { photos } from "@/mock/photos";
 import { IoStar } from "react-icons/io5";
-
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import HoverComponent from "@/components/hover";
+import { Separator } from "@/components/ui/separator";
 
 const Card = ({ property }: { property: TProperty }) => {
   const { locale } = useParams();
@@ -31,37 +26,27 @@ const Card = ({ property }: { property: TProperty }) => {
   };
 
   return (
-    <div className=" mb-2 m-1">
-      <Carousel>
-        <CarouselContent className="rounded-xl aspect-video">
-          {property.photos.length < 2
-            ? photos.map((photo: string) => (
-                <CarouselItem key={photo} className="rounded-xl">
-                  <Image
-                    src={photo}
-                    alt={property.title}
-                    width={400}
-                    height={400}
-                    priority={true}
-                    className="rounded-xl"
-                  />
-                </CarouselItem>
-              ))
-            : property.photos.map((photo: string) => (
-                <CarouselItem key={photo}>
-                  <Image
-                    src={photo}
-                    alt={property.title}
-                    width={400}
-                    height={400}
-                    priority={true}
-                    className="rounded-xl"
-                  />
-                </CarouselItem>
-              ))}
-        </CarouselContent>
-      </Carousel>
-      <div onClick={handleCardClick}>
+    <button onClick={handleCardClick}>
+      {property.photos.length > 1 ? (
+        <Image
+          src={property.photos[0]}
+          alt={property.title}
+          width={400}
+          height={400}
+          priority={true}
+          className="rounded-lg"
+        />
+      ) : (
+        <Image
+          src={photos[0]}
+          alt={property.title}
+          width={400}
+          height={400}
+          priority={true}
+          className="rounded-lg"
+        />
+      )}
+      <div>
         <div>
           <div className="flex  items-center justify-between">
             <h2 className="text-xl font-bold text-slate-700 my-2">
@@ -79,8 +64,8 @@ const Card = ({ property }: { property: TProperty }) => {
           </div>
 
           <div className="flex gap-2 items-center justify-between">
-            <span className="bg-blue-500 text-white px-2 py-[.1rem] rounded-xl ">
-              {sex_type(property.sex.toString())}
+            <span className="border flex items-center gap-3 p-2 px-4 rounded-lg bg-cyan-600 text-white h-2">
+              <p>{sex_type(property.sex.toString())}</p>
             </span>
           </div>
 
@@ -90,25 +75,30 @@ const Card = ({ property }: { property: TProperty }) => {
             ))}
           </div>
         </div>
-        <div className=" flex h-16 mt-4 gap-2  ">
-          {property.products.map((product) => (
-            <div
-              key={product.id}
-              className=" flex-1 flex flex-col items-center justify-center "
-            >
-              <p>{product_type(product.type.toString())}</p>
+        <div className=" flex h-16 mt-4">
+          {property.products.map((product, index) => (
+            <div key={product.id} className="flex items-center">
+              <div className="flex-1 flex flex-col items-start justify-between">
+                <p className="font-medium text-gray-600">
+                  {product_type(product.type.toString())}
+                </p>
 
-              <div className="flex gap-1 items-center">
-                <span className=" font-bold text-xl">
-                  ₺{product.adult_price}
-                </span>
-                <span className="text-sm text-gray-500">TL</span>
+                <div className="flex gap-1 items-center">
+                  <span className="font-semibold text-lg text-slate-800 ">
+                    ₺{product.adult_price}
+                  </span>
+                  <span className="text-sm text-gray-500">TL</span>
+                </div>
               </div>
+
+              {index !== property.products.length - 1 && (
+                <Separator className="h-8 mx-7" orientation="vertical" />
+              )}
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 
