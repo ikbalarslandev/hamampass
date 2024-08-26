@@ -32,6 +32,16 @@ export interface THour {
   weekdays: string[];
   weekends: string[];
   outsiders: TOutsider[];
+  segregated_details: {
+    mens: {
+      weekdays: string[];
+      weekends: string[];
+    };
+    womens: {
+      weekdays: string[];
+      weekends: string[];
+    };
+  };
 }
 
 interface TOutsider {

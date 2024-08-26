@@ -142,7 +142,9 @@
       "weekdays": "Hafta İçi",
       "weekdays-desc": "(Pazartesi - Cuma)",
       "weekend": "Hafta Sonu",
-      "weekend-desc": "(Cumartesi - Pazar)"
+      "weekend-desc": "(Cumartesi - Pazar)",
+      "mens": "Erkekler",
+      "womens": "Kadınlar"
     },
 
     "location": "İletişim",

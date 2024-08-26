@@ -126,10 +126,10 @@ model Rating {
 model Hour {
   id String @id @default(uuid())
 
-  sex Int
-  weekdays String[]  // ["09:00", "21:00"]
-  weekends  String[]
-  outsiders Json[]
+  weekdays           String[] // ["09:00", "21:00"]
+  weekends           String[]
+  outsiders          Json[]
+  segregated_details Json? 
 
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
@@ -139,6 +139,17 @@ model Hour {
 //outsider {
 // sex: 0
 // day : 0
+// }
+
+//  segregated_details {
+//   mens   {
+//     weekdays String[]  // ["09:00", "21:00"]
+//     weekends  String[]
+//   }
+//   womens {
+//     weekdays String[]  // ["09:00", "21:00"]
+//     weekends  String[]
+//   }
 // }
 
 model Product {

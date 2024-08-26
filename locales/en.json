@@ -143,7 +143,9 @@
       "weekdays": "Weekdays",
       "weekdays-desc": "(Monday - Friday)",
       "weekend": "Weekend",
-      "weekend-desc": "(Saturday - Sunday)"
+      "weekend-desc": "(Saturday - Sunday)",
+      "mens": "Men",
+      "womens": "Women"
     },
 
     "location": "Contact",

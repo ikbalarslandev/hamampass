@@ -104,10 +104,10 @@ const createProperty = async (req: NextRequest) => {
     // Create Hour record
     const hourRecord = await prisma.hour.create({
       data: {
-        sex,
         weekdays: hour.weekdays,
         weekends: hour.weekends,
         outsiders: hour.outsiders || [],
+        segregated_details: hour.segregated_details,
       },
     });
 
