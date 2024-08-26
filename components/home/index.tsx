@@ -1,34 +1,23 @@
-"use client";
-
-import { useSearchParams } from "next/navigation";
-import { useTranslations } from "next-intl";
-
 import Cards from "@/components/home/cards";
 import FilterComponent from "@/components/home/filters";
-import { useSelector } from "react-redux";
-import { useFetchProperties } from "@/hooks/useFetchProperties";
+import HomeTitle from "./title";
+import { getAllProperties } from "@/actions/property";
+import { NextRequest } from "next/server";
 
-const HomePage = () => {
-  useFetchProperties();
-  const home = useTranslations("home");
+const HomePage = async () => {
+  const req = new NextRequest(process.env.BASE_URL!!);
+  const res = await getAllProperties(req);
 
-  const res = useSelector((state: any) => state.properties.propertyState);
-
-  const searchParams = useSearchParams();
-  const districtParam = searchParams.get("district");
+  if ("data" in res) {
+    var data = res.data;
+  }
 
   return (
     <div>
       <FilterComponent />
-
       <hr />
-      <h1 className="text-center text-xl my-3">
-        {home("title")}{" "}
-        <span className="text-orange-600">
-          İstanbul{districtParam && `/${districtParam}`}
-        </span>
-      </h1>
-      {res && <Cards res={res} />}
+      <HomeTitle />
+      <Cards serverProperties={data} />
     </div>
   );
 };

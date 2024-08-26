@@ -3,17 +3,20 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
 import { request } from "@/services/axios";
-import { TApiResponse, TProperty } from "@/types";
+import { TProperty } from "@/types";
 
 import { Button } from "@/components/ui/button";
 import Card from "@/components/home/cards/card";
+import { useSelector } from "react-redux";
+import { useFetchProperties } from "@/hooks/useFetchProperties";
 
-interface CardsProps {
-  res: TApiResponse;
-}
+const Cards = ({ serverProperties }: any) => {
+  useFetchProperties();
+  const res = useSelector((state: any) => state.properties.propertyState);
 
-const Cards: React.FC<CardsProps> = ({ res }) => {
-  const [properties, setProperties] = useState<TProperty[]>([]);
+  const [properties, setProperties] = useState<TProperty[]>(
+    (serverProperties as TProperty[]) || []
+  );
   const [page, setPage] = useState({
     page: 1,
     max_page: 1,
