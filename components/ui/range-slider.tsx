@@ -1,10 +1,14 @@
 "use client";
 
-import * as React from "react";
 import * as Slider from "@radix-ui/react-slider";
+import { useState, useEffect } from "react";
 
 const RangeSlider = ({ min, max, onRangeChange }: any) => {
-  const [value, setValue] = React.useState([min, max]);
+  const [value, setValue] = useState([min, max]);
+
+  useEffect(() => {
+    setValue([min, max]);
+  }, [min, max]);
 
   const handleValueChange = (newValue: any) => {
     setValue(newValue);
@@ -15,8 +19,8 @@ const RangeSlider = ({ min, max, onRangeChange }: any) => {
     <Slider.Root
       className="relative flex w-full touch-none select-none items-center"
       defaultValue={[min, max]}
-      max={2200}
-      min={200}
+      max={2100}
+      min={100}
       step={1}
       minStepsBetweenThumbs={1}
       value={value}

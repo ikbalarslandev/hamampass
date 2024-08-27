@@ -22,6 +22,8 @@ import SexComponent from "@/components/home/filters/sex";
 import PaymentMethodComponent from "@/components/home/filters/pay";
 import RangeComponent from "@/components/home/filters/range";
 import { useSelector } from "react-redux";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
@@ -31,10 +33,16 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
   const title = useTranslations("home.filters.titles");
   const btn = useTranslations("home.filters");
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const properties = useSelector(
     (state: any) => state.properties.propertyState
   );
+
+  const handleClear = () => {
+    const newUrl = window.location.pathname;
+    router.push(newUrl);
+  };
 
   return (
     <Drawer>
@@ -44,11 +52,16 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
         {trigger}
       </DrawerTrigger>
       <DrawerContent className="h-[96%] ">
-        <DrawerHeader className="flex items-center justify-between ">
-          <DrawerTitle className="text-lg ">{title("title")}</DrawerTitle>{" "}
-          <DrawerClose>
+        <DrawerHeader className="flex items-center   ">
+          <DrawerClose className="absolute top-2">
             <IoClose size={28} />
           </DrawerClose>
+          <DrawerTitle className="text-md text-center w-full">
+            {title("title")}
+          </DrawerTitle>
+          <Button onClick={handleClear} variant="clear">
+            {btn("clear")}
+          </Button>
         </DrawerHeader>
         <hr />
         <div className="px-5 overflow-y-auto">

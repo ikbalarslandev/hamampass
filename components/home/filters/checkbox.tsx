@@ -49,7 +49,10 @@ const CheckboxComponent = ({ id, name, paramName, isIcon }: CheckboxProps) => {
     const urlParams = new URLSearchParams(window.location.search);
     const vibeParam = urlParams.get(paramName);
     const vibeArray: number[] = vibeParam ? JSON.parse(vibeParam) : [];
-    setIsChecked(vibeArray.includes(id));
+
+    searchParams.get(paramName)
+      ? setIsChecked(vibeArray.includes(id))
+      : setIsChecked(false);
   }, [searchParams]);
 
   return (

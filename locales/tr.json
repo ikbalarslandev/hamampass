@@ -25,6 +25,7 @@
     "title": "Hamamlar - ",
     "filters": {
       "filter": "filtrele",
+      "clear": "Temizle",
       "titles": {
         "title": "Filtreler",
         "about_title": "Hakkında",

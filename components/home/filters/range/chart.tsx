@@ -3,11 +3,12 @@
 import { Bar, BarChart, Cell } from "recharts";
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 import RangeSlider from "@/components/ui/range-slider";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import MinMax from "./min-max";
 import { request } from "@/services/axios";
 import { TApiResponse } from "@/types";
 import { useSearchParams } from "next/navigation";
+import { set } from "ramda";
 
 const chartConfig = {
   property: {
@@ -21,11 +22,16 @@ const Chart = () => {
   const urlRange = JSON.parse(searchParams.get("range") || "[]");
 
   const [range, setRange] = useState<number[]>(
-    urlRange.length ? urlRange : [200, 2200]
+    urlRange.length ? urlRange : [100, 2100]
   );
+
+  useEffect(() => {
+    !searchParams.get("range") && setRange([100, 2100]);
+  }, [searchParams]);
+
   const [chartData, setChartData] = useState(
     Array.from({ length: 41 }, (_, index) => ({
-      price: 200 + index * 50,
+      price: 100 + index * 50,
       property: 0,
     }))
   );
@@ -81,7 +87,7 @@ const Chart = () => {
   }, [properties]);
 
   useEffect(() => {
-    if (JSON.stringify(range) === JSON.stringify([200, 2200])) return;
+    if (JSON.stringify(range) === JSON.stringify([100, 2100])) return;
 
     const urlParams = new URLSearchParams(window.location.search);
     urlParams.set("range", JSON.stringify(range));
@@ -107,8 +113,8 @@ const Chart = () => {
       </ChartContainer>
       <div>
         <RangeSlider
-          min={urlRange[0] ?? 200}
-          max={urlRange[1] ?? 2200}
+          min={urlRange[0] ?? 100}
+          max={urlRange[1] ?? 2100}
           onRangeChange={(newRange: number[]) => setRange(newRange)}
         />
       </div>

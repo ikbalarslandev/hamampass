@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
@@ -20,6 +20,10 @@ const PaymentMethodComponent = () => {
   const [selectedValue, setSelectedValue] = useState(
     searchParams.get("pay") || ""
   );
+
+  useEffect(() => {
+    setSelectedValue(searchParams.get("pay") || "");
+  }, [searchParams]);
 
   const handleSelectChange = (value: string) => {
     if (selectedValue === value) {

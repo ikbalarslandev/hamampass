@@ -27,6 +27,7 @@
     "title": "Turkish Baths in ",
     "filters": {
       "filter": "filters",
+      "clear": "Clear all",
       "titles": {
         "title": "Filters",
         "about_title": "About",
@@ -57,7 +58,7 @@
         "1": "Men's Only",
         "2": "Women's Only",
         "3": "Unisex",
-        "4": "Segregated"
+        "4": "Men-Women Separate"
       },
       "price": {
         "expensive": "Price (Highest first)",
