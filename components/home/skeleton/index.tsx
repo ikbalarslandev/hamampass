@@ -1,15 +1,16 @@
-import { SkeletonCard } from "./card";
-import { SkeletonHeader } from "./header";
+import Image from "next/image";
+import logo from "@/public/logo.png";
 
 const SkeletonComponent = () => {
   return (
-    <div className="w-full flex flex-col">
-      <SkeletonHeader />
-      <div className="flex flex-col gap-6 items-center mx-4">
-        {[0, 1, 2, 3, 4].map((_: any, index: any) => (
-          <SkeletonCard key={index} />
-        ))}
-      </div>
+    <div className="w-full flex items-center justify-center h-[100vh] ">
+      <Image
+        src={logo}
+        alt="logo"
+        width={400}
+        height={100}
+        className=" animate-pulse"
+      />
     </div>
   );
 };
