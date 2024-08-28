@@ -131,4 +131,21 @@ const createProperty = async (req: NextRequest) => {
   }
 };
 
-export { getAllProperties, getPropertyByTitle, createProperty };
+const findAdminsProperty = async (req: NextRequest) => {
+  const url = new URL(req.url);
+  const userId = url.pathname.split("/").pop();
+
+  const property = await prisma.property.findFirst({
+    where: {
+      adminId: userId,
+    },
+  });
+  return property;
+};
+
+export {
+  getAllProperties,
+  getPropertyByTitle,
+  createProperty,
+  findAdminsProperty,
+};
