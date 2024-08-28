@@ -20,6 +20,7 @@ const AdminPage = async ({ params }: any) => {
   console.log("canEdit", property?.adminId === user.id);
   return (
     <AdminComponent
+      title={property?.title || ""}
       products={property?.products as unknown as TProduct[]}
       canEdit={property?.adminId === user.id}
     />
