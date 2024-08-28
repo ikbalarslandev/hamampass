@@ -17,11 +17,14 @@ const AdminPage = async ({ params }: any) => {
     },
   });
 
-  console.log("canEdit", property?.adminId === user.id);
+  const sortedProducts = property?.products.sort((a, b) => {
+    return a.type > b.type ? 1 : -1;
+  });
+
   return (
     <AdminComponent
       title={property?.title || ""}
-      products={property?.products as unknown as TProduct[]}
+      products={sortedProducts as unknown as TProduct[]}
       canEdit={property?.adminId === user.id}
     />
   );

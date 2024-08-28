@@ -2,7 +2,6 @@
 
 import { TProduct } from "@/types";
 import DrawerComponent from "./drawer";
-import { PiFlowerLotus } from "react-icons/pi";
 import { useTranslations } from "next-intl";
 import { convertProductIcon } from "@/utils/db_translations";
 
@@ -11,6 +10,8 @@ interface Props {
 }
 
 const ProductsComponent = ({ data }: Props) => {
+  data = data.sort((a, b) => (a.type > b.type ? 1 : -1));
+
   const t = useTranslations("home.product-type");
   const title = useTranslations("home.filters.titles");
 

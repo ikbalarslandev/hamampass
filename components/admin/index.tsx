@@ -14,17 +14,20 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useToast } from "../ui/use-toast";
+import { request } from "@/services/axios";
+import { useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
+import { useEffect } from "react";
 
 // Schema for dynamic product fields under each product type object
 const productSchema = z.object({
   adult_price: z
     .number()
-    .min(0, { message: "Price must be at least 0." })
+    .min(0, { message: "Fiyat negatif olamaz" })
     .nullable(),
   child_price: z
     .number()
-    .min(0, { message: "Price must be at least 0." })
+    .min(0, { message: "Fiyat negatif olamaz" })
     .nullable(),
 });
 
@@ -68,7 +71,8 @@ const AdminComponent = ({
   canEdit: boolean;
   title: string;
 }) => {
-  // Create form instance with dynamically generated schema
+  const router = useRouter();
+  const { locale } = useParams();
   const formSchema = createFormSchema(products);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -81,9 +85,22 @@ const AdminComponent = ({
     }, {} as Record<string, { adult_price: number; child_price: number }>),
   });
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
+  async function onSubmit(data: z.infer<typeof formSchema>) {
     if (!canEdit) return;
-    console.log(data);
+
+    await request({
+      type: "put",
+      endpoint: "admin",
+      payload: {
+        updatedProdcuts: products.map((product) => ({
+          ...product,
+          ...data[product.type],
+        })),
+      },
+    });
+
+    router.push(`/${locale}/${title.replace(/\s/g, "-")}`);
+    router.refresh();
   }
 
   return (
@@ -144,7 +161,7 @@ const AdminComponent = ({
                           type="number"
                           placeholder="Fiyat Giriniz..."
                           {...field}
-                          className="border-cyan-300 ml-2 focus:border-cyan-500 placeholder:text-sm"
+                          className="border-cyan-300 w-28  ml-2 focus:border-cyan-500 placeholder:text-sm"
                           onChange={(e) =>
                             field.onChange(parseInt(e.target.value) || null)
                           }

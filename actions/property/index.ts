@@ -9,6 +9,7 @@ import {
   paginate,
 } from "./pure";
 import { pipe } from "ramda";
+import { TProduct } from "@/types";
 
 async function getAllProperties(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -143,9 +144,35 @@ const findAdminsProperty = async (req: NextRequest) => {
   return property;
 };
 
+const updatePrices = async (req: NextRequest) => {
+  const { updatedProdcuts } = await req.json();
+
+  try {
+    await Promise.all(
+      updatedProdcuts.map(async (product: TProduct) => {
+        return prisma.product.update({
+          where: {
+            id: product.id,
+          },
+          data: {
+            adult_price: product.adult_price,
+            child_price: product.child_price,
+          },
+        });
+      })
+    );
+
+    return updatedProdcuts;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to update prices");
+  }
+};
+
 export {
   getAllProperties,
   getPropertyByTitle,
   createProperty,
   findAdminsProperty,
+  updatePrices,
 };
