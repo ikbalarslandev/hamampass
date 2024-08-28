@@ -13,7 +13,7 @@ const HoursComponent: React.FC<HoursComponentProps> = ({ data }) => {
   const h = useTranslations("single.hours");
 
   return (
-    <div className="my-2 mt-6 mb-4 ">
+    <section className="my-2 mt-6 mb-4 ">
       <hr />
       <h2 className="font-bold text-xl mb-3 mt-4 text-gray-600">
         {title("hours-title")}
@@ -117,7 +117,7 @@ const HoursComponent: React.FC<HoursComponentProps> = ({ data }) => {
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

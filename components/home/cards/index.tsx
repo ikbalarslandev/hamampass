@@ -10,12 +10,12 @@ import Card from "@/components/home/cards/card";
 import { useSelector } from "react-redux";
 import { useFetchProperties } from "@/hooks/useFetchProperties";
 
-const Cards = ({ serverProperties }: any) => {
+const Cards = ({ serverProperties }: { serverProperties: TProperty[] }) => {
   useFetchProperties();
   const res = useSelector((state: any) => state.properties.propertyState);
 
   const [properties, setProperties] = useState<TProperty[]>(
-    (serverProperties as TProperty[]) || []
+    serverProperties || []
   );
   const [page, setPage] = useState({
     page: 1,
@@ -56,9 +56,11 @@ const Cards = ({ serverProperties }: any) => {
 
   return (
     <div className="flex flex-col items-center mx-4 gap-6">
-      {properties.map((property: TProperty) => (
-        <Card key={property.id} property={property} />
-      ))}
+      <div aria-live="polite">
+        {properties.map((property: TProperty) => (
+          <Card key={property.id} property={property} />
+        ))}
+      </div>
 
       {page.max_page > page.page && (
         <Button

@@ -18,7 +18,7 @@ const ReviewComponent = ({
   const s = useTranslations("home.filters.titles");
 
   return (
-    <div className="mb-5">
+    <section className="mb-5">
       <h2 className="font-bold text-xl text-gray-600">{s("review-title")}</h2>
 
       <div className="my-3 flex items-center gap-2">
@@ -31,7 +31,7 @@ const ReviewComponent = ({
       </div>
       <Rate data={data} />
       <Cards propertyId={propertyId} />
-    </div>
+    </section>
   );
 };
 

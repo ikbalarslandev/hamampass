@@ -21,7 +21,7 @@ const LocationComponent = ({ contact }: { contact: TContact }) => {
   };
 
   return (
-    <div className="flex flex-col gap-3 ">
+    <section className="flex flex-col gap-3 ">
       <hr />
       <h2 className="font-bold text-xl text-gray-600">{s("location")}</h2>
 
@@ -52,7 +52,7 @@ const LocationComponent = ({ contact }: { contact: TContact }) => {
           location={contact?.location}
         />
       </div>
-    </div>
+    </section>
   );
 };
 

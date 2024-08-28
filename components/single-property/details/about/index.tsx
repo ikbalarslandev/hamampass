@@ -12,7 +12,7 @@ const AboutComponent = ({ desc }: any) => {
   if (!desc) return null;
 
   return (
-    <div>
+    <section>
       <h2 className="font-bold text-xl text-gray-600 mt-5 mb-3">
         {title("about_title")}
       </h2>
@@ -28,7 +28,7 @@ const AboutComponent = ({ desc }: any) => {
         }
         description={description}
       />
-    </div>
+    </section>
   );
 };
 

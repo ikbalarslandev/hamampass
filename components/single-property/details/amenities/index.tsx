@@ -7,7 +7,7 @@ const AmenityComponent = ({ data }: any) => {
   const title = useTranslations("home.filters.titles");
 
   return (
-    <div className="flex flex-col gap-2">
+    <section className="flex flex-col gap-2">
       <hr />
       <h2 className="font-bold text-xl text-gray-600">
         {title("amenity_title")}
@@ -18,7 +18,7 @@ const AmenityComponent = ({ data }: any) => {
             <HoverComponent key={index} amenity={id} isDesc={true} />
           ))}
       </div>
-    </div>
+    </section>
   );
 };
 

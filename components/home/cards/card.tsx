@@ -26,26 +26,18 @@ const Card = ({ property }: { property: TProperty }) => {
   };
 
   return (
-    <button onClick={handleCardClick}>
-      {property.photos.length > 1 ? (
-        <Image
-          src={property.photos[0]}
-          alt={property.title}
-          width={400}
-          height={400}
-          priority={true}
-          className="rounded-lg"
-        />
-      ) : (
-        <Image
-          src={photos[0]}
-          alt={property.title}
-          width={400}
-          height={400}
-          priority={true}
-          className="rounded-lg"
-        />
-      )}
+    <button
+      onClick={handleCardClick}
+      aria-label={`View details of ${property.title}`}
+    >
+      <Image
+        src={property.photos.length > 1 ? property.photos[0] : photos[0]}
+        alt={property.title}
+        width={400}
+        height={400}
+        priority={true}
+        className="rounded-lg"
+      />
       <div>
         <div>
           <div className="flex  items-center justify-between">

@@ -15,7 +15,7 @@ const ProductsComponent = ({ data }: Props) => {
   const title = useTranslations("home.filters.titles");
 
   return (
-    <div className="mt-4">
+    <section className="mt-4">
       <h2 className="font-bold text-xl text-gray-600">
         {title("products_title")}
       </h2>
@@ -41,7 +41,7 @@ const ProductsComponent = ({ data }: Props) => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
