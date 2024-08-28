@@ -10,13 +10,7 @@ import {
 } from "@/components/ui/drawer";
 import GoogleMapComponent from "../details/location/map";
 
-import { useTranslations } from "next-intl";
-
-const MapDrawerComponent = ({ trigger }: any) => {
-  const r = useTranslations("single.review.drawer");
-  const b = useTranslations("single.review.btn");
-
-  const location = [40.95416482162608, 29.09357972545057];
+const MapDrawerComponent = ({ trigger, location }: any) => {
   return (
     <Drawer handleOnly={true}>
       <DrawerTrigger>{trigger}</DrawerTrigger>
