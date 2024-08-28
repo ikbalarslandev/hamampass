@@ -9,6 +9,11 @@ import { TbMassage } from "react-icons/tb";
 import { PiThermometerColdFill } from "react-icons/pi";
 import { IoBodyOutline } from "react-icons/io5";
 import { IoTicketOutline } from "react-icons/io5";
+import { FaToiletPaper } from "react-icons/fa";
+import { PiTowelFill } from "react-icons/pi";
+import { FaSoap } from "react-icons/fa";
+import { IoBody } from "react-icons/io5";
+import { FaLock } from "react-icons/fa";
 
 const convertAgeRange = (n: number) => {
   switch (n) {
@@ -30,20 +35,30 @@ const convertAgeRange = (n: number) => {
 const convertAmenityIcon = (id: number) => {
   switch (id.toString()) {
     case "0":
-      return <FaShower />;
+      return <FaToiletPaper />;
     case "1":
-      return <FaHotjar />;
+      return <PiTowelFill />;
     case "2":
-      return <FaCloudRain />;
+      return <FaSoap />;
     case "3":
-      return <FaHotTub />;
+      return <IoBody />;
     case "4":
-      return <FaSwimmingPool />;
+      return <FaLock />;
     case "5":
-      return <TbMassage />;
+      return <FaShower />;
     case "6":
-      return <MdOutlineSevereCold />;
+      return <FaHotjar />;
     case "7":
+      return <FaCloudRain />;
+    case "8":
+      return <FaHotTub />;
+    case "9":
+      return <FaSwimmingPool />;
+    case "10":
+      return <TbMassage />;
+    case "11":
+      return <MdOutlineSevereCold />;
+    case "12":
       return <PiThermometerColdFill />;
     default:
       return <IoIosWarning />;

@@ -41,14 +41,19 @@
         "hours-title": "Hours"
       },
       "amenities": {
-        "0": "Shower",
-        "1": "Sauna",
-        "2": "Steam Room",
-        "3": "Jacuzzi",
-        "4": "Pool",
-        "5": "Massage",
-        "6": "Ice Bucket",
-        "7": "Ice Pool"
+        "0": "Toilet",
+        "1": "towel",
+        "2": "Soap",
+        "3": "Resting Room",
+        "4": "Lockers",
+        "5": "Shower",
+        "6": "Sauna",
+        "7": "Steam Room",
+        "8": "Jacuzzi",
+        "9": "Pool",
+        "10": "Massage",
+        "11": "Ice Bucket",
+        "12": "Ice Pool"
       },
       "payment_methods": {
         "0": "Cash Only",

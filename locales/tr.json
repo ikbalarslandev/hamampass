@@ -38,15 +38,21 @@
         "review-title": "Yorumlar",
         "hours-title": "Çalışma Saatleri"
       },
+
       "amenities": {
-        "0": "Duş",
-        "1": "Sauna",
-        "2": "Buhar Odası",
-        "3": "Jakuzi",
-        "4": "Havuz",
-        "5": "Masaj",
-        "6": "Buz Kovası",
-        "7": "Şok Havuzu"
+        "0": "Tuvalet",
+        "1": "Havlu",
+        "2": "Sabun",
+        "3": "Dinlenme Odası",
+        "4": "Kilitli Dolap",
+        "5": "Duş",
+        "6": "Sauna",
+        "7": "Buhar Odası",
+        "8": "Jakuzi",
+        "9": "Havuz",
+        "10": "Masaj",
+        "11": "Buz Kovası",
+        "12": "Şok Havuzu"
       },
       "payment_methods": {
         "0": "Sadece Nakit",

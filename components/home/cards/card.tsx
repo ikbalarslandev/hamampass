@@ -61,7 +61,7 @@ const Card = ({ property }: { property: TProperty }) => {
             </span>
           </div>
 
-          <div className="flex gap-4 mt-2 ml-1">
+          <div className="flex gap-4 mt-2 ml-1 max-w-[85vw] overflow-x-auto overflow-hidden pb-2">
             {property.amenities.map((id: number, index: number) => (
               <HoverComponent key={index} amenity={id} />
             ))}
