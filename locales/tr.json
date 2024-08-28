@@ -77,6 +77,11 @@
     "view-map": "Haritada Gör",
     "read-more": "Daha Fazla Oku",
     "copy": "Adres panoya kopyalandı",
+    "products": {
+      "adult": "Yetişkin",
+      "child": "Çocuk",
+      "older": "Yaşından büyük "
+    },
     "switch": {
       "details": "Detaylar",
       "reviews": "Yorumlar"

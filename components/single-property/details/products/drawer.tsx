@@ -23,6 +23,7 @@ interface DrawerComponentProps {
 
 const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
   const t = useTranslations("home.product-type");
+  const p = useTranslations("single.products");
   const { locale } = useParams();
   return (
     <Drawer>
@@ -35,25 +36,28 @@ const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
           <div className="text-left my-5">
             <div className="flex items-center gap-2 justify-between ">
               <p>
-                Adult : <span className="text-xs">(older than {data.age})</span>
+                {p("adult")} :{" "}
+                <span className="text-xs">
+                  ({p("older")} {data.age})
+                </span>
               </p>
               <p className="font-bold">
                 ₺{data.adult_price}
                 <span className="text-sm ml-1">TL</span>
               </p>
             </div>
-            {data.child_price && (
+            {data.child_price ? (
               <div className="flex items-center gap-2 justify-between ">
                 <p>
-                  Child :{" "}
-                  <span className="text-xs">(between 0 - {data.age} )</span>
+                  {p("child")} :{" "}
+                  <span className="text-xs">(0 - {data.age} )</span>
                 </p>
                 <p className="font-bold">
                   ₺{data.child_price}
                   <span className="text-sm ml-1">TL</span>
                 </p>
               </div>
-            )}
+            ) : null}
           </div>
         </DrawerHeader>
 

@@ -79,6 +79,12 @@
     "view-map": "View on Map",
     "read-more": "Read more",
     "copy": "Address copied to clipboard",
+    "products": {
+      "adult": "Adult",
+      "child": "Child",
+      "older": "Older than ",
+      "between": "between 0 - "
+    },
     "switch": {
       "details": "Details",
       "reviews": "Reviews"
@@ -103,6 +109,7 @@
         "facilities": "Facilities",
         "value": "Value for Money"
       },
+
       "gender": {
         "0": "Female",
         "1": "Male"
