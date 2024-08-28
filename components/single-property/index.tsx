@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useParams } from "next/navigation";
-import { request } from "@/services/axios";
+import { useRef } from "react";
 import Slider from "./slider";
 import { CiLocationOn } from "react-icons/ci";
 import { TProperty } from "@/types";
@@ -15,24 +13,11 @@ import MapDrawerComponent from "./map";
 import { FaTurkishLiraSign } from "react-icons/fa6";
 import { GoDotFill } from "react-icons/go";
 
-const SinglePropertyPage = () => {
-  let { title } = useParams();
-  title = decodeURIComponent(title as string);
-  const [data, setData] = useState<TProperty>();
+const SinglePropertyPage = ({ data }: { data: TProperty }) => {
   const reviewRef = useRef<HTMLDivElement>(null);
   const sex = useTranslations("home.filters.sex");
   const view = useTranslations("single");
   const payment_details = useTranslations("home.filters.payment_methods");
-
-  useEffect(() => {
-    const res: any = request({
-      type: "get",
-      endpoint: `property/${title}`,
-    });
-    res.then((res: any) => {
-      setData(res.data);
-    });
-  }, [title]);
 
   const scrollToReview = () => {
     if (reviewRef.current) {

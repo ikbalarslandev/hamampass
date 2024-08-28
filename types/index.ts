@@ -53,7 +53,6 @@ export interface TProperty {
   id: string;
   title: string;
   contactId: string;
-  priceId: string;
   hourId: string;
   amenities: number[];
   photos: string[];
