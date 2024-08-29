@@ -60,7 +60,7 @@ const Card = ({ property }: { property: TProperty }) => {
                 alt={property.title || "property"}
                 width={400}
                 height={400}
-                className="rounded-lg w-auto h-auto"
+                className="rounded-lg"
               />
             </CarouselItem>
           ))}
