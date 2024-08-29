@@ -15,9 +15,9 @@ const Slider = (property: any) => {
     <GaleryDrawer
       trigger={
         <Carousel className="rounded-none mt-2 ml-2">
-          <CarouselContent className="rounded-none">
+          <CarouselContent className="rounded-none -ml-1">
             {images.map((photo: string, index: number) => (
-              <CarouselItem key={photo} className="basis-5/6 ">
+              <CarouselItem key={photo} className="basis-5/6  pl-1 ">
                 <Image
                   src={photo}
                   alt={property.title || "property"}
