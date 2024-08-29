@@ -36,6 +36,7 @@ const SinglePropertyPage = ({ data }: { data: TProperty }) => {
   return (
     <div className="overflow-hidden mb-16">
       <Slider data={data} />
+
       {data && <ReviewStickBtn propertyId={data?.id} />}
 
       <div className="flex flex-col mx-2 pt-5 ">
