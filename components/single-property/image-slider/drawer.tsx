@@ -12,12 +12,15 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 const GaleryDrawer = ({ trigger, data }: any) => {
+  const s = useTranslations("home.filters.titles");
   return (
     <Drawer>
       <DrawerTrigger className=" w-full">{trigger}</DrawerTrigger>
       <DrawerContent className="max-h-full">
         <DrawerHeader className=" flex justify-between items-center mt-2">
-          <DrawerTitle className="text-center mb-2">Gallery</DrawerTitle>
+          <DrawerTitle className="text-center mb-2">
+            {s("gallery-title")}
+          </DrawerTitle>
           <DrawerClose className="text-xl">X</DrawerClose>
         </DrawerHeader>
         <div className="flex-1 px-4 flex flex-col gap-3 pb-6 overflow-y-auto">
