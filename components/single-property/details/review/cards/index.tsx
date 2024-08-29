@@ -31,7 +31,7 @@ const Cards = ({ propertyId }: { propertyId: string }) => {
           ))}
         </CarouselContent>
       </Carousel>
-      <div className="absolute bottom-4 -rotate-3 right-5  flex items-center gap-2 ">
+      <div className="absolute bottom-1 -rotate-3 right-5  flex items-center gap-2 ">
         <ReviewDrawerComponent
           trigger={
             <p className="text-xs font-semibold text-black">
