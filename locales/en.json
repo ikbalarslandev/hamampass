@@ -38,7 +38,9 @@
         "sex_title": "Genders",
         "sort_title": "Sort",
         "review-title": "Reviews",
-        "hours-title": "Hours"
+        "hours-title": "Hours",
+        "location-title": "Location",
+        "about-title": "About"
       },
       "amenities": {
         "0": "Toilet",

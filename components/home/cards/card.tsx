@@ -8,12 +8,15 @@ import { photos } from "@/mock/photos";
 import { IoStar } from "react-icons/io5";
 import HoverComponent from "@/components/hover";
 import { Separator } from "@/components/ui/separator";
+import { useState, useEffect } from "react";
 
 const Card = ({ property }: { property: TProperty }) => {
   const { locale } = useParams();
 
   const sex_type = useTranslations("home.filters.sex");
   const product_type = useTranslations("home.product-type");
+
+  const [sortedProducts, setSortedProducts] = useState(property.products);
 
   const router = useRouter();
 
@@ -24,6 +27,15 @@ const Card = ({ property }: { property: TProperty }) => {
 
     router.push(`/${locale}/${convertedTitle}`);
   };
+
+  useEffect(() => {
+    if (property.products.length > 1) {
+      const count = [...property.products].sort((a, b) =>
+        a.type > b.type ? 1 : -1
+      );
+      setSortedProducts(count);
+    }
+  }, [property.products]);
 
   return (
     <button
@@ -68,7 +80,7 @@ const Card = ({ property }: { property: TProperty }) => {
           </div>
         </div>
         <div className=" flex h-16 mt-4">
-          {property.products.map((product, index) => (
+          {sortedProducts.map((product, index) => (
             <div key={product.id} className="flex items-center">
               <div className="flex-1 flex flex-col items-start justify-between">
                 <p className="font-medium text-gray-600">
@@ -83,7 +95,7 @@ const Card = ({ property }: { property: TProperty }) => {
                 </div>
               </div>
 
-              {index !== property.products.length - 1 && (
+              {index !== sortedProducts.length - 1 && (
                 <Separator className="h-8 mx-7" orientation="vertical" />
               )}
             </div>

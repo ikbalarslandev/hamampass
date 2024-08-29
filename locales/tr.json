@@ -36,7 +36,9 @@
         "sex_title": "Cinsiyet",
         "sort_title": "Sırala",
         "review-title": "Yorumlar",
-        "hours-title": "Çalışma Saatleri"
+        "hours-title": "Çalışma Saatleri",
+        "location-title": "Konum",
+        "about-title": "Hakkında"
       },
 
       "amenities": {
