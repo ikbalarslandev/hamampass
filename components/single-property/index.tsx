@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import Slider from "./slider";
+import Slider from "./image-slider";
 import { CiLocationOn } from "react-icons/ci";
 import { TProperty } from "@/types";
 import { useTranslations } from "next-intl";
