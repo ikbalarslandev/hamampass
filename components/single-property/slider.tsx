@@ -8,7 +8,7 @@ import { photos } from "@/mock/photos";
 
 const Slider = (property: any) => {
   return (
-    <Carousel className="rounded-none">
+    <Carousel className="rounded-none" onClick={() => alert("hello")}>
       <CarouselContent className="rounded-none">
         {property?.data?.photos?.length < 2
           ? photos.map((photo: string) => (
