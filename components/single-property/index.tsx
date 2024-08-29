@@ -39,7 +39,7 @@ const SinglePropertyPage = ({ data }: { data: TProperty }) => {
 
       {data && <ReviewStickBtn propertyId={data?.id} />}
 
-      <div className="flex flex-col mx-2 pt-5 ">
+      <div className="flex flex-col mx-2 pt-2 ">
         <div className="flex justify-between items-center">
           <MapDrawerComponent
             trigger={

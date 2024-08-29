@@ -14,22 +14,27 @@ const Slider = (property: any) => {
   return (
     <GaleryDrawer
       trigger={
-        <Carousel className="rounded-none mt-2 ml-2">
-          <CarouselContent className="rounded-none -ml-1">
+        <Carousel className="rounded-none mt-2 ml-2 ">
+          <CarouselContent className="rounded-none -ml-1 ">
             {images.map((photo: string, index: number) => (
-              <CarouselItem key={photo} className="basis-5/6  pl-1 ">
-                <Image
-                  src={photo}
-                  alt={property.title || "property"}
-                  width={400}
-                  height={400}
-                  className={`
-                ${index === 0 ? "rounded-l-2xl" : ""} 
-                ${index === images.length - 1 ? "rounded-r-2xl" : ""}
-                ${index > 0 && index < images.length - 1 ? "rounded-none" : ""}
-                w-auto h-auto
-              `}
-                />
+              <CarouselItem key={photo} className="basis-5/6 pl-1">
+                <div className="relative w-full pb-[56.25%]">
+                  <Image
+                    src={photo}
+                    alt={property.title || "property"}
+                    fill
+                    className={`
+                      ${index === 0 ? "rounded-l-2xl" : ""} 
+                      ${index === images.length - 1 ? "rounded-r-2xl" : ""}
+                      ${
+                        index > 0 && index < images.length - 1
+                          ? "rounded-none"
+                          : ""
+                      }
+                      object-cover absolute inset-0
+                    `}
+                  />
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
