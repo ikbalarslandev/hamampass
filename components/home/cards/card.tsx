@@ -1,7 +1,5 @@
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
-
 import Image from "next/image";
 import { TProperty } from "@/types";
 import { photos } from "@/mock/photos";
@@ -9,22 +7,25 @@ import { IoStar } from "react-icons/io5";
 import HoverComponent from "@/components/hover";
 import { Separator } from "@/components/ui/separator";
 import { useState, useEffect } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 const Card = ({ property }: { property: TProperty }) => {
   const { locale } = useParams();
-
   const sex_type = useTranslations("home.filters.sex");
   const product_type = useTranslations("home.product-type");
 
   const [sortedProducts, setSortedProducts] = useState(property.products);
-
+  const [activeSlide, setActiveSlide] = useState(0);
   const router = useRouter();
 
   const handleCardClick = () => {
     const convertedTitle = encodeURIComponent(
       property.title.replace(/ /g, "-")
     );
-
     router.push(`/${locale}/${convertedTitle}`);
   };
 
@@ -37,28 +38,56 @@ const Card = ({ property }: { property: TProperty }) => {
     }
   }, [property.products]);
 
+  const chose = property.photos.length > 1 ? property.photos : photos;
+  const images = chose.slice(0, 4);
+
   return (
     <button
       onClick={handleCardClick}
       aria-label={`View details of ${property.title}`}
     >
-      <Image
-        src={property.photos.length > 1 ? property.photos[0] : photos[0]}
-        alt={property.title}
-        width={400}
-        height={400}
-        priority={true}
-        className="rounded-lg"
-      />
+      <Carousel
+        setApi={(api) =>
+          api?.on("select", () => setActiveSlide(api.selectedScrollSnap()))
+        }
+        className="relative"
+      >
+        <CarouselContent className="rounded-none -ml-1">
+          {images.map((photo: string, index: number) => (
+            <CarouselItem key={photo} className="pl-1">
+              <Image
+                src={photo}
+                alt={property.title || "property"}
+                width={400}
+                height={400}
+                className="rounded-lg w-auto h-auto"
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+
+        {/* Dots Navigation */}
+        <div className="flex justify-center gap-1 absolute bottom-2 left-1/2 transform -translate-x-1/2 ">
+          {images.map((_, index) => (
+            <div
+              key={index}
+              className={`w-2.5 h-2.5 rounded-full ${
+                index === activeSlide ? "bg-cyan-500" : "bg-gray-300/50"
+              }`}
+            />
+          ))}
+        </div>
+      </Carousel>
+
       <div>
         <div>
-          <div className="flex  items-center justify-between">
+          <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-slate-700 my-2">
               {property.title}
             </h2>
             {property.rating && (
               <div className="flex items-start gap-1 mr-2">
-                <IoStar className="text-cyan-500 w-5 h-5 " />
+                <IoStar className="text-cyan-500 w-5 h-5" />
                 <p className="font-semibold">
                   {parseFloat(property?.rating?.rate_overall?.toFixed(1)) || ""}{" "}
                   ({property?.rating?.count || 0})
@@ -79,7 +108,7 @@ const Card = ({ property }: { property: TProperty }) => {
             ))}
           </div>
         </div>
-        <div className=" flex h-16 mt-4">
+        <div className="flex h-16 mt-4">
           {sortedProducts.map((product, index) => (
             <div key={product.id} className="flex items-center">
               <div className="flex-1 flex flex-col items-start justify-between">
@@ -88,7 +117,7 @@ const Card = ({ property }: { property: TProperty }) => {
                 </p>
 
                 <div className="flex gap-1 items-center">
-                  <span className="font-semibold text-lg text-slate-800 ">
+                  <span className="font-semibold text-lg text-slate-800">
                     ₺{product.adult_price}
                   </span>
                   <span className="text-sm text-gray-500">TL</span>
