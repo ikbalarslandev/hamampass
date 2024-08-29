@@ -55,7 +55,8 @@
         "9": "Pool",
         "10": "Massage",
         "11": "Ice Bucket",
-        "12": "Ice Pool"
+        "12": "Ice Pool",
+        "see-all": "View all Amenities"
       },
       "payment_methods": {
         "0": "Cash Only",

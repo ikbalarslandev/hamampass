@@ -7,6 +7,7 @@ import { FaGreaterThan } from "react-icons/fa";
 
 const AmenityComponent = ({ data }: any) => {
   const title = useTranslations("home.filters.titles");
+  const see = useTranslations("home.filters.amenities");
   const firstThree = data.slice(0, 3);
 
   return (
@@ -24,7 +25,7 @@ const AmenityComponent = ({ data }: any) => {
       <AmenitiesDrawer
         trigger={
           <button className="btn btn-primary w-full pr-4 text-xs font-semibold flex items-center gap-2 justify-end">
-            <span>View All Amenities</span>
+            <span>{see("see-all")}</span>
             <FaGreaterThan size={10} />
           </button>
         }

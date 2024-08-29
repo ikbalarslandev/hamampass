@@ -16,14 +16,14 @@ const AmenitiesDrawer = ({ trigger, data }: any) => {
   return (
     <Drawer>
       <DrawerTrigger className=" w-full">{trigger}</DrawerTrigger>
-      <DrawerContent className="h-full">
+      <DrawerContent className="max-h-full">
         <DrawerHeader className=" flex justify-between items-center mt-2">
           <DrawerTitle className="text-center mb-2">
             {s("amenity_title")}
           </DrawerTitle>
           <DrawerClose className="text-xl">X</DrawerClose>
         </DrawerHeader>
-        <div className="flex-1 px-4 flex flex-col gap-3 ">
+        <div className="flex-1 px-4 flex flex-col gap-3 pb-6 overflow-y-auto">
           {data &&
             data.map((id: any, index: number) => (
               <HoverComponent key={index} amenity={id} isDesc={true} />

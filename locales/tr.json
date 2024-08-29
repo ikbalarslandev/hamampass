@@ -54,7 +54,8 @@
         "9": "Havuz",
         "10": "Masaj",
         "11": "Buz Kovası",
-        "12": "Şok Havuzu"
+        "12": "Şok Havuzu",
+        "see-all": "Tüm Hizmetleri Gör"
       },
       "payment_methods": {
         "0": "Sadece Nakit",
