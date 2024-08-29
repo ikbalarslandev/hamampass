@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { IoHome } from "react-icons/io5";
+import { renderToStaticMarkup } from "react-dom/server";
 
 const containerStyle = {
   width: "100%",
@@ -39,13 +41,42 @@ const GoogleMapComponent: React.FC<GoogleMapComponentProps> = ({ contact }) => {
       }
 
       // Create new marker
+      const iconSvgString = renderToStaticMarkup(
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 64 64"
+          width="64"
+          height="64"
+        >
+          <circle
+            cx="32"
+            cy="32"
+            r="30"
+            fill="white"
+            stroke="black"
+            strokeWidth="2"
+          />
+          <g transform="translate(16, 16)">
+            <IoHome size={32} color="#8b5cf6" />
+          </g>
+        </svg>
+      );
+      const iconUrl = `data:image/svg+xml;utf8,${encodeURIComponent(
+        iconSvgString
+      )}`;
+
       markerRef.current = new google.maps.Marker({
         map: mapRef.current,
         position: coordinates,
         icon: {
-          url: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path d='M12 2C8.13 2 5 5.13 5 9c0 3.22 5 10 7 12 2-2 7-8.78 7-12 0-3.87-3.13-7-7-7z' fill='%23f00'/></svg>",
-          scaledSize: new google.maps.Size(24, 24),
+          url: iconUrl,
+          scaledSize: new google.maps.Size(48, 48),
         },
+      });
+
+      // Add click event listener
+      markerRef.current.addListener("click", () => {
+        console.log("hey");
       });
     }
   }, [coordinates]);
@@ -55,13 +86,43 @@ const GoogleMapComponent: React.FC<GoogleMapComponentProps> = ({ contact }) => {
 
     // Initialize the marker once the map is loaded
     if (contact) {
+      const iconSvgString = renderToStaticMarkup(
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 64 64"
+          width="64"
+          height="64"
+        >
+          <circle
+            cx="32"
+            cy="32"
+            r="30"
+            fill="white"
+            stroke="gray"
+            strokeWidth="1"
+          />
+          <g transform="translate(16, 16)">
+            <IoHome size={32} color="#06b6d4" />
+          </g>
+        </svg>
+      );
+      const iconUrl = `data:image/svg+xml;utf8,${encodeURIComponent(
+        iconSvgString
+      )}`;
+
       markerRef.current = new google.maps.Marker({
         map: map,
         position: coordinates,
         icon: {
-          url: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path d='M12 2C8.13 2 5 5.13 5 9c0 3.22 5 10 7 12 2-2 7-8.78 7-12 0-3.87-3.13-7-7-7z' fill='%23f00'/></svg>",
-          scaledSize: new google.maps.Size(24, 24),
+          url: iconUrl,
+          scaledSize: new google.maps.Size(48, 48),
         },
+      });
+
+      // Add click event listener
+      markerRef.current.addListener("click", () => {
+        const googleMapsUrl = `https://www.google.com/maps?q=${coordinates.lat},${coordinates.lng}`;
+        window.open(googleMapsUrl, "_blank");
       });
     }
   };
