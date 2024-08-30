@@ -154,18 +154,16 @@ model Hour {
 
 model Product {
   id String @id @default(uuid())
-
   type Int
-
   adult_price Float
-  age         Int // +13
-  child_price Float?
 
+// optional
+  child_price Float?
+  age         Int? 
   detail_tr String[]
   detail_en String[]
-
-  desc_tr String
-  desc_en String
+  desc_tr String?
+  desc_en String?
 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Product" ALTER COLUMN "age" DROP NOT NULL,
+ALTER COLUMN "desc_tr" DROP NOT NULL,
+ALTER COLUMN "desc_en" DROP NOT NULL;
