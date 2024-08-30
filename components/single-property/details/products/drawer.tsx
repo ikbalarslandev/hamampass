@@ -65,9 +65,9 @@ const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
         </DrawerHeader>
 
         <div className="overflow-y-auto">
-          {(
-            data[`detail_${locale}`] ??
-            productPrototypes[data.type][`detail_${locale}`]
+          {(data[`detail_${locale}`].length > 0
+            ? data[`detail_${locale}`]
+            : productPrototypes[data.type][`detail_${locale}`]
           ).map((item: string) => (
             <DrawerDescription
               key={item}
