@@ -54,10 +54,7 @@ const Card = ({ property }: { property: TProperty }) => {
       >
         <CarouselContent className="rounded-none -ml-1 aspect-video ">
           {images.map((photo: string) => (
-            <CarouselItem
-              key={photo}
-              className="pl-1 border border-green-500 flex items-center justify-center "
-            >
+            <CarouselItem key={photo} className="pl-1   ">
               <Image
                 src={photo}
                 alt={property.title || "property"}
