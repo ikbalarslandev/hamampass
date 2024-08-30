@@ -24,9 +24,9 @@ const GaleryDrawer = ({ trigger, data }: any) => {
           <DrawerClose className="text-xl">X</DrawerClose>
         </DrawerHeader>
         <div className="flex-1 px-4 flex flex-col gap-3 pb-6 overflow-y-auto">
-          {data.map((photo: string, index: number) => (
+          {data.map((photo: string) => (
             <div key={photo} className="relative w-full h-96">
-              <Image src={photo} width={400} height={400} alt="photo" />
+              <Image src={photo} width={1600} height={900} alt="photo" />
             </div>
           ))}
         </div>
