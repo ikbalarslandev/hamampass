@@ -1,12 +1,14 @@
-export type TProductType = 0 | 1;
+const defaultAge = 12;
 
 export const productPrototypes: Record<
-  TProductType,
+  number,
   {
     desc_tr: string;
     desc_en: string;
     detail_tr: string[];
     detail_en: string[];
+    age: number;
+    [key: string]: any;
   }
 > = {
   0: {
@@ -19,6 +21,7 @@ export const productPrototypes: Record<
       "extra hizmetler dahil değil",
     ],
     detail_en: ["Access to all facilities", "Extra addons are not included"],
+    age: defaultAge,
   },
   1: {
     desc_tr: "Standart paket hamama giriş, kese ve köpük masajını kapsar",
@@ -31,5 +34,6 @@ export const productPrototypes: Record<
       "Access to all facilities",
       "10 minutes of body scrubbing and foam massage.",
     ],
+    age: defaultAge,
   },
 };

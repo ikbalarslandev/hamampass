@@ -15,6 +15,7 @@ import { TProduct } from "@/types";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { GoDotFill } from "react-icons/go";
+import { productPrototypes } from "@/utils/prototypes";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
@@ -38,7 +39,7 @@ const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
               <p>
                 {p("adult")} :{" "}
                 <span className="text-xs">
-                  ({p("older")} {data.age})
+                  ({p("older")} {data.age ?? productPrototypes[data.type].age})
                 </span>
               </p>
               <p className="font-bold">
@@ -50,7 +51,9 @@ const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
               <div className="flex items-center gap-2 justify-between ">
                 <p>
                   {p("child")} :{" "}
-                  <span className="text-xs">(0 - {data.age} )</span>
+                  <span className="text-xs">
+                    (0 - {data.age ?? productPrototypes[data.type].age} )
+                  </span>
                 </p>
                 <p className="font-bold">
                   ₺{data.child_price}
@@ -62,7 +65,10 @@ const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
         </DrawerHeader>
 
         <div className="overflow-y-auto">
-          {data[`detail_${locale}`].map((item: string) => (
+          {(
+            data[`detail_${locale}`] ??
+            productPrototypes[data.type][`detail_${locale}`]
+          ).map((item: string) => (
             <DrawerDescription
               key={item}
               className="flex items-center gap-1 text-black text-md"
@@ -74,7 +80,8 @@ const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
         </div>
 
         <DrawerFooter className=" px-0  ">
-          {data[`desc_${locale}`]}
+          {data[`desc_${locale}`] ??
+            productPrototypes[data.type][`desc_${locale}`]}
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
