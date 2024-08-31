@@ -53,14 +53,15 @@ const Card = ({ property }: { property: TProperty }) => {
         className="relative  "
       >
         <CarouselContent className="rounded-none -ml-1 aspect-video ">
-          {images.map((photo: string) => (
-            <CarouselItem key={photo} className="pl-1   ">
+          {images.map((photo: string, index: number) => (
+            <CarouselItem key={photo} className="pl-1">
               <Image
                 src={photo}
                 alt={property.title || "property"}
                 height={900}
                 width={1600}
                 className="rounded-lg"
+                loading={index === 0 ? "eager" : "lazy"}
               />
             </CarouselItem>
           ))}
