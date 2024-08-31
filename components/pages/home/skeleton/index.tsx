@@ -14,6 +14,7 @@ const SkeletonComponent = () => {
         width={400}
         height={100}
         className="animate-pulse max-w-[90%] h-auto"
+        loading="eager"
       />
     </main>
   );
