@@ -11,7 +11,7 @@ const HomeTitle = () => {
   return (
     <header className="text-center text-xl my-3">
       {home("title")}{" "}
-      <span className="text-orange-600">
+      <span className="text-orange-700">
         İstanbul{districtParam && `/${districtParam}`}
       </span>
     </header>

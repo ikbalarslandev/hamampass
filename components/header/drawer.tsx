@@ -1,29 +1,46 @@
 "use client";
-
-import React, { useState, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import HamburgerContent from "./content";
 
 const HamburgerDrawerComponent = ({
   trigger,
-  setOpen,
+  setIsOpen,
+  isOpen,
 }: {
   trigger: React.ReactNode;
-  setOpen: any;
+  setIsOpen: (isOpen: boolean) => void;
+  isOpen: boolean;
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const drawerRef = useRef<HTMLDivElement>(null);
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
-    setOpen(isOpen);
+    if (isOpen && drawerRef.current) {
+      drawerRef.current.focus();
+    }
   }, [isOpen]);
-  const toggleDrawer = () => setIsOpen(!isOpen);
 
   return (
     <div className="relative z-30">
-      <button onClick={toggleDrawer} className="text-sm z-40 relative">
+      <button
+        onClick={handleToggle}
+        className="text-sm z-40 relative"
+        aria-controls="drawer-content"
+        aria-expanded={isOpen}
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+      >
         {trigger}
       </button>
 
       <div
+        ref={drawerRef}
+        id="drawer-content"
+        role="dialog"
+        aria-modal="true"
+        tabIndex={-1}
         className={`fixed bottom-0 left-0 w-full bg-gray-800 text-white transition-transform transform z-20 h-full touch-none ${
           isOpen ? "translate-y-0" : "translate-y-full"
         }`}
