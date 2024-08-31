@@ -62,6 +62,7 @@ const Card = ({ property }: { property: TProperty }) => {
                 width={1600}
                 className="rounded-lg"
                 loading={index === 0 ? "eager" : "lazy"}
+                sizes="(max-width: 800px) 100vw, 800px"
               />
             </CarouselItem>
           ))}
