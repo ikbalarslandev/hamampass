@@ -1,6 +1,6 @@
 import prisma from "@/prisma/db";
 import { auth } from "@/auth";
-import AdminComponent from "@/components/admin";
+import AdminComponent from "@/components/pages/admin";
 import { TProduct } from "@/types";
 
 const AdminPage = async ({ params }: any) => {

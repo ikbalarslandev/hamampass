@@ -1,6 +1,6 @@
 "use client";
 
-import FormComponent from "@/components/profile/form";
+import FormComponent from "@/components/pages/profile/form";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";

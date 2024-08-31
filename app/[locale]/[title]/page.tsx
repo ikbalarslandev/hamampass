@@ -1,5 +1,5 @@
-import SinglePropertyPage from "@/components/single-property";
-import HeaderComponent from "@/components/single-property/header";
+import SinglePropertyPage from "@/components/pages/single-property";
+import HeaderComponent from "@/components/pages/single-property/header";
 import { getPropertyByTitle } from "@/actions/property";
 import { NextRequest } from "next/server";
 import { TProperty } from "@/types";

@@ -1,4 +1,4 @@
-import SkeletonComponent from "@/components/home/skeleton";
+import SkeletonComponent from "@/components/pages/home/skeleton";
 
 const LoadingHome = () => {
   return <SkeletonComponent />;

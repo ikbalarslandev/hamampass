@@ -1,5 +1,5 @@
-import ProfilePageComponent from "@/components/profile";
-import HeaderComponent from "@/components/header";
+import ProfilePageComponent from "@/components/pages/profile";
+import HeaderComponent from "@/components/commons/header";
 
 const ProfilePage = async () => {
   return (
