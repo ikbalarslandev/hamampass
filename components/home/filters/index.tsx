@@ -88,6 +88,7 @@ const FilterComponent: React.FC = () => {
         onChange={handleInputChange}
         onClick={handleInputClick}
         className="flex-1"
+        autoComplete="off"
       />
       <DrawerComponent
         trigger={

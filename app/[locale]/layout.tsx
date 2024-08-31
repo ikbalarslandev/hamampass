@@ -37,7 +37,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${inter.className} touch-pan-y`}>
+      <body className={`${inter.className} touch-pan-y  select-none`}>
         <ReduxProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <SessionProvider>
