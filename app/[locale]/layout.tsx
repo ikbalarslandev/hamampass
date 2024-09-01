@@ -7,6 +7,7 @@ import { loadMessages } from "@/utils/loadMessages";
 import { SessionProvider } from "next-auth/react";
 import dynamic from "next/dynamic";
 import { Toaster } from "@/components/ui/toaster";
+import ServiceWorkerRegistration from "@/utils/serviceWorkerRegister";
 
 const ReduxProvider = dynamic(() => import("@/lib/store/redux-provider"), {
   ssr: false,
@@ -42,6 +43,7 @@ export default async function LocaleLayout({
           <NextIntlClientProvider locale={locale} messages={messages}>
             <SessionProvider>
               {children} <Toaster />
+              <ServiceWorkerRegistration />
             </SessionProvider>
           </NextIntlClientProvider>
         </ReduxProvider>
