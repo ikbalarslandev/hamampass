@@ -2,13 +2,12 @@ import { NextRequest } from "next/server";
 import prisma from "@/prisma/db";
 
 const createProperty = async (req: NextRequest) => {
-  const { title, amenities, photos, hour, contact, sex, products } =
+  const { title, amenity, photos, hour, contact, sex, products } =
     await req.json();
 
   try {
     const contactRecord = await prisma.contact.create({
       data: {
-        phone: contact.phone,
         city: contact.city,
         district: contact.district,
         address: contact.address,
@@ -25,10 +24,18 @@ const createProperty = async (req: NextRequest) => {
       },
     });
 
+    const amenityRecord = await prisma.amenity.create({
+      data: {
+        facilities: amenity.facilities,
+        items: amenity.items,
+        foods_drinks: amenity.foods_drinks,
+      },
+    });
+
     const property = await prisma.property.create({
       data: {
         title,
-        amenities,
+        amenityId: amenityRecord.id,
         photos,
         sex,
         contactId: contactRecord.id,
