@@ -51,6 +51,10 @@ const Card = ({ property }: { property: TProperty }) => {
           api?.on("select", () => setActiveSlide(api.selectedScrollSnap()))
         }
         className="relative  "
+        opts={{
+          align: "start",
+          loop: true,
+        }}
       >
         <CarouselContent className="rounded-none -ml-1 aspect-video ">
           {images.map((photo: string, index: number) => (
