@@ -1,10 +1,10 @@
 import ProfilePageComponent from "@/components/pages/profile";
-import HeaderComponent from "@/components/pages/properties/header";
+import HeaderGeneral from "@/components/commons/header";
 
 const Profile = async () => {
   return (
     <main>
-      <HeaderComponent />
+      <HeaderGeneral />
       <ProfilePageComponent />
     </main>
   );
