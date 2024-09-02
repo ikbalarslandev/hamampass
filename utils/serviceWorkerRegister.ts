@@ -9,6 +9,16 @@ export default function ServiceWorkerRegistration() {
         console.error("Service Worker registration failed:", error);
       });
     }
+
+    // get permission for notifications
+    if ("Notification" in window) {
+      Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+          console.log("Notification permission granted.");
+          new Notification("Thanks for granting permission!");
+        }
+      });
+    }
   }, []);
 
   return null;
