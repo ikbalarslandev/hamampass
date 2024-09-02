@@ -97,12 +97,12 @@ const GoogleMapComponent: React.FC<GoogleMapComponentProps> = ({ contact }) => {
             cx="32"
             cy="32"
             r="30"
-            fill="white"
-            stroke="gray"
+            fill="purple"
+            stroke="white"
             strokeWidth="1"
           />
           <g transform="translate(16, 16)">
-            <IoHome size={32} color="#06b6d4" />
+            <IoHome size={32} color="#FFFFFF" />
           </g>
         </svg>
       );
