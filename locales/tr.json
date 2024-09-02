@@ -43,20 +43,28 @@
       },
 
       "amenities": {
-        "0": "Tuvalet",
-        "1": "Havlu",
-        "2": "Sabun",
-        "3": "Dinlenme Odası",
-        "4": "Kilitli Dolap",
-        "5": "Duş",
-        "6": "Sauna",
-        "7": "Buhar Odası",
-        "8": "Jakuzi",
-        "9": "Havuz",
-        "10": "Masaj",
-        "11": "Buz Kovası",
-        "12": "Şok Havuzu",
-        "see-all": "Tüm Hizmetleri Gör"
+        "see-all": "Tüm Hizmetleri Gör",
+        "facilities": {
+          "0": "Tuvalet",
+          "1": "Dinlenme Odası",
+          "2": "Kilitli Dolap",
+          "3": "Duş",
+          "4": "Sauna",
+          "5": "Buhar Odası",
+          "6": "Jakuzi",
+          "7": "Havuz",
+          "8": "Masaj",
+          "9": "Buz Kovası",
+          "10": "Şok Havuzu"
+        },
+        "items": {
+          "0": "Havlu",
+          "1": "Sabun"
+        },
+        "foods_drinks": {
+          "0": "Çay",
+          "1": "Kahve"
+        }
       },
       "payment_methods": {
         "0": "Sadece Nakit",

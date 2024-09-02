@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
-import HoverComponent from "@/components/commons/hover";
+import DisplayAmenityIcon from "@/components/commons/display-amenity-icon";
 
 interface CheckboxProps {
   id: number;
@@ -59,7 +59,7 @@ const CheckboxComponent = ({ id, name, paramName, isIcon }: CheckboxProps) => {
     <Label className="flex items-center gap-2 justify-between ">
       {isIcon ? (
         <div className="flex gap-2">
-          <HoverComponent amenity={id} />
+          <DisplayAmenityIcon amenity={id} />
           <span>{name}</span>
         </div>
       ) : (

@@ -3,7 +3,7 @@
 import { TProduct } from "@/types";
 import DrawerComponent from "./drawer";
 import { useTranslations } from "next-intl";
-import { convertProductIcon } from "@/utils/db_translations";
+import { convertProductIcon } from "@/utils/icon_translations";
 
 interface Props {
   data: TProduct[];

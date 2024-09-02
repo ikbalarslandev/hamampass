@@ -32,6 +32,7 @@ async function getAllProperties(req: NextRequest) {
       include: {
         rating: true,
         products: true,
+        amenity: true,
       },
     });
 

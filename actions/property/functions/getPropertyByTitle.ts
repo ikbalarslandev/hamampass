@@ -15,6 +15,7 @@ const getPropertyByTitle = async (req: NextRequest) => {
       hour: true,
       products: true,
       rating: true,
+      amenity: true,
     },
   });
 

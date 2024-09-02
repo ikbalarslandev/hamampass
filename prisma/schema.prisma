@@ -79,7 +79,9 @@ model Property {
   rating   Rating? @relation(fields: [ratingId], references: [id])
   ratingId String? @unique
 
-  amenities Int[]
+  amenity  Amenity? @relation(fields: [amenityId], references: [id])
+  amenityId String?
+
   products  Product[]
   reviews   Review[]
 
@@ -95,7 +97,6 @@ model Property {
 
 model Contact {
   id       String  @id @default(uuid())
-  phone    String
   city     String
   district String
   address  String
@@ -104,6 +105,17 @@ model Contact {
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   Property  Property[]
+}
+
+model Amenity {
+  id         String   @id @default(uuid())
+  items      Int[]
+  facilities Int[]
+  foods_drinks Int[]
+  Property   Property[]
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
 }
 
 model Rating {
@@ -129,7 +141,7 @@ model Hour {
   weekdays           String[] // ["09:00", "21:00"]
   weekends           String[]
   outsiders          Json[]
-  segregated_details Json? 
+  segregated_details Json?
 
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
@@ -153,17 +165,17 @@ model Hour {
 // }
 
 model Product {
-  id String @id @default(uuid())
-  type Int
+  id          String @id @default(uuid())
+  type        Int
   adult_price Float
 
-// optional
+  // optional
   child_price Float?
-  age         Int? 
-  detail_tr String[]
-  detail_en String[]
-  desc_tr String?
-  desc_en String?
+  age         Int?
+  detail_tr   String[]
+  detail_en   String[]
+  desc_tr     String?
+  desc_en     String?
 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

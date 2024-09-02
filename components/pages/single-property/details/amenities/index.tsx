@@ -1,15 +1,17 @@
 "use client";
 
-import HoverComponent from "@/components/commons/hover";
 import { useTranslations } from "next-intl";
 
 import { FaGreaterThan } from "react-icons/fa";
 import DrawerGeneral from "@/components/commons/drawer";
+import { TAmenity } from "@/types";
+import AmenitiesDrawerContent from "./drawer-content";
+import DisplayAmenityIcon from "@/components/commons/display-amenity-icon";
 
-const AmenityComponent = ({ data }: any) => {
+const AmenityComponent = ({ data }: { data: TAmenity }) => {
   const title = useTranslations("home.filters.titles");
   const see = useTranslations("home.filters.amenities");
-  const firstThree = data.slice(0, 3);
+  const firstThree = data.facilities.slice(0, 3);
 
   return (
     <section className="flex flex-col gap-2">
@@ -20,7 +22,7 @@ const AmenityComponent = ({ data }: any) => {
       <div className="flex flex-col gap-4 mt-2 ml-1">
         {data &&
           firstThree.map((id: any, index: number) => (
-            <HoverComponent key={index} amenity={id} isDesc={true} />
+            <DisplayAmenityIcon key={index} amenity={id} isDesc={true} />
           ))}
       </div>
       <DrawerGeneral
@@ -32,14 +34,7 @@ const AmenityComponent = ({ data }: any) => {
         }
         title={title("amenity_title")}
         fill={false}
-        content={
-          <div className="flex flex-col gap-4 mt-2 ml-1 mb-5">
-            {data &&
-              data.map((id: any, index: number) => (
-                <HoverComponent key={index} amenity={id} isDesc={true} />
-              ))}
-          </div>
-        }
+        content={<AmenitiesDrawerContent data={data} />}
       />
     </section>
   );

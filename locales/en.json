@@ -44,21 +44,30 @@
         "gallery-title": "Gallery"
       },
       "amenities": {
-        "0": "Toilet",
-        "1": "towel",
-        "2": "Soap",
-        "3": "Resting Room",
-        "4": "Lockers",
-        "5": "Shower",
-        "6": "Sauna",
-        "7": "Steam Room",
-        "8": "Jacuzzi",
-        "9": "Pool",
-        "10": "Massage",
-        "11": "Ice Bucket",
-        "12": "Ice Pool",
-        "see-all": "View all Amenities"
+        "see-all": "View all Amenities",
+        "facilities": {
+          "0": "Toilet",
+          "1": "Resting Room",
+          "2": "Lockers",
+          "3": "Shower",
+          "4": "Sauna",
+          "5": "Steam Room",
+          "6": "Jacuzzi",
+          "7": "Pool",
+          "8": "Massage",
+          "9": "Ice Bucket",
+          "10": "Ice Pool"
+        },
+        "items": {
+          "0": "towel",
+          "1": "Soap"
+        },
+        "foods_drinks": {
+          "0": "Tea",
+          "1": "Coffee"
+        }
       },
+
       "payment_methods": {
         "0": "Cash Only",
         "1": "Accepts Credit Cards"

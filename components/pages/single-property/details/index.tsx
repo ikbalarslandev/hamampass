@@ -21,7 +21,7 @@ const DetailsComponent = forwardRef<HTMLDivElement, { data: TProperty }>(
             <ReviewComponent data={data?.rating} propertyId={data.id} />
           )}
         </div>
-        <AmenityComponent data={data?.amenities} />
+        <AmenityComponent data={data?.amenity} />
         {data && <HoursComponent data={data?.hour} />}
         {data && <LocationComponent contact={data?.contact} />}
       </div>

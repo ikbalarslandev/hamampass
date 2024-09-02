@@ -4,7 +4,6 @@ import Image from "next/image";
 import { TProperty } from "@/types";
 import { photos } from "@/mock/photos";
 import { IoStar } from "react-icons/io5";
-import HoverComponent from "@/components/commons/hover";
 import { Separator } from "@/components/ui/separator";
 import { useState, useEffect } from "react";
 import {
@@ -12,6 +11,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import DisplayAmenityIcon from "@/components/commons/display-amenity-icon";
 
 const Card = ({ property }: { property: TProperty }) => {
   const { locale } = useParams();
@@ -109,8 +109,8 @@ const Card = ({ property }: { property: TProperty }) => {
           </div>
 
           <div className="flex items-center justify-start gap-4 mt-2 ml-1 max-w-[85vw] overflow-x-auto overflow-hidden pb-2">
-            {property.amenities.map((id: number, index: number) => (
-              <HoverComponent key={index} amenity={id} />
+            {property?.amenity?.facilities?.map((id: number, index: number) => (
+              <DisplayAmenityIcon key={index} amenity={id} />
             ))}
           </div>
         </div>
