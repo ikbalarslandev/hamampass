@@ -1,8 +1,8 @@
 import SinglePropertyPage from "@/components/pages/single-property";
-import HeaderComponent from "@/components/pages/single-property/header";
 import { getPropertyByTitle } from "@/actions/property";
 import { NextRequest } from "next/server";
 import { TProperty } from "@/types";
+import HeaderGeneral from "@/components/commons/header";
 
 const SingleProperty = async ({ params }: any) => {
   const { title } = params;
@@ -18,7 +18,10 @@ const SingleProperty = async ({ params }: any) => {
 
   return (
     <main>
-      <HeaderComponent />
+      <HeaderGeneral
+        isHome={false}
+        title={decodeURI(title.replace(/-/g, " "))}
+      />
       <SinglePropertyPage data={res} />
     </main>
   );

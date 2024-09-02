@@ -16,11 +16,11 @@ import {
   DrawerTrigger,
   DrawerClose,
 } from "@/components/ui/drawer";
-import AmenityComponent from "@/components/pages/home/filters/amenity";
-import SortComponent from "@/components/pages/home/filters/sort";
-import SexComponent from "@/components/pages/home/filters/sex";
-import PaymentMethodComponent from "@/components/pages/home/filters/pay";
-import RangeComponent from "@/components/pages/home/filters/range";
+import AmenityComponent from "@/components/pages/properties/filters/amenity";
+import SortComponent from "@/components/pages/properties/filters/sort";
+import SexComponent from "@/components/pages/properties/filters/sex";
+import PaymentMethodComponent from "@/components/pages/properties/filters/pay";
+import RangeComponent from "@/components/pages/properties/filters/range";
 import { useSelector } from "react-redux";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";

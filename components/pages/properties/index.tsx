@@ -1,10 +1,10 @@
-import Cards from "@/components/pages/home/cards";
-import FilterComponent from "@/components/pages/home/filters";
+import Cards from "@/components/pages/properties/cards";
+import FilterComponent from "@/components/pages/properties/filters";
 import HomeTitle from "./title";
 import { getAllProperties } from "@/actions/property";
 import { NextRequest } from "next/server";
 
-const HomePage = async () => {
+const PropertiesPage = async () => {
   const req = new NextRequest(process.env.BASE_URL!!);
   const res = await getAllProperties(req);
 
@@ -22,4 +22,4 @@ const HomePage = async () => {
   );
 };
 
-export default HomePage;
+export default PropertiesPage;

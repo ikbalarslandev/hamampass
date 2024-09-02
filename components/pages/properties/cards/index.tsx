@@ -6,7 +6,7 @@ import { request } from "@/services/axios";
 import { TProperty } from "@/types";
 
 import { Button } from "@/components/ui/button";
-import Card from "@/components/pages/home/cards/card";
+import Card from "@/components/pages/properties/cards/card";
 import { useSelector } from "react-redux";
 import { useFetchProperties } from "@/hooks/useFetchProperties";
 

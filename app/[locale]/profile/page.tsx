@@ -1,7 +1,7 @@
 import ProfilePageComponent from "@/components/pages/profile";
-import HeaderComponent from "@/components/commons/header";
+import HeaderComponent from "@/components/pages/properties/header";
 
-const ProfilePage = async () => {
+const Profile = async () => {
   return (
     <main>
       <HeaderComponent />
@@ -10,4 +10,4 @@ const ProfilePage = async () => {
   );
 };
 
-export default ProfilePage;
+export default Profile;

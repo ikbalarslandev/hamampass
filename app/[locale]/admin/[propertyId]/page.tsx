@@ -3,7 +3,7 @@ import { auth } from "@/auth";
 import AdminComponent from "@/components/pages/admin";
 import { TProduct } from "@/types";
 
-const AdminPage = async ({ params }: any) => {
+const Admin = async ({ params }: any) => {
   const { propertyId } = params;
   const { user } = (await auth()) || {};
   if (!user) return null;
@@ -30,4 +30,4 @@ const AdminPage = async ({ params }: any) => {
   );
 };
 
-export default AdminPage;
+export default Admin;

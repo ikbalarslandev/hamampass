@@ -1,6 +1,6 @@
 "use client";
 
-import CheckboxComponent from "@/components/pages/home/filters/checkbox";
+import CheckboxComponent from "@/components/pages/properties/filters/checkbox";
 import {
   Accordion,
   AccordionContent,

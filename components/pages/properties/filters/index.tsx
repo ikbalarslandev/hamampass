@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { IoSearchSharp } from "react-icons/io5";
 import { normalizeText } from "@/utils/normalize";
 
-import DrawerComponent from "@/components/pages/home/filters/drawer";
+import DrawerComponent from "@/components/pages/properties/filters/drawer";
 import { Input } from "@/components/ui/input";
 
 const districtData = ["Kadıköy"];

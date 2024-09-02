@@ -1,11 +1,8 @@
-import HomePage from "@/components/pages/home";
-import HeaderComponent from "@/components/commons/header";
-
-export default function Home() {
+export default function Home({ params }: any) {
+  const { locale } = params;
   return (
     <main className="max-w-full">
-      <HeaderComponent />
-      <HomePage />
+      <a href={`/${locale}/properties`}>properties page</a>
     </main>
   );
 }

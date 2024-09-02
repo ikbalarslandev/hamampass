@@ -21,17 +21,17 @@ export const metadata: Metadata = {
   description: "Hamampass is a platform for Turkish bath lovers.",
 };
 
-interface LocaleLayoutProps {
+interface LayoutProps {
   children: React.ReactNode;
   params: {
     locale: string;
   };
 }
 
-export default async function LocaleLayout({
+export default async function Layout({
   children,
   params: { locale },
-}: LocaleLayoutProps) {
+}: LayoutProps) {
   if (!locales.includes(locale)) notFound();
 
   const messages = await loadMessages(locale);

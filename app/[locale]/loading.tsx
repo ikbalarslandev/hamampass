@@ -1,7 +1,7 @@
-import SkeletonComponent from "@/components/pages/home/skeleton";
+import SkeletonComponent from "@/components/commons/skeleton/general";
 
-const LoadingHome = () => {
+const Loading = () => {
   return <SkeletonComponent />;
 };
 
-export default LoadingHome;
+export default Loading;

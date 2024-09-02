@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 
-const SignInPage: React.FC = () => {
+const SignIn = () => {
   const { data } = useSession();
   const router = useRouter();
   const t = useTranslations("profile.complete");
@@ -25,4 +25,4 @@ const SignInPage: React.FC = () => {
   );
 };
 
-export default SignInPage;
+export default SignIn;
