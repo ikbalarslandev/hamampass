@@ -97,9 +97,17 @@ const convertAdminProductTypeInfo = (type: number) => {
   }
 };
 
+const checkIsWeekDay = (day: string) => {
+  if (day == "0" || day == "6") {
+    return false;
+  }
+  return true;
+};
+
 export {
   convertAgeRange,
   convertAmenityIcon,
   convertProductIcon,
   convertAdminProductTypeInfo,
+  checkIsWeekDay,
 };

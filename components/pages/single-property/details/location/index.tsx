@@ -23,14 +23,11 @@ const LocationComponent = ({ contact }: { contact: TContact }) => {
   };
 
   return (
-    <section className="flex flex-col gap-3 ">
+    <section className="flex flex-col gap-2 ">
       <hr />
-      <h2 className="font-bold text-xl text-gray-600">{s("location")}</h2>
-
-      <p className="text-gray-600 flex items-center gap-3">
-        <FaPhoneAlt className="text-gray-500" size={15} />
-        <span>{contact.phone}</span>
-      </p>
+      <h2 className="font-bold text-xl text-gray-600">
+        {title("location-title")}
+      </h2>
 
       <div className="text-gray-600 flex items-center gap-3">
         <FaLocationDot className="text-gray-500" size={15} />
