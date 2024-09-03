@@ -17,6 +17,13 @@ const Admin = async ({ params }: any) => {
     },
   });
 
+  const admin = await prisma.admin.findFirst({
+    where: {
+      userId: user.id,
+      propertyId,
+    },
+  });
+
   const sortedProducts = property?.products.sort((a, b) => {
     return a.type > b.type ? 1 : -1;
   });
@@ -25,7 +32,7 @@ const Admin = async ({ params }: any) => {
     <AdminComponent
       title={property?.title || ""}
       products={sortedProducts as unknown as TProduct[]}
-      canEdit={property?.adminId === user.id}
+      canEdit={!!admin}
     />
   );
 };

@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import prisma from "@/prisma/db";
 
 const createProperty = async (req: NextRequest) => {
-  const { title, amenity, photos, hour, contact, sex, products } =
+  const { title, amenity, photos, hour, contact, sex, outsider_sex, products } =
     await req.json();
 
   try {
@@ -19,7 +19,6 @@ const createProperty = async (req: NextRequest) => {
       data: {
         weekdays: hour.weekdays,
         weekends: hour.weekends,
-        outsiders: hour.outsiders || [],
         segregated_details: hour.segregated_details,
       },
     });
@@ -38,6 +37,7 @@ const createProperty = async (req: NextRequest) => {
         amenityId: amenityRecord.id,
         photos,
         sex,
+        outsider_sex,
         contactId: contactRecord.id,
         hourId: hourRecord.id,
         products: {
