@@ -3,7 +3,7 @@ import HomePage from "@/components/pages/home";
 
 export default function Home() {
   return (
-    <main className="flex flex-col  min-h-screen bg-hero pb-[env(safe-area-inset-bottom)]">
+    <main className="flex flex-col  h-screen bg-hero pb-[env(safe-area-inset-bottom)]">
       <HeaderGeneral isBgNone={true} />
       <video
         autoPlay
