@@ -65,10 +65,20 @@ datasource db {
 // regular === 1   // entry + body scrub
 // }
 
+
+
+//sex_outsider {
+// sex: 0
+// day : 0
+// }
+
 model Property {
-  id      String  @id @unique @default(uuid())
-  adminId String?
-  title   String  @unique
+  id    String @id @unique @default(uuid())
+  Admin Admin?
+  title String @unique
+
+  sex          Int
+  outsider_sex Json[]
 
   contact   Contact? @relation(fields: [contactId], references: [id])
   contactId String?
@@ -79,14 +89,13 @@ model Property {
   rating   Rating? @relation(fields: [ratingId], references: [id])
   ratingId String? @unique
 
-  amenity  Amenity? @relation(fields: [amenityId], references: [id])
+  amenity   Amenity? @relation(fields: [amenityId], references: [id])
   amenityId String?
 
-  products  Product[]
-  reviews   Review[]
+  products Product[]
+  reviews  Review[]
 
   photos  String[]
-  sex     Int
   pay     Int      @default(0)
   desc_tr String?
   desc_en String?
@@ -108,14 +117,14 @@ model Contact {
 }
 
 model Amenity {
-  id         String   @id @default(uuid())
-  items      Int[]
-  facilities Int[]
+  id           String     @id @default(uuid())
+  items        Int[]
+  facilities   Int[]
   foods_drinks Int[]
-  Property   Property[]
+  Property     Property[]
 
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Rating {
@@ -140,7 +149,6 @@ model Hour {
 
   weekdays           String[] // ["09:00", "21:00"]
   weekends           String[]
-  outsiders          Json[]
   segregated_details Json?
 
   createdAt DateTime   @default(now())
@@ -210,6 +218,15 @@ model User {
   reviews     Review[]
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  admin       Admin?
+}
+
+model Admin {
+  id         String   @id @default(uuid())
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String   @unique
+  property   Property @relation(fields: [propertyId], references: [id])
+  propertyId String   @unique
 }
 
 model Country {
