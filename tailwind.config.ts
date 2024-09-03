@@ -21,9 +21,6 @@ const config = {
       backgroundImage: {
         map: "url('https://www.hostelworld.com/pwa/_nuxt/img/8a208fd.svg')",
       },
-      padding: {
-        "safe-bottom": "env(safe-area-inset-bottom)",
-      },
 
       colors: {
         border: "hsl(var(--border))",
