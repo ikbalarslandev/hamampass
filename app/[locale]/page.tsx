@@ -1,17 +1,21 @@
-import { DatePickerForm } from "@/components/pages/home/date-picker";
+import HeaderGeneral from "@/components/commons/header";
+import HomePage from "@/components/pages/home";
 
-export default function Home({ params }: any) {
-  const { locale } = params;
+export default function Home() {
   return (
-    <main className="max-w-full flex flex-col gap-10 mt-20 items-center justify-center ">
-      <a
-        href={`/${locale}/properties`}
-        className="bg-blue-500 text-white p-4 rounded"
+    <main className="flex flex-col  min-h-screen bg-hero">
+      <HeaderGeneral isBgNone={true} />
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover -z-10"
       >
-        properties page
-      </a>
-
-      <DatePickerForm />
+        <source src="/hero.mov" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <HomePage />
     </main>
   );
 }

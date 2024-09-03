@@ -29,7 +29,6 @@ export interface THour {
   sex: number;
   weekdays: string[];
   weekends: string[];
-  outsiders: TOutsider[];
   segregated_details: {
     mens: {
       weekdays: string[];
@@ -42,11 +41,6 @@ export interface THour {
   };
 }
 
-interface TOutsider {
-  sex: number;
-  day: string;
-}
-
 export interface TProperty {
   id: string;
   title: string;
@@ -55,6 +49,10 @@ export interface TProperty {
   amenityId: string;
   photos: string[];
   sex: number;
+  outsider_sex: {
+    sex: number;
+    day: string;
+  }[];
   pay: number;
   createdAt: string;
   updatedAt: string;

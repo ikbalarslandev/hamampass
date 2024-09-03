@@ -9,9 +9,11 @@ import { useState } from "react";
 const HeaderGeneral = ({
   isHome = true,
   title,
+  isBgNone = false,
 }: {
   isHome?: boolean;
   title?: string;
+  isBgNone?: boolean;
 }) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +28,9 @@ const HeaderGeneral = ({
 
   return (
     <header
-      className={`flex items-center justify-center  bg-cyan-600 text-white px-2  ${
+      className={`flex items-center justify-center  ${
+        isBgNone ? "bg-none" : "bg-cyan-600"
+      }   text-white px-2  ${
         isHome ? "h-[8vh]" : " h-[7vh]   sticky top-0 z-50"
       }   `}
     >
