@@ -1,18 +1,13 @@
 import { useSession } from "next-auth/react";
-import { signIn } from "next-auth/react";
-import { request } from "@/services/axios";
-import ReviewDrawerComponent from "./review-drawer";
-import { useState, useEffect, use } from "react";
-import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
+
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
 
-interface IReviewButton {
+interface IBookButton {
   minPrice: number;
 }
 
-const ReviewButton = ({ minPrice }: IReviewButton) => {
+const BookButton = ({ minPrice }: IBookButton) => {
   const session = useSession();
 
   return (
@@ -41,4 +36,4 @@ const ReviewButton = ({ minPrice }: IReviewButton) => {
   );
 };
 
-export default ReviewButton;
+export default BookButton;

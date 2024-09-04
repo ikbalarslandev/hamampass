@@ -5,14 +5,13 @@ import Slider from "./image-slider";
 import { CiLocationOn } from "react-icons/ci";
 import { TProperty } from "@/types";
 import { useTranslations } from "next-intl";
-
-import ReviewStickBtn from "./review-btn";
 import DetailsComponent from "./details";
 import { IoStar } from "react-icons/io5";
 import { FaTurkishLiraSign } from "react-icons/fa6";
 import { GoDotFill } from "react-icons/go";
 import DrawerGeneral from "@/components/commons/drawer";
 import GoogleMapComponent from "@/components/pages/single-property/details/location/map";
+import BookButton from "@/components/pages/single-property/book-btn";
 
 const SinglePropertyPage = ({ data }: { data: TProperty }) => {
   const reviewRef = useRef<HTMLDivElement>(null);
@@ -39,7 +38,13 @@ const SinglePropertyPage = ({ data }: { data: TProperty }) => {
     <div className="overflow-hidden mb-16">
       <Slider data={data} />
 
-      {data && <ReviewStickBtn propertyId={data?.id} />}
+      {data && (
+        <BookButton
+          minPrice={
+            data?.products.sort((a, b) => a.type - b.type)[0].adult_price
+          }
+        />
+      )}
 
       <div className="flex flex-col mx-2 pt-2 ">
         <div className="flex justify-between items-center">

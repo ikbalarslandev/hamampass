@@ -46,6 +46,12 @@ const createProperty = async (req: NextRequest) => {
       },
     });
 
+    await prisma.admin.create({
+      data: {
+        propertyId: property.id,
+      },
+    });
+
     return property;
   } catch (error) {
     console.error(error);
