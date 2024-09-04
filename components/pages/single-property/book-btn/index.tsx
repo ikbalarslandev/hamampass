@@ -1,36 +1,42 @@
-import { useSession } from "next-auth/react";
-
+import React from "react";
+import { TProperty } from "@/types";
 import { Button } from "@/components/ui/button";
-import { toast } from "@/components/ui/use-toast";
 
 interface IBookButton {
-  minPrice: number;
+  property: TProperty;
+  productsRef: React.RefObject<HTMLDivElement>;
 }
 
-const BookButton = ({ minPrice }: IBookButton) => {
-  const session = useSession();
+const BookButton = ({ property, productsRef }: IBookButton) => {
+  const handleScrollToProducts = () => {
+    if (productsRef.current) {
+      const headerOffset = window.innerHeight * 0.09;
+      const elementPosition = productsRef.current.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <div className="fixed bottom-0 w-full px-4 py-3 bg-white rounded-t-xl border-t shadow-2xl z-20 flex items-center">
       <div className="flex flex-1 flex-col">
         <p className="text-xs text-gray-600">From</p>
         <p className="font-bold text-xl">
-          ₺{minPrice}
+          ₺{property?.products.sort((a, b) => a.type - b.type)[0].adult_price}
           <span className="text-sm ml-1">TL</span>
         </p>
       </div>
 
       <Button
         className="rounded-xl px-8 bg-cyan-500"
-        onClick={() => {
-          session?.data?.user.id
-            ? console.log("book form")
-            : toast({
-                title: "You need to login to review",
-              });
-        }}
+        onClick={handleScrollToProducts}
       >
-        Book Now
+        Choose
       </Button>
     </div>
   );

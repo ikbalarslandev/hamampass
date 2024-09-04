@@ -15,6 +15,8 @@ import BookButton from "@/components/pages/single-property/book-btn";
 
 const SinglePropertyPage = ({ data }: { data: TProperty }) => {
   const reviewRef = useRef<HTMLDivElement>(null);
+  const productsRef = useRef<HTMLDivElement>(null);
+
   const sex = useTranslations("home.filters.sex");
   const title = useTranslations("home.filters.titles");
   const view = useTranslations("single");
@@ -38,13 +40,7 @@ const SinglePropertyPage = ({ data }: { data: TProperty }) => {
     <div className="overflow-hidden mb-16">
       <Slider data={data} />
 
-      {data && (
-        <BookButton
-          minPrice={
-            data?.products.sort((a, b) => a.type - b.type)[0].adult_price
-          }
-        />
-      )}
+      {data && <BookButton property={data} productsRef={productsRef} />}
 
       <div className="flex flex-col mx-2 pt-2 ">
         <div className="flex justify-between items-center">
@@ -103,7 +99,13 @@ const SinglePropertyPage = ({ data }: { data: TProperty }) => {
           </div>
         )}
 
-        {data && <DetailsComponent data={data} ref={reviewRef} />}
+        {data && (
+          <DetailsComponent
+            data={data}
+            ref={reviewRef}
+            productsRef={productsRef}
+          />
+        )}
       </div>
     </div>
   );
