@@ -1,11 +1,10 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -28,6 +27,10 @@ import { startOfDay } from "date-fns";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 import moment from "moment";
+import "moment/locale/tr"; // Import Turkish locale for moment
+import "moment/locale/en-gb"; // Import English locale for moment
+import { useTranslations } from "next-intl";
+import { tr, enUS } from "date-fns/locale";
 
 const FormSchema = z.object({
   date: z.date({
@@ -39,6 +42,19 @@ export function DatePickerForm() {
   const router = useRouter();
   const { locale } = useParams();
   const [open, setOpen] = useState(false);
+  const [calendarLocale, setCalendarLocale] = useState(enUS); // Default to Turkish
+  const t = useTranslations("home");
+
+  useEffect(() => {
+    // Update locales based on the current locale parameter
+    if (locale === "tr") {
+      setCalendarLocale(tr);
+      moment.locale("tr");
+    } else if (locale === "en") {
+      setCalendarLocale(enUS);
+      moment.locale("en-gb");
+    }
+  }, [locale]);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -75,9 +91,8 @@ export function DatePickerForm() {
                       onClick={() => setOpen(!open)}
                     >
                       <CalendarIcon className="h-4 w-4 opacity-50" />
-                      {field.value
-                        ? moment(field.value).format("D MMMM")
-                        : moment().format("D MMMM")}
+
+                      {moment(field.value).format("D MMMM")}
                     </Button>
                   </FormControl>
                 </PopoverTrigger>
@@ -91,6 +106,7 @@ export function DatePickerForm() {
                     }}
                     disabled={(date) => date < startOfDay(new Date())}
                     initialFocus
+                    locale={calendarLocale}
                   />
                 </PopoverContent>
               </Popover>
@@ -100,7 +116,7 @@ export function DatePickerForm() {
           )}
         />
         <Button type="submit" className="bg-cyan-500 shadow border rounded-xl">
-          Search
+          {t("search")}
         </Button>
       </form>
     </Form>

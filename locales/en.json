@@ -24,6 +24,7 @@
     }
   },
   "home": {
+    "search": "Search",
     "title": "Turkish Baths in ",
     "filters": {
       "filter": "filters",
