@@ -12,7 +12,7 @@ const HomePage = ({ locale }: { locale: string }) => {
               <h1>hamampass</h1>
             </div>
             <p>
-              Experience İstanbul’s best hamams
+              Experience İstanbul&apos;s best hamams
               <br /> no credit card required.
             </p>
           </div>
@@ -23,7 +23,7 @@ const HomePage = ({ locale }: { locale: string }) => {
             </div>
             <p>
               kredi kartı gerekmeden
-              <br /> İstanbul'un en iyi hamamlarını deneyimleyin
+              <br /> İstanbul&apos;un en iyi hamamlarını deneyimleyin
             </p>
           </div>
         )}

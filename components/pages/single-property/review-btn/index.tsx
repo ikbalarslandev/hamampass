@@ -7,7 +7,7 @@ const ReviewStickBtn = ({
   propertyId: string;
   minPrice: number;
 }) => {
-  return <ReviewButton propertyId={propertyId} minPrice={minPrice} />;
+  return <ReviewButton minPrice={minPrice} />;
 };
 
 export default ReviewStickBtn;
