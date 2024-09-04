@@ -1,15 +1,16 @@
 "use client";
 
-import { TProduct } from "@/types";
+import { TProduct, TProperty } from "@/types";
 import DrawerComponent from "./drawer";
 import { useTranslations } from "next-intl";
 import { convertProductIcon } from "@/utils/icon_translations";
 
 interface Props {
   data: TProduct[];
+  property: TProperty;
 }
 
-const ProductsComponent = ({ data }: Props) => {
+const ProductsComponent = ({ data, property }: Props) => {
   data = data.sort((a, b) => (a.type > b.type ? 1 : -1));
 
   const t = useTranslations("home.product-type");
@@ -25,6 +26,7 @@ const ProductsComponent = ({ data }: Props) => {
           <DrawerComponent
             key={item.id}
             data={item}
+            property={property}
             trigger={
               <div
                 key={item.id}

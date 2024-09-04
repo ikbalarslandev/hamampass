@@ -11,7 +11,7 @@ import {
   DrawerFooter,
 } from "@/components/ui/drawer";
 import React from "react";
-import { TProduct } from "@/types";
+import { TProduct, TProperty } from "@/types";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { GoDotFill } from "react-icons/go";
@@ -24,13 +24,16 @@ import { Separator } from "@/components/ui/separator";
 import CounterComponent from "./counter";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { prop } from "ramda";
+import { date } from "zod";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
   data: TProduct;
+  property: TProperty;
 }
 
-const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
+const DrawerComponent = ({ trigger, property, data }: DrawerComponentProps) => {
   const t = useTranslations("home.product-type");
   const p = useTranslations("single.products");
   const { locale } = useParams();
@@ -43,6 +46,38 @@ const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
       moment.locale("en-gb");
     }
   }, [locale]);
+
+  const handleAddToCard = () => {
+    const localItem = JSON.parse(localStorage.getItem("cart") ?? "{}");
+
+    // Check if the cart already contains products, if not, initialize it
+    const existingProducts = localItem?.products || {};
+
+    // Update the specific product type
+    const updatedProducts = {
+      ...existingProducts,
+      [data.type]: {
+        count: count,
+        price: data.adult_price,
+      },
+    };
+
+    // Update the cart in localStorage
+    localStorage.setItem(
+      "cart",
+      JSON.stringify({
+        property: {
+          id: property.id,
+          title: property.title,
+          img: property.photos[0],
+          date: JSON.parse(sessionStorage.getItem("selected-date") ?? "{}"),
+        },
+        products: updatedProducts,
+      })
+    );
+
+    setCount(0);
+  };
 
   return (
     <Drawer>
@@ -134,6 +169,7 @@ const DrawerComponent = ({ trigger, data }: DrawerComponentProps) => {
             className={`rounded-xl px-8 bg-cyan-500 ${
               count === 0 ? "opacity-50 cursor-not-allowed" : ""
             }`}
+            onClick={handleAddToCard}
           >
             Add to Card
           </Button>

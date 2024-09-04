@@ -18,7 +18,7 @@ const DetailsComponent = forwardRef<
     <div>
       <AboutComponent desc={data[`desc_${locale}`]} />
       <div ref={productsRef}>
-        {data && <ProductsComponent data={data?.products} />}
+        {data && <ProductsComponent property={data} data={data?.products} />}
       </div>
       <div ref={ref}>
         {data.rating && (

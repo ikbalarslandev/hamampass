@@ -23,7 +23,7 @@ const LocationComponent = ({ contact }: { contact: TContact }) => {
   };
 
   return (
-    <section className="flex flex-col gap-2 ">
+    <section className="flex flex-col gap-2 mb-10 ">
       <hr />
       <h2 className="font-bold text-xl text-gray-600">
         {title("location-title")}

@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { Turn as Hamburger } from "hamburger-react";
 import HamburgerDrawerComponent from "./drawer";
 import { IoChevronBack } from "react-icons/io5";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const HeaderGeneral = ({
   isHome = true,
@@ -17,6 +17,28 @@ const HeaderGeneral = ({
 }) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [cartItemCount, setCartItemCount] = useState(0);
+
+  useEffect(() => {
+    const handleCartUpdated = () => {
+      setCartItemCount(
+        Object.values(
+          JSON.parse(localStorage.getItem("cart") || "{}")?.products || {}
+        ).reduce((acc: number, item: any) => acc + item.count, 0)
+      );
+    };
+
+    // Initial load
+    handleCartUpdated();
+
+    // Add event listener
+    window.addEventListener("cartUpdated", handleCartUpdated);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("cartUpdated", handleCartUpdated);
+    };
+  }, []);
 
   const handleLogo = () => {
     isHome ? router.push(`/`) : window.scrollTo({ top: 0, behavior: "smooth" });
@@ -48,12 +70,19 @@ const HeaderGeneral = ({
         setIsOpen={setIsOpen}
         isOpen={isOpen}
         trigger={
-          <Hamburger
-            toggled={isOpen}
-            size={24}
-            aria-expanded={isOpen}
-            aria-controls="drawer-content"
-          />
+          <div className="relative">
+            <Hamburger
+              toggled={isOpen}
+              size={24}
+              aria-expanded={isOpen}
+              aria-controls="drawer-content"
+            />
+            {cartItemCount > 0 && (
+              <span className="absolute top-2 right-1 text-xs bg-cyan-900  text-center border  text-white aspect-square rounded-full px-1">
+                {cartItemCount}
+              </span>
+            )}
+          </div>
         }
       />
     </header>
