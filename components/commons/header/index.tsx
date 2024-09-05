@@ -69,6 +69,7 @@ const HeaderGeneral = ({
       <HamburgerDrawerComponent
         setIsOpen={setIsOpen}
         isOpen={isOpen}
+        cartItemCount={cartItemCount}
         trigger={
           <div className="relative">
             <Hamburger

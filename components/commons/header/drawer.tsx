@@ -6,10 +6,12 @@ const HamburgerDrawerComponent = ({
   trigger,
   setIsOpen,
   isOpen,
+  cartItemCount,
 }: {
   trigger: React.ReactNode;
   setIsOpen: (isOpen: boolean) => void;
   isOpen: boolean;
+  cartItemCount: number;
 }) => {
   const drawerRef = useRef<HTMLDivElement>(null);
 
@@ -46,7 +48,7 @@ const HamburgerDrawerComponent = ({
         }`}
       >
         <div className="p-4 pt-40">
-          <HamburgerContent setOpen={setIsOpen} />
+          <HamburgerContent cartItemCount={cartItemCount} setOpen={setIsOpen} />
         </div>
       </div>
     </div>

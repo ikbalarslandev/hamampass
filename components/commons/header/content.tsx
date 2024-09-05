@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import { TProperty } from "@/types";
 import { request } from "@/services/axios";
 
-const HamburgerContent = ({ setOpen }: any) => {
+const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
   const { locale } = useParams();
   const router = useRouter();
   const t = useTranslations("hamburger");
@@ -26,6 +26,11 @@ const HamburgerContent = ({ setOpen }: any) => {
 
   const handleLoginClick = async () => {
     await signIn("google", { callbackUrl: `/${locale}/auth/signIn` });
+  };
+
+  const handleShoppingCard = () => {
+    router.push(`/${locale}/shopping-card`);
+    setOpen(false);
   };
 
   const [adminsProperty, setAdminsProperty] = useState<TProperty>();
@@ -72,6 +77,20 @@ const HamburgerContent = ({ setOpen }: any) => {
         </button>
       )}
 
+      {localStorage.getItem("cart") && (
+        <button
+          className="text-2xl scale-x-115  w-full text-left py-2  flex items-start gap-2"
+          onClick={handleShoppingCard}
+        >
+          <span> Shopping Card</span>
+
+          {cartItemCount > 0 && (
+            <p className=" text-xs bg-cyan-950  text-center border font-bold  text-white aspect-square rounded-full px-[.4rem] py-[.1rem]">
+              {cartItemCount}
+            </p>
+          )}
+        </button>
+      )}
       {adminsProperty && (
         <button
           className="text-2xl scale-x-115  w-full text-left py-2"

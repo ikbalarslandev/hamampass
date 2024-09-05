@@ -24,8 +24,6 @@ import { Separator } from "@/components/ui/separator";
 import CounterComponent from "./counter";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { prop } from "ramda";
-import { date } from "zod";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
@@ -49,34 +47,58 @@ const DrawerComponent = ({ trigger, property, data }: DrawerComponentProps) => {
 
   const handleAddToCard = () => {
     const localItem = JSON.parse(localStorage.getItem("cart") ?? "{}");
+    const existingPropertyId = localItem?.property?.id;
 
-    // Check if the cart already contains products, if not, initialize it
-    const existingProducts = localItem?.products || {};
+    // Check if the cart already contains products and compare property IDs
+    if (existingPropertyId && existingPropertyId !== property.id) {
+      // Clear the cart if the property ID is different
+      localStorage.setItem(
+        "cart",
+        JSON.stringify({
+          property: {
+            id: property.id,
+            title: property.title,
+            img: property.photos[0],
+            date: JSON.parse(sessionStorage.getItem("selected-date") ?? "{}"),
+          },
+          products: {
+            [data.type]: {
+              count: count,
+              price: data.adult_price,
+            },
+          },
+        })
+      );
+    } else {
+      // Update the existing cart
+      const existingProducts = localItem?.products || {};
 
-    // Update the specific product type
-    const updatedProducts = {
-      ...existingProducts,
-      [data.type]: {
-        count: count,
-        price: data.adult_price,
-      },
-    };
+      const existingCount = existingProducts[data.type]?.count || 0;
 
-    // Update the cart in localStorage
-    localStorage.setItem(
-      "cart",
-      JSON.stringify({
-        property: {
-          id: property.id,
-          title: property.title,
-          img: property.photos[0],
-          date: JSON.parse(sessionStorage.getItem("selected-date") ?? "{}"),
+      const updatedProducts = {
+        ...existingProducts,
+        [data.type]: {
+          count: existingCount + count,
+          price: data.adult_price,
         },
-        products: updatedProducts,
-      })
-    );
+      };
+
+      localStorage.setItem(
+        "cart",
+        JSON.stringify({
+          property: {
+            id: property.id,
+            title: property.title,
+            img: property.photos[0],
+            date: JSON.parse(sessionStorage.getItem("selected-date") ?? "{}"),
+          },
+          products: updatedProducts,
+        })
+      );
+    }
 
     setCount(0);
+    window.location.reload(); // Optionally reload the page to reflect the changes
   };
 
   return (
