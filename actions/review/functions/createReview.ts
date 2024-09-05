@@ -3,7 +3,6 @@ import prisma from "@/prisma/db";
 
 const createReview = async (req: NextRequest) => {
   const {
-    type,
     product_type,
     rate_location,
     rate_staff,
@@ -14,6 +13,7 @@ const createReview = async (req: NextRequest) => {
     comment,
     propertyId,
     userId,
+    bookingId,
   } = await req.json();
 
   const rate_overall =
@@ -27,20 +27,30 @@ const createReview = async (req: NextRequest) => {
 
   const review = await prisma.review.create({
     data: {
-      type,
       product_type,
       rate: rate_overall,
       comment,
-      propertyId,
-      userId,
+      property: {
+        connect: {
+          id: propertyId,
+        },
+      },
+      user: {
+        connect: {
+          id: userId,
+        },
+      },
+      booking: {
+        connect: {
+          id: bookingId,
+        },
+      },
     },
   });
 
-  // After creating a review, we need to update the property's rating
+  // After creating a review, update the property's rating
   const property = await prisma.property.findUnique({
-    where: {
-      id: propertyId,
-    },
+    where: { id: propertyId },
   });
 
   if (!property?.ratingId) {
@@ -57,21 +67,13 @@ const createReview = async (req: NextRequest) => {
       },
     });
 
-    const updatedProperty = await prisma.property.update({
-      where: {
-        id: property?.id,
-      },
-      data: {
-        ratingId: rating.id,
-      },
+    await prisma.property.update({
+      where: { id: propertyId },
+      data: { ratingId: rating.id },
     });
-
-    console.log("updatedProperty", updatedProperty);
   } else {
     const rating = await prisma.rating.findUnique({
-      where: {
-        id: property.ratingId,
-      },
+      where: { id: property.ratingId },
     });
 
     if (!rating) {
@@ -87,9 +89,7 @@ const createReview = async (req: NextRequest) => {
     };
 
     await prisma.rating.update({
-      where: {
-        id: rating.id,
-      },
+      where: { id: rating.id },
       data: {
         count: rating.count + 1,
         rate_overall: calculateAverage(
