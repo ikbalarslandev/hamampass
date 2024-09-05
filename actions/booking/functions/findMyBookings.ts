@@ -10,7 +10,11 @@ const findMyBookings = async (req: NextRequest) => {
       userId,
     },
     include: {
-      property: true,
+      property: {
+        include: {
+          contact: true,
+        },
+      },
       review: true,
     },
   });
