@@ -88,12 +88,9 @@ const ShoppingCardPage = () => {
         <div className="mt-5">
           {Object.entries(products).map(
             ([key, product]: [string, { count: number; price: number }]) => (
-              <div className="flex flex-col my-1">
+              <div className="flex flex-col my-1" key={key}>
                 <Separator />
-                <div
-                  key={key}
-                  className="my-2 flex items-center justify-between"
-                >
+                <div className="my-2 flex items-center justify-between">
                   <div>
                     <p className="font-medium ">{t(key.toString())}</p>
                     <div className="text-gray-500 text-sm">
