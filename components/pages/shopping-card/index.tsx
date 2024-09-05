@@ -81,7 +81,7 @@ const ShoppingCardPage = () => {
             alt={property.title}
             width={90 * 1.4}
             height={160 * 1.4}
-            className="rounded-xl"
+            className="rounded-xl aspect-video"
           />
         </div>
         {/* choosen products */}
