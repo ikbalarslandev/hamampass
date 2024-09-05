@@ -199,7 +199,7 @@ model Booking {
   user       User     @relation(fields: [userId], references: [id])
   products   Json
   totalMoney Float
-  Review     Review?
+  review     Review?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

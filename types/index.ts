@@ -1,3 +1,5 @@
+import exp from "constants";
+
 export interface TContact {
   id: string;
   city: string;
@@ -23,6 +25,18 @@ export interface TProduct {
   desc_en: string;
 
   [key: string]: any;
+}
+
+export interface TBooking {
+  id: string;
+  userId: string;
+  propertyId: string;
+  user: TUser;
+  products: JSON;
+  property: TProperty;
+  review: TReview;
+  date: string;
+  totalMoney: number;
 }
 
 export interface THour {

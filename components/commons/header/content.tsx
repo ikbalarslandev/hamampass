@@ -34,6 +34,7 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
   };
 
   const [adminsProperty, setAdminsProperty] = useState<TProperty>();
+  const [myBookings, setMyBookings] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchAdminsProperty = async () => {
@@ -49,7 +50,21 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
       }
     };
 
+    const fetchMyBookings = async () => {
+      try {
+        const req = await request({
+          type: "get",
+          endpoint: `booking/${data?.user?.id}`,
+        });
+
+        setMyBookings(req.data);
+      } catch (error) {
+        console.error("Error fetching my bookings:", error);
+      }
+    };
+
     fetchAdminsProperty();
+    fetchMyBookings();
   }, [data?.user?.id]);
 
   return (
@@ -74,6 +89,15 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
           onClick={handleLoginClick}
         >
           {t("login")}
+        </button>
+      )}
+
+      {myBookings.length > 0 && (
+        <button
+          className="text-2xl scale-x-115  w-full text-left py-2"
+          onClick={() => router.push(`/${locale}/my-bookings`)}
+        >
+          My Bookings
         </button>
       )}
 
