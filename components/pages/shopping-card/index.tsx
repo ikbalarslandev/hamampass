@@ -7,9 +7,13 @@ import { useParams, useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
 import { Separator } from "@/components/ui/separator";
 import { useTranslations } from "next-intl";
+import { useSession } from "next-auth/react";
+import { request } from "@/services/axios";
+import { toast } from "@/components/ui/use-toast";
 
 interface TStorage {
   property: {
+    id: string;
     title: string;
     date: string;
     img: string;
@@ -25,6 +29,7 @@ const ShoppingCardPage = () => {
 
   const { locale } = useParams();
   const router = useRouter();
+  const { data } = useSession();
 
   if (!property) {
     return <div>No property found in the car.</div>;
@@ -56,6 +61,27 @@ const ShoppingCardPage = () => {
       JSON.stringify({ property, products: newProducts })
     );
     window.location.reload();
+  };
+
+  const handleCheckOut = async () => {
+    await request({
+      type: "post",
+      endpoint: "/booking",
+      payload: {
+        date: property.date,
+        propertyId: property.id,
+        userId: data?.user?.id,
+        products,
+        totalMoney,
+      },
+    });
+
+    localStorage.removeItem("cart");
+    toast({
+      title: "Success",
+      description: "Your booking is successful",
+    });
+    router.push(`/${locale}`);
   };
 
   return (
@@ -123,7 +149,10 @@ const ShoppingCardPage = () => {
           </p>
         </div>
 
-        <Button className="rounded-xl px-8 bg-cyan-500 w-full">
+        <Button
+          className="rounded-xl px-8 bg-cyan-500 w-full"
+          onClick={handleCheckOut}
+        >
           Check Out
         </Button>
       </div>
