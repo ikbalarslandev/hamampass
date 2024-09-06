@@ -12,6 +12,8 @@ const createProperty = async (req: NextRequest) => {
         district: contact.district,
         address: contact.address,
         location: contact.location,
+        phone: contact.phone,
+        map_link: contact.map_link,
       },
     });
 
