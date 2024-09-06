@@ -71,36 +71,31 @@ datasource db {
 // }
 
 model Property {
-  id    String @id @unique @default(uuid())
-  Admin Admin?
-  title String @unique
+  id String @id @unique @default(uuid())
 
+  title String @unique
   sex          Int
   outsider_sex Json[]
-
-  contact   Contact? @relation(fields: [contactId], references: [id])
-  contactId String?
-
-  hour   Hour?   @relation(fields: [hourId], references: [id])
-  hourId String?
-
-  rating   Rating? @relation(fields: [ratingId], references: [id])
-  ratingId String? @unique
-
-  amenity   Amenity? @relation(fields: [amenityId], references: [id])
-  amenityId String?
-
-  products Product[]
-  reviews  Review[]
-
   photos  String[]
   pay     Int      @default(0)
   desc_tr String?
   desc_en String?
 
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  Booking   Booking[]
+  admin    Admin?
+  bookings Booking[]
+  products Product[]
+
+  contact   Contact? @relation(fields: [contactId], references: [id])
+  contactId String?
+  hour      Hour?    @relation(fields: [hourId], references: [id])
+  hourId    String?
+  rating    Rating?  @relation(fields: [ratingId], references: [id])
+  ratingId  String?  @unique
+  amenity   Amenity? @relation(fields: [amenityId], references: [id])
+  amenityId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Contact {
@@ -193,7 +188,7 @@ model Product {
 }
 
 model Booking {
-  id         String   @id @default(uuid())
+  id         String   @id @default(uuid()) @unique
   date       DateTime
   propertyId String
   property   Property @relation(fields: [propertyId], references: [id])
@@ -219,19 +214,17 @@ model Booking {
 // }
 
 model Review {
-  id           String @id @default(uuid())
-  rate         Float
-  comment      String
-  product_type Int
+  id      String @id @default(uuid())
+  rateObj Json
+  rate    Float
+  comment String
 
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  propertyId String
-  property   Property @relation(fields: [propertyId], references: [id])
-  userId     String
-  user       User     @relation(fields: [userId], references: [id])
-  bookingId  String   @unique
-  booking    Booking  @relation(fields: [bookingId], references: [id])
+
+  bookingId String  @unique
+  booking   Booking @relation(fields: [bookingId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model User {
@@ -243,7 +236,6 @@ model User {
   age_range   Int
   gender      Int
   role        Int       @default(0)
-  reviews     Review[]
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   admin       Admin?

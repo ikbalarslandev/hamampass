@@ -22,37 +22,32 @@ import {
 } from "@/components/ui/select";
 import { useTranslations } from "next-intl";
 import { DrawerClose } from "@/components/ui/drawer";
-import ProgressComponent from "./progress";
+import ProgressComponent from "../../single-property/review-btn/progress";
 import { useEffect, useState, useTransition } from "react";
 import { useParams } from "next/navigation";
-import { useToast } from "@/components/ui/use-toast";
+import { toast } from "@/components/ui/use-toast";
 import { request } from "@/services/axios";
+import { TBooking } from "@/types";
 
 // Define the schema for validation using Zod
 const formSchema = z.object({
-  type: z.number().min(0).max(3),
-  product_type: z.number().min(0).max(1),
-  rate_location: z
-    .number()
-    .min(1, { message: "Rating must be at least 1" })
-    .max(10),
-  rate_staff: z.number().min(1).max(10),
-  rate_atmosphere: z.number().min(1).max(10),
-  rate_cleanliness: z.number().min(1).max(10),
-  rate_facilities: z.number().min(1).max(10),
-  rate_value_for_money: z.number().min(1).max(10),
+  location: z.number().min(1).max(10),
+  staff: z.number().min(1).max(10),
+  atmosphere: z.number().min(1).max(10),
+  cleanliness: z.number().min(1).max(10),
+  facilities: z.number().min(1).max(10),
+  value_for_money: z.number().min(1).max(10),
   comment: z.string().min(1).max(1000),
 });
 
-const ReviewFormComponent = ({ id }: { id: string }) => {
+const ReviewFormComponent = ({ booking }: { booking: TBooking }) => {
   const { title } = useParams();
   const LOCAL_STORAGE_KEY = `review-${title}`;
   const session = useSession();
   const t = useTranslations("single.review.drawer");
   const type = useTranslations("single.review.drawer.type");
   const Package = useTranslations("single.review.drawer.package");
-  const rate_types = useTranslations("single.review.main");
-  const { toast } = useToast();
+  const types = useTranslations("single.review.main");
 
   // State to track if the form has loaded stored values
   const [formLoaded, setFormLoaded] = useState(false);
@@ -66,14 +61,12 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
     return storedValues
       ? JSON.parse(storedValues)
       : {
-          type: 0,
-          product_type: 0,
-          rate_location: 1,
-          rate_staff: 1,
-          rate_atmosphere: 1,
-          rate_cleanliness: 1,
-          rate_facilities: 1,
-          rate_value_for_money: 1,
+          location: 1,
+          staff: 1,
+          atmosphere: 1,
+          cleanliness: 1,
+          facilities: 1,
+          value_for_money: 1,
           comment: "",
         };
   });
@@ -108,9 +101,17 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
         }
 
         const req = {
-          ...values,
-          propertyId: id,
-          userId: updatedSession.user.id, // Use the updated session data
+          rate: {
+            location: values.location,
+            staff: values.staff,
+            atmosphere: values.atmosphere,
+            cleanliness: values.cleanliness,
+            facilities: values.facilities,
+            value_for_money: values.value_for_money,
+          },
+          comment: values.comment,
+          bookingId: booking.id,
+          propertyId: booking.propertyId,
         };
 
         await request({
@@ -147,91 +148,39 @@ const ReviewFormComponent = ({ id }: { id: string }) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col gap-3"
         >
-          <FormField
-            control={form.control}
-            name="type"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="mr-2">{type("title")}</FormLabel>
-                <FormControl>
-                  <Select
-                    value={field.value.toString()}
-                    onValueChange={(value) => field.onChange(Number(value))}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="0">{type("0")}</SelectItem>
-                      <SelectItem value="1">{type("1")}</SelectItem>
-                      <SelectItem value="2">{type("2")}</SelectItem>
-                      <SelectItem value="3">{type("3")}</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="product_type"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="mr-2">{Package("title")}</FormLabel>
-                <FormControl>
-                  <Select
-                    value={field.value.toString()}
-                    onValueChange={(value) => field.onChange(Number(value))}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="0">{Package("0")}</SelectItem>
-                      <SelectItem value="1">{Package("1")}</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
           <ProgressComponent
-            title={rate_types("location")}
-            name="rate_location"
+            title={types("location")}
+            name="location"
             control={form.control}
             defaultValue={1}
           />
           <ProgressComponent
-            title={rate_types("staff")}
-            name="rate_staff"
+            title={types("staff")}
+            name="staff"
             control={form.control}
             defaultValue={1}
           />
           <ProgressComponent
-            title={rate_types("atmosphere")}
-            name="rate_atmosphere"
+            title={types("atmosphere")}
+            name="atmosphere"
             control={form.control}
             defaultValue={1}
           />
           <ProgressComponent
-            title={rate_types("cleanliness")}
-            name="rate_cleanliness"
+            title={types("cleanliness")}
+            name="cleanliness"
             control={form.control}
             defaultValue={1}
           />
           <ProgressComponent
-            title={rate_types("facilities")}
-            name="rate_facilities"
+            title={types("facilities")}
+            name="facilities"
             control={form.control}
             defaultValue={1}
           />
           <ProgressComponent
-            title={rate_types("value")}
-            name="rate_value_for_money"
+            title={types("value")}
+            name="value_for_money"
             control={form.control}
             defaultValue={1}
           />

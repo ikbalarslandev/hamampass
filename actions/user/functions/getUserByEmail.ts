@@ -9,9 +9,6 @@ const getUserByEmail = async (req: NextRequest) => {
     where: {
       email,
     },
-    include: {
-      reviews: true,
-    },
   });
 
   return user;

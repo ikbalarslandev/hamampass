@@ -12,7 +12,7 @@ import {
 import React from "react";
 import { useSession, getSession } from "next-auth/react";
 import Image from "next/image";
-import ReviewFormComponent from "./review-form";
+import ReviewFormComponent from "../../my-bookings/review/review-form";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";

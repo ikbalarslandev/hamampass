@@ -64,6 +64,14 @@ const ShoppingCardPage = () => {
   };
 
   const handleCheckOut = async () => {
+    if (!data?.user?.id) {
+      return toast({
+        title: "Log in",
+        description: "You need to log in to make a booking",
+        duration: 500,
+      });
+    }
+
     await request({
       type: "post",
       endpoint: "/booking",
@@ -80,6 +88,7 @@ const ShoppingCardPage = () => {
     toast({
       title: "Success",
       description: "Your booking is successful",
+      duration: 1000,
     });
     router.push(`/${locale}`);
   };

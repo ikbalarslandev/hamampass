@@ -2,55 +2,30 @@ import { NextRequest } from "next/server";
 import prisma from "@/prisma/db";
 
 const createReview = async (req: NextRequest) => {
-  const {
-    product_type,
-    rate_location,
-    rate_staff,
-    rate_atmosphere,
-    rate_cleanliness,
-    rate_facilities,
-    rate_value_for_money,
-    comment,
-    propertyId,
-    userId,
-    bookingId,
-  } = await req.json();
+  const { rate, comment, bookingId, propertyId } = await req.json();
 
   const rate_overall =
-    (rate_location +
-      rate_staff +
-      rate_atmosphere +
-      rate_cleanliness +
-      rate_facilities +
-      rate_value_for_money) /
+    (rate.location +
+      rate.staff +
+      rate.atmosphere +
+      rate.cleanliness +
+      rate.facilities +
+      rate.value_for_money) /
     6;
 
   const review = await prisma.review.create({
     data: {
-      product_type,
+      rateObj: rate,
       rate: rate_overall,
       comment,
-      property: {
-        connect: {
-          id: propertyId,
-        },
-      },
-      user: {
-        connect: {
-          id: userId,
-        },
-      },
-      booking: {
-        connect: {
-          id: bookingId,
-        },
-      },
+      bookingId,
     },
   });
 
-  // After creating a review, update the property's rating
   const property = await prisma.property.findUnique({
-    where: { id: propertyId },
+    where: {
+      id: propertyId,
+    },
   });
 
   if (!property?.ratingId) {
@@ -58,12 +33,12 @@ const createReview = async (req: NextRequest) => {
       data: {
         count: 1,
         rate_overall,
-        rate_location,
-        rate_staff,
-        rate_atmosphere,
-        rate_cleanliness,
-        rate_facilities,
-        rate_value_for_money,
+        rate_location: rate.location,
+        rate_staff: rate.staff,
+        rate_atmosphere: rate.atmosphere,
+        rate_cleanliness: rate.cleanliness,
+        rate_facilities: rate.facilities,
+        rate_value_for_money: rate.value_for_money,
       },
     });
 
@@ -99,32 +74,32 @@ const createReview = async (req: NextRequest) => {
         ),
         rate_location: calculateAverage(
           rating.rate_location,
-          rate_location,
+          rate.location,
           rating.count
         ),
         rate_staff: calculateAverage(
           rating.rate_staff,
-          rate_staff,
+          rate.staff,
           rating.count
         ),
         rate_atmosphere: calculateAverage(
           rating.rate_atmosphere,
-          rate_atmosphere,
+          rate.atmosphere,
           rating.count
         ),
         rate_cleanliness: calculateAverage(
           rating.rate_cleanliness,
-          rate_cleanliness,
+          rate.cleanliness,
           rating.count
         ),
         rate_facilities: calculateAverage(
           rating.rate_facilities,
-          rate_facilities,
+          rate.facilities,
           rating.count
         ),
         rate_value_for_money: calculateAverage(
           rating.rate_value_for_money,
-          rate_value_for_money,
+          rate.value_for_money,
           rating.count
         ),
       },

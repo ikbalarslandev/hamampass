@@ -110,18 +110,23 @@ export interface TRating {
 
 export interface TReview {
   id: string;
-  userId: string;
-  propertyId: string;
-  type: number;
-  product_type: number;
-  comment: string;
+  rateObj: {
+    location: number;
+    staff: number;
+    atmosphere: number;
+    cleanliness: number;
+    facilities: number;
+    value_for_money: number;
+  };
   rate: number;
-  user: TUser;
+  comment: string;
+
+  bookingId: string;
+  booking: TBooking;
 
   createdAt: string;
   updatedAt: string;
 }
-
 export interface TSessionUser {
   name: string;
   email: string;

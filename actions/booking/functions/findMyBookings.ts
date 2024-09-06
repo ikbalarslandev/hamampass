@@ -16,6 +16,7 @@ const findMyBookings = async (req: NextRequest) => {
         },
       },
       review: true,
+      user: true,
     },
   });
 

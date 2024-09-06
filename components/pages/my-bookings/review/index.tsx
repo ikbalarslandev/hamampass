@@ -1,6 +1,8 @@
 import { TBooking } from "@/types";
 import DrawerGeneral from "@/components/commons/drawer";
 import { FaAngleRight, FaStar } from "react-icons/fa";
+import ReviewFormComponent from "./review-form";
+import ReviewInfo from "./review-info";
 
 const ReviewButton = ({
   className,
@@ -9,10 +11,6 @@ const ReviewButton = ({
   className?: string;
   booking: TBooking;
 }) => {
-  const handleReview = () => {
-    console.log("review");
-  };
-
   const Trigger = () => {
     return booking.review ? (
       <div
@@ -34,12 +32,19 @@ const ReviewButton = ({
       </div>
     );
   };
+
+  const Content = () => {
+    return booking.review ? (
+      <ReviewInfo booking={booking} />
+    ) : (
+      <ReviewFormComponent booking={booking} />
+    );
+  };
+
+  const title = booking.review ? "My Review" : "Review";
+
   return (
-    <DrawerGeneral
-      trigger={<Trigger />}
-      title="Review"
-      content={<p>hello</p>}
-    />
+    <DrawerGeneral trigger={<Trigger />} title={title} content={<Content />} />
   );
 };
 
