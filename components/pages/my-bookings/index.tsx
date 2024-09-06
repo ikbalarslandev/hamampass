@@ -7,6 +7,7 @@ import { TBooking } from "@/types";
 import DrawerGeneral from "@/components/commons/drawer";
 import { PropertyPartContent, PropertyPartTrigger } from "./property";
 import moment from "moment";
+import ReviewButton from "./review";
 
 const MyBookingsPage = () => {
   const { data } = useSession();
@@ -51,12 +52,10 @@ const MyBookingsPage = () => {
               content={<PropertyPartContent booking={booking} />}
             />
 
-            <button
-              onClick={handleReview}
-              className="border-t rounded-b-xl py-2 bg-slate-100  "
-            >
-              Review Now
-            </button>
+            <ReviewButton
+              booking={booking}
+              className="border-t rounded-b-xl py-2 bg-slate-100"
+            />
           </div>
         ))}
       </div>

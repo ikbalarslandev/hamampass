@@ -7,7 +7,6 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-  DrawerOverlay,
 } from "@/components/ui/drawer";
 
 const DrawerGeneral = ({

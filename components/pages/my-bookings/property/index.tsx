@@ -10,6 +10,7 @@ import { LuCalendarOff } from "react-icons/lu";
 import DrawerGeneral from "@/components/commons/drawer";
 import BookingContent from "./booking-drawer-content";
 import { DeleteDialog } from "./delete-dialog";
+import ReviewButton from "../review";
 
 const PropertyPartTrigger = ({ booking }: { booking: TBooking }) => {
   return (
@@ -119,6 +120,11 @@ const PropertyPartContent = ({ booking }: { booking: TBooking }) => {
           />
         )}
       </div>
+      <Separator />
+      <ReviewButton
+        booking={booking}
+        className="border mt-4 py-2 rounded-lg bg-slate-100  shadow"
+      />
     </div>
   );
 };
