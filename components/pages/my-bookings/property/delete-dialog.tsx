@@ -13,6 +13,7 @@ import { TBooking } from "@/types";
 import moment from "moment";
 import { useTranslations } from "next-intl";
 import { toast } from "@/components/ui/use-toast";
+import { request } from "@/services/axios";
 
 export function DeleteDialog({
   trigger,
@@ -24,9 +25,10 @@ export function DeleteDialog({
   const t = useTranslations("home.product-type");
 
   const handleDelete = async () => {
-    //
-    //TODO: Implement the delete functionality here
-    //
+    await request({
+      type: "delete",
+      endpoint: `booking/${booking.id}`,
+    });
 
     toast({
       title: "Booking Cancelled",
@@ -65,7 +67,12 @@ export function DeleteDialog({
         </div>
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>
-            <Button onClick={handleDelete} type="button" variant="secondary">
+            <Button
+              onClick={handleDelete}
+              type="button"
+              variant="secondary"
+              className="w-full"
+            >
               Yes Cancel Booking
             </Button>
           </DialogClose>
