@@ -1,9 +1,9 @@
-import exp from "constants";
-
 export interface TContact {
   id: string;
+  phone: string;
   city: string;
   district: string;
+  map_link: string;
   address: string;
   location: number[];
   createdAt: string;

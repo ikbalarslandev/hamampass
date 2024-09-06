@@ -9,6 +9,7 @@ import { useParams } from "next/navigation";
 import { LuCalendarOff } from "react-icons/lu";
 import DrawerGeneral from "@/components/commons/drawer";
 import BookingContent from "./booking-drawer-content";
+import { DeleteDialog } from "./delete-dialog";
 
 const PropertyPartTrigger = ({ booking }: { booking: TBooking }) => {
   return (
@@ -64,14 +65,20 @@ const PropertyPartContent = ({ booking }: { booking: TBooking }) => {
       </div>
       <Separator />
       <div className="flex gap-3 my-2">
-        <div className="flex items-center gap-2 border-2 px-2 rounded-full">
+        <Link
+          href={`tel:${booking.property.contact.phone}`}
+          className="flex items-center gap-2 border-2 px-2 rounded-full"
+        >
           <CiPhone className="text-gray-500" size={20} />
           <p>Phone</p>
-        </div>
-        <div className="flex items-center gap-2 border-2 px-2 rounded-full">
+        </Link>
+        <Link
+          href={booking.property.contact.map_link}
+          className="flex items-center gap-2 border-2 px-2 rounded-full"
+        >
           <CiMap className="text-gray-500" size={20} />
           <p>Map</p>
-        </div>
+        </Link>
       </div>
       <Separator />
 
@@ -95,10 +102,22 @@ const PropertyPartContent = ({ booking }: { booking: TBooking }) => {
           <CiHome className="text-gray-500" size={24} />
           <p className="text-sm">View Property</p>
         </Link>
-        <div className="flex items-center  py-1 gap-2 opacity-50">
-          <LuCalendarOff className="text-gray-500" size={22} />
-          <p className="text-sm">Cancel Booking</p>
-        </div>
+        {isPast ? (
+          <div className="flex items-center  py-1 gap-2 opacity-50">
+            <LuCalendarOff className="text-gray-500" size={22} />
+            <p className="text-sm">Cancel Booking</p>
+          </div>
+        ) : (
+          <DeleteDialog
+            trigger={
+              <button className="flex items-center  py-1 gap-2 ">
+                <LuCalendarOff className="text-gray-500" size={22} />
+                <p className="text-sm">Cancel Booking</p>
+              </button>
+            }
+            booking={booking}
+          />
+        )}
       </div>
     </div>
   );

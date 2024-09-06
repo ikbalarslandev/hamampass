@@ -107,6 +107,8 @@ model Contact {
   id       String  @id @default(uuid())
   city     String
   district String
+  phone    String
+  map_link String
   address  String
   location Float[]
 
