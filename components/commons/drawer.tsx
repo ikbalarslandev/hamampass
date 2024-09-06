@@ -7,6 +7,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
+  DrawerOverlay,
 } from "@/components/ui/drawer";
 
 const DrawerGeneral = ({
@@ -19,7 +20,7 @@ const DrawerGeneral = ({
 }: any) => {
   return (
     <Drawer handleOnly={handleOnly}>
-      <DrawerTrigger className=" w-full">{trigger}</DrawerTrigger>
+      <DrawerTrigger className=" w-full ">{trigger}</DrawerTrigger>
       <DrawerContent className={fill ? "h-full" : "max-h-full"}>
         <DrawerHeader className=" flex justify-between items-center mt-2 ">
           <DrawerTitle className="text-center">{title}</DrawerTitle>
