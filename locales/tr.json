@@ -81,6 +81,10 @@
         "expensive": "Fiyat (önce en yüksek)",
         "cheap": "Fiyat (önce en düşük)"
       },
+      "rating": {
+        "high": "Puan (önce en yüksek)",
+        "low": "Puan (önce en düşük)"
+      },
       "placeholder": "İstanbul'da semt ara",
       "show": "Sonuçları Göster"
     },

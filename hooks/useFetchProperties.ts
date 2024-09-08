@@ -24,6 +24,7 @@ const useFetchProperties = () => {
             sex: fParam("sex"),
             pay: fParam("pay"),
             range: fParam("range"),
+            review: fParam("review"),
           },
         });
 

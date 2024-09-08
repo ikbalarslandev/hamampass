@@ -83,6 +83,10 @@
         "expensive": "Price (Highest first)",
         "cheap": "Price (Lowest first)"
       },
+      "rating": {
+        "high": "Rating (Highest first)",
+        "low": "Rating (Lowest first)"
+      },
       "placeholder": "Search district in Istanbul",
       "show": "Show Results"
     },

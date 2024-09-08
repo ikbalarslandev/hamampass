@@ -20,60 +20,60 @@ import { MdOutlineSevereCold } from "react-icons/md";
 import { IoTicketOutline, IoBodyOutline } from "react-icons/io5";
 import { BiSolidCoffeeBean } from "react-icons/bi";
 
+const classN = "text-3xl";
+
 const convertAFacilityIcon = (id: number) => {
   switch (id.toString()) {
     case "0":
-      return <FaToiletPaper />;
+      return <FaToiletPaper className={classN} />;
     case "1":
-      return <FaBed />;
+      return <FaBed className={classN} />;
     case "2":
-      return <FaLock />;
+      return <FaLock className={classN} />;
     case "3":
-      return <FaShower />;
+      return <FaShower className={classN} />;
     case "4":
-      return <FaHotjar />;
+      return <FaHotjar className={classN} />;
     case "5":
-      return <FaCloudRain />;
+      return <FaCloudRain className={classN} />;
     case "6":
-      return <FaHotTub />;
+      return <FaHotTub className={classN} />;
     case "7":
-      return <FaSwimmingPool />;
+      return <FaSwimmingPool className={classN} />;
     case "8":
-      return <TbMassage />;
+      return <TbMassage className={classN} />;
     case "9":
-      return <MdOutlineSevereCold />;
+      return <MdOutlineSevereCold className={classN} />;
     case "10":
-      return <PiThermometerColdFill />;
+      return <PiThermometerColdFill className={classN} />;
     default:
-      return <IoIosWarning />;
+      return <IoIosWarning className={classN} />;
   }
 };
 
 const convertAItemIcon = (id: number) => {
   switch (id.toString()) {
     case "0":
-      return <PiTowelFill />;
+      return <PiTowelFill className={classN} />;
     case "1":
-      return <FaSoap />;
+      return <FaSoap className={classN} />;
     default:
-      return <IoIosWarning />;
+      return <IoIosWarning className={classN} />;
   }
 };
 const convertAFood_DrinkIcon = (id: number) => {
   switch (id.toString()) {
     case "0":
-      return <PiTeaBagFill />;
+      return <PiTeaBagFill className={classN} />;
     case "1":
-      return <BiSolidCoffeeBean />;
+      return <BiSolidCoffeeBean className={classN} />;
 
     default:
-      return <IoIosWarning />;
+      return <IoIosWarning className={classN} />;
   }
 };
 
 const convertProductIcon = (type: number) => {
-  const classN = "text-3xl";
-
   switch (type.toString()) {
     case "0":
       return <IoTicketOutline className={classN} />;

@@ -9,46 +9,57 @@ import {
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
+import Item from "./item";
 
 const SortComponent = () => {
   const title = useTranslations("home.filters.titles");
   const price = useTranslations("home.filters.price");
+  const rating = useTranslations("home.filters.rating");
 
   const searchParams = useSearchParams();
-  const [selectedValue, setSelectedValue] = useState(
-    searchParams.get("sort") || ""
+  const [priceValue, setpriceValue] = useState(searchParams.get("sort") || "");
+  const [ratingValue, setRatingValue] = useState(
+    searchParams.get("review") || ""
   );
 
   useEffect(() => {
-    setSelectedValue(searchParams.get("sort") || "");
+    setpriceValue(searchParams.get("sort") || "");
+    setRatingValue(searchParams.get("review") || "");
   }, [searchParams]);
 
-  const handleSelectChange = (value: string) => {
-    if (selectedValue === value) {
-      setSelectedValue("");
+  const handleGeneral = (
+    paramValue: string,
+    setParamValue: (a: string) => void,
+    paramName: string
+  ) => {
+    return (value: string) => {
+      if (paramValue === value) {
+        setParamValue("");
+        const newParams = new URLSearchParams(searchParams.toString());
+        newParams.delete(paramName);
+        window.history.replaceState(
+          null,
+          "",
+          `${window.location.pathname}?${newParams.toString()}`
+        );
+        return;
+      }
+
+      setParamValue(value);
       const newParams = new URLSearchParams(searchParams.toString());
-      newParams.delete("sort");
+      newParams.set(paramName, value);
+
+      // Update the URL with the new query parameter
       window.history.replaceState(
         null,
         "",
         `${window.location.pathname}?${newParams.toString()}`
       );
-      return;
-    }
-
-    setSelectedValue(value);
-    const newParams = new URLSearchParams(searchParams.toString());
-    newParams.set("sort", value);
-
-    // Update the URL with the new query parameter
-    window.history.replaceState(
-      null,
-      "",
-      `${window.location.pathname}?${newParams.toString()}`
-    );
+    };
   };
+
+  const handlePrice = handleGeneral(priceValue, setpriceValue, "sort");
+  const handleRating = handleGeneral(ratingValue, setRatingValue, "review");
 
   return (
     <Accordion type="single" collapsible>
@@ -57,22 +68,26 @@ const SortComponent = () => {
           {title("sort_title")}
         </AccordionTrigger>
         <AccordionContent className="flex flex-col gap-2">
-          <Label className="flex justify-between">
-            <p>{price("expensive")}</p>
-            <Checkbox
-              checked={selectedValue === "expensive"}
-              onClick={() => handleSelectChange("expensive")}
-              className="w-6 h-6"
-            />
-          </Label>
-          <Label className="flex justify-between">
-            <p>{price("cheap")}</p>
-            <Checkbox
-              checked={selectedValue === "cheap"}
-              onClick={() => handleSelectChange("cheap")}
-              className="w-6 h-6 "
-            />
-          </Label>
+          <Item
+            label={price("expensive")}
+            checked={priceValue === "expensive"}
+            onClick={() => handlePrice("expensive")}
+          />
+          <Item
+            label={price("cheap")}
+            checked={priceValue === "cheap"}
+            onClick={() => handlePrice("cheap")}
+          />
+          <Item
+            label={rating("high")}
+            checked={ratingValue === "high"}
+            onClick={() => handleRating("high")}
+          />
+          <Item
+            label={rating("low")}
+            checked={ratingValue === "low"}
+            onClick={() => handleRating("low")}
+          />
         </AccordionContent>
       </AccordionItem>
     </Accordion>

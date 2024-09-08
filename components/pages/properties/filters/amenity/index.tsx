@@ -27,7 +27,7 @@ const AmenityComponent = () => {
         <AccordionTrigger className="text-lg font-bold">
           {title("amenity_title")}
         </AccordionTrigger>
-        <AccordionContent className="flex flex-col gap-2 ">
+        <AccordionContent className="flex flex-col gap-3 ">
           {amenityData.map((id) => (
             <CheckboxComponent
               key={id}
