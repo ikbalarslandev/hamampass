@@ -15,10 +15,16 @@ const getReviewsForProperty = async (req: NextRequest) => {
 
   const reviews = await prisma.review.findMany({
     where: {
-      propertyId,
+      booking: {
+        propertyId: propertyId,
+      },
     },
     include: {
-      user: true,
+      booking: {
+        include: {
+          user: true,
+        },
+      },
     },
   });
 

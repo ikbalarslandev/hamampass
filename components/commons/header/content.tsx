@@ -115,14 +115,14 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
           )}
         </button>
       )}
-      {adminsProperty && (
+      {/* {adminsProperty && (
         <button
           className="text-2xl scale-x-115  w-full text-left py-2"
           onClick={() => router.push(`/${locale}/admin/${adminsProperty.id}`)}
         >
           {adminsProperty.title}
         </button>
-      )}
+      )} */}
 
       <div className="flex items-center absolute bottom-0">
         <p>{t("language")} </p>

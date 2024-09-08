@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/select";
 import { useTranslations } from "next-intl";
 import { DrawerClose } from "@/components/ui/drawer";
-import ProgressComponent from "../../single-property/review-btn/progress";
+import ProgressComponent from "./progress";
 import { useEffect, useState, useTransition } from "react";
 import { useParams } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";

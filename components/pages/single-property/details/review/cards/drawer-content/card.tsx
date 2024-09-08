@@ -26,20 +26,24 @@ const ReviewsCard = ({ review }: { review: TReview }) => {
     const getCountry = async () => {
       const res: any = await request({
         type: "get",
-        endpoint: `country/${review.user.nationality}`,
+        endpoint: `country/${review.booking.user.nationality}`,
       });
 
       setCountry(res.data);
     };
 
     getCountry();
-  }, [review.user.nationality]);
+  }, [review.booking.user.nationality]);
 
   const formatedDate = moment(review.updatedAt).format("DD MMMM YYYY");
 
   useEffect(() => {
     moment.locale(locale);
   }, [locale]);
+
+  const productKeys = Object.keys(review.booking.products).reduce((a, b) =>
+    a > b ? a : b
+  );
 
   return (
     <div className=" border-b border-gray-300 pb-3">
@@ -54,7 +58,7 @@ const ReviewsCard = ({ review }: { review: TReview }) => {
         <div className="flex items-center gap-2 w-full">
           <div className="relative">
             <Image
-              src={review.user.image ?? ""}
+              src={review.booking.user.image ?? ""}
               alt="avatar"
               width={30}
               height={30}
@@ -76,19 +80,23 @@ const ReviewsCard = ({ review }: { review: TReview }) => {
             </div>
           </div>
           <div className="flex flex-col  w-full">
-            <h1 className="font-semibold ">{review.user.name}</h1>
+            <h1 className="font-semibold ">{review.booking.user.name}</h1>
             <div className="flex justify-between text-sm text-gray-600  ">
               <div className="flex items-center gap-2">
-                <p>{g(review.user.gender.toString())},</p>
-                <p> {convertAgeRange(review.user.age_range)},</p>
+                <p>{g(review.booking.user.gender.toString())},</p>
+                <p> {convertAgeRange(review.booking.user.age_range)},</p>
                 <p> {country && country[`name_${locale}` as keyof TCountry]}</p>
               </div>
 
-              <div className="flex  items-end gap-1">
-                <p>{r(review.type.toString())}</p>
-
-                <p className="text-xs">({p(review.product_type.toString())})</p>
-              </div>
+              <p className="text-xs">
+                (
+                {p(
+                  Object.keys(review.booking.products)
+                    .reduce((a, b) => (a > b ? a : b))
+                    .toString()
+                )}
+                )
+              </p>
             </div>
           </div>
         </div>
