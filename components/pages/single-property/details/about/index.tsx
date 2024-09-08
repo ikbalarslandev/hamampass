@@ -7,7 +7,7 @@ const AboutComponent = ({ desc }: any) => {
   const description = <JsxParser components={{}} jsx={desc} />;
 
   const t = useTranslations("single");
-  const title = useTranslations("home.filters.titles");
+  const title = useTranslations("titles");
 
   if (!desc) return null;
 

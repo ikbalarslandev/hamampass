@@ -14,7 +14,7 @@ const ProductsComponent = ({ data, property }: Props) => {
   data = data.sort((a, b) => (a.type > b.type ? 1 : -1));
 
   const t = useTranslations("home.product-type");
-  const title = useTranslations("home.filters.titles");
+  const title = useTranslations("titles");
 
   return (
     <section className="mt-4">

@@ -9,7 +9,7 @@ import AmenitiesDrawerContent from "./drawer-content";
 import DisplayAmenityIcon from "@/components/commons/display-amenity-icon";
 
 const AmenityComponent = ({ data }: { data: TAmenity }) => {
-  const title = useTranslations("home.filters.titles");
+  const title = useTranslations("titles");
   const see = useTranslations("home.filters.amenities");
   const firstThree = data.facilities.slice(0, 3);
 

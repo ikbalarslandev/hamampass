@@ -1,4 +1,19 @@
 {
+  "titles": {
+    "title": "Filtreler",
+    "about_title": "Hakkında",
+    "products_title": "Ürünler",
+    "amenity_title": "Hizmetler",
+    "pay_title": "Ödeme Yöntemi",
+    "range_title": "Fiyat Aralığı",
+    "sex_title": "Cinsiyet",
+    "sort_title": "Sırala",
+    "review-title": "Yorumlar",
+    "hours-title": "Çalışma Saatleri",
+    "location-title": "Konum",
+    "about-title": "Hakkında",
+    "gallery-title": "Galeri"
+  },
   "hamburger": {
     "home": "Anasayfa",
     "profile": "Profilim",
@@ -27,21 +42,6 @@
     "filters": {
       "filter": "filtrele",
       "clear": "Temizle",
-      "titles": {
-        "title": "Filtreler",
-        "about_title": "Hakkında",
-        "products_title": "Ürünler",
-        "amenity_title": "Hizmetler",
-        "pay_title": "Ödeme Yöntemi",
-        "range_title": "Fiyat Aralığı",
-        "sex_title": "Cinsiyet",
-        "sort_title": "Sırala",
-        "review-title": "Yorumlar",
-        "hours-title": "Çalışma Saatleri",
-        "location-title": "Konum",
-        "about-title": "Hakkında",
-        "gallery-title": "Galeri"
-      },
 
       "amenities": {
         "see-all": "Tüm Hizmetleri Gör",

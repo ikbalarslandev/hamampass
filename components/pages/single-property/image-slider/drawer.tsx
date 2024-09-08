@@ -12,7 +12,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 const GaleryDrawer = ({ trigger, data }: any) => {
-  const s = useTranslations("home.filters.titles");
+  const s = useTranslations("titles");
   return (
     <Drawer>
       <DrawerTrigger className=" w-full">{trigger}</DrawerTrigger>

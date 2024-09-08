@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
 import Item from "./item";
 
 const SortComponent = () => {
-  const title = useTranslations("home.filters.titles");
+  const title = useTranslations("titles");
   const price = useTranslations("home.filters.price");
   const rating = useTranslations("home.filters.rating");
 

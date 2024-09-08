@@ -24,7 +24,7 @@ const ClockComponent = ({ desc }: { desc: string }) => {
 };
 
 const HoursComponent: React.FC<HoursComponentProps> = ({ data }) => {
-  const title = useTranslations("home.filters.titles");
+  const title = useTranslations("titles");
   const h = useTranslations("single.hours");
 
   const [isWeekDay, setIsWeekDay] = useState(false);

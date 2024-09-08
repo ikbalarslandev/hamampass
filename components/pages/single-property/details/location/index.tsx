@@ -10,7 +10,7 @@ import GoogleMapComponent from "@/components/pages/single-property/details/locat
 
 const LocationComponent = ({ contact }: { contact: TContact }) => {
   const s = useTranslations("single");
-  const title = useTranslations("home.filters.titles");
+  const title = useTranslations("titles");
   const { toast } = useToast();
 
   const handleCopy = () => {

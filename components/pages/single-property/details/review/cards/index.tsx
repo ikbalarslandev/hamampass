@@ -11,7 +11,7 @@ import ReviewsDrawerContent from "./drawer-content";
 
 const Cards = ({ propertyId }: { propertyId: string }) => {
   const btn = useTranslations("single.review");
-  const title = useTranslations("home.filters.titles");
+  const title = useTranslations("titles");
 
   const [reviews, setReviews] = useState<TReview[]>([]);
   useEffect(() => {

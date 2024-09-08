@@ -18,7 +18,7 @@ const SinglePropertyPage = ({ data }: { data: TProperty }) => {
   const productsRef = useRef<HTMLDivElement>(null);
 
   const sex = useTranslations("home.filters.sex");
-  const title = useTranslations("home.filters.titles");
+  const title = useTranslations("titles");
   const view = useTranslations("single");
   const payment_details = useTranslations("home.filters.payment_methods");
 
@@ -85,7 +85,7 @@ const SinglePropertyPage = ({ data }: { data: TProperty }) => {
         </h1>
 
         {data && (
-          <div className="flex gap-2">
+          <div className="flex gap-2 text-xs">
             <div className="border flex items-center gap-3 p-2 pr-4 rounded-2xl bg-orange-500 text-white h-3">
               <FaTurkishLiraSign
                 size={30}

@@ -1,4 +1,20 @@
 {
+  "titles": {
+    "title": "Filters",
+    "about_title": "About",
+    "products_title": "Products",
+    "amenity_title": "Amenities",
+    "pay_title": "Payment Method",
+    "range_title": "Price Range",
+    "sex_title": "Genders",
+    "sort_title": "Sort",
+    "review-title": "Reviews",
+    "hours-title": "Hours",
+    "location-title": "Location",
+    "about-title": "About",
+    "gallery-title": "Gallery"
+  },
+
   "hamburger": {
     "home": "Home",
     "profile": "Profile",
@@ -29,21 +45,7 @@
     "filters": {
       "filter": "filters",
       "clear": "Clear all",
-      "titles": {
-        "title": "Filters",
-        "about_title": "About",
-        "products_title": "Products",
-        "amenity_title": "Amenities",
-        "pay_title": "Payment Method",
-        "range_title": "Price Range",
-        "sex_title": "Genders",
-        "sort_title": "Sort",
-        "review-title": "Reviews",
-        "hours-title": "Hours",
-        "location-title": "Location",
-        "about-title": "About",
-        "gallery-title": "Gallery"
-      },
+
       "amenities": {
         "see-all": "View all Amenities",
         "facilities": {

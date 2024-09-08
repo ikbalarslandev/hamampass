@@ -13,7 +13,7 @@ const sexData = [1, 2, 3, 4];
 
 const SexComponent = () => {
   const sex_type = useTranslations("home.filters.sex");
-  const title = useTranslations("home.filters.titles");
+  const title = useTranslations("titles");
   return (
     <Accordion type="single" collapsible>
       <AccordionItem value="vibe">

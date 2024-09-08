@@ -30,7 +30,7 @@ interface DrawerComponentProps {
 }
 
 const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
-  const title = useTranslations("home.filters.titles");
+  const title = useTranslations("titles");
   const btn = useTranslations("home.filters");
   const searchParams = useSearchParams();
   const router = useRouter();

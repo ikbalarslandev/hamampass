@@ -13,7 +13,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
 const PaymentMethodComponent = () => {
-  const pay = useTranslations("home.filters.titles");
+  const pay = useTranslations("titles");
   const payment_details = useTranslations("home.filters.payment_methods");
 
   const searchParams = useSearchParams();

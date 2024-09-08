@@ -15,7 +15,7 @@ const ReviewComponent = ({
     ? `${data?.rate_overall}.0`
     : data?.rate_overall?.toFixed(1) || "";
 
-  const s = useTranslations("home.filters.titles");
+  const s = useTranslations("titles");
 
   return (
     <section className="mb-5">

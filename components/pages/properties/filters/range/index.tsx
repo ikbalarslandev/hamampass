@@ -11,7 +11,7 @@ import Chart from "./chart";
 import React, { useState } from "react";
 
 const RangeComponent = () => {
-  const title = useTranslations("home.filters.titles");
+  const title = useTranslations("titles");
   const [openValue, setOpenValue] = useState("rate");
 
   return (
