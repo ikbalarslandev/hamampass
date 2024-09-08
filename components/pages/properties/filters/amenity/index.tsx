@@ -10,12 +10,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const amenityData = [0, 1, 2, 3, 4, 5, 6, 7];
+const amenityData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const AmenityComponent = () => {
   const [openValue, setOpenValue] = useState("amenity");
   const title = useTranslations("home.filters.titles");
-  const amenities = useTranslations("home.filters.amenities");
+  const amenities = useTranslations("home.filters.amenities.facilities");
   return (
     <Accordion
       type="single"

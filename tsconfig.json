@@ -26,7 +26,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "actions/property/functions/getAllProperties/pure.js"
+    "actions/property/functions/getAllProperties/pure.ts"
   ],
   "exclude": ["node_modules"]
 }

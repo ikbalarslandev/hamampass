@@ -2,13 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/prisma/db";
 import {
   filterByKeys,
-  filterByAmenity,
+  // filterByAmenity,
   filterBySex,
   sortProperties,
-  filterByRange,
+  // filterByRange,
   paginate,
 } from "./pure";
 import { pipe } from "ramda";
+import { TProperty } from "@/types";
 
 async function getAllProperties(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -28,21 +29,21 @@ async function getAllProperties(req: NextRequest) {
   });
 
   try {
-    const properties = await prisma.property.findMany({
+    const properties = (await prisma.property.findMany({
       include: {
         rating: true,
         products: true,
         amenity: true,
       },
-    });
+    })) as unknown as TProperty[];
 
     const filterAndSortAndPaginate = pipe(
       filterByKeys(filters),
-      filterByAmenity(amenity),
+      // filterByAmenity(amenity),
       filterBySex(sex),
       sortProperties(sort),
-      filterByRange(range),
-      paginate(page, limit)
+      // filterByRange(range),
+      paginate({ page, limit })
     );
 
     const data = filterAndSortAndPaginate(properties);
