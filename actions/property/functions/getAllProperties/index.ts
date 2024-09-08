@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/prisma/db";
 import {
   filterByKeys,
-  // filterByAmenity,
+  filterByAmenity,
   filterBySex,
   sortProperties,
-  // filterByRange,
+  filterByRange,
   paginate,
 } from "./pure";
 import { pipe } from "ramda";
@@ -39,10 +39,10 @@ async function getAllProperties(req: NextRequest) {
 
     const filterAndSortAndPaginate = pipe(
       filterByKeys(filters),
-      // filterByAmenity(amenity),
+      filterByAmenity(amenity),
       filterBySex(sex),
       sortProperties(sort),
-      // filterByRange(range),
+      filterByRange(range),
       paginate({ page, limit })
     );
 

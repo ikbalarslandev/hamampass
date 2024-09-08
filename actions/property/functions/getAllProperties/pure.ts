@@ -1,42 +1,40 @@
 import { TProduct, TProperty } from "@/types";
 
-// const filterByAmenity =
-//   (amenity: string | null) =>
-//   (properties: TProperty[]): TProperty[] =>
-//     amenity
-//       ? properties.filter((property) =>
-//           JSON.parse(amenity).every((a: number) =>
-//             property.amenities.includes(a)
-//           )
-//         )
-//       : properties;
+const filterByAmenity =
+  (amenity: string | null) =>
+  (properties: TProperty[]): TProperty[] =>
+    amenity
+      ? properties.filter((property) =>
+          JSON.parse(amenity).every((a: number) =>
+            property.amenity.facilities.includes(a)
+          )
+        )
+      : properties;
 
-// const filterByRange =
-//   (range: number[]) =>
-//   (properties: TProperty[]): TProperty[] =>
-//     range
-//       ? properties.filter((property) => {
-//           const [min, max] = JSON.parse(range.toString());
+const filterByRange =
+  (range: string | null) =>
+  (properties: TProperty[]): TProperty[] =>
+    range
+      ? properties.filter((property) => {
+          const [min, max]: number[] = JSON.parse(range);
 
-//           const lowestTypeProduct = property.products.reduce(
-//             (prev, current) => (prev.type < current.type ? prev : current),
-//             property.products[0]
-//           );
+          const lowestTypeProduct = property.products.reduce(
+            (prev, current) => (prev.type < current.type ? prev : current),
+            property.products[0]
+          );
 
-//           return (
-//             lowestTypeProduct.adult_price >= min &&
-//             lowestTypeProduct.adult_price <= max
-//           );
-//         })
-//       : properties;
-
+          return (
+            lowestTypeProduct.adult_price >= min &&
+            lowestTypeProduct.adult_price <= max
+          );
+        })
+      : properties;
 const filterBySex =
   (sex: string | null) =>
   (properties: TProperty[]): TProperty[] =>
     sex
       ? properties.filter((property) => JSON.parse(sex).includes(property.sex))
       : properties;
-
 const filterByKeys =
   (filters: Record<string, string | string[]>) =>
   (properties: TProperty[]): TProperty[] =>
@@ -82,9 +80,9 @@ const paginate =
 
 export {
   filterByKeys,
-  // filterByAmenity,
+  filterByAmenity,
   filterBySex,
   sortProperties,
-  // filterByRange,
+  filterByRange,
   paginate,
 };
