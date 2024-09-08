@@ -70,6 +70,22 @@ const sortProperties =
     return properties;
   };
 
+const sortReviews =
+  (sort: string | null) =>
+  (properties: TProperty[]): TProperty[] => {
+    if (sort === "low") {
+      return properties.sort(
+        (a, b) => a.rating.rate_overall - b.rating.rate_overall
+      );
+    }
+    if (sort === "high") {
+      return properties.sort(
+        (a, b) => b.rating.rate_overall - a.rating.rate_overall
+      );
+    }
+    return properties;
+  };
+
 const paginate =
   ({ page, limit }: { page: number; limit: number }) =>
   (properties: TProperty[]): TProperty[] => {
@@ -83,6 +99,7 @@ export {
   filterByAmenity,
   filterBySex,
   sortProperties,
+  sortReviews,
   filterByRange,
   paginate,
 };

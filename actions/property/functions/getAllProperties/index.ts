@@ -5,6 +5,7 @@ import {
   filterByAmenity,
   filterBySex,
   sortProperties,
+  sortReviews,
   filterByRange,
   paginate,
 } from "./pure";
@@ -16,6 +17,7 @@ async function getAllProperties(req: NextRequest) {
   const page = parseInt(searchParams.get("page") || "1");
   const limit = parseInt(searchParams.get("limit") || "5");
   const sort = searchParams.get("sort");
+  const review = searchParams.get("review");
   const amenity = searchParams.get("amenity");
   const sex = searchParams.get("sex");
   const range = searchParams.get("range");
@@ -23,7 +25,11 @@ async function getAllProperties(req: NextRequest) {
   // Collect all other filters
   const filters: Record<string, string | string[]> = {};
   searchParams.forEach((value, key) => {
-    if (!["page", "limit", "sort", "amenity", "sex", "range"].includes(key)) {
+    if (
+      !["page", "limit", "sort", "amenity", "sex", "range", "review"].includes(
+        key
+      )
+    ) {
       filters[key] = value;
     }
   });
@@ -42,6 +48,7 @@ async function getAllProperties(req: NextRequest) {
       filterByAmenity(amenity),
       filterBySex(sex),
       sortProperties(sort),
+      sortReviews(review),
       filterByRange(range),
       paginate({ page, limit })
     );
