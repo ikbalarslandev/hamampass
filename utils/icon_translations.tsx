@@ -22,63 +22,63 @@ import { BiSolidCoffeeBean } from "react-icons/bi";
 
 const classN = "text-3xl";
 
-const convertAFacilityIcon = (id: number) => {
+const convertAFacilityIcon = (id: number, className = classN) => {
   switch (id.toString()) {
     case "0":
-      return <FaToiletPaper className={classN} />;
+      return <FaToiletPaper className={className} />;
     case "1":
-      return <FaBed className={classN} />;
+      return <FaBed className={className} />;
     case "2":
-      return <FaLock className={classN} />;
+      return <FaLock className={className} />;
     case "3":
-      return <FaShower className={classN} />;
+      return <FaShower className={className} />;
     case "4":
-      return <FaHotjar className={classN} />;
+      return <FaHotjar className={className} />;
     case "5":
-      return <FaCloudRain className={classN} />;
+      return <FaCloudRain className={className} />;
     case "6":
-      return <FaHotTub className={classN} />;
+      return <FaHotTub className={className} />;
     case "7":
-      return <FaSwimmingPool className={classN} />;
+      return <FaSwimmingPool className={className} />;
     case "8":
-      return <TbMassage className={classN} />;
+      return <TbMassage className={className} />;
     case "9":
-      return <MdOutlineSevereCold className={classN} />;
+      return <MdOutlineSevereCold className={className} />;
     case "10":
-      return <PiThermometerColdFill className={classN} />;
+      return <PiThermometerColdFill className={className} />;
     default:
-      return <IoIosWarning className={classN} />;
+      return <IoIosWarning className={className} />;
   }
 };
 
-const convertAItemIcon = (id: number) => {
+const convertAItemIcon = (id: number, className = classN) => {
   switch (id.toString()) {
     case "0":
-      return <PiTowelFill className={classN} />;
+      return <PiTowelFill className={className} />;
     case "1":
-      return <FaSoap className={classN} />;
+      return <FaSoap className={className} />;
     default:
-      return <IoIosWarning className={classN} />;
+      return <IoIosWarning className={className} />;
   }
 };
-const convertAFood_DrinkIcon = (id: number) => {
+const convertAFood_DrinkIcon = (id: number, className = classN) => {
   switch (id.toString()) {
     case "0":
-      return <PiTeaBagFill className={classN} />;
+      return <PiTeaBagFill className={className} />;
     case "1":
-      return <BiSolidCoffeeBean className={classN} />;
+      return <BiSolidCoffeeBean className={className} />;
 
     default:
-      return <IoIosWarning className={classN} />;
+      return <IoIosWarning className={className} />;
   }
 };
 
-const convertProductIcon = (type: number) => {
+const convertProductIcon = (type: number, className = classN) => {
   switch (type.toString()) {
     case "0":
-      return <IoTicketOutline className={classN} />;
+      return <IoTicketOutline className={className} />;
     case "1":
-      return <IoBodyOutline className={classN} />;
+      return <IoBodyOutline className={className} />;
   }
 };
 
