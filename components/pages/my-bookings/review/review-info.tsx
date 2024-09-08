@@ -32,7 +32,7 @@ const Star5Component = ({
 const ReviewInfo = ({ booking }: { booking: TBooking }) => {
   const gender = useTranslations("single.review.gender");
   return (
-    <div className="flex-col flex">
+    <div className="flex-col flex mb-6">
       <Separator className="mt-2 mb-6 " />
 
       <div className="flex items-center justify-between">

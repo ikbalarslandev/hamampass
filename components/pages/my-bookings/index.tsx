@@ -12,6 +12,8 @@ import ReviewButton from "./review";
 const MyBookingsPage = () => {
   const { data } = useSession();
   const [myBookings, setMyBookings] = useState<TBooking[]>([]);
+  const [currentBookings, setCurrentBookings] = useState<TBooking[]>([]);
+  const [pastBookings, setPastBookings] = useState<TBooking[]>([]);
 
   useEffect(() => {
     const fetchMyBookings = async () => {
@@ -25,7 +27,20 @@ const MyBookingsPage = () => {
           moment(a.date).isBefore(moment(b.date)) ? 1 : -1
         );
 
+        const currents = req.data.filter(
+          (booking: TBooking) =>
+            moment(booking.date).isAfter(moment(), "day") ||
+            moment(booking.date).isSame(moment(), "day")
+        );
+
+        const pasts = req.data.filter((booking: TBooking) =>
+          moment(booking.date).isBefore(moment(), "day")
+        );
+
         setMyBookings(req.data);
+
+        setCurrentBookings(currents);
+        setPastBookings(pasts);
       } catch (error) {
         console.error("Error fetching my bookings:", error);
       }
@@ -34,31 +49,65 @@ const MyBookingsPage = () => {
     fetchMyBookings();
   }, [data]);
 
-  const handleReview = () => {
-    console.log("review");
-  };
-
   return (
     <div className="mx-4">
-      <h1 className="text-center">Past Bookings</h1>
+      {/* Current Bookings */}
+      <div>
+        <h1 className="my-4 font-bold text-lg text-gray-600">
+          Current Bookings
+        </h1>
 
-      <div className="flex flex-col gap-4">
-        {myBookings.map((booking) => (
-          <div key={booking.id} className="flex flex-col border-2 rounded-2xl">
-            <DrawerGeneral
-              fill={false}
-              trigger={<PropertyPartTrigger booking={booking} />}
-              title={booking.property.title}
-              content={<PropertyPartContent booking={booking} />}
-            />
+        <div className="flex flex-col gap-4">
+          {currentBookings.map((booking) => (
+            <div
+              key={booking.id}
+              className="flex flex-col border-2 rounded-2xl"
+            >
+              <DrawerGeneral
+                fill={false}
+                trigger={<PropertyPartTrigger booking={booking} />}
+                title={booking.property.title}
+                content={<PropertyPartContent booking={booking} />}
+              />
 
-            <ReviewButton
-              booking={booking}
-              className="border-t rounded-b-xl py-2 bg-slate-100"
-            />
-          </div>
-        ))}
+              <ReviewButton
+                booking={booking}
+                className="border-t rounded-b-xl py-2 bg-slate-100"
+              />
+            </div>
+          ))}
+        </div>
       </div>
+
+      {/* Past Bookings */}
+      {pastBookings.length > 0 && (
+        <div>
+          <h1 className="my-4 font-bold text-lg text-gray-600">
+            Past Bookings
+          </h1>
+
+          <div className="flex flex-col gap-4">
+            {pastBookings.map((booking) => (
+              <div
+                key={booking.id}
+                className="flex flex-col border-2 rounded-2xl"
+              >
+                <DrawerGeneral
+                  fill={false}
+                  trigger={<PropertyPartTrigger booking={booking} />}
+                  title={booking.property.title}
+                  content={<PropertyPartContent booking={booking} />}
+                />
+
+                <ReviewButton
+                  booking={booking}
+                  className="border-t rounded-b-xl py-2 bg-slate-100"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

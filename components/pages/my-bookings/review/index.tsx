@@ -44,7 +44,12 @@ const ReviewButton = ({
   const title = booking.review ? "My Review" : "Review";
 
   return (
-    <DrawerGeneral trigger={<Trigger />} title={title} content={<Content />} />
+    <DrawerGeneral
+      fill={false}
+      trigger={<Trigger />}
+      title={title}
+      content={<Content />}
+    />
   );
 };
 

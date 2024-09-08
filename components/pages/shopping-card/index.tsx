@@ -10,6 +10,7 @@ import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 import { request } from "@/services/axios";
 import { toast } from "@/components/ui/use-toast";
+import { useTransition } from "react";
 
 interface TStorage {
   property: {
@@ -31,15 +32,16 @@ const ShoppingCardPage = () => {
   const router = useRouter();
   const { data } = useSession();
 
+  const [isPending, startTransition] = useTransition(); // useTransition hook
+
   if (!property) {
-    return <div>No property found in the car.</div>;
+    return <div>No property found in the cart.</div>;
   }
 
   if (Object.keys(products).length === 0) {
     return <div className="text-center mt-5">Your cart is empty</div>;
   }
 
-  // Safely parse the date and format it
   const formattedDate = moment(property?.date ?? null).format(
     "dddd,  D MMMM YYYY"
   );
@@ -72,31 +74,40 @@ const ShoppingCardPage = () => {
       });
     }
 
-    await request({
-      type: "post",
-      endpoint: "/booking",
-      payload: {
-        date: property.date,
-        propertyId: property.id,
-        userId: data?.user?.id,
-        products,
-        totalMoney,
-      },
-    });
+    startTransition(async () => {
+      try {
+        await request({
+          type: "post",
+          endpoint: "/booking",
+          payload: {
+            date: property.date,
+            propertyId: property.id,
+            userId: data?.user?.id,
+            products,
+            totalMoney,
+          },
+        });
 
-    localStorage.removeItem("cart");
-    toast({
-      title: "Success",
-      description: "Your booking is successful",
-      duration: 1000,
+        localStorage.removeItem("cart");
+        toast({
+          title: "Success",
+          description: "Your booking is successful",
+          duration: 1000,
+        });
+        router.push(`/${locale}`);
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Something went wrong with the booking",
+          duration: 1000,
+        });
+      }
     });
-    router.push(`/${locale}`);
   };
 
   return (
     <div className="mt-4">
       <div className="mx-4">
-        {/* go back to the property */}
         <Button
           variant="none"
           onClick={handleGoBack}
@@ -105,7 +116,6 @@ const ShoppingCardPage = () => {
           <FaArrowLeft className="text-gray-500" />
           <span> Back to {property.title}</span>
         </Button>
-        {/* property desc */}
         <div className="flex items-center justify-between ">
           <div>
             <h1 className="text-sm font-medium">{property.title}</h1>
@@ -119,7 +129,6 @@ const ShoppingCardPage = () => {
             className="rounded-xl aspect-video"
           />
         </div>
-        {/* choosen products */}
         <div className="mt-5">
           {Object.entries(products).map(
             ([key, product]: [string, { count: number; price: number }]) => (
@@ -148,7 +157,6 @@ const ShoppingCardPage = () => {
         </div>
       </div>
 
-      {/* check out */}
       <div className="fixed bottom-0 w-full px-4 pb-4 bg-white  border-t  shadow-2xl z-20 flex flex-col items-center">
         <div className="flex items-center justify-between w-full my-3">
           <p className="font-semibold">Total</p>
@@ -161,8 +169,9 @@ const ShoppingCardPage = () => {
         <Button
           className="rounded-xl px-8 bg-cyan-500 w-full"
           onClick={handleCheckOut}
+          disabled={isPending} // disable button while transition is pending
         >
-          Check Out
+          {isPending ? "Processing..." : "Check Out"}
         </Button>
       </div>
     </div>
