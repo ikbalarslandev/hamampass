@@ -31,13 +31,14 @@ const Star5Component = ({
 
 const ReviewInfo = ({ booking }: { booking: TBooking }) => {
   const gender = useTranslations("single.review.gender");
+  const info = useTranslations("my-bookings.review.info");
   return (
     <div className="flex-col flex mb-6">
       <Separator className="mt-2 mb-6 " />
 
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-1">
-          <p className="text-lg font-bold">Property</p>
+          <p className="text-lg font-bold">{info("property")}</p>
           <h1 className="text-gray-600 ">{booking.property.title}</h1>
         </div>
         <FaHotel size={40} />
@@ -45,29 +46,32 @@ const ReviewInfo = ({ booking }: { booking: TBooking }) => {
 
       <div className="mt-7 flex flex-col gap-1">
         <Star5Component
-          title="Atmosphere"
+          title={info("atmosphere")}
           num={booking.review.rateObj.atmosphere}
         />
         <Star5Component
-          title="Cleanliness"
+          title={info("cleanliness")}
           num={booking.review.rateObj.cleanliness}
         />
         <Star5Component
-          title="Facilities"
+          title={info("facilities")}
           num={booking.review.rateObj.facilities}
         />
         <Star5Component
-          title="Location"
+          title={info("location")}
           num={booking.review.rateObj.location}
         />
-        <Star5Component title="Staff" num={booking.review.rateObj.staff} />
         <Star5Component
-          title="Value for Money"
+          title={info("staff")}
+          num={booking.review.rateObj.staff}
+        />
+        <Star5Component
+          title={info("value")}
           num={booking.review.rateObj.value_for_money}
         />
 
         <div className="flex items-center justify-between mt-5">
-          <p className="text-lg text-gray-700 ">Overall</p>
+          <p className="text-lg text-gray-700 ">{info("overall")}</p>
           <div className="flex items-start gap-1 ">
             <FaStar size={20} className="text-cyan-500" />
             <p>{booking.review.rate.toFixed(1)}</p>
@@ -78,14 +82,14 @@ const ReviewInfo = ({ booking }: { booking: TBooking }) => {
       <Separator className="my-6 " />
 
       <div className="flex flex-col gap-1">
-        <p className="text-gray-400 text-sm">My Review</p>
+        <p className="text-gray-400 text-sm">{info("my-review")}</p>
         <p>{booking.review.comment}</p>
       </div>
 
       <Separator className="my-6 " />
 
       <div className="flex flex-col gap-1">
-        <p className="text-gray-400 text-sm">About You</p>
+        <p className="text-gray-400 text-sm">{info("about")}</p>
         <p>{gender(booking.user?.gender.toString())}</p>
         <p>{convertAgeRange(booking.user?.age_range)}</p>
       </div>

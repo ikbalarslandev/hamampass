@@ -3,6 +3,7 @@ import DrawerGeneral from "@/components/commons/drawer";
 import { FaAngleRight, FaStar } from "react-icons/fa";
 import ReviewFormComponent from "./review-form";
 import ReviewInfo from "./review-info";
+import { useTranslations } from "next-intl";
 
 const ReviewButton = ({
   className,
@@ -12,6 +13,8 @@ const ReviewButton = ({
   booking: TBooking;
 }) => {
   const Trigger = () => {
+    const t = useTranslations("my-bookings");
+
     return booking.review ? (
       <div
         className={`flex items-center justify-between px-2 gap-1 ${className}`}
@@ -21,14 +24,14 @@ const ReviewButton = ({
           <p>{booking?.review?.rate?.toFixed(1)}</p>
         </div>
         <div className="flex items-center gap-1 ">
-          <p className="text-sm"> See Review</p>
+          <p className="text-sm">{t("see-review")}</p>
           <FaAngleRight size={20} />
         </div>
       </div>
     ) : (
       <div className={`flex items-center justify-center gap-1 ${className}`}>
         <FaStar size={18} className="text-cyan-500" />
-        Review Now
+        <p>{t("review-now")}</p>
       </div>
     );
   };
@@ -41,7 +44,9 @@ const ReviewButton = ({
     );
   };
 
-  const title = booking.review ? "My Review" : "Review";
+  const info = useTranslations("my-bookings.review");
+
+  const title = booking.review ? info("title") : info("f-title");
 
   return (
     <DrawerGeneral

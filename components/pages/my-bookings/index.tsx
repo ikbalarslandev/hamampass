@@ -8,12 +8,14 @@ import DrawerGeneral from "@/components/commons/drawer";
 import { PropertyPartContent, PropertyPartTrigger } from "./property";
 import moment from "moment";
 import ReviewButton from "./review";
+import { useTranslations } from "next-intl";
 
 const MyBookingsPage = () => {
   const { data } = useSession();
-  const [myBookings, setMyBookings] = useState<TBooking[]>([]);
   const [currentBookings, setCurrentBookings] = useState<TBooking[]>([]);
   const [pastBookings, setPastBookings] = useState<TBooking[]>([]);
+
+  const t = useTranslations("my-bookings");
 
   useEffect(() => {
     const fetchMyBookings = async () => {
@@ -37,8 +39,6 @@ const MyBookingsPage = () => {
           moment(booking.date).isBefore(moment(), "day")
         );
 
-        setMyBookings(req.data);
-
         setCurrentBookings(currents);
         setPastBookings(pasts);
       } catch (error) {
@@ -53,9 +53,7 @@ const MyBookingsPage = () => {
     <div className="mx-4">
       {/* Current Bookings */}
       <div>
-        <h1 className="my-4 font-bold text-lg text-gray-600">
-          Current Bookings
-        </h1>
+        <h1 className="my-4 font-bold text-lg text-gray-600">{t("current")}</h1>
 
         <div className="flex flex-col gap-4">
           {currentBookings.map((booking) => (
@@ -82,9 +80,7 @@ const MyBookingsPage = () => {
       {/* Past Bookings */}
       {pastBookings.length > 0 && (
         <div>
-          <h1 className="my-4 font-bold text-lg text-gray-600">
-            Past Bookings
-          </h1>
+          <h1 className="my-4 font-bold text-lg text-gray-600">{t("past")}</h1>
 
           <div className="flex flex-col gap-4">
             {pastBookings.map((booking) => (

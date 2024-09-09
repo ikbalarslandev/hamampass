@@ -179,12 +179,12 @@ const DrawerComponent = ({ trigger, property, data }: DrawerComponentProps) => {
 
         <DrawerFooter className=" px-3 py-2 border-t mt-4 shadow-xl flex-row items-center  ">
           <div className="flex flex-1 flex-col">
-            <p className="text-xs text-gray-600">Total</p>
+            <p className="text-xs text-gray-600">{p("total")}</p>
             <p className="font-bold text-xl">
               ₺{data.adult_price * count}
               <span className="text-sm ml-1">TL</span>
             </p>
-            <p className="text-xs">no credit card required</p>
+            <p className="text-xs">{p("no_credit")}</p>
           </div>
 
           <Button
@@ -193,7 +193,7 @@ const DrawerComponent = ({ trigger, property, data }: DrawerComponentProps) => {
             }`}
             onClick={handleAddToCard}
           >
-            Add to Card
+            {p("add")}
           </Button>
         </DrawerFooter>
       </DrawerContent>

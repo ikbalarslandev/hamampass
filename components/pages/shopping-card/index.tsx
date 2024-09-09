@@ -27,6 +27,7 @@ const ShoppingCardPage = () => {
   const { property } = storage;
   const { products } = storage;
   const t = useTranslations("single.review.drawer.package");
+  const shop = useTranslations("shopping-cart");
 
   const { locale } = useParams();
   const router = useRouter();
@@ -114,7 +115,10 @@ const ShoppingCardPage = () => {
           className=" flex items-center px-0 gap-2 font-light"
         >
           <FaArrowLeft className="text-gray-500" />
-          <span> Back to {property.title}</span>
+          <span>
+            {" "}
+            {shop("back")} {property.title}
+          </span>
         </Button>
         <div className="flex items-center justify-between ">
           <div>
@@ -159,7 +163,7 @@ const ShoppingCardPage = () => {
 
       <div className="fixed bottom-0 w-full px-4 pb-4 bg-white  border-t  shadow-2xl z-20 flex flex-col items-center">
         <div className="flex items-center justify-between w-full my-3">
-          <p className="font-semibold">Total</p>
+          <p className="font-semibold">{shop("total")}</p>
           <p className="font-bold text-lg">
             ₺{totalMoney}
             <span className="text-sm ml-1 font-normal">TL</span>
@@ -169,9 +173,9 @@ const ShoppingCardPage = () => {
         <Button
           className="rounded-xl px-8 bg-cyan-500 w-full"
           onClick={handleCheckOut}
-          disabled={isPending} // disable button while transition is pending
+          disabled={isPending}
         >
-          {isPending ? "Processing..." : "Check Out"}
+          {isPending ? shop("processing") : shop("complete")}
         </Button>
       </div>
     </div>

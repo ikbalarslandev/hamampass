@@ -4,14 +4,25 @@ import LocaleSwitcher from "./locale-switcher";
 import { useSession } from "next-auth/react";
 import { signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { TProperty } from "@/types";
 import { request } from "@/services/axios";
+import moment from "moment";
+import "moment/locale/tr";
+import "moment/locale/en-gb";
 
 const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
   const { locale } = useParams();
   const router = useRouter();
   const t = useTranslations("hamburger");
+
+  useEffect(() => {
+    if (locale === "tr") {
+      moment.locale("tr");
+    } else {
+      moment.locale("en-gb");
+    }
+  }, [locale]);
 
   const { data } = useSession();
   const handleProfileClick = () => {
@@ -97,7 +108,7 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
           className="text-2xl scale-x-115  w-full text-left py-2"
           onClick={() => router.push(`/${locale}/my-bookings`)}
         >
-          My Bookings
+          {t("my_bookings")}
         </button>
       )}
 
@@ -106,7 +117,7 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
           className="text-2xl scale-x-115  w-full text-left py-2  flex items-start gap-2"
           onClick={handleShoppingCard}
         >
-          <span> Shopping Card</span>
+          <span> {t("shopping-cart")}</span>
 
           {cartItemCount > 0 && (
             <p className=" text-xs bg-cyan-950  text-center border font-bold  text-white aspect-square rounded-full px-[.4rem] py-[.1rem]">

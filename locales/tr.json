@@ -19,7 +19,59 @@
     "profile": "Profilim",
     "login": "Giriş Yap",
     "my-reviews": "Yorumlarım",
-    "language": "Dil :"
+    "language": "Dil :",
+    "my_bookings": "Rezervasyonlarım",
+    "shopping-cart": "Sepetim"
+  },
+  "shopping-cart": {
+    "back": "Geri Dön",
+    "total": "Toplam",
+    "complete": "Reservasyonu Tamamla",
+    "processing": "İşleniyor..."
+  },
+  "my-bookings": {
+    "current": "Rezervasyonlar",
+    "past": "Geçmiş Rezervasyonlar",
+    "review-now": "Yorum Yap",
+    "see-review": "Yorumu Gör",
+    "review": {
+      "title": "Benim Yorumum",
+      "f-title": "Yorum Yap",
+      "info": {
+        "property": "Mekan",
+        "atmosphere": "Atmosfer",
+        "cleanliness": "Temizlik",
+        "facilities": "Tesis Durumu",
+        "location": "Konum",
+        "staff": "Personel",
+        "value": "Fiyat Performans",
+        "overall": "Genel",
+        "my-review": "Benim Yorumum",
+        "about": "Hakkında"
+      }
+    },
+    "details": {
+      "upcoming": "Gelecek Seyahat",
+      "past": "Geçmiş Seyahat",
+      "phone": "Telefon",
+      "map": "Harita",
+      "details": "Rezervasyon Detayları",
+      "view": "Mekanı Gör",
+      "cancel": "Rezervasyonu İptal Et",
+      "title": "Rezervasyon Detayları",
+      "book_details": {
+        "ref": "Referans Numarası",
+        "date": "Tarih",
+        "guest": "Misafirler",
+        "package": "Paket",
+        "total": "Toplam"
+      },
+      "delete": {
+        "title": "Rezervasyonu Sil",
+        "desc": "Rezervasyonu silmek istediğinize emin misiniz?",
+        "yes": "Evet Rezervasyonu Sil"
+      }
+    }
   },
   "profile": {
     "title": "Profil Sayfası",
@@ -103,7 +155,10 @@
     "products": {
       "adult": "Yetişkin",
       "child": "Çocuk",
-      "older": "Yaşından büyük "
+      "older": "Yaşından büyük ",
+      "total": "Toplam",
+      "no_credit": "Kredi Kartı Gerekmez",
+      "add": "Sepete Ekle"
     },
     "switch": {
       "details": "Detaylar",
@@ -174,6 +229,10 @@
       "weekend-desc": "(Cumartesi - Pazar)",
       "mens": "Erkekler",
       "womens": "Kadınlar"
+    },
+    "book_btn": {
+      "from": "Başlayan Fiyatlarla",
+      "book": "Rezervasyon Yap"
     },
 
     "location": "İletişim",

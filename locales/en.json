@@ -14,13 +14,64 @@
     "about-title": "About",
     "gallery-title": "Gallery"
   },
+  "shopping-cart": {
+    "back": "Back",
+    "total": "Total",
+    "complete": "Complete Reservation",
+    "processing": "Processing..."
+  },
+  "my-bookings": {
+    "current": " Bookings",
+    "past": "Past Bookings",
+    "review-now": "Review Now",
+    "see-review": "See Review",
+    "details": {
+      "upcoming": "Upcoming Trip",
+      "past": "Past Trip",
+      "phone": "Phone",
+      "map": "Map",
+      "details": "Booking Details",
+      "view": "View Property",
+      "cancel": "Cancel Booking",
+      "title": "Booking Details",
+      "book_details": {
+        "ref": "Reference Number",
+        "date": "Date",
+        "guest": "Guests",
+        "package": "Package",
+        "total": "Total"
+      },
+      "delete": {
+        "title": "Delete Booking",
+        "desc": "Are you sure you want to delete the booking?",
+        "yes": "Yes, Delete Booking"
+      }
+    },
+    "review": {
+      "title": "My Review",
+      "f-title": "Review",
+      "info": {
+        "property": "Property",
+        "atmosphere": "Atmosphere",
+        "cleanliness": "Cleanliness",
+        "facilities": "Facilities",
+        "location": "Location",
+        "staff": "Staff",
+        "value": "Value for Money",
+        "overall": "Overall",
+        "my-review": "My Review",
+        "about": "About You"
+      }
+    }
+  },
 
   "hamburger": {
     "home": "Home",
     "profile": "Profile",
     "login": "Login",
     "my-reviews": "My Reviews",
-    "language": "Language :"
+    "language": "Language :",
+    "my_bookings": "My Bookings"
   },
   "profile": {
     "title": "Profile Page",
@@ -108,7 +159,11 @@
       "adult": "Adult",
       "child": "Child",
       "older": "Older than ",
-      "between": "between 0 - "
+      "between": "between 0 - ",
+      "total": "Total",
+      "no_credit": "No credit card required",
+      "add": "Add to Card",
+      "shopping-cart": "Shopping Cart"
     },
     "switch": {
       "details": "Details",
@@ -179,6 +234,10 @@
       "weekend-desc": "(Saturday - Sunday)",
       "mens": "Men",
       "womens": "Women"
+    },
+    "book_btn": {
+      "from": "From",
+      "book": "Book Now"
     },
 
     "location": "Contact",

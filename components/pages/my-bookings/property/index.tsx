@@ -11,6 +11,7 @@ import DrawerGeneral from "@/components/commons/drawer";
 import BookingContent from "./booking-drawer-content";
 import { DeleteDialog } from "./delete-dialog";
 import ReviewButton from "../review";
+import { useTranslations } from "next-intl";
 
 const PropertyPartTrigger = ({ booking }: { booking: TBooking }) => {
   return (
@@ -44,12 +45,13 @@ const PropertyPartTrigger = ({ booking }: { booking: TBooking }) => {
 const PropertyPartContent = ({ booking }: { booking: TBooking }) => {
   const isPast = moment(booking.date).isBefore(moment(), "day");
   const { locale } = useParams();
+  const t = useTranslations("my-bookings.details");
 
   return (
     <div className="flex flex-col gap-2 mb-10">
       <p className="flex ">
         <span className="bg-black -rotate-3 my-1 text-white p-1 font-semibold text-sm ">
-          {isPast ? "Past Trip" : "Upcoming Trip"}
+          {isPast ? t("past") : t("upcoming")}
         </span>
       </p>
       <div className="flex flex-col gap-2 mb-2">
@@ -71,14 +73,14 @@ const PropertyPartContent = ({ booking }: { booking: TBooking }) => {
           className="flex items-center gap-2 border-2 px-2 rounded-full"
         >
           <CiPhone className="text-gray-500" size={20} />
-          <p>Phone</p>
+          <p>{t("phone")}</p>
         </Link>
         <Link
           href={booking.property.contact.map_link}
           className="flex items-center gap-2 border-2 px-2 rounded-full"
         >
           <CiMap className="text-gray-500" size={20} />
-          <p>Map</p>
+          <p>{t("map")}</p>
         </Link>
       </div>
       <Separator />
@@ -87,11 +89,11 @@ const PropertyPartContent = ({ booking }: { booking: TBooking }) => {
       <div className="flex flex-col gap-2">
         <DrawerGeneral
           fill={true}
-          title="Booking Details"
+          title={t("title")}
           trigger={
             <div className="flex items-center  py-1 gap-2">
               <CiCalendar className="text-gray-500" size={24} />
-              <p className="text-sm">Booking Details</p>
+              <p className="text-sm">{t("details")}</p>
             </div>
           }
           content={<BookingContent booking={booking} />}
@@ -101,19 +103,19 @@ const PropertyPartContent = ({ booking }: { booking: TBooking }) => {
           className="flex items-center  py-1 gap-2"
         >
           <CiHome className="text-gray-500" size={24} />
-          <p className="text-sm">View Property</p>
+          <p className="text-sm">{t("view")}</p>
         </Link>
         {isPast ? (
           <div className="flex items-center  py-1 gap-2 opacity-50">
             <LuCalendarOff className="text-gray-500" size={22} />
-            <p className="text-sm">Cancel Booking</p>
+            <p className="text-sm">{t("cancel")}</p>
           </div>
         ) : (
           <DeleteDialog
             trigger={
               <button className="flex items-center  py-1 gap-2 ">
                 <LuCalendarOff className="text-gray-500" size={22} />
-                <p className="text-sm">Cancel Booking</p>
+                <p className="text-sm">{t("cancel")}</p>
               </button>
             }
             booking={booking}

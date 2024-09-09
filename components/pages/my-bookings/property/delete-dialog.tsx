@@ -23,6 +23,7 @@ export function DeleteDialog({
   booking: TBooking;
 }) {
   const t = useTranslations("home.product-type");
+  const del = useTranslations("my-bookings.details.delete");
 
   const handleDelete = async () => {
     await request({
@@ -43,10 +44,8 @@ export function DeleteDialog({
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className="flex flex-col w-[90%] rounded-lg">
         <DialogHeader>
-          <DialogTitle>Cancel Booking</DialogTitle>
-          <DialogDescription>
-            Are you sure you want to cancel this booking?
-          </DialogDescription>
+          <DialogTitle>{del("title")}</DialogTitle>
+          <DialogDescription>{del("desc")}</DialogDescription>
         </DialogHeader>
 
         <div className="flex justify-between">
@@ -73,7 +72,7 @@ export function DeleteDialog({
               variant="secondary"
               className="w-full"
             >
-              Yes Cancel Booking
+              {del("yes")}
             </Button>
           </DialogClose>
         </DialogFooter>
