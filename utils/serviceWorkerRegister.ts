@@ -14,7 +14,10 @@ export default function ServiceWorkerRegistration() {
         });
     }
 
-    // register to push
+    async function registerPermission() {
+      await Notification.requestPermission();
+    }
+    registerPermission();
   }, []);
 
   return null;
