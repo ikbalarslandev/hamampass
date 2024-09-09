@@ -49,6 +49,7 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
 
   useEffect(() => {
     const fetchAdminsProperty = async () => {
+      if (!data?.user) return;
       try {
         const req = await request({
           type: "get",
