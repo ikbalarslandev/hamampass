@@ -10,6 +10,7 @@ import { request } from "@/services/axios";
 import moment from "moment";
 import "moment/locale/tr";
 import "moment/locale/en-gb";
+import ServiceWorkerRegister from "@/utils/serviceWorkerRegister";
 
 const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
   const { locale } = useParams();
@@ -46,6 +47,11 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
 
   const [adminsProperty, setAdminsProperty] = useState<TProperty>();
   const [myBookings, setMyBookings] = useState<any[]>([]);
+
+  const handleAdminsProperty = () => {
+    () => router.push(`/${locale}/admin/${adminsProperty?.id}`);
+    ServiceWorkerRegister();
+  };
 
   useEffect(() => {
     const fetchAdminsProperty = async () => {
@@ -131,7 +137,7 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
       {adminsProperty && (
         <button
           className="text-2xl scale-x-115  w-full text-left py-2"
-          onClick={() => router.push(`/${locale}/admin/${adminsProperty.id}`)}
+          onClick={handleAdminsProperty}
         >
           {adminsProperty.title}
         </button>
