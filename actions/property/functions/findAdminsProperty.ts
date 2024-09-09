@@ -9,15 +9,11 @@ const findAdminsProperty = async (req: NextRequest) => {
     where: {
       userId,
     },
-  });
-
-  const property = await prisma.property.findFirst({
-    where: {
-      id: admin?.propertyId,
+    include: {
+      property: true,
     },
   });
 
-  return property;
+  return admin?.property;
 };
-
 export default findAdminsProperty;

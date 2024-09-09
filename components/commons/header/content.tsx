@@ -87,6 +87,30 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
         {t("home")}
       </button>
 
+      {localStorage.getItem("cart") && (
+        <button
+          className="text-2xl scale-x-115  w-full text-left py-2  flex items-start gap-2"
+          onClick={handleShoppingCard}
+        >
+          <span> {t("shopping-cart")}</span>
+
+          {cartItemCount > 0 && (
+            <p className=" text-xs bg-cyan-950  text-center border font-bold  text-white aspect-square rounded-full px-[.4rem] py-[.1rem]">
+              {cartItemCount}
+            </p>
+          )}
+        </button>
+      )}
+
+      {myBookings.length > 0 && (
+        <button
+          className="text-2xl scale-x-115  w-full text-left py-2"
+          onClick={() => router.push(`/${locale}/my-bookings`)}
+        >
+          {t("my_bookings")}
+        </button>
+      )}
+
       {data?.user ? (
         <button
           className="text-2xl scale-x-115  w-full text-left py-2"
@@ -103,37 +127,14 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
         </button>
       )}
 
-      {myBookings.length > 0 && (
-        <button
-          className="text-2xl scale-x-115  w-full text-left py-2"
-          onClick={() => router.push(`/${locale}/my-bookings`)}
-        >
-          {t("my_bookings")}
-        </button>
-      )}
-
-      {localStorage.getItem("cart") && (
-        <button
-          className="text-2xl scale-x-115  w-full text-left py-2  flex items-start gap-2"
-          onClick={handleShoppingCard}
-        >
-          <span> {t("shopping-cart")}</span>
-
-          {cartItemCount > 0 && (
-            <p className=" text-xs bg-cyan-950  text-center border font-bold  text-white aspect-square rounded-full px-[.4rem] py-[.1rem]">
-              {cartItemCount}
-            </p>
-          )}
-        </button>
-      )}
-      {/* {adminsProperty && (
+      {adminsProperty && (
         <button
           className="text-2xl scale-x-115  w-full text-left py-2"
           onClick={() => router.push(`/${locale}/admin/${adminsProperty.id}`)}
         >
           {adminsProperty.title}
         </button>
-      )} */}
+      )}
 
       <div className="flex items-center absolute bottom-0">
         <p>{t("language")} </p>
