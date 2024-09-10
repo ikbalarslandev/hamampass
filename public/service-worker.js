@@ -1,3 +1,5 @@
+// version 0.1.0
+
 const PUBLIC_KEY =
   "BNCtHyjKlzMF1ey4ogHe9wGnfMytcoLBa7ANynh1uWEWnODdkHrVbGe0U3qB22P208HJoaSRHAlF4OE-pxX8RKc";
 
