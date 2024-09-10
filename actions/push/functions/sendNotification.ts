@@ -1,5 +1,6 @@
 import webpush from "web-push";
 import prisma from "@/prisma/db";
+import { de } from "date-fns/locale";
 
 webpush.setVapidDetails(
   "mailto:ars.ikbal22@gmail.com",
@@ -7,7 +8,13 @@ webpush.setVapidDetails(
   process.env.VAPID_PRIVATE_KEY!!
 );
 
-const sendNotification = async ({ propertyId }: any) => {
+const sendNotification = async ({
+  propertyId,
+  desc,
+}: {
+  propertyId: string;
+  desc: string;
+}) => {
   const admin = await prisma.admin.findFirst({
     where: {
       propertyId,
@@ -18,10 +25,7 @@ const sendNotification = async ({ propertyId }: any) => {
     admin?.subscription as unknown as webpush.PushSubscription;
   if (!subscription) return { error: "No subscription found" };
 
-  webpush.sendNotification(
-    subscription,
-    "14 September  1 basic 1 regular14 September  1 basic 1 regular14 September  1 basic 1 regular14 September  1 basic 1 regular14 September  1 basic 1 regular14 September  1 basic 1 regular14 September  1 basic 1 regular14 September  1 basic 1 regular"
-  );
+  webpush.sendNotification(subscription, desc);
 
   return { message: "Notification sent" };
 };

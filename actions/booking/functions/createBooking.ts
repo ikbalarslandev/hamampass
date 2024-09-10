@@ -1,11 +1,24 @@
 import { NextRequest } from "next/server";
 import prisma from "@/prisma/db";
 import { sendNotification } from "@/actions/push";
+import moment from "moment";
+import "moment/locale/tr";
+
+const convertKey = (key: number) => {
+  switch (key) {
+    case 0:
+      return "Basit";
+    case 1:
+      return "standart";
+    default:
+      return "bilinmiyor";
+  }
+};
 
 const createBooking = async (req: NextRequest) => {
-  const { date, propertyId, userId, products, totalMoney } = await req.json();
+  moment.locale("tr");
 
-  console.log(new Date(date), propertyId, userId, products, totalMoney);
+  const { date, propertyId, userId, products, totalMoney } = await req.json();
 
   const booking = await prisma.booking.create({
     data: {
@@ -17,8 +30,15 @@ const createBooking = async (req: NextRequest) => {
     },
   });
 
-  // send a notification to the admin of the property that a booking has been made
-  await sendNotification({ propertyId });
+  const desc = `${moment(new Date(date)).format("DD MMMM")}, ${Object.keys(
+    products
+  ).reduce((acc, key) => acc + products[key].count, 0)} kişi ${Object.keys(
+    products
+  )
+    .map((key) => `${products[key].count} ${convertKey(+key)}`)
+    .join(" ")}, Toplam ${totalMoney} TL`;
+
+  await sendNotification({ propertyId, desc });
 
   return booking;
 };
