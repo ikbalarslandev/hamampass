@@ -53,7 +53,10 @@ self.addEventListener("activate", async (event) => {
 });
 
 self.addEventListener("push", (e) => {
-  self.registration.showNotification("Wohoo!!", { body: e.data.text() });
+  self.registration.showNotification("New Booking!!!", {
+    body: e.data.text(),
+    icon: "/logo.png",
+  });
 });
 
 // v1lkddfds

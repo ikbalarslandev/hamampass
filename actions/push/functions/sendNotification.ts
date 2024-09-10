@@ -1,5 +1,4 @@
 import webpush from "web-push";
-import { auth } from "@/auth";
 import prisma from "@/prisma/db";
 
 webpush.setVapidDetails(
@@ -8,14 +7,10 @@ webpush.setVapidDetails(
   process.env.VAPID_PRIVATE_KEY!!
 );
 
-const sendNotification = async () => {
-  const session = await auth();
-  if (!session) return { error: "Unauthorized" };
-  const userId = session.user.id;
-
+const sendNotification = async ({ propertyId }: any) => {
   const admin = await prisma.admin.findFirst({
     where: {
-      userId,
+      propertyId,
     },
   });
 
@@ -23,7 +18,10 @@ const sendNotification = async () => {
     admin?.subscription as unknown as webpush.PushSubscription;
   if (!subscription) return { error: "No subscription found" };
 
-  webpush.sendNotification(subscription, "Hello world");
+  webpush.sendNotification(
+    subscription,
+    "14 September  1 basic 1 regular14 September  1 basic 1 regular14 September  1 basic 1 regular14 September  1 basic 1 regular14 September  1 basic 1 regular14 September  1 basic 1 regular14 September  1 basic 1 regular14 September  1 basic 1 regular"
+  );
 
   return { message: "Notification sent" };
 };

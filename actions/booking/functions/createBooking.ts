@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import prisma from "@/prisma/db";
+import { sendNotification } from "@/actions/push";
 
 const createBooking = async (req: NextRequest) => {
   const { date, propertyId, userId, products, totalMoney } = await req.json();
@@ -15,7 +16,10 @@ const createBooking = async (req: NextRequest) => {
       products,
     },
   });
-  console.log(booking);
+
+  // send a notification to the admin of the property that a booking has been made
+  await sendNotification({ propertyId });
+
   return booking;
 };
 
