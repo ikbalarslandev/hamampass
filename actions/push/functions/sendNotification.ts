@@ -1,5 +1,6 @@
 import webpush from "web-push";
 import prisma from "@/prisma/db";
+import { redirect } from "next/dist/server/api-utils";
 
 webpush.setVapidDetails(
   "mailto:ars.ikbal22@gmail.com",
@@ -24,7 +25,9 @@ const sendNotification = async ({
     admin?.subscription as unknown as webpush.PushSubscription;
   if (!subscription) return { error: "No subscription found" };
 
-  webpush.sendNotification(subscription, desc);
+  const payload = JSON.stringify({ desc, redirectUrl: "/" });
+
+  webpush.sendNotification(subscription, payload);
 
   return { message: "Notification sent" };
 };

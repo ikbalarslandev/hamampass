@@ -53,8 +53,32 @@ self.addEventListener("activate", async (event) => {
 });
 
 self.addEventListener("push", (e) => {
+  const data = e.data.json();
+
   self.registration.showNotification("Rezervasyon geldi", {
-    body: e.data.text(),
+    body: data.desc,
     icon: "/logo.png",
+    data: {
+      redirectUrl: data.redirectUrl,
+    },
   });
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const link = event.notification.data.redirectUrl;
+
+  event.waitUntil(
+    clients.matchAll({ type: "window" }).then((clientList) => {
+      for (const client of clientList) {
+        if (client.url === link && "focus" in client) {
+          return client.focus();
+        }
+      }
+
+      if (clients.openWindow) {
+        return clients.openWindow(link);
+      }
+    })
+  );
 });
