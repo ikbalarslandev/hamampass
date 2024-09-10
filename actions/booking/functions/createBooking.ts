@@ -30,12 +30,11 @@ const createBooking = async (req: NextRequest) => {
     },
   });
 
-  const desc = `${moment(new Date(date)).format(
-    "DD MMMM, dddd"
-  )}, ${Object.keys(products).reduce(
-    (acc, key) => acc + products[key].count,
-    0
-  )} kişi ( ${Object.keys(products)
+  const desc = `${moment(new Date(date)).format("DD MMMM dddd")}, ${Object.keys(
+    products
+  ).reduce((acc, key) => acc + products[key].count, 0)} kişi ( ${Object.keys(
+    products
+  )
     .map((key) => `${products[key].count} ${convertKey(+key)}`)
     .join(" ")} ), Toplam ${totalMoney} TL`;
 
