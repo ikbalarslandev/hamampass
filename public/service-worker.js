@@ -58,5 +58,3 @@ self.addEventListener("push", (e) => {
     icon: "/logo.png",
   });
 });
-
-// v1lkddfds

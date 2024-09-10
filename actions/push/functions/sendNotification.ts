@@ -1,6 +1,5 @@
 import webpush from "web-push";
 import prisma from "@/prisma/db";
-import { de } from "date-fns/locale";
 
 webpush.setVapidDetails(
   "mailto:ars.ikbal22@gmail.com",
