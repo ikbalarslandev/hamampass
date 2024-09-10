@@ -1,5 +1,5 @@
 const PUBLIC_KEY =
-  "BEEO9_wuf7dcPc7RMhceAGucrBrO8VxmYFCcuqVwb1cATNaqOSw0ijG9yy__uUkxaPq1D2IPMxBDvt2AgtYs56Q";
+  "BNCtHyjKlzMF1ey4ogHe9wGnfMytcoLBa7ANynh1uWEWnODdkHrVbGe0U3qB22P208HJoaSRHAlF4OE-pxX8RKc";
 
 // Function to convert base64 public key to Uint8Array
 function urlB64ToUint8Array(base64String) {
@@ -44,10 +44,16 @@ self.addEventListener("activate", async (event) => {
         );
 
         const response = await saveSubscription(subscription);
-        console.log("Subscription saved:", response);
+        console.log("Subscription saved inside admin:", response);
       } catch (err) {
         console.error("Error during service worker registration:", err);
       }
     })()
   );
 });
+
+self.addEventListener("push", (e) => {
+  self.registration.showNotification("Wohoo!!", { body: e.data.text() });
+});
+
+// v1lkddfds

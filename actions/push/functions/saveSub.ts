@@ -16,7 +16,7 @@ const saveSub = async (req: NextRequest) => {
       userId,
     },
     data: {
-      subscriptions: [body],
+      subscription: body.subscription,
     },
   });
 

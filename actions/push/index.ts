@@ -1,3 +1,4 @@
 import saveSub from "./functions/saveSub";
+import sendNotification from "./functions/sendNotification";
 
-export { saveSub };
+export { saveSub, sendNotification };
