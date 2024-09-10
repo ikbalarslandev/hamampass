@@ -53,7 +53,7 @@ self.addEventListener("activate", async (event) => {
 });
 
 self.addEventListener("push", (e) => {
-  self.registration.showNotification("New Booking!!!", {
+  self.registration.showNotification("Rezervasyon geldi", {
     body: e.data.text(),
     icon: "/logo.png",
   });
