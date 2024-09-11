@@ -49,7 +49,7 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
   const [myBookings, setMyBookings] = useState<any[]>([]);
 
   const handleAdminsProperty = () => {
-    () => router.push(`/${locale}/admin/${adminsProperty?.id}`);
+    router.push(`/tr/admin`);
     ServiceWorkerRegister();
   };
 

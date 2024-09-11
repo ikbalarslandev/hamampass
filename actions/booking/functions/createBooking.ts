@@ -38,7 +38,11 @@ const createBooking = async (req: NextRequest) => {
     .map((key) => `${products[key].count} ${convertKey(+key)}`)
     .join(" ")} ), Toplam ${totalMoney} TL`;
 
-  await sendNotification({ propertyId, desc });
+  await sendNotification({
+    propertyId,
+    desc,
+    redirectUrl: `/tr/admin/${booking.id}`,
+  });
 
   return booking;
 };
