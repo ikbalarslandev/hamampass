@@ -19,8 +19,8 @@
 
 <p align="center">
    <a href="https://github.com/ikbalarslandev/hamampass/stargazers"><img src="https://img.shields.io/github/stars/ikbalarslandev/hamampass" alt="Github Stars"></a>
-   <a href="https://github.com/documenso/documenso/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-AGPLv3-purple" alt="License"></a>
-   <a href="https://github.com/documenso/documenso/pulse"><img src="https://img.shields.io/github/commit-activity/m/ikbalarslandev/hamampass" alt="Commits-per-month"></a>
+   <a href="https://github.com/ikbalarslandev/hamampass/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg" alt="License"></a>
+   <a href="https://github.com/ikbalarslandev/hamampass/pulse"><img src="https://img.shields.io/github/commit-activity/m/ikbalarslandev/hamampass" alt="Commits-per-month"></a>
    <a href="CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"></a>
 </p>
 
@@ -105,3 +105,8 @@ git clone https://github.com/<your-username>/hamampass
 ## Repo Activity
 
 ![Repository Activity](https://repobeats.axiom.co/api/embed/ae2915b25357dd085de08a32e539e8321b17ac65.svg)
+
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial 4.0 International License][cc-by-nc].
+
+[cc-by-nc]: https://creativecommons.org/licenses/by-nc/4.0/
