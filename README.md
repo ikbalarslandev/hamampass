@@ -61,6 +61,10 @@ We're currently working on a redesign of the application, including a revamp of 
 - [Tailwind](https://tailwindcss.com/) - CSS
 - [shadcn/ui](https://ui.shadcn.com/) - Component Library
 - [NextAuth.js](https://next-auth.js.org/) - Authentication
+- [Google Maps Api](https://vercel.com) - Maps api
+- [Google Auth](https://vercel.com) - Hosting
+- [Neon](https://vercel.com) - Postgresql db
+- [web-push](https://vercel.com) - Push notification 
 - [Vercel](https://vercel.com) - Hosting
 
 
@@ -81,9 +85,10 @@ git clone https://github.com/<your-username>/hamampass
 
 3. Create your `.env` from the `.env.example`. You can use `cp .env.example .env` to get started with our handpicked defaults.
 
-4. Set the following environment variables:
-
+4. Set the following environment variables
+    
    - AUTH_SECRET
+   - NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
    - AUTH_GOOGLE_ID
    - AUTH_GOOGLE_SECRET
    - DATABASE_URL
