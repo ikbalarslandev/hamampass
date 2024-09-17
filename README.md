@@ -7,6 +7,8 @@
     <a href="https://www.hamampass.com"><strong>Learn more »</strong></a>
     <br />
     <br />
+    <a href="https://discord.com/invite/JaTangRns8">Discord</a>
+    ·
     <a href="https://www.hamampass.com">Website</a>
     ·
     <a href="https://github.com/ikbalarslandev/hamampass/issues">Issues</a>
@@ -18,6 +20,7 @@
 </p>
 
 <p align="center">
+   <a href="https://discord.com/invite/JaTangRns8"><img src="https://img.shields.io/badge/Discord-hamampass/discord-%235865F2" alt="Join Documenso on Discord"></a>
    <a href="https://github.com/ikbalarslandev/hamampass/stargazers"><img src="https://img.shields.io/github/stars/ikbalarslandev/hamampass" alt="Github Stars"></a>
    <a href="https://github.com/ikbalarslandev/hamampass/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg" alt="License"></a>
    <a href="https://github.com/ikbalarslandev/hamampass/pulse"><img src="https://img.shields.io/github/commit-activity/m/ikbalarslandev/hamampass" alt="Commits-per-month"></a>
@@ -38,6 +41,7 @@ We're currently working on a redesign of the application, including a revamp of 
 
 - Check out the first source code release in this repository and test it.
 - ⭐ the repository to help us raise awareness.
+- Join the [Discord server](https://discord.com/invite/JaTangRns8) for any questions and getting to know to other community members.
 - Fix or create [issues](https://github.com/ikbalarslandev/hamampass/issues), that are needed for the first production release.
 
 ## Contributing
