@@ -43,7 +43,7 @@ We're currently working on a redesign of the application, including a revamp of 
 
 ## Contributing
 
-- To contribute, please see our [contribution guide](https://github.com/documenso/documenso/blob/main/CONTRIBUTING.md).
+- To contribute, please see our [contribution guide](https://github.com/ikbalarslandev/hamampass/blob/main/CONTRIBUTING.md).
 
 
 ## Tech Stack
@@ -60,11 +60,11 @@ We're currently working on a redesign of the application, including a revamp of 
 - [Prisma](https://www.prisma.io/)  - ORM
 - [Tailwind](https://tailwindcss.com/) - CSS
 - [shadcn/ui](https://ui.shadcn.com/) - Component Library
-- [NextAuth.js](https://next-auth.js.org/) - Authentication
-- [Google Maps Api](https://vercel.com) - Maps api
-- [Google Auth](https://vercel.com) - Hosting
-- [Neon](https://vercel.com) - Postgresql db
-- [web-push](https://vercel.com) - Push notification 
+- [Auth.js](https://authjs.dev/) - Authentication
+- [Maps Javascript Api](https://developers.google.com/maps/documentation/javascript/overview) - Maps api
+- [Google OAuth2](https://developers.google.com/identity/protocols/oauth2) - OAuth
+- [Neon](https://neon.tech/) - database
+- [web-push](https://www.npmjs.com/package/web-push) - Push notification 
 - [Vercel](https://vercel.com) - Hosting
 
 
