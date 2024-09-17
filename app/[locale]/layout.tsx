@@ -7,6 +7,7 @@ import { loadMessages } from "@/utils/loadMessages";
 import { SessionProvider } from "next-auth/react";
 import dynamic from "next/dynamic";
 import { Toaster } from "@/components/ui/toaster";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const ReduxProvider = dynamic(() => import("@/lib/store/redux-provider"), {
   ssr: false,
@@ -42,6 +43,7 @@ export default async function Layout({
           <NextIntlClientProvider locale={locale} messages={messages}>
             <SessionProvider>
               {children} <Toaster />
+              <SpeedInsights />
             </SessionProvider>
           </NextIntlClientProvider>
         </ReduxProvider>
