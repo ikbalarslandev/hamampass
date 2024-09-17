@@ -5,6 +5,7 @@ import { Turn as Hamburger } from "hamburger-react";
 import HamburgerDrawerComponent from "./drawer";
 import { IoChevronBack } from "react-icons/io5";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const HeaderGeneral = ({
   isHome = true,
@@ -63,7 +64,17 @@ const HeaderGeneral = ({
         } py-3 flex-1 text-center z-40 cursor-pointer`}
         onClick={handleLogo}
       >
-        {isHome ? "Hamampass" : title}
+        {isHome ? (
+          <Image
+            src="/longLogo.png"
+            width={100}
+            height={100}
+            className=" w-full text-center px-10"
+            alt="logo"
+          />
+        ) : (
+          title
+        )}
       </button>
 
       <HamburgerDrawerComponent
