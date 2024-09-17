@@ -28,10 +28,9 @@
 
 ## About Hamampass
 
-Signing documents digitally should be fast and easy and should be the best practice for every document signed worldwide. This is technically quite easy today, but it also introduces a new party to every signature: The signing tool providers. While this is not a problem in itself, it should make us think about how we want these providers of trust to work. Documenso aims to be the world's most trusted document-signing tool. This trust is built by empowering you to self-host Documenso and review how it works under the hood.
+Finding best hamams should be fast and easy. Hamampass is a crowdsourcing platform which means hamam owners have full access to all the updates and hamam customers has review power which gives them ability to react .
 
 Join us in creating the next generation of open trust infrastructure.
-
 
 ## Community and Next Steps 🎯
 
@@ -43,7 +42,7 @@ We're currently working on a redesign of the application, including a revamp of 
 
 ## Contributing
 
-- To contribute, please see our [contribution guide](https://github.com/documenso/documenso/blob/main/CONTRIBUTING.md).
+- To contribute, please see our [contribution guide](https://github.com/ikbalarslandev/hamampass/blob/main/CONTRIBUTING.md).
 
 
 ## Tech Stack
@@ -60,11 +59,11 @@ We're currently working on a redesign of the application, including a revamp of 
 - [Prisma](https://www.prisma.io/)  - ORM
 - [Tailwind](https://tailwindcss.com/) - CSS
 - [shadcn/ui](https://ui.shadcn.com/) - Component Library
-- [NextAuth.js](https://next-auth.js.org/) - Authentication
-- [Google Maps Api](https://vercel.com) - Maps api
-- [Google Auth](https://vercel.com) - Hosting
-- [Neon](https://vercel.com) - Postgresql db
-- [web-push](https://vercel.com) - Push notification 
+- [Auth.js](https://authjs.dev/) - Authentication
+- [Maps Javascript Api](https://developers.google.com/maps/documentation/javascript/overview) - Maps api
+- [Google OAuth2](https://developers.google.com/identity/protocols/oauth2) - OAuth
+- [Neon](https://neon.tech/) - database
+- [web-push](https://www.npmjs.com/package/web-push) - Push notification 
 - [Vercel](https://vercel.com) - Hosting
 
 
