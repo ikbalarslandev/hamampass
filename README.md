@@ -1,4 +1,4 @@
-<img src="https://github.com/ikbalarslandev/hamampass/blob/main/public/readme/banner.jpg" alt="Hamampass Logo">
+<img src="https://github.com/ikbalarslandev/hamampass/blob/main/public/readme/banner.png" alt="Hamampass Logo">
 
 <p align="center" style="margin-top: 20px">
   <p align="center">
@@ -27,8 +27,6 @@
    <a href="CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"></a>
 </p>
 
-
-
 ## About Hamampass
 
 Finding best hamams should be fast and easy. Hamampass is a crowdsourcing platform which means hamam owners have full access to all the updates and hamam customers has review power which gives them ability to react .
@@ -37,7 +35,7 @@ Join us in creating the next generation of open trust infrastructure.
 
 ## Community and Next Steps 🎯
 
-We're currently working on a redesign of the application, including a revamp of the codebase, so Documenso can be more intuitive to use and robust to develop upon.
+We're currently working on a core functionality of the app so Hamampass can be more intuitive to use and robust to develop upon.
 
 - Check out the first source code release in this repository and test it.
 - ⭐ the repository to help us raise awareness.
@@ -48,8 +46,8 @@ We're currently working on a redesign of the application, including a revamp of 
 
 - To contribute, please see our [contribution guide](https://github.com/ikbalarslandev/hamampass/blob/main/CONTRIBUTING.md).
 
-
 ## Tech Stack
+
 <p align="left">
   <a href="https://www.typescriptlang.org"><img src="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square" alt="TypeScript"></a>
   <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="NextJS"></a>
@@ -57,20 +55,17 @@ We're currently working on a redesign of the application, including a revamp of 
   <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/tailwindcss-0F172A?&logo=tailwindcss" alt="Tailwind CSS"></a>
 </p>
 
-
 - [Typescript](https://www.typescriptlang.org/) - Language
 - [Next.js](https://nextjs.org/) - Framework
-- [Prisma](https://www.prisma.io/)  - ORM
+- [Prisma](https://www.prisma.io/) - ORM
 - [Tailwind](https://tailwindcss.com/) - CSS
 - [shadcn/ui](https://ui.shadcn.com/) - Component Library
 - [Auth.js](https://authjs.dev/) - Authentication
 - [Maps Javascript Api](https://developers.google.com/maps/documentation/javascript/overview) - Maps api
 - [Google OAuth2](https://developers.google.com/identity/protocols/oauth2) - OAuth
 - [Neon](https://neon.tech/) - database
-- [web-push](https://www.npmjs.com/package/web-push) - Push notification 
+- [web-push](https://www.npmjs.com/package/web-push) - Push notification
 - [Vercel](https://vercel.com) - Hosting
-
-
 
 ## Developer Setup
 
@@ -89,7 +84,7 @@ git clone https://github.com/<your-username>/hamampass
 3. Create your `.env` from the `.env.example`. You can use `cp .env.example .env` to get started with our handpicked defaults.
 
 4. Set the following environment variables
-    
+
    - AUTH_SECRET
    - NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
    - AUTH_GOOGLE_ID
