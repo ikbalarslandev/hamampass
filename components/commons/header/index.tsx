@@ -65,13 +65,15 @@ const HeaderGeneral = ({
         onClick={handleLogo}
       >
         {isHome ? (
-          <Image
-            src="/longLogo.png"
-            width={100}
-            height={100}
-            className=" w-full text-center px-10"
-            alt="logo"
-          />
+          <div className="w-full px-16">
+            <Image
+              src="/longLogo.png"
+              width={100}
+              height={100}
+              className=" w-full text-center"
+              alt="logo"
+            />
+          </div>
         ) : (
           title
         )}
@@ -82,7 +84,7 @@ const HeaderGeneral = ({
         isOpen={isOpen}
         cartItemCount={cartItemCount}
         trigger={
-          <div className="relative">
+          <div className="relative ">
             <Hamburger
               toggled={isOpen}
               size={24}

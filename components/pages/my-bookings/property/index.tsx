@@ -123,10 +123,12 @@ const PropertyPartContent = ({ booking }: { booking: TBooking }) => {
         )}
       </div>
       <Separator />
-      <ReviewButton
-        booking={booking}
-        className="border mt-4 py-2 rounded-lg bg-slate-100  shadow"
-      />
+      {isPast && (
+        <ReviewButton
+          booking={booking}
+          className="border mt-4 py-2 rounded-lg bg-slate-100  shadow"
+        />
+      )}
     </div>
   );
 };

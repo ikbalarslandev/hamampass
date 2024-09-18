@@ -29,15 +29,23 @@ const MyBookingsPage = () => {
           moment(a.date).isBefore(moment(b.date)) ? 1 : -1
         );
 
-        const currents = req.data.filter(
-          (booking: TBooking) =>
-            moment(booking.date).isAfter(moment(), "day") ||
-            moment(booking.date).isSame(moment(), "day")
-        );
+        const currents = req.data
+          .filter(
+            (booking: TBooking) =>
+              moment(booking.date).isAfter(moment(), "day") ||
+              moment(booking.date).isSame(moment(), "day")
+          )
+          .sort((a: TBooking, b: TBooking) =>
+            moment(a.date).isBefore(moment(b.date)) ? 1 : -1
+          );
 
-        const pasts = req.data.filter((booking: TBooking) =>
-          moment(booking.date).isBefore(moment(), "day")
-        );
+        const pasts = req.data
+          .filter((booking: TBooking) =>
+            moment(booking.date).isBefore(moment(), "day")
+          )
+          .sort((a: TBooking, b: TBooking) =>
+            moment(a.date).isBefore(moment(b.date)) ? 1 : -1
+          );
 
         setCurrentBookings(currents);
         setPastBookings(pasts);
@@ -66,11 +74,6 @@ const MyBookingsPage = () => {
                 trigger={<PropertyPartTrigger booking={booking} />}
                 title={booking.property.title}
                 content={<PropertyPartContent booking={booking} />}
-              />
-
-              <ReviewButton
-                booking={booking}
-                className="border-t rounded-b-xl py-2 bg-slate-100"
               />
             </div>
           ))}
