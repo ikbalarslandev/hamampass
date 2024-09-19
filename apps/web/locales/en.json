@@ -1,0 +1,248 @@
+{
+  "titles": {
+    "title": "Filters",
+    "about_title": "About",
+    "products_title": "Products",
+    "amenity_title": "Amenities",
+    "pay_title": "Payment Method",
+    "range_title": "Price Range",
+    "sex_title": "Genders",
+    "sort_title": "Sort",
+    "review-title": "Reviews",
+    "hours-title": "Hours",
+    "location-title": "Location",
+    "about-title": "About",
+    "gallery-title": "Gallery"
+  },
+  "shopping-cart": {
+    "back": "Back",
+    "total": "Total",
+    "complete": "Complete Reservation",
+    "processing": "Processing..."
+  },
+  "my-bookings": {
+    "current": " Bookings",
+    "past": "Past Bookings",
+    "review-now": "Review Now",
+    "see-review": "See Review",
+    "details": {
+      "upcoming": "Upcoming Trip",
+      "past": "Past Trip",
+      "phone": "Phone",
+      "map": "Map",
+      "details": "Booking Details",
+      "view": "View Property",
+      "cancel": "Cancel Booking",
+      "title": "Booking Details",
+      "book_details": {
+        "ref": "Reference Number",
+        "date": "Date",
+        "guest": "Guests",
+        "package": "Package",
+        "total": "Total"
+      },
+      "delete": {
+        "title": "Delete Booking",
+        "desc": "Are you sure you want to delete the booking?",
+        "yes": "Yes, Delete Booking"
+      }
+    },
+    "review": {
+      "title": "My Review",
+      "f-title": "Review",
+      "info": {
+        "property": "Property",
+        "atmosphere": "Atmosphere",
+        "cleanliness": "Cleanliness",
+        "facilities": "Facilities",
+        "location": "Location",
+        "staff": "Staff",
+        "value": "Value for Money",
+        "overall": "Overall",
+        "my-review": "My Review",
+        "about": "About You"
+      }
+    }
+  },
+
+  "hamburger": {
+    "home": "Home",
+    "profile": "Profile",
+    "login": "Login",
+    "my-reviews": "My Reviews",
+    "language": "Language :",
+    "my_bookings": "My Bookings",
+    "shopping-cart": "Shopping Cart"
+  },
+  "profile": {
+    "title": "Profile Page",
+    "loading": "Loading...",
+    "nationality": "Nationality",
+    "age": "Age",
+    "gender": "Gender",
+    "logout": "Sign Out",
+    "complete": {
+      "title": "Complete Your Profile",
+      "desc": "Complete your profile to get the best experience",
+      "button": "Complete Profile"
+    },
+    "toast": {
+      "title": "Profile Completed",
+      "desc": "You have successfully completed your profile"
+    }
+  },
+  "home": {
+    "search": "Search",
+    "title": "Turkish Baths in ",
+    "filters": {
+      "filter": "filters",
+      "clear": "Clear all",
+
+      "amenities": {
+        "see-all": "View all Amenities",
+        "facilities": {
+          "0": "Toilet",
+          "1": "Resting Room",
+          "2": "Lockers",
+          "3": "Shower",
+          "4": "Sauna",
+          "5": "Steam Room",
+          "6": "Jacuzzi",
+          "7": "Pool",
+          "8": "Massage",
+          "9": "Ice Bucket",
+          "10": "Ice Pool"
+        },
+        "items": {
+          "0": "towel",
+          "1": "Soap"
+        },
+        "foods_drinks": {
+          "0": "Tea",
+          "1": "Coffee"
+        }
+      },
+
+      "payment_methods": {
+        "0": "Cash Only",
+        "1": "Accepts Credit Cards"
+      },
+      "sex": {
+        "1": "Men's Only",
+        "2": "Women's Only",
+        "3": "Unisex",
+        "4": "Men-Women Separate"
+      },
+      "price": {
+        "expensive": "Price (Highest first)",
+        "cheap": "Price (Lowest first)"
+      },
+      "rating": {
+        "high": "Rating (Highest first)",
+        "low": "Rating (Lowest first)"
+      },
+      "placeholder": "Search district in Istanbul",
+      "show": "Show Results"
+    },
+    "product-type": {
+      "0": "Basic",
+      "1": "Regular"
+    },
+    "load-btn": "Load More"
+  },
+
+  "single": {
+    "enflation": "Due to inflation, the price may be up to 10% higher than the price shown on the website.",
+    "view-map": "View on Map",
+    "read-more": "Read more",
+    "copy": "Address copied to clipboard",
+    "products": {
+      "adult": "Adult",
+      "child": "Child",
+      "older": "Older than ",
+      "between": "between 0 - ",
+      "total": "Total",
+      "no_credit": "No credit card required",
+      "add": "Add to Card",
+      "shopping-cart": "Shopping Cart"
+    },
+    "switch": {
+      "details": "Details",
+      "reviews": "Reviews"
+    },
+    "card": {
+      "adult": "Adult",
+      "child": "Child",
+      "scrub": "Body Scrub",
+      "button": "Load More",
+      "adult-desc": "Older than 13 years old",
+      "child-desc": "Between 5-13 years old",
+      "scrub-desc": "Add-on"
+    },
+    "review": {
+      "no-review": "No reviews yet",
+      "see-all": "View All Reviews ",
+      "main": {
+        "location": "Location",
+        "staff": "Staff",
+        "atmosphere": "Atmosphere",
+        "cleanliness": "Cleanliness",
+        "facilities": "Facilities",
+        "value": "Value for Money"
+      },
+
+      "gender": {
+        "0": "Female",
+        "1": "Male"
+      },
+      "type": {
+        "0": "Solo",
+        "1": "Couple",
+        "2": "Family",
+        "3": "Friends",
+        "4": "Colleagues"
+      },
+      "btn": {
+        "login": "Login to review",
+        "review": "Review Now",
+        "reviewed": "Reviewed"
+      },
+      "drawer": {
+        "title": "Review",
+        "rate": "Rate",
+        "comment": "Comment",
+        "comment-placeholder": "Your comment...",
+        "submit": "Submit",
+        "type": {
+          "title": "Who did you go with",
+          "0": "Solo",
+          "1": "as Couple",
+          "2": "with Family",
+          "3": "with Friends",
+          "4": "with Colleagues"
+        },
+        "package": {
+          "title": "Which Package did you choose",
+          "0": "Basic",
+          "1": "Regular"
+        }
+      }
+    },
+    "hours": {
+      "weekdays": "Weekdays",
+      "weekdays-desc": "(Monday - Friday)",
+      "weekend": "Weekend",
+      "weekend-desc": "(Saturday - Sunday)",
+      "mens": "Men",
+      "womens": "Women"
+    },
+    "book_btn": {
+      "from": "From",
+      "book": "Book Now"
+    },
+
+    "location": "Contact",
+    "map": "Map",
+    "tel": "Phone Number :"
+  }
+}
