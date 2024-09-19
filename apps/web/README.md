@@ -16,6 +16,8 @@
     <a href="https://github.com/users/ikbalarslandev/projects/4">Upcoming Releases</a>
     ·
     <a href="https://github.com/users/ikbalarslandev/projects/5">Roadmap</a>
+    ·
+    <a href="https://tr.linkedin.com/company/hamampass">Linkedin</a>
   </p>
 </p>
 
