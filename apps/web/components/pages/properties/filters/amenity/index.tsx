@@ -10,7 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const amenityData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const amenityData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 const AmenityComponent = () => {
   const [openValue, setOpenValue] = useState("amenity");

@@ -8,6 +8,7 @@ import {
   FaHotTub,
   FaSwimmingPool,
   FaBed,
+  FaCar,
 } from "react-icons/fa";
 import {
   PiTowelFill,
@@ -46,6 +47,8 @@ const convertAFacilityIcon = (id: number, className = classN) => {
       return <MdOutlineSevereCold className={className} />;
     case "10":
       return <PiThermometerColdFill className={className} />;
+    case "11":
+      return <FaCar className={className} />;
     default:
       return <IoIosWarning className={className} />;
   }
