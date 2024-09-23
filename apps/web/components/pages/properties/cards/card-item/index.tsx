@@ -58,7 +58,7 @@ const CardItem = ({ property }: { property: TProperty }) => {
         }}
       >
         {/* wishlist */}
-        <HeartComponent title={property.title} />
+        <HeartComponent property={property} />
 
         <CarouselContent className="rounded-none -ml-1 aspect-video ">
           {images.map((photo: string, index: number) => (

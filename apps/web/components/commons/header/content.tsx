@@ -89,11 +89,10 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
     <div className="flex flex-col items-start gap-6">
       <button
         className="text-2xl scale-x-115  w-full text-left py-2"
-        onClick={handleHomeClick}
+        onClick={() => router.push(`/${locale}/wishlist`)}
       >
-        {t("home")}
+        My Favorites
       </button>
-
       {localStorage.getItem("cart") && (
         <button
           className="text-2xl scale-x-115  w-full text-left py-2  flex items-start gap-2"
