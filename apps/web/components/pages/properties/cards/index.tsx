@@ -6,7 +6,7 @@ import { request } from "@/services/axios";
 import { TProperty } from "@/types";
 
 import { Button } from "@/components/ui/button";
-import Card from "@/components/pages/properties/cards/card";
+import CardItem from "@/components/pages/properties/cards/card-item";
 import { useSelector } from "react-redux";
 import { useFetchProperties } from "@/hooks/useFetchProperties";
 
@@ -58,7 +58,7 @@ const Cards = ({ serverProperties }: { serverProperties: TProperty[] }) => {
     <div className="flex flex-col items-center mx-4 gap-6">
       <div aria-live="polite">
         {properties.map((property: TProperty) => (
-          <Card key={property.id} property={property} />
+          <CardItem key={property.id} property={property} />
         ))}
       </div>
 

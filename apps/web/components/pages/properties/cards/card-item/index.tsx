@@ -12,8 +12,9 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import DisplayAmenityIcon from "@/components/commons/display-amenity-icon";
+import HeartComponent from "./heart";
 
-const Card = ({ property }: { property: TProperty }) => {
+const CardItem = ({ property }: { property: TProperty }) => {
   const { locale } = useParams();
   const sex_type = useTranslations("home.filters.sex");
   const product_type = useTranslations("home.product-type");
@@ -56,6 +57,9 @@ const Card = ({ property }: { property: TProperty }) => {
           loop: true,
         }}
       >
+        {/* wishlist */}
+        <HeartComponent title={property.title} />
+
         <CarouselContent className="rounded-none -ml-1 aspect-video ">
           {images.map((photo: string, index: number) => (
             <CarouselItem key={photo} className="pl-1">
@@ -141,4 +145,4 @@ const Card = ({ property }: { property: TProperty }) => {
   );
 };
 
-export default Card;
+export default CardItem;
