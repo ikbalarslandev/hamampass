@@ -1,29 +1,15 @@
 import React from "react";
 import { TProperty } from "@/types";
-import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
+import DrawerGeneral from "@/components/commons/drawer";
 
 interface IBookButton {
   property: TProperty;
-  productsRef: React.RefObject<HTMLDivElement>;
+  content?: any;
 }
 
-const BookButton = ({ property, productsRef }: IBookButton) => {
+const BookButton = ({ property, content }: IBookButton) => {
   const t = useTranslations("single.book_btn");
-
-  const handleScrollToProducts = () => {
-    if (productsRef.current) {
-      const headerOffset = window.innerHeight * 0.09;
-      const elementPosition = productsRef.current.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
 
   return (
     <div className="fixed bottom-0 w-full px-4 py-3 bg-white rounded-t-xl border-t shadow-2xl z-20 flex items-center">
@@ -35,12 +21,16 @@ const BookButton = ({ property, productsRef }: IBookButton) => {
         </p>
       </div>
 
-      <Button
-        className="rounded-xl px-8 bg-cyan-500"
-        onClick={handleScrollToProducts}
-      >
-        {t("book")}
-      </Button>
+      <DrawerGeneral
+        trigger={
+          <div className="rounded-xl px-8 bg-cyan-500 py-2 text-white font-bold">
+            {t("book")}
+          </div>
+        }
+        content={content}
+        full={false}
+        fill={false}
+      />
     </div>
   );
 };

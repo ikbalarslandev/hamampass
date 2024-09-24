@@ -48,7 +48,7 @@ const HeartComponent = ({ property }: { property: TProperty }) => {
     }
   };
 
-  const cn = `absolute top-2 right-2 z-10 w-5 h-5 ${isWishlist ? "text-red-600/90" : "text-white/40"}`;
+  const cn = `absolute top-2 right-2 z-10 w-5 h-5 ${isWishlist ? "text-red-600/90" : "text-white/60 "}`;
   return <FaHeart onClick={handleWishlistClick} className={cn} />;
 };
 

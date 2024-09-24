@@ -16,10 +16,11 @@ const DrawerGeneral = ({
   handleOnly = false,
   fill = true,
   fullWidth = false,
+  full = true,
 }: any) => {
   return (
     <Drawer handleOnly={handleOnly}>
-      <DrawerTrigger className=" w-full ">{trigger}</DrawerTrigger>
+      <DrawerTrigger className={full && " w-full "}>{trigger}</DrawerTrigger>
       <DrawerContent className={fill ? "h-full" : "max-h-full"}>
         <DrawerHeader className=" flex justify-between items-center mt-2 ">
           <DrawerTitle className="text-center">{title}</DrawerTitle>
