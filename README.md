@@ -1,4 +1,4 @@
-<img src="https://github.com/ikbalarslandev/hamampass/blob/main/public/readme/banner.png" alt="Hamampass Logo">
+<img src="https://github.com/ikbalarslandev/hamampass/blob/main/apps/web/public/readme/banner.png" alt="Hamampass Logo">
 
 <p align="center" style="margin-top: 20px">
   <p align="center">
