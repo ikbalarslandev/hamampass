@@ -10,7 +10,7 @@ export function SignIn() {
       className="flex flex-col items-center gap-3 mt-10"
     >
       <label>
-        Email
+        id
         <input name="id" type="text" />
       </label>
       <label>
