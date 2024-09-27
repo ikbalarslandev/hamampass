@@ -6,11 +6,11 @@ export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const token = await getToken({ req, secret: process.env.AUTH_SECRET!! });
 
-  console.log(process.env.AUTH_SECRET);
-
   if (!token && pathname !== "/login" && !pathname.startsWith("/api")) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
+
+  console.log("token", token);
 
   if (token && pathname === "/login") {
     return NextResponse.redirect(new URL("/", req.url));
