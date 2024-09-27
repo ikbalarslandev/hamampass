@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { getProperty } from "./actions/admin";
-import { NextRequest } from "next/server";
+import prisma from "@/prisma/db";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -18,31 +17,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           password: string;
         };
 
-        const url = new URL("http://localhost:3000/api/admin");
-        url.searchParams.set("id", id);
-        url.searchParams.set("password", password);
+        const property = await prisma.admin.findUnique({
+          where: {
+            id,
+          },
+          include: {
+            property: true,
+          },
+        });
 
-        const req = new NextRequest(url);
-
-        const res = await getProperty(req);
-
-        let data;
-        // Check if the response is a Response object and parse it
-        if (res instanceof Response) {
-          if (!res.ok) {
-            throw new Error("Failed to fetch property");
-          }
-          data = await res.json();
-        } else {
-          // If it's not a Response, assume it's already parsed
-          data = res;
-        }
-
-        const property = data?.property;
-
-        if (!property) {
-          // No property found, so this is their first attempt to login
-          // meaning this is also the place you could do registration
+        if (!property || property.password !== password) {
+          // If you return null or false then the credentials will be rejected
           throw new Error("property not found.");
         }
 
@@ -51,4 +36,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
+
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      return baseUrl;
+    },
+  },
 });

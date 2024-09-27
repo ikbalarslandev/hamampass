@@ -10,7 +10,7 @@ export function SignIn() {
     >
       <label>
         Email
-        <input name="email" type="number" />
+        <input name="id" type="text" />
       </label>
       <label>
         Password

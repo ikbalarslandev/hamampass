@@ -11,15 +11,18 @@ const getProperty = async (req: NextRequest) => {
   }
 
   // find the property with the given id and password
-  const property = await prisma.admin.findFirst({
+  const property = await prisma.admin.findUnique({
     where: {
       id,
-      password,
     },
     include: {
-      property: true,
+      user: true,
     },
   });
+
+  if (!property || property.password !== password) {
+    return new Response("Property not found", { status: 404 });
+  }
 
   return property;
 };
