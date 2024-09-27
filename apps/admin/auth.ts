@@ -5,8 +5,6 @@ import prisma from "@/prisma/db";
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
-      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-      // e.g. domain, username, password, 2FA token, etc.
       credentials: {
         id: {},
         password: {},
@@ -17,27 +15,38 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           password: string;
         };
 
-        const property = await prisma.admin.findUnique({
+        const user = await prisma.admin.findUnique({
           where: {
             id,
           },
-          include: {
-            property: true,
-          },
         });
 
-        if (!property || property.password !== password) {
-          // If you return null or false then the credentials will be rejected
-          throw new Error("property not found.");
+        if (!user || user.password !== password) {
+          throw new Error("Invalid credentials.");
         }
 
-        // return property object with their profile data
-        return property;
+        return {
+          propertyId: user.propertyId, // Ensure property.id exists
+        };
       },
     }),
   ],
 
   callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.propertyId = user.propertyId;
+      }
+
+      return token;
+    },
+    async session({ session, token }) {
+      if (token) {
+        session.user.propertyId = token.propertyId as string; // Set propertyId in the session
+      }
+
+      return session;
+    },
     async redirect({ url, baseUrl }) {
       return baseUrl;
     },
