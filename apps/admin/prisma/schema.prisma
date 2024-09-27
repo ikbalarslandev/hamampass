@@ -1,0 +1,260 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// enum EVibe {
+// Couple_Friendly === 0
+// Family_Friendly === 1
+// Foreigner_Friendly === 2
+// }
+
+// enum EAmenities {
+//   Shower   === 0
+//   Sauna    === 1
+//   Steam_Room  === 2
+//   Jacuzzi     === 3
+//   Pool       === 4
+//   Massage    === 5
+//   Ice_Bucket === 6
+//   Ice_Pool   === 7
+// }
+
+// enum Payment_Method {
+// Cash_Only === 0
+// Cash_and_Credit_Cards  === 1
+// Credit_Card_Only === 2
+// }
+
+// enum Role{
+//   USER === 0
+//   ADMIN === 1
+// }
+
+// enum Gender {
+//   female === 0
+//   male === 1
+// }
+
+// enum Age_Range {
+//   0_17 === 0
+//   18_24 === 1
+//   25_30 === 2
+//   31_40 === 3
+//   41+ === 4
+
+// enum Review_Type{
+// solo === 0
+// couple === 1
+// family === 2
+// friends === 3
+// }
+
+// enum Porduct_Type{ 
+// basic === 0  // only entry
+// regular === 1   // entry + body scrub
+// }
+
+//sex_outsider {
+// sex: 0
+// day : 0
+// }
+
+model Property {
+  id String @id @unique @default(uuid())
+
+  title        String   @unique
+  sex          Int
+  outsider_sex Json[]
+  photos       String[]
+  pay          Int      @default(0)
+  desc_tr      String?
+  desc_en      String?
+
+  admin    Admin?
+  bookings Booking[]
+  products Product[]
+
+  contact   Contact? @relation(fields: [contactId], references: [id])
+  contactId String?
+  hour      Hour?    @relation(fields: [hourId], references: [id])
+  hourId    String?
+  rating    Rating?  @relation(fields: [ratingId], references: [id])
+  ratingId  String?  @unique
+  amenity   Amenity? @relation(fields: [amenityId], references: [id])
+  amenityId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Contact {
+  id       String  @id @default(uuid())
+  city     String
+  district String
+  phone    String
+  map_link String
+  address  String
+  location Float[]
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Property  Property[]
+}
+
+model Amenity {
+  id           String     @id @default(uuid())
+  items        Int[]
+  facilities   Int[]
+  foods_drinks Int[]
+  Property     Property[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Rating {
+  id           String @id @default(uuid())
+  count        Int
+  rate_overall Float
+
+  rate_location        Float
+  rate_staff           Float
+  rate_atmosphere      Float
+  rate_cleanliness     Float
+  rate_facilities      Float
+  rate_value_for_money Float
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Property  Property[]
+}
+
+model Hour {
+  id String @id @default(uuid())
+
+  weekdays           String[] // ["09:00", "21:00"]
+  weekends           String[]
+  segregated_details Json?
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Property  Property[]
+}
+
+//outsider {
+// sex: 0
+// day : 0
+// }
+
+//  segregated_details {
+//   mens   {
+//     weekdays String[]  // ["09:00", "21:00"]
+//     weekends  String[]
+//   }
+//   womens {
+//     weekdays String[]  // ["09:00", "21:00"]
+//     weekends  String[]
+//   }
+// }
+
+model Product {
+  id          String @id @default(uuid())
+  type        Int
+  adult_price Float
+
+  // optional
+  child_price Float?
+  age         Int?
+  detail_tr   String[]
+  detail_en   String[]
+  desc_tr     String?
+  desc_en     String?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  belongsToId String
+  belongsTo   Property @relation(fields: [belongsToId], references: [id])
+}
+
+model Booking {
+  id         String   @id @unique @default(uuid())
+  date       DateTime
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id])
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  products   Json
+  totalMoney Float
+  review     Review?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// products : {
+//   "0":{
+//     count: 1,
+//     price: 100
+//   },
+//   "1":{
+//     count: 2,
+//     price: 200
+//   }
+// }
+
+model Review {
+  id      String @id @default(uuid())
+  rateObj Json
+  rate    Float
+  comment String
+
+  bookingId String  @unique
+  booking   Booking @relation(fields: [bookingId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id          String    @id @default(uuid())
+  name        String
+  email       String    @unique
+  image       String
+  nationality String?
+  age_range   Int
+  gender      Int
+  role        Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  admin       Admin?
+  Booking     Booking[]
+}
+
+model Admin {
+  id       String @id @default(uuid())
+  password String
+
+  subscription Json?
+  user         User?    @relation(fields: [userId], references: [id])
+  userId       String?  @unique
+  property     Property @relation(fields: [propertyId], references: [id])
+  propertyId   String   @unique
+}
+
+model Country {
+  tld     String @id @default(uuid())
+  name_tr String
+  name_en String
+  image   String
+}
