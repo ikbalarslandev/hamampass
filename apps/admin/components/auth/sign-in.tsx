@@ -7,6 +7,7 @@ export function SignIn() {
         "use server";
         await signIn("credentials", formData);
       }}
+      className="flex flex-col items-center gap-3 mt-10"
     >
       <label>
         Email
