@@ -48,6 +48,10 @@ We're currently working on a core functionality of the app so Hamampass can be m
 
 - To contribute, please see our [contribution guide](https://github.com/ikbalarslandev/hamampass/blob/main/CONTRIBUTING.md).
 
+## Flow Chart
+<img src="https://github.com/ikbalarslandev/hamampass/blob/main/apps/web/public/readme/flow.jpg" alt="Flow chart">
+
+
 ## Tech Stack
 
 <p align="left">
