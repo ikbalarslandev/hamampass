@@ -17,6 +17,8 @@
     ·
     <a href="https://github.com/users/ikbalarslandev/projects/5">Roadmap</a>
     ·
+    <a href="https://www.figma.com/design/W590gcvMFCnCUse0GyKBES/Hamampass">Figma Design</a>
+    ·
     <a href="https://tr.linkedin.com/company/hamampass">Linkedin</a>
   </p>
 </p>
