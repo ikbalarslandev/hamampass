@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { findAdminsProperty } from "../../../../../web/actions/property";
+import { findAdminsProperty } from "@/actions/property";
 
 export async function GET(req: NextRequest) {
   try {

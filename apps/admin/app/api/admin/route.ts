@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { updatePrices } from "../../../../web/actions/property";
+import { updatePrices } from "@/actions/property";
 
 export async function PUT(req: NextRequest) {
   try {
