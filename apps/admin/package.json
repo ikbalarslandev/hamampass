@@ -10,7 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^2.5.2",
     "@prisma/client": "^5.20.0",
     "@radix-ui/react-slot": "^1.1.0",
     "bcryptjs": "^2.4.3",
