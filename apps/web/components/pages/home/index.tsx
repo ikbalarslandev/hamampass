@@ -1,7 +1,6 @@
 import { DatePickerForm } from "@/components/pages/home/date-picker";
 
 const HomePage = ({ locale }: { locale: string }) => {
-  console.log(locale);
   return (
     <div className="flex-1 flex flex-col items-center justify-end mb-8 gap-8 mx-5">
       <div className=" w-full  ">

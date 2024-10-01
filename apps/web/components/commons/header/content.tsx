@@ -4,13 +4,11 @@ import LocaleSwitcher from "./locale-switcher";
 import { useSession } from "next-auth/react";
 import { signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
-import { useState, useEffect, use } from "react";
-import { TProperty } from "@/types";
+import { useState, useEffect } from "react";
 import { request } from "@/services/axios";
 import moment from "moment";
 import "moment/locale/tr";
 import "moment/locale/en-gb";
-import ServiceWorkerRegister from "@/utils/serviceWorkerRegister";
 
 const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
   const { locale } = useParams();
@@ -31,11 +29,6 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
     setOpen(false);
   };
 
-  const handleHomeClick = () => {
-    router.push(`/${locale}`);
-    setOpen(false);
-  };
-
   const handleLoginClick = async () => {
     await signIn("google", { callbackUrl: `/${locale}/auth/signIn` });
   };
@@ -45,31 +38,12 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
     setOpen(false);
   };
 
-  const [adminsProperty, setAdminsProperty] = useState<TProperty>();
   const [myBookings, setMyBookings] = useState<any[]>([]);
 
-  const handleAdminsProperty = () => {
-    router.push(`/tr/admin`);
-    ServiceWorkerRegister();
-  };
-
   useEffect(() => {
-    const fetchAdminsProperty = async () => {
-      if (!data?.user) return;
-      try {
-        const req = await request({
-          type: "get",
-          endpoint: `admin/${data?.user?.id}`,
-        });
-
-        setAdminsProperty(req.data);
-      } catch (error) {
-        console.error("Error fetching admins property:", error);
-      }
-    };
-
     const fetchMyBookings = async () => {
       try {
+        if (data?.user?.id === undefined) return;
         const req = await request({
           type: "get",
           endpoint: `booking/${data?.user?.id}`,
@@ -81,7 +55,6 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
       }
     };
 
-    fetchAdminsProperty();
     fetchMyBookings();
   }, [data?.user?.id]);
 
@@ -130,15 +103,6 @@ const HamburgerContent = ({ setOpen, cartItemCount }: any) => {
           onClick={handleLoginClick}
         >
           {t("login")}
-        </button>
-      )}
-
-      {adminsProperty && (
-        <button
-          className="text-2xl scale-x-115  w-full text-left py-2"
-          onClick={handleAdminsProperty}
-        >
-          {adminsProperty.title}
         </button>
       )}
 
