@@ -38,7 +38,7 @@ const BookingDetails = async ({
 
   const admin = await prisma.admin.findFirst({
     where: {
-      userId: session?.user?.id,
+      propertyId: session?.user?.propertyId,
     },
   });
 
