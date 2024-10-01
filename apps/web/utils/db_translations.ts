@@ -15,27 +15,6 @@ const convertAgeRange = (n: number) => {
   }
 };
 
-const convertAdminProductTypeInfo = (type: number) => {
-  switch (type) {
-    case 0:
-      return {
-        title: "Basit Paket",
-        description:
-          "Sadece islak alan kullanımı, ekstra hizmetler dahil değil",
-      };
-    case 1:
-      return {
-        title: "Standart Paket",
-        description: "Islak alan kullanımı, ek olarak kese köpük dahil",
-      };
-    default:
-      return {
-        title: "Unknown Paket",
-        description: "No description available",
-      };
-  }
-};
-
 const checkIsWeekDay = (day: string) => {
   if (day == "0" || day == "6") {
     return false;
@@ -43,4 +22,4 @@ const checkIsWeekDay = (day: string) => {
   return true;
 };
 
-export { convertAgeRange, convertAdminProductTypeInfo, checkIsWeekDay };
+export { convertAgeRange, checkIsWeekDay };
