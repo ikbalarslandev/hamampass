@@ -243,12 +243,14 @@ model User {
 }
 
 model Admin {
-  id         String   @id @default(uuid())
-  subscription Json? 
-  user       User?    @relation(fields: [userId], references: [id])
-  userId     String?  @unique
-  property   Property @relation(fields: [propertyId], references: [id])
-  propertyId String   @unique
+  id       String @id @default(uuid())
+  password String
+
+  subscription Json?
+  user         User?    @relation(fields: [userId], references: [id])
+  userId       String?  @unique
+  property     Property @relation(fields: [propertyId], references: [id])
+  propertyId   String   @unique
 }
 
 model Country {

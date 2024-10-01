@@ -51,6 +51,7 @@ const createProperty = async (req: NextRequest) => {
     await prisma.admin.create({
       data: {
         propertyId: property.id,
+        password: "1234",
       },
     });
 
