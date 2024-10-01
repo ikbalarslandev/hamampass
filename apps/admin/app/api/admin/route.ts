@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { updatePrices } from "@/actions/property";
+import { updatePrices } from "../../../../web/actions/property";
 
 export async function PUT(req: NextRequest) {
   try {
@@ -8,7 +8,7 @@ export async function PUT(req: NextRequest) {
     return NextResponse.json(properties);
   } catch (error) {
     return NextResponse.json(
-      { error: "Failed to fetch property" },
+      { error: "Failed to fetch property" + error },
       { status: 500 }
     );
   }

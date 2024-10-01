@@ -54,7 +54,11 @@ const BookingDetails = async ({
       <p className="text-sm">referans no: ({booking?.id})</p>
 
       <div className="flex items-center justify-between mr-2 mt-4">
-        <p>{moment(new Date(booking?.date!!)).format("DD MMMM dddd")}</p>
+        <p>
+          {booking?.date
+            ? moment(new Date(booking.date)).format("DD MMMM dddd")
+            : "Tarih bilgisi mevcut değil"}
+        </p>
         <p>
           {`${Object.keys(booking?.products || {}).reduce((acc, key) => {
             const product = (

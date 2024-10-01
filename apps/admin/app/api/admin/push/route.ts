@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { saveSub } from "@/actions/push";
+import saveSub from "@/actions/saveSub";
 
 export async function PUT(req: NextRequest) {
   try {
@@ -7,6 +7,9 @@ export async function PUT(req: NextRequest) {
 
     return NextResponse.json(subscription);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to save subs" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to save subs" + error },
+      { status: 500 }
+    );
   }
 }

@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import { findAdminsProperty } from "@/actions/property";
+import { findAdminsProperty } from "../../../../../web/actions/property";
 
 export async function GET(req: NextRequest) {
   try {
     const properties = await findAdminsProperty(req);
 
     return NextResponse.json(properties);
-  } catch (error) {
+  } catch (e) {
     return NextResponse.json(
-      { error: "Failed to fetch property" },
+      { error: "Failed to fetch property" + e },
       { status: 500 }
     );
   }
