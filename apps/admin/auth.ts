@@ -26,7 +26,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         }
 
         return {
-          propertyId: user.propertyId, // Ensure property.id exists
+          propertyId: user.propertyId,
         };
       },
     }),
@@ -42,7 +42,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
     async session({ session, token }) {
       if (token) {
-        session.user.propertyId = token.propertyId as string; // Set propertyId in the session
+        session.user.propertyId = token.propertyId as string;
       }
 
       return session;
