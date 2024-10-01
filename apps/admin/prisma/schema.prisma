@@ -237,7 +237,6 @@ model User {
   role        Int       @default(0)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-  admin       Admin?
   Booking     Booking[]
 }
 
@@ -246,8 +245,6 @@ model Admin {
   password String
 
   subscription Json?
-  user         User?    @relation(fields: [userId], references: [id])
-  userId       String?  @unique
   property     Property @relation(fields: [propertyId], references: [id])
   propertyId   String   @unique
 }
