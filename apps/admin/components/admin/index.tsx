@@ -14,11 +14,21 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { request } from "../../../web/services/axios";
+import { request } from "@/services/axios";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
-import { producPriceSchema } from "../../../web/schemas";
-import { convertAdminProductTypeInfo } from "../../../web/utils/db_translations";
+import { convertAdminProductTypeInfo } from "@/utils/db_translations";
+
+const producPriceSchema = z.object({
+  adult_price: z
+    .number()
+    .min(0, { message: "Fiyat negatif olamaz" })
+    .nullable(),
+  child_price: z
+    .number()
+    .min(0, { message: "Fiyat negatif olamaz" })
+    .nullable(),
+});
 
 const createFormSchema = (products: TProduct[]) => {
   const shape = products.reduce(
