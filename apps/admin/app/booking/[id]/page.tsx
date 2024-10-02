@@ -20,7 +20,7 @@ const BookingDetails = async ({
 }: {
   params: {
     locale: string;
-    bookingId: string;
+    id: string;
   };
 }) => {
   moment.locale("tr");
@@ -28,7 +28,7 @@ const BookingDetails = async ({
   const session = await auth();
   const booking = await prisma.booking.findFirst({
     where: {
-      id: params.bookingId,
+      id: params.id,
     },
     include: {
       property: true,
@@ -43,10 +43,8 @@ const BookingDetails = async ({
   });
 
   if (admin?.propertyId !== booking?.propertyId) {
-    return redirect("/tr/admin");
+    return redirect("/");
   }
-
-  console.log("admin", admin);
 
   return (
     <div className="flex flex-col">
