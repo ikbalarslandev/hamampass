@@ -9,11 +9,13 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  console.log("params", params);
+  const { locale } = params;
 
   return {
+    title: "Hamampass",
+    description: "Hamampass is a platform for Turkish bath lovers.",
     other: {
-      "application/ld+json": JSON.stringify(jsonLd),
+      "application/ld+json": JSON.stringify(jsonLd(locale)),
     },
   };
 }
