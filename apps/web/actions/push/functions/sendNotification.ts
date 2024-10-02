@@ -22,13 +22,15 @@ const sendNotification = async ({
     },
   });
 
-  const subscription =
-    admin?.subscription as unknown as webpush.PushSubscription;
-  if (!subscription) return { error: "No subscription found" };
+  const subscriptions =
+    admin?.subscriptions as unknown as webpush.PushSubscription[];
+  if (!subscriptions) return { error: "No subscription found" };
 
   const payload = JSON.stringify({ desc, redirectUrl });
 
-  webpush.sendNotification(subscription, payload);
+  for (const subscription of subscriptions) {
+    webpush.sendNotification(subscription, payload);
+  }
 
   return { message: "Notification sent" };
 };
