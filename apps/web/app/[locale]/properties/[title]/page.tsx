@@ -9,20 +9,25 @@ import convertImageUrl from "@/utils/convertImageUrl";
 export async function generateMetadata({
   params,
 }: {
-  params: { title: string };
+  params: { title: string; locale: string };
 }): Promise<Metadata> {
   const { title } = params;
+  const { locale } = params;
   const decodedTitle = decodeURI(title.replace(/-/g, " "));
 
   const req = new NextRequest(`${process.env.BASE_URL}/api/property/${title}`);
   const res = (await getPropertyByTitle(req)) as unknown as TProperty;
   const image = convertImageUrl(res.photos[0]);
+  const desc =
+    locale === "en"
+      ? `Book a Hamampass for ${decodedTitle}`
+      : `${decodedTitle} için rezervasyon yapın`;
 
   return {
     title: decodedTitle,
     openGraph: {
       title: decodedTitle,
-      description: `Read more about ${decodedTitle}`,
+      description: desc,
       url: `${process.env.BASE_URL}/en/properties/${title}`,
       images: [
         {
@@ -37,7 +42,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: decodedTitle,
-      description: `Read more about ${decodedTitle}`,
+      description: desc,
       images: [image],
     },
   };
