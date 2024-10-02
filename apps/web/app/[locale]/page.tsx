@@ -1,10 +1,12 @@
 import HeaderGeneral from "@/components/commons/header";
 import HomePage from "@/components/pages/home";
+import { StructuredData } from "@/utils/structuredData/home";
 
 export default function Home({ params }: any) {
   const { locale } = params;
   return (
     <main className="flex flex-col  h-svh ">
+      <StructuredData />
       <HeaderGeneral isBgNone={true} />
       <video
         autoPlay
