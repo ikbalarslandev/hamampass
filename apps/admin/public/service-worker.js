@@ -41,9 +41,8 @@ self.addEventListener("activate", async (event) => {
       try {
         const applicationServerKey = urlB64ToUint8Array(PUBLIC_KEY);
         const options = { applicationServerKey, userVisibleOnly: true };
-        const subscription = await self.registration.pushManager.subscribe(
-          options
-        );
+        const subscription =
+          await self.registration.pushManager.subscribe(options);
 
         const response = await saveSubscription(subscription);
         console.log("Subscription saved inside admin:", response);

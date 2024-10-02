@@ -5,7 +5,6 @@ const ServiceWorkerRegister = async () => {
         "/service-worker.js",
         { scope: "/" }
       );
-      console.log("Service Worker registered with scope:", registration.scope);
     } catch (error) {
       console.error("Service Worker registration failed:", error);
     }
@@ -13,7 +12,7 @@ const ServiceWorkerRegister = async () => {
 
   async function registerPermission() {
     if (Notification.permission === "granted") {
-      console.log("Notifications are allowed for this site.");
+      // console.log("Notifications are allowed for this site.");
     } else if (Notification.permission === "default") {
       await Notification.requestPermission();
     } else {
