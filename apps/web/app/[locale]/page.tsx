@@ -2,29 +2,15 @@ import HeaderGeneral from "@/components/commons/header";
 import HomePage from "@/components/pages/home";
 import { jsonLd } from "@/utils/structuredData/home";
 
-import type { Metadata } from "next";
-
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
-  const { locale } = params;
-
-  return {
-    title: "Hamampass",
-    description: "Hamampass is a platform for Turkish bath lovers.",
-    other: {
-      "application/ld+json": JSON.stringify(jsonLd(locale)),
-    },
-  };
-}
-
 export default function Home({ params }: any) {
   const { locale } = params;
 
   return (
     <main className="flex flex-col h-svh">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd(locale)) }}
+      />
       <HeaderGeneral isBgNone={true} />
       <video
         autoPlay
