@@ -4,6 +4,7 @@ import { NextRequest } from "next/server";
 import { TProperty } from "@/types";
 import HeaderGeneral from "@/components/commons/header";
 import type { Metadata } from "next";
+import convertImageUrl from "@/utils/convertImageUrl";
 
 export async function generateMetadata({
   params,
@@ -15,7 +16,7 @@ export async function generateMetadata({
 
   const req = new NextRequest(`${process.env.BASE_URL}/api/property/${title}`);
   const res = (await getPropertyByTitle(req)) as unknown as TProperty;
-  const image = res.photos[0];
+  const image = convertImageUrl(res.photos[3]);
 
   return {
     title: decodedTitle,
@@ -25,7 +26,7 @@ export async function generateMetadata({
       url: `${process.env.BASE_URL}/en/properties/${title}`,
       images: [
         {
-          url: "https://www.hamampass.com/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2F0a1e95a6-f046-4d22-a2a5-ed90ae70fe2a-4gmqtj.JPEG&w=640&q=75",
+          url: image,
           width: 1920,
           height: 1080,
           alt: `${decodedTitle} image`,
@@ -60,6 +61,7 @@ const SingleProperty = async ({ params }: any) => {
         isHome={false}
         title={decodeURI(title.replace(/-/g, " "))}
       />
+
       <SinglePropertyPage data={res} />
     </main>
   );
