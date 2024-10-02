@@ -25,7 +25,7 @@ export async function generateMetadata({
       url: `${process.env.BASE_URL}/en/properties/${title}`,
       images: [
         {
-          url: image,
+          url: "https://www.hamampass.com/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2F0a1e95a6-f046-4d22-a2a5-ed90ae70fe2a-4gmqtj.JPEG&w=640&q=75",
           width: 1920,
           height: 1080,
           alt: `${decodedTitle} image`,
