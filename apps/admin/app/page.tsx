@@ -4,6 +4,7 @@ import AdminComponent from "@/components/admin";
 import { auth } from "@/auth";
 import prisma from "@/prisma/db";
 import { TProduct } from "@/types";
+import Link from "next/link";
 
 export default async function Home() {
   const session = await auth();
@@ -21,12 +22,15 @@ export default async function Home() {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center mb-6">
       <Header />
       <AdminComponent
         title={property?.title || ""}
         products={sortedProducts as unknown as TProduct[]}
       />
+      <Link href="/booking" className="my-5">
+        Bookings
+      </Link>
       <SignOut />
     </div>
   );
