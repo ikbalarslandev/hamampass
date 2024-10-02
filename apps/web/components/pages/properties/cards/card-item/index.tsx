@@ -27,7 +27,7 @@ const CardItem = ({ property }: { property: TProperty }) => {
     const convertedTitle = encodeURIComponent(
       property.title.replace(/ /g, "-")
     );
-    router.push(`/${locale}/${convertedTitle}`);
+    router.push(`/${locale}/properties/${convertedTitle}`);
   };
 
   useEffect(() => {

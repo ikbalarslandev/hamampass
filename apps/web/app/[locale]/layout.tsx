@@ -18,7 +18,7 @@ const inter = Inter({ subsets: ["latin"] });
 const locales = ["en", "tr"];
 
 export const metadata: Metadata = {
-  title: "Hamampass",
+  title: { default: "Hamampass", template: "%s | Hamampass" },
   description: "Hamampass is a platform for Turkish bath lovers.",
 };
 
