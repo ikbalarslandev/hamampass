@@ -245,7 +245,7 @@ model Admin {
   id       String @id @default(uuid())
   password String
 
-  subscription Json?
+  subscriptions Json[]  @default([])
   property     Property @relation(fields: [propertyId], references: [id])
   propertyId   String   @unique
 }
