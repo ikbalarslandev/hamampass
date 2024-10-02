@@ -11,12 +11,19 @@ const saveSub = async (req: NextRequest) => {
   const propertyId = session.user.propertyId;
   const body = await req.json();
 
+  const admin = await prisma.admin.findFirst({
+    where: {
+      propertyId,
+    },
+  });
+  const prevSubs = admin?.subscriptions || [];
+
   const updatedAdmin = await prisma.admin.update({
     where: {
       propertyId,
     },
     data: {
-      subscription: body.subscription,
+      subscriptions: [...prevSubs, body.subscription],
     },
   });
 
