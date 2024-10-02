@@ -16,7 +16,7 @@ export async function generateMetadata({
 
   const req = new NextRequest(`${process.env.BASE_URL}/api/property/${title}`);
   const res = (await getPropertyByTitle(req)) as unknown as TProperty;
-  const image = convertImageUrl(res.photos[3]);
+  const image = convertImageUrl(res.photos[0]);
 
   return {
     title: decodedTitle,
