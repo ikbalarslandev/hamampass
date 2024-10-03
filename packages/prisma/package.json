@@ -1,0 +1,22 @@
+{
+  "name": "@hamampass/db",
+  "version": "1.0.0",
+  "description": "the prisma client for hamampass project",
+  "main": "client.ts",
+  "scripts": {
+    "postinstall": "prisma generate"
+  },
+  "keywords": [
+    "prisma",
+    "db",
+    "postgresql"
+  ],
+  "author": "ikbal arslan",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^5.20.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.20.0"
+  }
+}

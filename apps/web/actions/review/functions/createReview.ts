@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import prisma from "@/prisma/db";
+import prisma from "@hamampass/db";
 
 const createReview = async (req: NextRequest) => {
   const { rate, comment, bookingId, propertyId } = await req.json();

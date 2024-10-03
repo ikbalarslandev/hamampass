@@ -1,4 +1,4 @@
-import prisma from "@/prisma/db";
+import prisma from "@hamampass/db";
 
 const getCountries = async () => {
   const countries = await prisma.country.findMany();

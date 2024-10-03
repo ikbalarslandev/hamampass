@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import prisma from "@/prisma/db";
+import prisma from "@hamampass/db";
 
 const createUser = async (req: NextRequest) => {
   const { name, email, image, nationality, age_range, gender } =

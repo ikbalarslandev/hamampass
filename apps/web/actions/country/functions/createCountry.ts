@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import prisma from "@/prisma/db";
+import prisma from "@hamampass/db";
 
 const createCountry = async (req: NextRequest) => {
   const { tld, name_tr, name_en, image } = await req.json();

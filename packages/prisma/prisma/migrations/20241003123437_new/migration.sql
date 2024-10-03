@@ -112,7 +112,6 @@ CREATE TABLE "Review" (
     "rateObj" JSONB NOT NULL,
     "rate" DOUBLE PRECISION NOT NULL,
     "comment" TEXT NOT NULL,
-    "propertyId" TEXT NOT NULL,
     "bookingId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
@@ -139,7 +138,8 @@ CREATE TABLE "User" (
 -- CreateTable
 CREATE TABLE "Admin" (
     "id" TEXT NOT NULL,
-    "userId" TEXT,
+    "password" TEXT NOT NULL,
+    "subscriptions" JSONB[] DEFAULT ARRAY[]::JSONB[],
     "propertyId" TEXT NOT NULL,
 
     CONSTRAINT "Admin_pkey" PRIMARY KEY ("id")
@@ -174,9 +174,6 @@ CREATE UNIQUE INDEX "Review_bookingId_key" ON "Review"("bookingId");
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Admin_userId_key" ON "Admin"("userId");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Admin_propertyId_key" ON "Admin"("propertyId");
 
 -- AddForeignKey
@@ -202,9 +199,6 @@ ALTER TABLE "Booking" ADD CONSTRAINT "Booking_userId_fkey" FOREIGN KEY ("userId"
 
 -- AddForeignKey
 ALTER TABLE "Review" ADD CONSTRAINT "Review_bookingId_fkey" FOREIGN KEY ("bookingId") REFERENCES "Booking"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Admin" ADD CONSTRAINT "Admin_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Admin" ADD CONSTRAINT "Admin_propertyId_fkey" FOREIGN KEY ("propertyId") REFERENCES "Property"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
