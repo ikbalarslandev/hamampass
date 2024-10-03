@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import prisma from "@/prisma/db";
+import prisma from "@hamampass/db";
 import { auth } from "@/auth";
 
 const saveSub = async (req: NextRequest) => {

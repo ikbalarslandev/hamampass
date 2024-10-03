@@ -1,4 +1,4 @@
-import prisma from "@/prisma/db";
+import prisma from "@hamampass/db";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import moment from "moment";

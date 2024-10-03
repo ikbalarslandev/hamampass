@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "prisma generate",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@hamampass/db": "workspace:*",
     "@hookform/resolvers": "^3.9.0",
     "@prisma/client": "^5.20.0",
     "@radix-ui/react-label": "^2.1.0",
