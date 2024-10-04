@@ -51,8 +51,8 @@ We're currently working on a core functionality of the app so Hamampass can be m
 - To contribute, please see our [contribution guide](https://github.com/ikbalarslandev/hamampass/blob/main/CONTRIBUTING.md).
 
 ## Flow Chart
-<img src="https://github.com/ikbalarslandev/hamampass/blob/main/apps/web/public/readme/flow.jpg" alt="Flow chart">
 
+<img src="https://github.com/ikbalarslandev/hamampass/blob/main/apps/web/public/readme/flow.jpg" alt="Flow chart">
 
 ## Tech Stack
 
@@ -116,3 +116,5 @@ This work is licensed under a
 [Creative Commons Attribution-NonCommercial 4.0 International License][cc-by-nc].
 
 [cc-by-nc]: https://creativecommons.org/licenses/by-nc/4.0/
+
+.
