@@ -2,6 +2,7 @@
   "name": "hamampass",
   "private": true,
   "scripts": {
+    "postinstall": "pnpm -v",
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
