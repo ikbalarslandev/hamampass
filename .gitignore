@@ -28,6 +28,9 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+!packages/prisma/.env
+!apps/web/.env
+!apps/admin/.env
 
 # vercel
 .vercel
