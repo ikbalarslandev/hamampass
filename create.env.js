@@ -17,5 +17,3 @@ VAPID_PRIVATE_KEY=${process.env.VAPID_PRIVATE_KEY}
 fs.writeFileSync(path.resolve(__dirname, ".env"), envContent.trim(), {
   encoding: "utf8",
 });
-
-console.log(".env file created successfully.");

@@ -2,7 +2,7 @@
   "name": "hamampass",
   "private": true,
   "scripts": {
-    "prebuild": "node create.env.js",
+    "prebuild": "node create.env.js && cat .env",
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
