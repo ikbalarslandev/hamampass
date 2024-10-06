@@ -1,0 +1,24 @@
+{
+    "version": 2,
+    "projects": {
+      "web": {
+        "src": "apps/web/next.config.js",
+        "use": "@vercel/next",
+        "installCommand": "npm i -g pnpm@latest && pnpm install --filter ",
+        "buildCommand": "pnpm build ",
+        "outputDirectory": "apps/web/.next"
+      },
+      "admin": {
+        "src": "apps/admin/next.config.js",
+        "use": "@vercel/next",
+        "installCommand": "pnpm install --filter apps/admin...",
+        "buildCommand": "pnpm build --filter apps/admin...",
+        "outputDirectory": "apps/admin/.next"
+      }
+    },
+    "routes": [
+      { "src": "/(.*)", "dest": "/apps/web/$1", "headers": { "x-nextjs-app": "web" } },
+      { "src": "/admin/(.*)", "dest": "/apps/admin/$1", "headers": { "x-nextjs-app": "admin" } }
+    ]
+  }
+  
