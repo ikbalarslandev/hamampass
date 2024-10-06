@@ -2,10 +2,10 @@
     "version": 2,
     "projects": {
       "web": {
-        "src": "apps/web/next.config.js",
+        "src": "apps/web/next.config.mjs",
         "use": "@vercel/next",
-        "installCommand": "npm i -g pnpm@latest && pnpm install --filter ",
-        "buildCommand": "pnpm build ",
+        "installCommand": "npm i -g pnpm@latest && pnpm i ",
+        "buildCommand": "pnpm run build ",
         "outputDirectory": "apps/web/.next"
       },
       "admin": {
