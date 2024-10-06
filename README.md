@@ -117,4 +117,4 @@ This work is licensed under a
 
 [cc-by-nc]: https://creativecommons.org/licenses/by-nc/4.0/
 
-.
+
