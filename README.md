@@ -116,5 +116,3 @@ This work is licensed under a
 [Creative Commons Attribution-NonCommercial 4.0 International License][cc-by-nc].
 
 [cc-by-nc]: https://creativecommons.org/licenses/by-nc/4.0/
-
-.
