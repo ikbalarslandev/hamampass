@@ -2,7 +2,7 @@ import Header from "@/components/commons/header";
 import { SignOut } from "@/components/auth/logout";
 import AdminComponent from "@/components/admin";
 import { auth } from "@/auth";
-import prisma from "@/prisma/db";
+import prisma from "@hamampass/db";
 import { TProduct } from "@/types";
 import Link from "next/link";
 

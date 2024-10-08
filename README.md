@@ -51,8 +51,8 @@ We're currently working on a core functionality of the app so Hamampass can be m
 - To contribute, please see our [contribution guide](https://github.com/ikbalarslandev/hamampass/blob/main/CONTRIBUTING.md).
 
 ## Flow Chart
-<img src="https://github.com/ikbalarslandev/hamampass/blob/main/apps/web/public/readme/flow.jpg" alt="Flow chart">
 
+<img src="https://github.com/ikbalarslandev/hamampass/blob/main/apps/web/public/readme/flow.jpg" alt="Flow chart">
 
 ## Tech Stack
 
@@ -107,6 +107,8 @@ git clone https://github.com/<your-username>/hamampass
 6. Run `npm run dev` in the root directory to start
 
 ---
+
+hello hello
 
 ## Repo Activity
 

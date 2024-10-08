@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import prisma from "@/prisma/db";
+import prisma from "@hamampass/db";
 
 const createManyCountries = async (req: NextRequest) => {
   const countries = await req.json();

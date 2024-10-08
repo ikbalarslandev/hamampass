@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import prisma from "@/prisma/db";
+import prisma from "@hamampass/db";
 import {
   filterByKeys,
   filterByAmenity,

@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import prisma from "@/prisma/db";
+import prisma from "@hamampass/db";
 import { auth } from "@/auth";
 
 const saveSub = async (req: NextRequest) => {
@@ -11,19 +11,19 @@ const saveSub = async (req: NextRequest) => {
   const propertyId = session.user.propertyId;
   const body = await req.json();
 
-  const admin = await prisma.admin.findFirst({
+  const admin = await prisma.admin.findUnique({
     where: {
       propertyId,
     },
   });
-  const prevSubs = admin?.subscriptions || [];
+  const previousSubs = admin?.subscriptions || [];
 
   const updatedAdmin = await prisma.admin.update({
     where: {
       propertyId,
     },
     data: {
-      subscriptions: [...prevSubs, body.subscription],
+      subscriptions: [...previousSubs, body.subscription],
     },
   });
 

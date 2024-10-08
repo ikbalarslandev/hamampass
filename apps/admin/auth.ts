@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import prisma from "@/prisma/db";
+import prisma from "@hamampass/db";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
