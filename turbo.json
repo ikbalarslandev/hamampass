@@ -1,29 +1,16 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "ui": "tui",
   "tasks": {
     "build": {
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
-    },
-    "lint": {
-      "dependsOn": ["^lint"]
-    },
-    "dev": {
-      "cache": false,
-      "persistent": true
+      "outputs": [
+        "build/**",
+        ".vercel/**",
+        "dist/**",
+        ".next/**",
+        "!.next/cache/**"
+      ]
     }
   }
-  ,
-  "globalEnv": [
-    "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY",
-    "AUTH_SECRET",
-    "AUTH_GOOGLE_ID",
-    "AUTH_GOOGLE_SECRET",
-    "DATABASE_URL",
-    "BASE_URL",
-    "VAPID_PUBLIC_KEY",
-    "VAPID_PRIVATE_KEY"
-  ]
 }
