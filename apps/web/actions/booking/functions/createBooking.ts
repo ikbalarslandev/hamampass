@@ -41,7 +41,7 @@ const createBooking = async (req: NextRequest) => {
   await sendNotification({
     propertyId,
     desc,
-    redirectUrl: `/booking/${booking.id}`,
+    redirectUrl: `/tr/admin/${booking.id}`,
   });
 
   return booking;

@@ -1,16 +1,10 @@
 import HeaderGeneral from "@/components/commons/header";
 import HomePage from "@/components/pages/home";
-import { jsonLd } from "@/utils/structuredData/home";
 
 export default function Home({ params }: any) {
   const { locale } = params;
-
   return (
-    <main className="flex flex-col h-svh">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd(locale)) }}
-      />
+    <main className="flex flex-col  h-svh ">
       <HeaderGeneral isBgNone={true} />
       <video
         autoPlay

@@ -3,15 +3,8 @@
 import Image from "next/image";
 import { Turn as Hamburger } from "hamburger-react";
 import Register from "@/components/Register";
-import { useSession } from "next-auth/react";
-import { useEffect } from "react";
 
 const Header = () => {
-  const { data: session } = useSession();
-  useEffect(() => {
-    localStorage.setItem("propertyId", session?.user?.propertyId || "");
-  }, [session]);
-
   return (
     <header
       className={`flex items-center justify-center bg-cyan-600 text-white w-full h-[7vh] sticky top-0 z-50 `}

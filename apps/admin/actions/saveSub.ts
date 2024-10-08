@@ -16,6 +16,7 @@ const saveSub = async (req: NextRequest) => {
       propertyId,
     },
   });
+
   const previousSubs = admin?.subscriptions || [];
 
   const updatedAdmin = await prisma.admin.update({

@@ -22,9 +22,9 @@ const sendNotification = async ({
     },
   });
 
-  const subscriptions =
+  const subscription =
     admin?.subscriptions as unknown as webpush.PushSubscription[];
-  if (!subscriptions) return { error: "No subscription found" };
+  if (!subscription) return { error: "No subscription found" };
 
   // for of loop for subscription array
   for (const item of subscription) {
@@ -32,9 +32,6 @@ const sendNotification = async ({
     webpush.sendNotification(item, payload);
   }
 
-  for (const subscription of subscriptions) {
-    webpush.sendNotification(subscription, payload);
-  }
   return { message: "Notification sent" };
 };
 
