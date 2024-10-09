@@ -2,7 +2,7 @@
 
 import { TProduct, TProperty } from "@/types";
 import DrawerComponent from "./drawer";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import { convertProductIcon } from "@/utils/icon_translations";
 
 interface Props {

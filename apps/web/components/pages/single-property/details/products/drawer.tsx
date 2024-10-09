@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/drawer";
 import React from "react";
 import { TProduct, TProperty } from "@/types";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import { useParams } from "next/navigation";
 import { GoDotFill } from "react-icons/go";
 import { productPrototypes } from "@/utils/prototypes";

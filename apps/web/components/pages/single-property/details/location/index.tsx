@@ -1,5 +1,5 @@
 import { TContact } from "@/types";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsCopy } from "react-icons/bs";

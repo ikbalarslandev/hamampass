@@ -1,6 +1,6 @@
 import { Progress } from "@/components/ui/progress";
 import { TRating } from "@/types";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 
 interface TProgress {
   data: number;

@@ -1,6 +1,6 @@
 import { TReview } from "@/types";
 import ReviewsCard from "./card";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 
 const ReviewsDrawerContent = ({ reviews }: { reviews: TReview[] }) => {
   const t = useTranslations("single.review");

@@ -7,7 +7,7 @@ import "moment/locale/tr";
 import "moment/locale/en-gb";
 import { IoStar } from "react-icons/io5";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import { convertAgeRange } from "@/utils/db_translations";
 import { request } from "@/services/axios";
 import { useParams } from "next/navigation";
