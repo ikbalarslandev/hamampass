@@ -1,4 +1,4 @@
-import createNextIntlPlugin from "next-intl/plugin";
+import createNextIntlPlugin from "@hamampass/i18n/lib/plugin.js";
 
 const withNextIntl = createNextIntlPlugin();
 
