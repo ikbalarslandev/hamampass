@@ -2,6 +2,7 @@
   "name": "hamampass",
   "private": true,
   "scripts": {
+    "postinstall": "node create.env.js",
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
