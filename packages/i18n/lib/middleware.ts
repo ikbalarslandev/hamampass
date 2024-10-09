@@ -1,6 +1,5 @@
 // @hamampass/i18n/lib/mid.js
 import createMiddleware from "next-intl/middleware";
-console.log("createMiddleware:", createMiddleware);
 
 // Define the middleware configuration
 const i18nMiddleware = createMiddleware({

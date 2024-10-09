@@ -204,9 +204,6 @@ importers:
       next-auth:
         specifier: 5.0.0-beta.20
         version: 5.0.0-beta.20(next@14.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
-      next-intl:
-        specifier: ^3.20.0
-        version: 3.20.0(next@14.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       ramda:
         specifier: ^0.30.1
         version: 0.30.1

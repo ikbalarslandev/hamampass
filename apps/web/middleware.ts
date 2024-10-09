@@ -1,4 +1,4 @@
-import i18nMiddleware from "@hamampass/i18n/lib/mid";
+import i18nMiddleware from "@hamampass/i18n/lib/middleware";
 
 export default i18nMiddleware;
 
