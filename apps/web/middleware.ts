@@ -1,4 +1,4 @@
-import { createMiddleware } from "@hamampass/i18n";
+import createMiddleware from "next-intl/middleware";
 
 export default createMiddleware({
   // A list of all locales that are supported
