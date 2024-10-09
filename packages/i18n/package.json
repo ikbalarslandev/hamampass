@@ -9,5 +9,10 @@
   "module": "./lib/index.mjs",
   "files": [
     "locales"
-  ]
+  ],
+  "dependencies": {
+    "next": "14.2.5",
+    "next-intl": "^3.20.0",
+    "react": "^18.3.1"
+  }
 }
