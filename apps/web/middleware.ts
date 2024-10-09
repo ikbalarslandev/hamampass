@@ -1,12 +1,6 @@
-import createMiddleware from "@hamampass/i18n/node_modules/next-intl/middleware";
+import i18nMiddleware from "@hamampass/i18n/lib/mid.mjs";
 
-export default createMiddleware({
-  // A list of all locales that are supported
-  locales: ["en", "tr"],
-
-  // Used when no locale matches
-  defaultLocale: "en",
-});
+export default i18nMiddleware;
 
 export const config = {
   // Match only internationalized pathnames
