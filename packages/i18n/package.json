@@ -1,0 +1,13 @@
+{
+  "name": "@hamampass/i18n",
+  "type": "module",
+  ".": {
+    "types": "./dist/index.d.mts",
+    "default": "./lib/index.mjs"
+  },
+  "main": "./lib/index.mjs",
+  "module": "./lib/index.mjs",
+  "files": [
+    "locales"
+  ]
+}
