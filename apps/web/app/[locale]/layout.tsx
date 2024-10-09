@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import LocaleProvider from "@/providers/localeProvider";
+import LocaleProvider from "@hamampass/i18n/lib/localeProvider";
 
 const ReduxProvider = dynamic(() => import("@/lib/store/redux-provider"), {
   ssr: false,
