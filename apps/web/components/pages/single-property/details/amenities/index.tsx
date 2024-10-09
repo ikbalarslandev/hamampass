@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 
 import { FaGreaterThan } from "react-icons/fa";
 import DrawerGeneral from "@/components/commons/drawer";

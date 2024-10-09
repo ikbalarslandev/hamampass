@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Slider from "./image-slider";
 import { CiLocationOn } from "react-icons/ci";
 import { TProperty } from "@/types";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import DetailsComponent from "./details";
 import { IoStar } from "react-icons/io5";
 import { FaTurkishLiraSign } from "react-icons/fa6";

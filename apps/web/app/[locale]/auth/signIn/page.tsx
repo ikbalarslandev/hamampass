@@ -3,7 +3,7 @@
 import FormComponent from "@/components/pages/profile/form";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 
 const SignIn = () => {
   const { data } = useSession();

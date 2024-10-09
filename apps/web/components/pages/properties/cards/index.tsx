@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 
 import { request } from "@/services/axios";
 import { TProperty } from "@/types";

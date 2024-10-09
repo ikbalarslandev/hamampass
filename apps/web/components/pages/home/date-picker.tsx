@@ -29,7 +29,7 @@ import { useParams } from "next/navigation";
 import moment from "moment";
 import "moment/locale/tr"; // Import Turkish locale for moment
 import "moment/locale/en-gb"; // Import English locale for moment
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import { tr, enUS } from "date-fns/locale";
 
 const FormSchema = z.object({

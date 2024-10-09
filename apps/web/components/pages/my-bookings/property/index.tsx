@@ -11,7 +11,7 @@ import DrawerGeneral from "@/components/commons/drawer";
 import BookingContent from "./booking-drawer-content";
 import { DeleteDialog } from "./delete-dialog";
 import ReviewButton from "../review";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 
 const PropertyPartTrigger = ({ booking }: { booking: TBooking }) => {
   return (

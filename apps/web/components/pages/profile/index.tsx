@@ -5,7 +5,7 @@ import InfoComponent from "./info";
 import { TSessionUser, TUser } from "@/types";
 import { useSession, getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 
 const ProfilePageComponent = () => {
   const [user, setUser] = useState<TUser | TSessionUser>();

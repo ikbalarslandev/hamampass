@@ -2,7 +2,7 @@ import { TBooking } from "@/types";
 import { Separator } from "@/components/ui/separator";
 import moment from "moment";
 import { LuUsers2 } from "react-icons/lu";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 
 const BookingContent = ({ booking }: { booking: TBooking }) => {
   const products = booking.products;

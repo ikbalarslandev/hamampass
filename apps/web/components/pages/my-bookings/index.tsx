@@ -8,7 +8,7 @@ import DrawerGeneral from "@/components/commons/drawer";
 import { PropertyPartContent, PropertyPartTrigger } from "./property";
 import moment from "moment";
 import ReviewButton from "./review";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 
 const MyBookingsPage = () => {
   const { data } = useSession();

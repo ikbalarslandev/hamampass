@@ -24,7 +24,7 @@ import {
 import { useRouter } from "next/navigation";
 import { useSession, getSession } from "next-auth/react";
 import { useToast } from "@/components/ui/use-toast";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";

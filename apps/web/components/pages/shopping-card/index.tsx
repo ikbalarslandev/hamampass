@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useParams, useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
 import { Separator } from "@/components/ui/separator";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import { useSession } from "next-auth/react";
 import { request } from "@/services/axios";
 import { toast } from "@/components/ui/use-toast";

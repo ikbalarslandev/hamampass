@@ -1,6 +1,6 @@
 import JsxParser from "react-jsx-parser";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import DrawerGeneral from "@/components/commons/drawer";
 
 const AboutComponent = ({ desc }: any) => {

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 
 import CheckboxComponent from "../checkbox";
 import {

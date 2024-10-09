@@ -20,7 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import { DrawerClose } from "@/components/ui/drawer";
 import ProgressComponent from "./progress";
 import { useEffect, useState, useTransition } from "react";

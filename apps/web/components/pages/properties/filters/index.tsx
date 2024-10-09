@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, ChangeEvent } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import { useSearchParams } from "next/navigation";
 
 import { IoSearchSharp } from "react-icons/io5";

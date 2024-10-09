@@ -3,7 +3,7 @@ import { useParams } from "next/navigation";
 import LocaleSwitcher from "./locale-switcher";
 import { useSession } from "next-auth/react";
 import { signIn } from "next-auth/react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import { useState, useEffect } from "react";
 import { request } from "@/services/axios";
 import moment from "moment";

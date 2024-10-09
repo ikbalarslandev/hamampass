@@ -2,7 +2,7 @@ import { TBooking } from "@/types";
 import { Separator } from "@/components/ui/separator";
 import { FaHotel } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import { convertAgeRange } from "@/utils/db_translations";
 
 // always 5 star num count is cyan-500 rest is gray-500

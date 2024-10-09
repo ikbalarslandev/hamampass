@@ -1,6 +1,6 @@
 import React from "react";
 import { TProperty } from "@/types";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import DrawerGeneral from "@/components/commons/drawer";
 
 interface IBookButton {

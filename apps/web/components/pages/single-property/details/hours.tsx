@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import { THour } from "@/types";
 import { FaRegClock } from "react-icons/fa";
 import { checkIsWeekDay } from "@/utils/db_translations";

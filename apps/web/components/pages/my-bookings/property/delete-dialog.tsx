@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { TBooking } from "@/types";
 import moment from "moment";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 import { toast } from "@/components/ui/use-toast";
 import { request } from "@/services/axios";
 

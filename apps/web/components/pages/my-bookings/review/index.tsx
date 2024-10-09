@@ -3,7 +3,7 @@ import DrawerGeneral from "@/components/commons/drawer";
 import { FaAngleRight, FaStar } from "react-icons/fa";
 import ReviewFormComponent from "./review-form";
 import ReviewInfo from "./review-info";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@hamampass/i18n";
 
 const ReviewButton = ({
   className,
