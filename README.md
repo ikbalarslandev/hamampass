@@ -108,8 +108,6 @@ git clone https://github.com/<your-username>/hamampass
 
 ---
 
-hello hello
-
 ## Repo Activity
 
 ![Repository Activity](https://repobeats.axiom.co/api/embed/ae2915b25357dd085de08a32e539e8321b17ac65.svg)
