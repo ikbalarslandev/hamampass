@@ -117,6 +117,9 @@ importers:
       '@hamampass/i18n':
         specifier: workspace:*
         version: link:../../packages/i18n
+      '@hamampass/tailwind-config':
+        specifier: workspace:*
+        version: link:../../packages/tailwind-config
       '@hamampass/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -315,6 +318,16 @@ importers:
       prisma:
         specifier: ^5.20.0
         version: 5.20.0
+
+  packages/tailwind-config:
+    dependencies:
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.13)
+    devDependencies:
+      tailwindcss:
+        specifier: ^3.4.13
+        version: 3.4.13
 
   packages/ui:
     dependencies:

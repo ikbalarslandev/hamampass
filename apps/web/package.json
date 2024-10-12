@@ -12,6 +12,7 @@
     "@hamampass/db": "workspace:*",
     "@hamampass/i18n": "workspace:*",
     "@hamampass/ui": "workspace:*",
+    "@hamampass/tailwind-config": "workspace:*",
     "@hookform/resolvers": "^3.9.0",
     "@prisma/client": "^5.20.0",
     "@radix-ui/react-accordion": "^1.2.0",
