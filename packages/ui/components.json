@@ -13,6 +13,6 @@
   "aliases": {
     "components": "@hamampass/ui/components",
     "ui": "@hamampass/ui/primitives",
-    "utils": "@hamampass/ui/lib/config/utils"
+    "utils": "@hamampass/ui/lib/config/utils.ts"
   }
 }
