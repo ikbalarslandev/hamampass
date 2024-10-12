@@ -1,0 +1,35 @@
+{
+  "name": "@hamampass/ui",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "ui": "pnpm dlx shadcn@latest",
+    "lint": "eslint ."
+  },
+  "peerDependencies": {
+    "react": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "autoprefixer": "^10",
+    "postcss": "^8",
+    "postcss-load-config": "^6",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.395.0",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "exports": {
+    "./theme.css": "./lib/styles/theme.css",
+    "./postcss.config": "./lib/config/postcss.config.mjs",
+    "./tailwind.config": "./lib/config/tailwind.config.ts",
+    "./primitives/*": "./primitives/*.tsx"
+  }
+}
