@@ -1,5 +1,6 @@
 import HeaderGeneral from "@/components/commons/header";
 import HomePage from "@/components/pages/home";
+import { Button } from "@hamampass/ui/primitives/button.tsx";
 
 export default function Home({ params }: any) {
   const { locale } = params;
