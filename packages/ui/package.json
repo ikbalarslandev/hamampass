@@ -19,7 +19,7 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.395.0",
@@ -27,9 +27,6 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "exports": {
-    "./theme.css": "./lib/styles/theme.css",
-    "./postcss.config": "./lib/config/postcss.config.mjs",
-    "./tailwind.config": "./lib/config/tailwind.config.ts",
-    "./primitives/*": "./primitives/*.tsx"
+    "./*": "./*"
   }
 }
