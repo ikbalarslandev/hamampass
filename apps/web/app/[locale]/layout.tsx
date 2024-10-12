@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
-import "./globals.css";
+import "@hamampass/ui/lib/styles/theme.css";
 import { SessionProvider } from "next-auth/react";
 import dynamic from "next/dynamic";
 import { Toaster } from "@/components/ui/toaster";
