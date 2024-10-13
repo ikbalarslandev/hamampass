@@ -13,7 +13,7 @@ import {
   FormMessage,
   FormControl,
 } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
+import { Button } from "@hamampass/ui/primitives/button.tsx";
 import {
   Select,
   SelectContent,

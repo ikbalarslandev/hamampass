@@ -6,7 +6,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@hamampass/ui/primitives/accordion.tsx";
 import { useTranslations } from "@hamampass/i18n";
 
 const sexData = [1, 2, 3, 4];

@@ -1,6 +1,6 @@
 import { TUser } from "@/types";
 import { signOut } from "next-auth/react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@hamampass/ui/primitives/button.tsx";
 import { convertAgeRange } from "@/utils/db_translations";
 import { useTranslations } from "@hamampass/i18n";
 import { useState, useEffect } from "react";

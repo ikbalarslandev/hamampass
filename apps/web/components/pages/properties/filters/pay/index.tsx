@@ -5,7 +5,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@hamampass/ui/primitives/accordion.tsx";
 import { useTranslations } from "@hamampass/i18n";
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";

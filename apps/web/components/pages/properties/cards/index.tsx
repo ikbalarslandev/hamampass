@@ -5,7 +5,7 @@ import { useTranslations } from "@hamampass/i18n";
 import { request } from "@/services/axios";
 import { TProperty } from "@/types";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@hamampass/ui/primitives/button.tsx";
 import CardItem from "@/components/pages/properties/cards/card-item";
 import { useSelector } from "react-redux";
 import { useFetchProperties } from "@/hooks/useFetchProperties";

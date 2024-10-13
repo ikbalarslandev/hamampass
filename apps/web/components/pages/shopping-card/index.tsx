@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import moment from "moment";
-import { Button } from "@/components/ui/button";
+import { Button } from "@hamampass/ui/primitives/button.tsx";
 import { useParams, useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
 import { Separator } from "@/components/ui/separator";

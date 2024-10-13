@@ -7,8 +7,8 @@ import { z } from "zod";
 import { useState, useEffect } from "react";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
+import { Button } from "@hamampass/ui/primitives/button.tsx";
+import { Calendar } from "@hamampass/ui/primitives/calendar.tsx";
 import {
   Form,
   FormControl,
