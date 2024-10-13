@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useState, useEffect } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@hamampass/ui/lib/config/utils.ts";
 import { Button } from "@hamampass/ui/primitives/button.tsx";
 import { Calendar } from "@hamampass/ui/primitives/calendar.tsx";
 import {
