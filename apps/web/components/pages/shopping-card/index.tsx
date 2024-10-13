@@ -5,7 +5,7 @@ import moment from "moment";
 import { Button } from "@hamampass/ui/primitives/button.tsx";
 import { useParams, useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@hamampass/ui/primitives/separator.tsx";
 import { useTranslations } from "@hamampass/i18n";
 import { useSession } from "next-auth/react";
 import { request } from "@/services/axios";

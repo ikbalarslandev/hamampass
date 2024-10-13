@@ -3,7 +3,7 @@ import moment from "moment";
 import Image from "next/image";
 import { CiCalendar, CiHome, CiMap, CiPhone } from "react-icons/ci";
 import { IoLocation } from "react-icons/io5";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@hamampass/ui/primitives/separator.tsx";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { LuCalendarOff } from "react-icons/lu";

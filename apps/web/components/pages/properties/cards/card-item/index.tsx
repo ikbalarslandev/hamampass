@@ -4,7 +4,7 @@ import Image from "next/image";
 import { TProperty } from "@/types";
 import { photos } from "@/mock/photos";
 import { IoStar } from "react-icons/io5";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@hamampass/ui/primitives/separator.tsx";
 import { useState, useEffect } from "react";
 import {
   Carousel,

@@ -20,7 +20,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@hamampass/ui/primitives/select.tsx";
 import { useRouter } from "next/navigation";
 import { useSession, getSession } from "next-auth/react";
 import { useToast } from "@/components/ui/use-toast";

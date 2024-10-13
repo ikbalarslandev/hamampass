@@ -5,7 +5,7 @@ import {
   ChartConfig,
   ChartContainer,
 } from "@hamampass/ui/primitives/chart.tsx";
-import RangeSlider from "@/components/ui/range-slider";
+import RangeSlider from "@hamampass/ui/primitives/range-slider.tsx";
 import React, { use, useEffect, useState } from "react";
 import MinMax from "./min-max";
 import { request } from "@/services/axios";

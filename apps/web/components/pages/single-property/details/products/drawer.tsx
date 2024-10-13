@@ -20,7 +20,7 @@ import moment from "moment";
 import { useEffect } from "react";
 import "moment/locale/tr";
 import "moment/locale/en-gb";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@hamampass/ui/primitives/separator.tsx";
 import CounterComponent from "./counter";
 import { Button } from "@hamampass/ui/primitives/button.tsx";
 import { useState } from "react";

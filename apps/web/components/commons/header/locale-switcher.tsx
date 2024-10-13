@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@hamampass/ui/primitives/select.tsx";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 

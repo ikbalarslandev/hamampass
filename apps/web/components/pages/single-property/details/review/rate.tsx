@@ -1,4 +1,4 @@
-import { Progress } from "@/components/ui/progress";
+import { Progress } from "@hamampass/ui/primitives/progress.tsx";
 import { TRating } from "@/types";
 import { useTranslations } from "@hamampass/i18n";
 

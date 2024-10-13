@@ -1,5 +1,5 @@
 import { TBooking } from "@/types";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@hamampass/ui/primitives/separator.tsx";
 import { FaHotel } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { useTranslations } from "@hamampass/i18n";

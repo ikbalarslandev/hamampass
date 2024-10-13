@@ -1,5 +1,5 @@
 import { TBooking } from "@/types";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@hamampass/ui/primitives/separator.tsx";
 import moment from "moment";
 import { LuUsers2 } from "react-icons/lu";
 import { useTranslations } from "@hamampass/i18n";

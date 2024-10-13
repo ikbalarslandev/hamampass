@@ -1,4 +1,4 @@
-import { Slider } from "@/components/ui/slider";
+import { Slider } from "@hamampass/ui/primitives/slider.tsx";
 import { Controller } from "react-hook-form";
 
 interface ProgressComponentProps {

@@ -22,7 +22,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@hamampass/ui/primitives/popover.tsx";
 import { startOfDay } from "date-fns";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";

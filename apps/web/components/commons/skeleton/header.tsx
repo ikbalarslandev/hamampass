@@ -1,4 +1,4 @@
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@hamampass/ui/primitives/skeleton.tsx";
 
 const SkeletonHeader = () => {
   return (

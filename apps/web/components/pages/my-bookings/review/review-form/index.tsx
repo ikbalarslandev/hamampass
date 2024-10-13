@@ -12,14 +12,14 @@ import {
   FormMessage,
 } from "@hamampass/ui/primitives/form.tsx";
 import { useSession, getSession } from "next-auth/react";
-import { Textarea } from "@/components/ui/textarea";
+import { Textarea } from "@hamampass/ui/primitives/textarea.tsx";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@hamampass/ui/primitives/select.tsx";
 import { useTranslations } from "@hamampass/i18n";
 import { DrawerClose } from "@hamampass/ui/primitives/drawer.tsx";
 import ProgressComponent from "./progress";
