@@ -10,7 +10,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "@/components/ui/carousel";
+} from "@hamampass/ui/primitives/carousel.tsx";
 import DisplayAmenityIcon from "@/components/commons/display-amenity-icon";
 import HeartComponent from "./heart";
 

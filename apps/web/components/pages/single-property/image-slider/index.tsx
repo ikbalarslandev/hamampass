@@ -3,7 +3,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "@/components/ui/carousel";
+} from "@hamampass/ui/primitives/carousel.tsx";
 import { photos } from "@/mock/photos";
 import GaleryDrawer from "./drawer";
 

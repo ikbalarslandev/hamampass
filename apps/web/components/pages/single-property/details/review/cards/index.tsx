@@ -1,4 +1,7 @@
-import { Carousel, CarouselContent } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+} from "@hamampass/ui/primitives/carousel.tsx";
 
 import CarouselCardItem from "./carousel-item";
 import { TReview } from "@/types";

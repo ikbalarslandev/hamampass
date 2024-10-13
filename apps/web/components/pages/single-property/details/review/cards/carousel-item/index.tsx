@@ -1,4 +1,4 @@
-import { CarouselItem } from "@/components/ui/carousel";
+import { CarouselItem } from "@hamampass/ui/primitives/carousel.tsx";
 import Image from "next/image";
 import { IoStar } from "react-icons/io5";
 
