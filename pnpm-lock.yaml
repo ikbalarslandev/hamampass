@@ -117,9 +117,6 @@ importers:
       '@hookform/resolvers':
         specifier: ^3.9.0
         version: 3.9.0(react-hook-form@7.53.0(react@18.3.1))
-      '@prisma/client':
-        specifier: ^5.20.0
-        version: 5.20.0(prisma@5.20.0)
       '@radix-ui/react-accordion':
         specifier: ^1.2.0
         version: 1.2.1(@types/react-dom@18.3.0)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -277,9 +274,6 @@ importers:
       postcss:
         specifier: ^8.4.47
         version: 8.4.47
-      prisma:
-        specifier: ^5.20.0
-        version: 5.20.0
       tailwindcss:
         specifier: ^3.4.13
         version: 3.4.13
