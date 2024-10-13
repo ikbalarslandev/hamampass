@@ -4,7 +4,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsCopy } from "react-icons/bs";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@hamampass/ui/primitives/hooks/use-toast.ts";
 import DrawerGeneral from "@/components/commons/drawer";
 import GoogleMapComponent from "@/components/pages/single-property/details/location/map";
 

@@ -25,7 +25,7 @@ import { DrawerClose } from "@hamampass/ui/primitives/drawer.tsx";
 import ProgressComponent from "./progress";
 import { useEffect, useState, useTransition } from "react";
 import { useParams } from "next/navigation";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@hamampass/ui/primitives/hooks/use-toast.ts";
 import { request } from "@/services/axios";
 import { TBooking } from "@/types";
 

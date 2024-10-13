@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "@hamampass/ui/lib/styles/theme.css";
 import { SessionProvider } from "next-auth/react";
 import dynamic from "next/dynamic";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "@hamampass/ui/primitives/toaster.tsx";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import LocaleProvider from "@hamampass/i18n/lib/localeProvider";

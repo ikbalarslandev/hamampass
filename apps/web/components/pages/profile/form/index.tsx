@@ -23,7 +23,7 @@ import {
 } from "@hamampass/ui/primitives/select.tsx";
 import { useRouter } from "next/navigation";
 import { useSession, getSession } from "next-auth/react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@hamampass/ui/primitives/hooks/use-toast.ts";
 import { useTranslations } from "@hamampass/i18n";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";

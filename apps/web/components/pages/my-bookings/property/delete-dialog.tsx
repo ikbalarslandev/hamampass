@@ -12,7 +12,7 @@ import {
 import { TBooking } from "@/types";
 import moment from "moment";
 import { useTranslations } from "@hamampass/i18n";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@hamampass/ui/primitives/hooks/use-toast.ts";
 import { request } from "@/services/axios";
 
 export function DeleteDialog({
