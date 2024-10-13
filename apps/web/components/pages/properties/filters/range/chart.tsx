@@ -1,7 +1,10 @@
 "use client";
 
 import { Bar, BarChart, Cell } from "recharts";
-import { ChartConfig, ChartContainer } from "@/components/ui/chart";
+import {
+  ChartConfig,
+  ChartContainer,
+} from "@hamampass/ui/primitives/chart.tsx";
 import RangeSlider from "@/components/ui/range-slider";
 import React, { use, useEffect, useState } from "react";
 import MinMax from "./min-max";

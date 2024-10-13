@@ -15,7 +15,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
   DrawerClose,
-} from "@/components/ui/drawer";
+} from "@hamampass/ui/primitives/drawer.tsx";
 import AmenityComponent from "@/components/pages/properties/filters/amenity";
 import SortComponent from "@/components/pages/properties/filters/sort";
 import SexComponent from "@/components/pages/properties/filters/sex";

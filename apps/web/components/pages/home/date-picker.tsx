@@ -17,7 +17,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "@hamampass/ui/primitives/form.tsx";
 import {
   Popover,
   PopoverContent,

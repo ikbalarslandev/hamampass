@@ -9,7 +9,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
   DrawerFooter,
-} from "@/components/ui/drawer";
+} from "@hamampass/ui/primitives/drawer.tsx";
 import React from "react";
 import { TProduct, TProperty } from "@/types";
 import { useTranslations } from "@hamampass/i18n";

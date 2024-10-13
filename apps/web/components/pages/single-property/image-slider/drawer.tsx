@@ -7,7 +7,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
+} from "@hamampass/ui/primitives/drawer.tsx";
 import Image from "next/image";
 import { useTranslations } from "@hamampass/i18n";
 

@@ -12,7 +12,7 @@ import {
   FormLabel,
   FormMessage,
   FormControl,
-} from "@/components/ui/form";
+} from "@hamampass/ui/primitives/form.tsx";
 import { Button } from "@hamampass/ui/primitives/button.tsx";
 import {
   Select,

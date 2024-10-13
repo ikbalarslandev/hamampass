@@ -10,7 +10,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "@hamampass/ui/primitives/form.tsx";
 import { useSession, getSession } from "next-auth/react";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -21,7 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useTranslations } from "@hamampass/i18n";
-import { DrawerClose } from "@/components/ui/drawer";
+import { DrawerClose } from "@hamampass/ui/primitives/drawer.tsx";
 import ProgressComponent from "./progress";
 import { useEffect, useState, useTransition } from "react";
 import { useParams } from "next/navigation";

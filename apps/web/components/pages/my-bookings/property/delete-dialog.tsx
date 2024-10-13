@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "@hamampass/ui/primitives/dialog.tsx";
 import { TBooking } from "@/types";
 import moment from "moment";
 import { useTranslations } from "@hamampass/i18n";

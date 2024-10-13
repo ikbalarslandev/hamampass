@@ -7,7 +7,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
+} from "@hamampass/ui/primitives/drawer.tsx";
 
 const DrawerGeneral = ({
   trigger,

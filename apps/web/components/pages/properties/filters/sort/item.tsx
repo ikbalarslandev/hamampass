@@ -1,5 +1,5 @@
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
+import { Checkbox } from "@hamampass/ui/primitives/checkbox.tsx";
+import { Label } from "@hamampass/ui/primitives/label.tsx";
 
 const Item = ({
   label,
