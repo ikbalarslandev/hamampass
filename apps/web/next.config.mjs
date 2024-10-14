@@ -1,4 +1,5 @@
 import createNextIntlPlugin from "@hamampass/i18n/lib/plugin.js";
+import { PrismaPlugin } from "@prisma/nextjs-monorepo-workaround-plugin";
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -14,6 +15,12 @@ const nextConfig = {
       "flagsoftheworld.info",
       "utfs.io",
     ],
+  },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.plugins = [...config.plugins, new PrismaPlugin()];
+    }
+    return config;
   },
 };
 

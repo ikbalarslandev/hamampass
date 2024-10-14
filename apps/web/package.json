@@ -11,8 +11,8 @@
   "dependencies": {
     "@hamampass/db": "workspace:*",
     "@hamampass/i18n": "workspace:*",
-    "@hamampass/ui": "workspace:*",
     "@hamampass/tailwind-config": "workspace:*",
+    "@hamampass/ui": "workspace:*",
     "@hookform/resolvers": "^3.9.0",
     "@react-google-maps/api": "^2.19.3",
     "@reduxjs/toolkit": "^2.2.7",
@@ -37,6 +37,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@prisma/nextjs-monorepo-workaround-plugin": "^5.20.0",
     "@types/moment": "^2.13.0",
     "@types/node": "^20.16.10",
     "@types/ramda": "^0.30.2",
