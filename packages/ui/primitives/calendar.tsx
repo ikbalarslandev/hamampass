@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DayPicker } from "react-day-picker";
 
 import { cn } from "@hamampass/ui/lib/config/utils.ts";
-import { buttonVariants } from "@hamampass/ui/primitives/button";
+import { buttonVariants } from "@hamampass/ui/primitives/button.tsx";
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
