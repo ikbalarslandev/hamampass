@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@hamampass/ui/primitives/button.tsx";
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "@hamampass/ui/primitives/calendar.tsx";
 import {
   Form,
   FormControl,
