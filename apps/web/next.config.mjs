@@ -1,5 +1,5 @@
 import createNextIntlPlugin from "next-intl/plugin";
-import { PrismaPlugin } from "@prisma/nextjs-monorepo-workaround-plugin";
+import { PrismaPlugin } from "@hamampass/db/node_modules/@prisma/nextjs-monorepo-workaround-plugin";
 
 // Create the withNextIntl plugin
 const withNextIntl = createNextIntlPlugin();
