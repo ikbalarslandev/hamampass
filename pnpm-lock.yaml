@@ -286,7 +286,13 @@ importers:
       '@prisma/client':
         specifier: ^5.20.0
         version: 5.20.0(prisma@5.20.0)
+      next:
+        specifier: 14.2.5
+        version: 14.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
+      '@prisma/nextjs-monorepo-workaround-plugin':
+        specifier: ^5.20.0
+        version: 5.20.0
       prisma:
         specifier: ^5.20.0
         version: 5.20.0
@@ -570,6 +576,9 @@ packages:
 
   '@prisma/get-platform@5.20.0':
     resolution: {integrity: sha512-8/+CehTZZNzJlvuryRgc77hZCWrUDYd/PmlZ7p2yNXtmf2Una4BWnTbak3us6WVdqoz5wmptk6IhsXdG2v5fmA==}
+
+  '@prisma/nextjs-monorepo-workaround-plugin@5.20.0':
+    resolution: {integrity: sha512-q0Lf7WktcApMRel4xZ6fyOZj8VF2mVRQa7C2QuqVmrutMWA3ZzFtSOADntH36Dz/UUe5ntuQaNrxJITL0r3WNA==}
 
   '@radix-ui/number@1.1.0':
     resolution: {integrity: sha512-V3gRzhVNU1ldS5XhAPTom1fOIo4ccrjjJgmE+LI2h/WaFpHmx0MQApT+KZHnx8abG6Avtfcz4WoEciMnpFT3HQ==}
@@ -3408,6 +3417,8 @@ snapshots:
   '@prisma/get-platform@5.20.0':
     dependencies:
       '@prisma/debug': 5.20.0
+
+  '@prisma/nextjs-monorepo-workaround-plugin@5.20.0': {}
 
   '@radix-ui/number@1.1.0': {}
 
