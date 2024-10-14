@@ -1,5 +1,5 @@
 import createNextIntlPlugin from "next-intl/plugin";
-import withPrisma from "@hamampass/db/prisma/withPrisma";
+import withPrisma from "@hamampass/db/prisma";
 
 const withNextIntl = createNextIntlPlugin();
 
