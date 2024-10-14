@@ -5,7 +5,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@hamampass/ui/primitives/accordion.tsx";
 import { useTranslations } from "next-intl";
 import Chart from "./chart";
 import React, { useState } from "react";
