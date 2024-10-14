@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@hamampass/ui/primitives/accordion.tsx";
 
 const AcordionTemplate = ({ title, desc }: { title: string; desc: string }) => {
   return (
