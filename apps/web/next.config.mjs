@@ -1,5 +1,5 @@
 import createNextIntlPlugin from "next-intl/plugin";
-import prismaVercelConfig from "@hamampass/db/prisma";
+import prismaVercelConfig from "@hamampass/db/prisma/index.mjs";
 
 // Create the withNextIntl plugin
 const withNextIntl = createNextIntlPlugin();
