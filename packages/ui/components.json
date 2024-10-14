@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "./lib/config/tailwind.config.ts",
+    "css": "@hamampass/ui/lib/styles/theme.css",
+    "baseColor": "zinc",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@hamampass/ui/components",
+    "ui": "@hamampass/ui/primitives",
+    "utils": "@hamampass/ui/lib/config/utils.ts",
+    "hooks": "@hamampass/ui/primitives/hooks"
+  }
+}
