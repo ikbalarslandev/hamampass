@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { request } from "@/services/axios";
 import { TProperty } from "@/types";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@hamampass/ui/primitives/button.tsx";
 import CardItem from "@/components/pages/properties/cards/card-item";
 import { useSelector } from "react-redux";
 import { useFetchProperties } from "@/hooks/useFetchProperties";

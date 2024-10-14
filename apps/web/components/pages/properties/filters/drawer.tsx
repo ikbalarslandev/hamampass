@@ -22,7 +22,7 @@ import SexComponent from "@/components/pages/properties/filters/sex";
 import PaymentMethodComponent from "@/components/pages/properties/filters/pay";
 import RangeComponent from "@/components/pages/properties/filters/range";
 import { useSelector } from "react-redux";
-import { Button } from "@/components/ui/button";
+import { Button } from "@hamampass/ui/primitives/button.tsx";
 import { useRouter } from "next/navigation";
 
 interface DrawerComponentProps {

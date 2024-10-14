@@ -22,7 +22,7 @@ import "moment/locale/tr";
 import "moment/locale/en-gb";
 import { Separator } from "@/components/ui/separator";
 import CounterComponent from "./counter";
-import { Button } from "@/components/ui/button";
+import { Button } from "@hamampass/ui/primitives/button.tsx";
 import { useState } from "react";
 
 interface DrawerComponentProps {
