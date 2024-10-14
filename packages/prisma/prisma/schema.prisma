@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "./generated/client"
 }
 
 datasource db {
@@ -74,13 +73,13 @@ datasource db {
 model Property {
   id String @id @unique @default(uuid())
 
-  title        String   @unique
+  title String @unique
   sex          Int
   outsider_sex Json[]
-  photos       String[]
-  pay          Int      @default(0)
-  desc_tr      String?
-  desc_en      String?
+  photos  String[]
+  pay     Int      @default(0)
+  desc_tr String?
+  desc_en String?
 
   admin    Admin?
   bookings Booking[]
@@ -189,7 +188,7 @@ model Product {
 }
 
 model Booking {
-  id         String   @id @unique @default(uuid())
+  id         String   @id @default(uuid()) @unique
   date       DateTime
   propertyId String
   property   Property @relation(fields: [propertyId], references: [id])
@@ -220,6 +219,7 @@ model Review {
   rate    Float
   comment String
 
+
   bookingId String  @unique
   booking   Booking @relation(fields: [bookingId], references: [id])
 
@@ -245,9 +245,9 @@ model Admin {
   id       String @id @default(uuid())
   password String
 
-  subscriptions Json[]   @default([])
-  property      Property @relation(fields: [propertyId], references: [id])
-  propertyId    String   @unique
+  subscriptions Json[]  @default([])
+  property     Property @relation(fields: [propertyId], references: [id])
+  propertyId   String   @unique
 }
 
 model Country {
