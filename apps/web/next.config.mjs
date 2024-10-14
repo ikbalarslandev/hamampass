@@ -1,5 +1,5 @@
 import createNextIntlPlugin from "next-intl/plugin";
-import { PrismaPlugin } from "@hamampass/db/node_modules/@prisma/nextjs-monorepo-workaround-plugin";
+import prismaVercelConfig from "@hamampass/db/prisma";
 
 // Create the withNextIntl plugin
 const withNextIntl = createNextIntlPlugin();
@@ -17,15 +17,7 @@ const nextConfig = {
       "utfs.io",
     ],
   },
-  webpack: (config, { isServer }) => {
-    // Add the PrismaPlugin for server-side builds
-    if (isServer) {
-      config.plugins = [...(config.plugins || []), new PrismaPlugin()];
-    }
-
-    // If there are any custom webpack modifications, return the updated config
-    return config;
-  },
+  ...prismaVercelConfig,
 };
 
 // Apply withNextIntl and export the final config
