@@ -1,7 +1,5 @@
-import createNextIntlPlugin from "@hamampass/i18n/lib/plugin.js";
-import { PrismaPlugin } from "@prisma/nextjs-monorepo-workaround-plugin";
-
-const withNextIntl = createNextIntlPlugin();
+import withNextIntl from "@hamampass/i18n/lib/plugin.js";
+import prismaVercelConfig from "@hamampass/db/prisma/index.mjs";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -16,12 +14,7 @@ const nextConfig = {
       "utfs.io",
     ],
   },
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.plugins = [...config.plugins, new PrismaPlugin()];
-    }
-    return config;
-  },
+  ...prismaVercelConfig,
 };
 
 export default withNextIntl(nextConfig);
