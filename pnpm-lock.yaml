@@ -117,6 +117,9 @@ importers:
       '@hamampass/i18n':
         specifier: workspace:*
         version: link:../../packages/i18n
+      '@hamampass/services':
+        specifier: workspace:*
+        version: link:../../packages/services
       '@hamampass/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/tailwind-config

@@ -8,7 +8,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Separator } from "@hamampass/ui/primitives/separator.tsx";
 import { useTranslations } from "@hamampass/i18n";
 import { useSession } from "next-auth/react";
-import { request } from "@/services/axios";
+import { request } from "@hamampass/services";
 import { toast } from "@hamampass/ui/primitives/hooks/use-toast.ts";
 import { useTransition } from "react";
 

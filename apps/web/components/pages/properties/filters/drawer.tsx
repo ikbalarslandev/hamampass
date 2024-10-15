@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 
 import { IoClose } from "react-icons/io5";
-import { request } from "@/services/axios";
+import { request } from "@hamampass/services";
 import { TApiResponse } from "@/types";
 
 import {

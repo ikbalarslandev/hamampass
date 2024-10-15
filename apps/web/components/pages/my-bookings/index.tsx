@@ -1,7 +1,7 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { request } from "@/services/axios";
+import { request } from "@hamampass/services";
 import { useState, useEffect } from "react";
 import { TBooking } from "@/types";
 import DrawerGeneral from "@/components/commons/drawer";

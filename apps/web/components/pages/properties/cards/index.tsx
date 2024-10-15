@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "@hamampass/i18n";
 
-import { request } from "@/services/axios";
+import { request } from "@hamampass/services";
 import { TProperty } from "@/types";
 
 import { Button } from "@hamampass/ui/primitives/button.tsx";

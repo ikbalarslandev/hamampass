@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 import { signIn } from "next-auth/react";
 import { useTranslations } from "@hamampass/i18n";
 import { useState, useEffect } from "react";
-import { request } from "@/services/axios";
+import { request } from "@hamampass/services";
 import moment from "moment";
 import "moment/locale/tr";
 import "moment/locale/en-gb";

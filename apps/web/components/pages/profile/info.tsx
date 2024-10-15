@@ -5,7 +5,7 @@ import { convertAgeRange } from "@/utils/db_translations";
 import { useTranslations } from "@hamampass/i18n";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { request } from "@/services/axios";
+import { request } from "@hamampass/services";
 
 const InfoComponent = ({ user }: { user: TUser }) => {
   const t = useTranslations("single.review.gender");

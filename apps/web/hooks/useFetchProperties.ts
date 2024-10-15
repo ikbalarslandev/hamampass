@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { request } from "@/services/axios";
+import { request } from "@hamampass/services";
 import { setPropertyState } from "@/lib/store/slices/propertiesSlice";
 import { useDispatch } from "react-redux";
 

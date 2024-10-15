@@ -8,7 +8,7 @@ import {
 import RangeSlider from "@hamampass/ui/primitives/range-slider.tsx";
 import React, { use, useEffect, useState } from "react";
 import MinMax from "./min-max";
-import { request } from "@/services/axios";
+import { request } from "@hamampass/services";
 import { TApiResponse } from "@/types";
 import { useSearchParams } from "next/navigation";
 import { set } from "ramda";

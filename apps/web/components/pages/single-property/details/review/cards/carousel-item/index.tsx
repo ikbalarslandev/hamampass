@@ -9,7 +9,7 @@ import "moment/locale/en-gb";
 
 import { useTranslations } from "@hamampass/i18n";
 import { convertAgeRange } from "@/utils/db_translations";
-import { request } from "@/services/axios";
+import { request } from "@hamampass/services";
 import { useParams } from "next/navigation";
 import { TCountry } from "@/types";
 import { TReview } from "@/types";

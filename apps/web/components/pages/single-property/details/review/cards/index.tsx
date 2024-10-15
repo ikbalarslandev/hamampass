@@ -7,7 +7,7 @@ import CarouselCardItem from "./carousel-item";
 import { TReview } from "@/types";
 import { FaGreaterThan } from "react-icons/fa";
 import { useTranslations } from "@hamampass/i18n";
-import { request } from "@/services/axios";
+import { request } from "@hamampass/services";
 import { useEffect, useState } from "react";
 import DrawerGeneral from "@/components/commons/drawer";
 import ReviewsDrawerContent from "./drawer-content";

@@ -1,7 +1,7 @@
 "use client";
 
 import { TCountry, TUser } from "@/types";
-import { request } from "@/services/axios";
+import { request } from "@hamampass/services";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";

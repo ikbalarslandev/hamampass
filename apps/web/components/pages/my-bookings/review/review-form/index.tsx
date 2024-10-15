@@ -26,7 +26,7 @@ import ProgressComponent from "./progress";
 import { useEffect, useState, useTransition } from "react";
 import { useParams } from "next/navigation";
 import { toast } from "@hamampass/ui/primitives/hooks/use-toast.ts";
-import { request } from "@/services/axios";
+import { request } from "@hamampass/services";
 import { TBooking } from "@/types";
 
 // Define the schema for validation using Zod
