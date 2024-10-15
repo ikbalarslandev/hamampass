@@ -1,0 +1,13 @@
+{
+  "name": "@hamampass/services",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "author": "ikbal arslan",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5"
+  }
+}
