@@ -29,6 +29,7 @@ yarn-error.log*
 .env*.local
 .env
 !packages/prisma/.env
+!packages/services/.env
 !apps/web/.env
 !apps/admin/.env
 
