@@ -1,6 +1,4 @@
-import i18nMiddleware from "@hamampass/i18n/lib/middleware";
-
-export default i18nMiddleware;
+export { default } from "@hamampass/i18n/lib/middleware";
 
 export const config = {
   // Match only internationalized pathnames
