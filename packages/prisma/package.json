@@ -1,6 +1,6 @@
 {
   "name": "@hamampass/db",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "the prisma client for hamampass project",
   "main": "client.ts",
   "scripts": {
