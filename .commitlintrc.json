@@ -5,7 +5,16 @@
     "scope-enum": [
       2,
       "always",
-      ["web", "admin", "db", "i18n", "tailwind-config", "services", "ui"]
+      [
+        "root",
+        "web",
+        "admin",
+        "db",
+        "i18n",
+        "tailwind-config",
+        "services",
+        "ui"
+      ]
     ]
   }
 }
