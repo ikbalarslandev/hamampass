@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "postinstall": "node create.env.js",
+    "postinstall": "node create.env.js ",
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
