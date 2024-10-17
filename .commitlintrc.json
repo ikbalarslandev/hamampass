@@ -1,20 +1,3 @@
 {
-  "extends": ["@commitlint/config-conventional"],
-  "rules": {
-    "type-enum": [2, "always", ["build", "chore", "feat", "fix", "style"]],
-    "scope-enum": [
-      2,
-      "always",
-      [
-        "root",
-        "web",
-        "admin",
-        "db",
-        "i18n",
-        "tailwind-config",
-        "services",
-        "ui"
-      ]
-    ]
-  }
+  "extends": ["@commitlint/config-conventional"]
 }
