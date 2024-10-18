@@ -129,6 +129,9 @@ importers:
       '@chromatic-com/storybook':
         specifier: ^1.9.0
         version: 1.9.0(react@18.3.1)
+      '@hamampass/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@storybook/addon-essentials':
         specifier: ^8.3.5
         version: 8.3.5(storybook@8.3.5)(webpack-sources@3.2.3)
@@ -426,6 +429,9 @@ importers:
       postcss-load-config:
         specifier: ^6
         version: 6.0.1(jiti@1.21.6)(postcss@8.4.47)(yaml@2.5.1)
+      tailwindcss:
+        specifier: ^3.4.13
+        version: 3.4.13
       typescript:
         specifier: ^5
         version: 5.6.2

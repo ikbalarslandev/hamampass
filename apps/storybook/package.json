@@ -1,13 +1,12 @@
 {
   "name": "storybook",
   "version": "0.0.0",
-  "main": "index.js",
   "scripts": {
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "dev": "storybook dev -p 6006"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
+    "@hamampass/ui": "workspace:*",
     "@chromatic-com/storybook": "^1.9.0",
     "@storybook/addon-essentials": "^8.3.5",
     "@storybook/addon-interactions": "^8.3.5",
