@@ -23,24 +23,91 @@ export const Documents: Paths[] = [
   {
     spacer: true,
   },
+
   {
-    title: "Navigation",
-    href: "/navigation",
-    heading: "Documents",
-  },
-  {
-    title: "Structure",
+    title: "Pages",
     href: "/structure",
+    heading: "Structure",
     items: [
       {
-        title: "Deeper",
-        href: "/deeper",
-        items : [
+        title: "User",
+        href: "/user",
+        items: [
           {
-            title: "Even deeper",
-            href: "/even-deeper",
+            title: "Home",
+            href: "/home",
           },
-        ]
+          {
+            title: "properties",
+            href: "/properties",
+            items: [
+              {
+                title: "property",
+                href: "/single",
+              },
+            ],
+          },
+          {
+            title: "my bookings",
+            href: "/bookings",
+          },
+          {
+            title: "wishlist",
+            href: "/wishlist",
+          },
+          {
+            title: "shopping cart",
+            href: "/wishlist",
+          },
+          {
+            title: "my profile",
+            href: "/wishlist",
+          },
+          {
+            title: "help",
+            href: "/wishlist",
+          },
+          {
+            title: "login",
+            href: "/wishlist",
+          },
+          {
+            title: "what is hammam",
+            href: "/wishlist",
+          },
+          {
+            title: "hamburger menu",
+            href: "/wishlist",
+          },
+        ],
+      },
+      {
+        title: "Admin",
+        href: "/admin",
+        items: [
+          {
+            title: "home",
+            href: "/home",
+          },
+          {
+            title: "price update",
+            href: "/home",
+          },
+          {
+            title: "bookings",
+            href: "/properties",
+            items: [
+              {
+                title: "booking",
+                href: "/single",
+              },
+            ],
+          },
+          {
+            title: "hamburger menu",
+            href: "/wishlist",
+          },
+        ],
       },
     ],
   },
