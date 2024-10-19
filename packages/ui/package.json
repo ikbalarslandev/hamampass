@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "ui": "pnpm dlx shadcn@latest",
-    "lint": "eslint ."
+    "dev": "npx tailwindcss -i ./lib/styles/theme.css -o ./lib/styles/output.css --watch"
   },
   "peerDependencies": {
     "react": "^18"
@@ -15,6 +14,7 @@
     "autoprefixer": "^10",
     "postcss": "^8",
     "postcss-load-config": "^6",
+    "tailwindcss": "^3.4.13",
     "typescript": "^5"
   },
   "dependencies": {

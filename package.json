@@ -8,11 +8,13 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "release": "standard-version"
+    "release": "standard-version",
+    "ct": "better-commits"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
+    "better-commits": "^1.15.7",
     "husky": "^5.0.9",
     "prettier": "^3.2.5",
     "standard-version": "^9.5.0",
