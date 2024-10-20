@@ -2,6 +2,29 @@ import { Paths } from "@/lib/pageroutes";
 
 export const Documents: Paths[] = [
   {
+    title: "Introduction",
+    href: "/introduction",
+    heading: "Getting started",
+    items: [
+      {
+        title: "Installation",
+        href: "/installation",
+      },
+      {
+        title: "Setup",
+        href: "/setup",
+      },
+      {
+        title: "Changelog",
+        href: "/changelog",
+      },
+    ],
+  },
+  {
+    spacer: true,
+  },
+
+  {
     title: "Pages",
     href: "/structure",
     heading: "Structure",
@@ -34,27 +57,27 @@ export const Documents: Paths[] = [
           },
           {
             title: "shopping cart",
-            href: "/shopping-cart",
+            href: "/wishlist",
           },
           {
             title: "my profile",
-            href: "/my-profile",
+            href: "/wishlist",
           },
           {
             title: "help",
-            href: "/help",
+            href: "/wishlist",
           },
           {
             title: "login",
-            href: "/login",
+            href: "/wishlist",
           },
           {
             title: "what is hammam",
-            href: "/what-is-hammam",
+            href: "/wishlist",
           },
           {
             title: "hamburger menu",
-            href: "/hamburger",
+            href: "/wishlist",
           },
         ],
       },
@@ -68,21 +91,21 @@ export const Documents: Paths[] = [
           },
           {
             title: "price update",
-            href: "/price-update",
+            href: "/home",
           },
           {
             title: "bookings",
-            href: "/bookings",
+            href: "/properties",
             items: [
               {
                 title: "booking",
-                href: "/booking",
+                href: "/single",
               },
             ],
           },
           {
             title: "hamburger menu",
-            href: "/hamburger",
+            href: "/wishlist",
           },
         ],
       },
@@ -92,13 +115,9 @@ export const Documents: Paths[] = [
     spacer: true,
   },
   {
-    spacer: true,
-  },
-
-  {
-    title: "Markup Example Usecases",
-    href: "/example",
-
+    title: "Markup",
+    href: "/markup",
+    heading: "Components",
     items: [
       {
         title: "Cards",
