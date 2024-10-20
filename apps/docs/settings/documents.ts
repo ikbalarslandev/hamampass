@@ -57,27 +57,27 @@ export const Documents: Paths[] = [
           },
           {
             title: "shopping cart",
-            href: "/wishlist",
+            href: "/shopping-cart",
           },
           {
             title: "my profile",
-            href: "/wishlist",
+            href: "/my-profile",
           },
           {
             title: "help",
-            href: "/wishlist",
+            href: "/help",
           },
           {
             title: "login",
-            href: "/wishlist",
+            href: "/login",
           },
           {
             title: "what is hammam",
-            href: "/wishlist",
+            href: "/what-is-hammam",
           },
           {
             title: "hamburger menu",
-            href: "/wishlist",
+            href: "/hamburger",
           },
         ],
       },
@@ -91,21 +91,21 @@ export const Documents: Paths[] = [
           },
           {
             title: "price update",
-            href: "/home",
+            href: "/price-update",
           },
           {
             title: "bookings",
-            href: "/properties",
+            href: "/bookings",
             items: [
               {
                 title: "booking",
-                href: "/single",
+                href: "/booking",
               },
             ],
           },
           {
             title: "hamburger menu",
-            href: "/wishlist",
+            href: "/hamburger",
           },
         ],
       },
