@@ -129,10 +129,9 @@
         "1": "Accepts Credit Cards"
       },
       "sex": {
+        "0": "Women's Only",
         "1": "Men's Only",
-        "2": "Women's Only",
-        "3": "Unisex",
-        "4": "Men-Women Separate"
+        "2": "Unisex"
       },
       "price": {
         "expensive": "Price (Highest first)",

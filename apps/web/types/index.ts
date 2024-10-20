@@ -77,6 +77,7 @@ export interface TProperty {
   hour: THour;
   desc_tr: string;
   desc_en: string;
+  adminId: string;
   [key: string]: any;
 }
 
