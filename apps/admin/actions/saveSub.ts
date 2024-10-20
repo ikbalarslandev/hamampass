@@ -8,12 +8,13 @@ const saveSub = async (req: NextRequest) => {
     throw new Error("Unauthorized");
   }
 
-  const propertyId = session.user.propertyId;
   const body = await req.json();
+
+  const adminId = session.user.id;
 
   const admin = await prisma.admin.findUnique({
     where: {
-      propertyId,
+      id: adminId,
     },
   });
 
@@ -21,7 +22,7 @@ const saveSub = async (req: NextRequest) => {
 
   const updatedAdmin = await prisma.admin.update({
     where: {
-      propertyId,
+      id: adminId,
     },
     data: {
       subscriptions: [...previousSubs, body.subscription],

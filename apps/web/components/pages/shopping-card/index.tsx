@@ -15,6 +15,7 @@ import { useTransition } from "react";
 interface TStorage {
   property: {
     id: string;
+    adminId: string;
     title: string;
     date: string;
     img: string;
@@ -83,6 +84,7 @@ const ShoppingCardPage = () => {
           payload: {
             date: property.date,
             propertyId: property.id,
+            adminId: property.adminId,
             userId: data?.user?.id,
             products,
             totalMoney,

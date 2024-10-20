@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import prisma from "@hamampass/db";
+import { TProperty } from "@hamampass/db/types";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -19,6 +20,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           where: {
             id,
           },
+          include: {
+            properties: {
+              include: {
+                products: true,
+              },
+            },
+          },
         });
 
         if (!user || user?.password !== password) {
@@ -26,7 +34,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         }
 
         return {
-          propertyId: user.propertyId,
+          id: user.id,
+          properties: user.properties as unknown as TProperty[],
         };
       },
     }),
@@ -35,14 +44,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.propertyId = user.propertyId;
+        token.id = user.id;
+        token.properties = user.properties;
       }
 
       return token;
     },
     async session({ session, token }) {
       if (token) {
-        session.user.propertyId = token.propertyId as string;
+        session.user.id = token.id as string;
+        session.user.properties = token.properties as TProperty[];
       }
 
       return session;

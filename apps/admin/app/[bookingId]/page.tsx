@@ -1,6 +1,4 @@
 import prisma from "@hamampass/db";
-import { auth } from "@/auth";
-import { redirect } from "next/navigation";
 import moment from "moment";
 import "moment/locale/tr";
 
@@ -25,7 +23,6 @@ const BookingDetails = async ({
 }) => {
   moment.locale("tr");
 
-  const session = await auth();
   const booking = await prisma.booking.findFirst({
     where: {
       id: params.bookingId,
@@ -35,18 +32,6 @@ const BookingDetails = async ({
       user: true,
     },
   });
-
-  const admin = await prisma.admin.findFirst({
-    where: {
-      propertyId: session?.user?.propertyId,
-    },
-  });
-
-  if (admin?.propertyId !== booking?.propertyId) {
-    return redirect("/tr/admin");
-  }
-
-  console.log("admin", admin);
 
   return (
     <div className="flex flex-col">
