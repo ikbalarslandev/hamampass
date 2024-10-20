@@ -112,6 +112,10 @@
         "label": "admin"
       },
       {
+        "value": "docs",
+        "label": "docs"
+      },
+      {
         "value": "root",
         "label": "root"
       }
