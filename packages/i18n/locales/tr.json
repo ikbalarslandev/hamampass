@@ -125,10 +125,9 @@
         "1": "Kredi Kartı Geçerli"
       },
       "sex": {
+        "0": "Kadınlara Özel",
         "1": "Erkeklere Özel",
-        "2": "Kadınlara Özel",
-        "3": "Unisex",
-        "4": "Kadın ve Erkek Ayrı"
+        "2": "Unisex"
       },
       "price": {
         "expensive": "Fiyat (önce en yüksek)",

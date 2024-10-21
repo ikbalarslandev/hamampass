@@ -23,17 +23,8 @@ export interface TProduct {
   detail_en: string[];
   desc_tr: string;
   desc_en: string;
-  practicioners: TPracticioner[];
 
   [key: string]: any;
-}
-
-export interface TPracticioner {
-  id: string;
-  name: string;
-  photo: String;
-  exp_tr: String;
-  exp_en: String;
 }
 
 export interface TBooking {

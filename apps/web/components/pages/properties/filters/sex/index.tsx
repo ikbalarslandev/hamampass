@@ -9,7 +9,7 @@ import {
 } from "@hamampass/ui/primitives/accordion.tsx";
 import { useTranslations } from "@hamampass/i18n";
 
-const sexData = [1, 2, 3, 4];
+const sexData = [0, 1, 2];
 
 const SexComponent = () => {
   const sex_type = useTranslations("home.filters.sex");

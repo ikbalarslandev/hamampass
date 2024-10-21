@@ -11,6 +11,7 @@ import {
 } from "./pure";
 import { pipe } from "ramda";
 import { TProperty } from "@/types";
+import { tr } from "date-fns/locale";
 
 async function getAllProperties(req: NextRequest) {
   const { searchParams } = new URL(req.url);

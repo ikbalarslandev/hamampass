@@ -1,13 +1,16 @@
 import NextAuth from "next-auth";
 import { DefaultSession } from "next-auth";
+import { TProperty } from "@hamampass/db/types";
 
 declare module "next-auth" {
   interface Session {
     user: {
-      propertyId: string;
+      id: string;
+      properties: TProperty[];
     } & DefaultSession["user"];
   }
   interface User {
-    propertyId: string;
+    id: string;
+    properties: TProperty[];
   }
 }

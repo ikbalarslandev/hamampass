@@ -13,6 +13,7 @@ import {
 } from "@hamampass/ui/primitives/carousel.tsx";
 import DisplayAmenityIcon from "@/components/commons/display-amenity-icon";
 import HeartComponent from "./heart";
+import TitleCard from "./title";
 
 const CardItem = ({ property }: { property: TProperty }) => {
   const { locale } = useParams();
@@ -92,9 +93,7 @@ const CardItem = ({ property }: { property: TProperty }) => {
       <div>
         <div>
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-slate-700 my-2">
-              {property.title}
-            </h2>
+            <TitleCard property={property} />
             {property.rating && (
               <div className="flex items-start gap-1 mr-2">
                 <IoStar className="text-cyan-500 w-5 h-5" />

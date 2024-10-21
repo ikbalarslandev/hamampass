@@ -18,7 +18,8 @@ const convertKey = (key: number) => {
 const createBooking = async (req: NextRequest) => {
   moment.locale("tr");
 
-  const { date, propertyId, userId, products, totalMoney } = await req.json();
+  const { date, propertyId, adminId, userId, products, totalMoney } =
+    await req.json();
 
   const booking = await prisma.booking.create({
     data: {
@@ -39,7 +40,7 @@ const createBooking = async (req: NextRequest) => {
     .join(" ")} ), Toplam ${totalMoney} TL`;
 
   await sendNotification({
-    propertyId,
+    adminId,
     desc,
     redirectUrl: `/tr/admin/${booking.id}`,
   });

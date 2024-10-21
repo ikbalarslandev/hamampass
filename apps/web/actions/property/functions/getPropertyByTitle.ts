@@ -13,7 +13,11 @@ const getPropertyByTitle = async (req: NextRequest) => {
     include: {
       contact: true,
       hour: true,
-      products: true,
+      products: {
+        include: {
+          practicioners: true,
+        },
+      },
       rating: true,
       amenity: true,
     },

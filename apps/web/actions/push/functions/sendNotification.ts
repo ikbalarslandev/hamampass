@@ -8,17 +8,17 @@ webpush.setVapidDetails(
 );
 
 const sendNotification = async ({
-  propertyId,
+  adminId,
   desc,
   redirectUrl,
 }: {
-  propertyId: string;
+  adminId: string;
   desc: string;
   redirectUrl?: string;
 }) => {
   const admin = await prisma.admin.findFirst({
     where: {
-      propertyId,
+      id: adminId,
     },
   });
 
