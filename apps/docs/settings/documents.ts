@@ -92,6 +92,20 @@ export const Documents: Paths[] = [
     spacer: true,
   },
   {
+    heading: "Api Documentation",
+    title: "Introduction",
+    href: "/api",
+    items: [
+      {
+        title: "Property",
+        href: "/property",
+      },
+    ],
+  },
+  {
+    spacer: true,
+  },
+  {
     spacer: true,
   },
 
