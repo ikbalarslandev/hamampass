@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "@hamampass/i18n";
 
 import { request } from "@hamampass/services";
-import { TProperty } from "@/types";
+import { TProperty } from "@hamampass/db/types";
 
 import { Button } from "@hamampass/ui/primitives/button.tsx";
 import CardItem from "@/components/pages/properties/cards/card-item";

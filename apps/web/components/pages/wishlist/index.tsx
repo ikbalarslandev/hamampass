@@ -1,7 +1,7 @@
 "use client";
 
 import CardItem from "@/components/pages/properties/cards/card-item";
-import { TProperty } from "@/types";
+import { TProperty } from "@hamampass/db/types";
 
 const WishlistPage = () => {
   const properties = JSON.parse(localStorage.getItem("wishlist") || "[]");

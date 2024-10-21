@@ -3,7 +3,7 @@
 import { useSession } from "next-auth/react";
 import { request } from "@hamampass/services";
 import { useState, useEffect } from "react";
-import { TBooking } from "@/types";
+import { TBooking } from "@hamampass/db/types";
 import DrawerGeneral from "@/components/commons/drawer";
 import { PropertyPartContent, PropertyPartTrigger } from "./property";
 import moment from "moment";

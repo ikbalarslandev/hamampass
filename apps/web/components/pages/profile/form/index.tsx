@@ -1,6 +1,6 @@
 "use client";
 
-import { TCountry, TUser } from "@/types";
+import { TCountry, TUser } from "@hamampass/db/types";
 import { request } from "@hamampass/services";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";

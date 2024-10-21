@@ -1,6 +1,6 @@
 import { FaHeart } from "react-icons/fa";
 import { useState, useEffect } from "react";
-import { TProperty } from "@/types";
+import { TProperty } from "@hamampass/db/types";
 import { toast } from "@hamampass/ui/primitives/hooks/use-toast.ts";
 const HeartComponent = ({ property }: { property: TProperty }) => {
   const [isWishlist, setIsWishlist] = useState(false);

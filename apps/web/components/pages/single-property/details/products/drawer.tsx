@@ -11,7 +11,7 @@ import {
   DrawerFooter,
 } from "@hamampass/ui/primitives/drawer.tsx";
 import React from "react";
-import { TProduct, TProperty } from "@/types";
+import { TProduct, TProperty } from "@hamampass/db/types";
 import { useTranslations } from "@hamampass/i18n";
 import { useParams } from "next/navigation";
 import { GoDotFill } from "react-icons/go";

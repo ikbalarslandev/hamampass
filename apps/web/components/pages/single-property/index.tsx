@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Slider from "./image-slider";
 import { CiLocationOn } from "react-icons/ci";
-import { TProperty } from "@/types";
+import { TProperty } from "@hamampass/db/types";
 import { useTranslations } from "@hamampass/i18n";
 import DetailsComponent from "./details";
 import { IoStar } from "react-icons/io5";

@@ -1,4 +1,4 @@
-import { TRating, TReview } from "@/types";
+import { TRating, TReview } from "@hamampass/db/types";
 import { IoStar } from "react-icons/io5";
 import { useTranslations } from "@hamampass/i18n";
 import Rate from "./rate";

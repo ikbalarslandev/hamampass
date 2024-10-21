@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import InfoComponent from "./info";
-import { TSessionUser, TUser } from "@/types";
+import { TSessionUser, TUser } from "@hamampass/db/types";
 import { useSession, getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useTranslations } from "@hamampass/i18n";

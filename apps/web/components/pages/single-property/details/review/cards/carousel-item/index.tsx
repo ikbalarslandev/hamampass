@@ -11,8 +11,8 @@ import { useTranslations } from "@hamampass/i18n";
 import { convertAgeRange } from "@/utils/db_translations";
 import { request } from "@hamampass/services";
 import { useParams } from "next/navigation";
-import { TCountry } from "@/types";
-import { TReview } from "@/types";
+import { TCountry } from "@hamampass/db/types";
+import { TReview } from "@hamampass/db/types";
 
 const CarouselCardItem = ({ review }: { review: TReview }) => {
   const g = useTranslations("single.review.gender");

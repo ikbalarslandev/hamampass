@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "@hamampass/i18n";
-import { THour } from "@/types";
+import { THour } from "@hamampass/db/types";
 import { FaRegClock } from "react-icons/fa";
 import { checkIsWeekDay } from "@/utils/db_translations";
 import moment from "moment";

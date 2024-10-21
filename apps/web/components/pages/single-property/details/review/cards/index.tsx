@@ -4,7 +4,7 @@ import {
 } from "@hamampass/ui/primitives/carousel.tsx";
 
 import CarouselCardItem from "./carousel-item";
-import { TReview } from "@/types";
+import { TReview } from "@hamampass/db/types";
 import { FaGreaterThan } from "react-icons/fa";
 import { useTranslations } from "@hamampass/i18n";
 import { request } from "@hamampass/services";
