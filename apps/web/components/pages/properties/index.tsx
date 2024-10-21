@@ -3,7 +3,7 @@ import FilterComponent from "@/components/pages/properties/filters";
 import HomeTitle from "./title";
 import { getAllProperties } from "@/actions/property";
 import { NextRequest } from "next/server";
-import { TApiResponse, TProperty } from "@/types";
+import { TApiResponse, TProperty } from "@hamampass/db/types";
 
 const PropertiesPage = async () => {
   const req = new NextRequest(process.env.BASE_URL!!);

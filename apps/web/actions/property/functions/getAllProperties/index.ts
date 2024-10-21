@@ -10,7 +10,7 @@ import {
   paginate,
 } from "./pure";
 import { pipe } from "ramda";
-import { TProperty } from "@/types";
+import { TProperty } from "@hamampass/db/types";
 import { tr } from "date-fns/locale";
 
 async function getAllProperties(req: NextRequest) {
@@ -64,7 +64,6 @@ async function getAllProperties(req: NextRequest) {
       data,
     };
 
-    console.log("result", result);
     return result;
   } catch (error) {
     console.error("Failed to fetch properties:", error);

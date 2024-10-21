@@ -1,4 +1,4 @@
-import { TBooking } from "@/types";
+import { TBooking } from "@hamampass/db/types";
 import DrawerGeneral from "@/components/commons/drawer";
 import { FaAngleRight, FaStar } from "react-icons/fa";
 import ReviewFormComponent from "./review-form";

@@ -1,5 +1,5 @@
 import { Progress } from "@hamampass/ui/primitives/progress.tsx";
-import { TRating } from "@/types";
+import { TRating } from "@hamampass/db/types";
 import { useTranslations } from "@hamampass/i18n";
 
 interface TProgress {

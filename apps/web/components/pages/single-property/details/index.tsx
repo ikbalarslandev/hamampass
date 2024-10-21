@@ -5,7 +5,7 @@ import HoursComponent from "./hours";
 import LocationComponent from "./location";
 import ReviewComponent from "./review";
 import AboutComponent from "./about";
-import { TProperty } from "@/types";
+import { TProperty } from "@hamampass/db/types";
 import { useParams } from "next/navigation";
 import BookButton from "@/components/pages/single-property/book-btn";
 

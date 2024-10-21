@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@hamampass/ui/primitives/dialog.tsx";
-import { TBooking } from "@/types";
+import { TBooking } from "@hamampass/db/types";
 import moment from "moment";
 import { useTranslations } from "@hamampass/i18n";
 import { toast } from "@hamampass/ui/primitives/hooks/use-toast.ts";

@@ -1,4 +1,4 @@
-import { TProduct, TProperty } from "@/types";
+import { TProduct, TProperty } from "@hamampass/db/types";
 
 const filterByAmenity =
   (amenity: string | null) =>

@@ -1,4 +1,4 @@
-import { TBooking } from "@/types";
+import { TBooking } from "@hamampass/db/types";
 import moment from "moment";
 import Image from "next/image";
 import { CiCalendar, CiHome, CiMap, CiPhone } from "react-icons/ci";

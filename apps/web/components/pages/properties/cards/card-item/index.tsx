@@ -1,7 +1,7 @@
 import { useParams, useRouter } from "next/navigation";
 import { useTranslations } from "@hamampass/i18n";
 import Image from "next/image";
-import { TProperty } from "@/types";
+import { TProperty } from "@hamampass/db/types";
 import { photos } from "@/mock/photos";
 import { IoStar } from "react-icons/io5";
 import { Separator } from "@hamampass/ui/primitives/separator.tsx";

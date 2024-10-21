@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useParams } from "next/navigation";
 
-import { TProperty } from "@/types";
+import { TProperty } from "@hamampass/db/types";
 import { ca } from "date-fns/locale";
 
 const TitleCard = ({ property }: { property: TProperty }) => {

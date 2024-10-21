@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 import { IoClose } from "react-icons/io5";
 import { request } from "@hamampass/services";
-import { TApiResponse } from "@/types";
+import { TApiResponse } from "@hamampass/db/types";
 
 import {
   Drawer,

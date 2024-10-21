@@ -1,4 +1,4 @@
-import { TBooking } from "@/types";
+import { TBooking } from "@hamampass/db/types";
 import { Separator } from "@hamampass/ui/primitives/separator.tsx";
 import { FaHotel } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";

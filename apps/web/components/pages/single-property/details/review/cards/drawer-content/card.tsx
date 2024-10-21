@@ -1,4 +1,4 @@
-import { TReview } from "@/types";
+import { TReview } from "@hamampass/db/types";
 import Image from "next/image";
 
 import { useEffect, useState } from "react";
@@ -11,7 +11,7 @@ import { useTranslations } from "@hamampass/i18n";
 import { convertAgeRange } from "@/utils/db_translations";
 import { request } from "@hamampass/services";
 import { useParams } from "next/navigation";
-import { TCountry } from "@/types";
+import { TCountry } from "@hamampass/db/types";
 
 const ReviewsCard = ({ review }: { review: TReview }) => {
   const g = useTranslations("single.review.gender");

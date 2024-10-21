@@ -1,5 +1,5 @@
 import React from "react";
-import { TProperty } from "@/types";
+import { TProperty } from "@hamampass/db/types";
 import { useTranslations } from "@hamampass/i18n";
 import DrawerGeneral from "@/components/commons/drawer";
 

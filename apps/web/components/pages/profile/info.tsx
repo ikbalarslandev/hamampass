@@ -1,4 +1,4 @@
-import { TUser } from "@/types";
+import { TUser } from "@hamampass/db/types";
 import { signOut } from "next-auth/react";
 import { Button } from "@hamampass/ui/primitives/button.tsx";
 import { convertAgeRange } from "@/utils/db_translations";

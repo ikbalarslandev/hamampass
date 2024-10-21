@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import prisma from "@hamampass/db";
-import { TProduct } from "@/types";
+import { TProduct } from "@hamampass/db/types";
 
 const updatePrices = async (req: NextRequest) => {
   const { updatedProdcuts } = await req.json();

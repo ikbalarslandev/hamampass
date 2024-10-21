@@ -4,7 +4,7 @@ import { useTranslations } from "@hamampass/i18n";
 
 import { FaGreaterThan } from "react-icons/fa";
 import DrawerGeneral from "@/components/commons/drawer";
-import { TAmenity } from "@/types";
+import { TAmenity } from "@hamampass/db/types";
 import AmenitiesDrawerContent from "./drawer-content";
 import DisplayAmenityIcon from "@/components/commons/display-amenity-icon";
 

@@ -1,4 +1,4 @@
-import { TBooking } from "@/types";
+import { TBooking } from "@hamampass/db/types";
 import { Separator } from "@hamampass/ui/primitives/separator.tsx";
 import moment from "moment";
 import { LuUsers2 } from "react-icons/lu";

@@ -1,6 +1,6 @@
 "use client";
 
-import { TProduct, TProperty } from "@/types";
+import { TProduct, TProperty } from "@hamampass/db/types";
 import DrawerComponent from "./drawer";
 import { useTranslations } from "@hamampass/i18n";
 import { convertProductIcon } from "@/utils/icon_translations";

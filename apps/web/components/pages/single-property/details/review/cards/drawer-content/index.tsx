@@ -1,4 +1,4 @@
-import { TReview } from "@/types";
+import { TReview } from "@hamampass/db/types";
 import ReviewsCard from "./card";
 import { useTranslations } from "@hamampass/i18n";
 

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TApiResponse } from "@/types";
+import { TApiResponse } from "@hamampass/db/types";
 
 const initialState: {
   propertyState: TApiResponse;

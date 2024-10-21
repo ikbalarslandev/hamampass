@@ -27,7 +27,7 @@ import { useEffect, useState, useTransition } from "react";
 import { useParams } from "next/navigation";
 import { toast } from "@hamampass/ui/primitives/hooks/use-toast.ts";
 import { request } from "@hamampass/services";
-import { TBooking } from "@/types";
+import { TBooking } from "@hamampass/db/types";
 
 // Define the schema for validation using Zod
 const formSchema = z.object({

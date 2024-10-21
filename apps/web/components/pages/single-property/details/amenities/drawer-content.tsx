@@ -1,4 +1,4 @@
-import { TAmenity } from "@/types";
+import { TAmenity } from "@hamampass/db/types";
 import DisplayAmenityIcon from "@/components/commons/display-amenity-icon";
 
 const AmenitiesDrawerContent = ({ data }: { data: TAmenity }) => {
