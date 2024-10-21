@@ -182,10 +182,24 @@ model Product {
   desc_tr     String?
   desc_en     String?
 
+  // Many-to-many relation
+  practicioners Practicioner[] @relation("ProductPracticioners")
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   belongsToId String
   belongsTo   Property @relation(fields: [belongsToId], references: [id])
+}
+
+model Practicioner {
+  id     String @id @default(uuid())
+  name   String
+  photo  String
+  exp_tr String
+  exp_en String
+
+  // Many-to-many relation
+  products Product[] @relation("ProductPracticioners")
 }
 
 model Booking {

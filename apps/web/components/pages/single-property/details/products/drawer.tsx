@@ -36,6 +36,7 @@ const DrawerComponent = ({ trigger, property, data }: DrawerComponentProps) => {
   const p = useTranslations("single.products");
   const { locale } = useParams();
   const [count, setCount] = useState(0);
+  const isPracticioner = data.practicioners.length > 0;
 
   useEffect(() => {
     if (locale === "tr") {
@@ -156,6 +157,12 @@ const DrawerComponent = ({ trigger, property, data }: DrawerComponentProps) => {
             </div>
           ) : null} */}
           </div>
+
+          {isPracticioner && (
+            <div className="border bg-red-400">
+              <p>{data.practicioners.length} practicioners exists</p>
+            </div>
+          )}
 
           <div className="overflow-y-auto mt-5">
             {(data[`detail_${locale}`].length > 0
