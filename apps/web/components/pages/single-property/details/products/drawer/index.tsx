@@ -21,9 +21,11 @@ import { useEffect } from "react";
 import "moment/locale/tr";
 import "moment/locale/en-gb";
 import { Separator } from "@hamampass/ui/primitives/separator.tsx";
-import CounterComponent from "./counter";
+import CounterComponent from "../counter";
 import { Button } from "@hamampass/ui/primitives/button.tsx";
 import { useState } from "react";
+import Practicioner from "./practicioner";
+import { toast } from "@hamampass/ui/primitives/hooks/use-toast.ts";
 
 interface DrawerComponentProps {
   trigger: React.ReactNode;
@@ -36,7 +38,10 @@ const DrawerComponent = ({ trigger, property, data }: DrawerComponentProps) => {
   const p = useTranslations("single.products");
   const { locale } = useParams();
   const [count, setCount] = useState(0);
-  const isPracticioner = data.practicioners.length > 0;
+  //practicioner
+  const [selectedPracticioner, setSelectedPracticioner] = useState<
+    string | null
+  >(null);
 
   useEffect(() => {
     if (locale === "tr") {
@@ -47,6 +52,14 @@ const DrawerComponent = ({ trigger, property, data }: DrawerComponentProps) => {
   }, [locale]);
 
   const handleAddToCard = () => {
+    if (data.practicioners.length > 0 && !selectedPracticioner) {
+      toast({
+        title: "Choose a practicioner please ",
+        duration: 500,
+      });
+      return;
+    }
+
     const localItem = JSON.parse(localStorage.getItem("cart") ?? "{}");
     const existingPropertyId = localItem?.property?.id;
 
@@ -66,6 +79,7 @@ const DrawerComponent = ({ trigger, property, data }: DrawerComponentProps) => {
             [data.type]: {
               count: count,
               price: data.adult_price,
+              practicionerId: selectedPracticioner,
             },
           },
         })
@@ -81,6 +95,7 @@ const DrawerComponent = ({ trigger, property, data }: DrawerComponentProps) => {
         [data.type]: {
           count: existingCount + count,
           price: data.adult_price,
+          practicionerId: selectedPracticioner,
         },
       };
 
@@ -99,7 +114,7 @@ const DrawerComponent = ({ trigger, property, data }: DrawerComponentProps) => {
     }
 
     setCount(0);
-    window.location.reload(); // Optionally reload the page to reflect the changes
+    window.location.reload();
   };
 
   return (
@@ -158,11 +173,12 @@ const DrawerComponent = ({ trigger, property, data }: DrawerComponentProps) => {
           ) : null} */}
           </div>
 
-          {isPracticioner && (
-            <div className="border bg-red-400">
-              <p>{data.practicioners.length} practicioners exists</p>
-            </div>
-          )}
+          <Practicioner
+            count={count}
+            data={data.practicioners}
+            selectedPracticioner={selectedPracticioner}
+            setSelectedPracticioner={setSelectedPracticioner}
+          />
 
           <div className="overflow-y-auto mt-5">
             {(data[`detail_${locale}`].length > 0

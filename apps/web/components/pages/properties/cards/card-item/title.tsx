@@ -2,9 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useParams } from "next/navigation";
-
 import { TProperty } from "@hamampass/db/types";
-import { ca } from "date-fns/locale";
 
 const TitleCard = ({ property }: { property: TProperty }) => {
   const searchParams = useSearchParams();
@@ -23,7 +21,7 @@ const TitleCard = ({ property }: { property: TProperty }) => {
   };
 
   const extention = () => {
-    if (property.adminId.startsWith("s")) {
+    if (property?.adminId?.startsWith("s")) {
       if (!sex) {
         return " - " + i18n();
       }
