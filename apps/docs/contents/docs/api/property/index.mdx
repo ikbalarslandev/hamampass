@@ -1,0 +1,33 @@
+---
+title: Property Endpoint
+description: This documentation will help you get familiar with the resources of the Hamampass Rest API and show you how to make different queries, so that you can get the most out of it.
+---
+
+## Property Schema
+
+| Key          |    Type     |                   Description |
+| :----------- | :---------: | ----------------------------: |
+| id           |    Strig    |                            id |
+| title        |   String    |             Name of the Hamam |
+| sex          |     Int     | 0: women , 1: men , 2: unisex |
+| outsider_sex |  Json [ ]   |                    look below |
+| photos       | String [ ]  |               photo url array |
+| pay          |     Int     |             0: cash , 1: card |
+| desc_tr      |   String    |           Turkish description |
+| desc_en      |   String    |           English description |
+| contactId    |   String    |            the id for contact |
+| hourId       |   String    |               the id for hour |
+| ratingId     |   String    |             the id for rating |
+| adminId      |   String    |              the id for admin |
+| amenityId    |   String    |          the id for amenityId |
+| createdAt    |   String    |                 creation time |
+| updatedAt    |   String    |                   update time |
+| products     | Product [ ] |                 product array |
+| bookings     | Booking [ ] |                 booking array |
+
+### outsider_sex schema
+
+| Key | Type |                 Description |
+| :-- | :--: | --------------------------: |
+| sex | Int  |           0: women , 1: men |
+| day | Int  | days as numbers in momentjs |
