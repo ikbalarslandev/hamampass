@@ -12,6 +12,7 @@ import BookingContent from "./booking-drawer-content";
 import { DeleteDialog } from "./delete-dialog";
 import ReviewButton from "../review";
 import { useTranslations } from "@hamampass/i18n";
+import Practicioner from "../../single-property/details/products/drawer/practicioner";
 
 const PropertyPartTrigger = ({ booking }: { booking: TBooking }) => {
   return (

@@ -20,7 +20,10 @@ interface TStorage {
     date: string;
     img: string;
   };
-  products: Record<string, { count: number; price: number }>;
+  products: Record<
+    string,
+    { count: number; price: number; practicionerId: string }
+  >;
 }
 
 const ShoppingCardPage = () => {
@@ -44,9 +47,7 @@ const ShoppingCardPage = () => {
     return <div className="text-center mt-5">Your cart is empty</div>;
   }
 
-  const formattedDate = moment(property?.date ?? null).format(
-    "dddd,  D MMMM YYYY"
-  );
+  const formattedDate = moment(property?.date ?? null).format("dddd,  D MMMM ");
 
   const totalMoney = Object.entries(products).reduce(
     (acc, [, product]) => acc + product.price * product.count,
@@ -137,7 +138,10 @@ const ShoppingCardPage = () => {
         </div>
         <div className="mt-5">
           {Object.entries(products).map(
-            ([key, product]: [string, { count: number; price: number }]) => (
+            ([key, product]: [
+              string,
+              { count: number; price: number; practicionerId: string },
+            ]) => (
               <div className="flex flex-col my-1" key={key}>
                 <Separator />
                 <div className="my-2 flex items-center justify-between">
@@ -156,6 +160,10 @@ const ShoppingCardPage = () => {
                       x
                     </button>
                   </div>
+                </div>
+                <div className="text-xs">
+                  {product.practicionerId &&
+                    "practicioner id:" + product.practicionerId}
                 </div>
               </div>
             )

@@ -43,6 +43,7 @@ const BookingContent = ({ booking }: { booking: TBooking }) => {
           </div>
         </div>
       </div>
+
       <div>
         {Object.entries(products).map(([key, value]) => {
           return (
@@ -56,6 +57,10 @@ const BookingContent = ({ booking }: { booking: TBooking }) => {
                 </p>
                 <p> ₺{value.price * value.count} TL</p>
               </div>
+              <p className="text-xs">
+                {value.practicionerId &&
+                  "practicioner Id: " + value.practicionerId}
+              </p>
             </div>
           );
         })}
