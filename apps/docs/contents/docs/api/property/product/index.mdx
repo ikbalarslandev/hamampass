@@ -1,0 +1,22 @@
+---
+title: Product Endpoint
+description: This documentation will help you get familiar with the resources of the Hamampass Rest API and show you how to make different queries, so that you can get the most out of it.
+---
+
+## Product Schema
+
+| Key           |       Type       |                                               Description |
+| :------------ | :--------------: | --------------------------------------------------------: |
+| id            |      Strig       |                                                        id |
+| type          |       Int        |                                     0: basic , 1: regular |
+| adult_price   |      Float       |                                          price for adults |
+| child_price   |      Float?      |                                          price for childs |
+| age           |       Int?       |                                         max age for child |
+| detail_tr     |    String [ ]    |                                           turkish details |
+| detail_en     |    String [ ]    |                                           english details |
+| desc_tr       |     String?      |                                       turkish description |
+| desc_en       |     String?      |                                       english description |
+| practicioners | Practicioner [ ] | array of practicioners that gives the service for product |
+| createdAt     |      String      |                                             creation time |
+| updatedAt     |      String      |                                               update time |
+| belongsToId   |      String      |                id of the property that product belongs to |

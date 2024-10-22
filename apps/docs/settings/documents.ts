@@ -99,6 +99,58 @@ export const Documents: Paths[] = [
       {
         title: "Property",
         href: "/property",
+        items: [
+          {
+            title: "Contact",
+            href: "/contact",
+          },
+          {
+            title: "Amenity",
+            href: "/amenity",
+          },
+          {
+            title: "Rating",
+            href: "/rating",
+          },
+          {
+            title: "Hour",
+            href: "/hour",
+          },
+          {
+            title: "Product",
+            href: "/product",
+            items: [
+              {
+                title: "Practicioner",
+                href: "/practicioner",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "User",
+        href: "/user",
+        items: [
+          {
+            title: "Country",
+            href: "/country",
+          },
+        ],
+      },
+      {
+        title: "Booking",
+        href: "/booking",
+        items: [
+          {
+            title: "Review",
+            href: "/review",
+          },
+        ],
+      },
+      {
+        title: "Admin",
+        href: "/admin",
       },
     ],
   },

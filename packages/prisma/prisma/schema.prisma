@@ -249,7 +249,6 @@ model User {
   nationality String?
   age_range   Int
   gender      Int
-  role        Int       @default(0)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   Booking     Booking[]

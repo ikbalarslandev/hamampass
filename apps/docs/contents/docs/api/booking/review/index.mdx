@@ -1,0 +1,27 @@
+---
+title: Review Endpoint
+description: This documentation will help you get familiar with the resources of the Hamampass Rest API and show you how to make different queries, so that you can get the most out of it.
+---
+
+## Review Schema
+
+| Key       |  Type  |                                       Description |
+| :-------- | :----: | ------------------------------------------------: |
+| id        | String |                                                id |
+| rateObj   |  Json  |                             all different ratings |
+| rate      | Float  | average rating from different parameters out of 5 |
+| comment   | String |                             the comment user left |
+| bookingId | String |                                 id of the booking |
+| createdAt | String |                                     creation time |
+| updatedAt | String |                                       update time |
+
+### schema for rateObj
+
+| Key             | Type |                     Description |
+| :-------------- | :--: | ------------------------------: |
+| location        | Int  |        location rating out of 5 |
+| staff           | Int  |           staff rating out of 5 |
+| atmosphere      | Int  |      atmosphere rating out of 5 |
+| cleanliness     | Int  |     cleanliness rating out of 5 |
+| facilities      | Int  |      facilities rating out of 5 |
+| value_for_money | Int  | value for money rating out of 5 |
