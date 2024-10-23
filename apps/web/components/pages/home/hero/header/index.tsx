@@ -12,9 +12,9 @@ const HeroHeader = () => {
         layout="fill"
         objectFit="cover"
         objectPosition="center"
-        className="absolute inset-0 w-screen h-screen object-cover -z-20"
+        className="absolute inset-0 w-screen h-svh object-cover -z-20"
       />
-      <div className="absolute inset-0 w-screen h-screen bg-black/10 -z-10" />
+      <div className="absolute inset-0 w-screen h-svh bg-black/10 -z-10" />
     </div>
   );
 };
