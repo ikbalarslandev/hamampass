@@ -4,7 +4,7 @@ import HeroHeader from "./header";
 
 const HeroSection = ({ locale }: { locale: string }) => {
   return (
-    <div className="mx-5  flex-1 flex flex-col">
+    <div className="mx-5  flex-1 flex flex-col min-h-screen">
       <HeroHeader />
 
       <Banner locale={locale} />
