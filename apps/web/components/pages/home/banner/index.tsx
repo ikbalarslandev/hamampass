@@ -9,7 +9,7 @@ const BannerSection = ({ children }: BannerSectionProps) => {
   return (
     <div className="flex flex-col">
       <Banner1 />
-      <Banner2 children={children} />
+      <Banner2>{children}</Banner2>
     </div>
   );
 };

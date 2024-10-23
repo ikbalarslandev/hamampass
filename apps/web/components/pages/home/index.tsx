@@ -6,7 +6,9 @@ const HomePage = ({ locale }: { locale: string }) => {
   return (
     <div className="flex flex-col  min-h-svh ">
       <HeroSection locale={locale} />
-      <BannerSection children={<CardSection />} />
+      <BannerSection>
+        <CardSection />
+      </BannerSection>
     </div>
   );
 };
