@@ -32,7 +32,7 @@ export default async function Layout({
 }: LayoutProps) {
   return (
     <html lang={locale}>
-      <body className={`${inter.className} touch-pan-y  select-none`}>
+      <body className={`${inter.className} touch-pan-y  select-none h-svh `}>
         <ReduxProvider>
           <LocaleProvider locale={locale}>
             <SessionProvider>
