@@ -3,7 +3,7 @@ import Header from "../../../../commons/new-header";
 
 const HeroHeader = () => {
   return (
-    <div>
+    <div className="mt-2">
       <Header />
 
       <Image

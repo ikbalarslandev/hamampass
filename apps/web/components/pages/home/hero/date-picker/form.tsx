@@ -39,7 +39,7 @@ const FormSchema = z.object({
   }),
 });
 
-export function DateForm() {
+export function DateForm({ isSticky = false }) {
   const router = useRouter();
   const { locale } = useParams();
   const [open, setOpen] = useState(false);
@@ -73,7 +73,7 @@ export function DateForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex  bg-white rounded-lg   "
+        className={`flex  bg-white rounded-lg  ${isSticky && "mr-2 border border-primary-10"}`}
       >
         <FormField
           control={form.control}

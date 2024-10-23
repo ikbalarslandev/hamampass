@@ -7,7 +7,7 @@ import HamburgerDrawerComponent from "./drawer";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-const Header = () => {
+const Header = ({ isSticky = false }) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [cartItemCount, setCartItemCount] = useState(0);
@@ -34,9 +34,17 @@ const Header = () => {
   }, []);
 
   return (
-    <header className=" flex justify-between items-center text-white mt-2">
+    <header
+      className={` flex justify-between items-center ${isSticky ? (isOpen ? "text-white" : "text-primary-10") : "text-white"} `}
+    >
       <Image
-        src="/longLogo.png"
+        src={
+          isSticky
+            ? isOpen
+              ? "/longLogo.png"
+              : "/darkLongLogo.png"
+            : "/longLogo.png"
+        }
         width={200}
         height={200}
         alt="logo"
