@@ -1,13 +1,18 @@
-const Banner2 = () => {
+import ExploreBanner from "./explore";
+import OnlyBanner from "./only";
+import BookBanner from "./book";
+
+interface Banner2Props {
+  children?: React.ReactNode;
+}
+
+const Banner2 = ({ children }: Banner2Props) => {
   return (
-    <div className="banner2">
-      <div className="banner2__content">
-        <h2 className="banner2__title">Welcome to our store</h2>
-        <p className="banner2__description">
-          Get the best products at the best prices
-        </p>
-        <button className="banner2__btn">Shop now</button>
-      </div>
+    <div>
+      <OnlyBanner />
+      <ExploreBanner />
+      {children}
+      <BookBanner />
     </div>
   );
 };
