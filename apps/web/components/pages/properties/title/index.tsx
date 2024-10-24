@@ -9,10 +9,10 @@ const HomeTitle = () => {
   const districtParam = searchParams.get("district");
 
   return (
-    <p className="text-center text-2xl font-semibold my-6 flex flex-col items-start mx-4 text-primary-10 ">
+    <p className="text-center text-2xl font-semibold my-5 flex flex-col items-start mx-4 text-secondary-10 ">
       <span> Turkish Baths in</span>
 
-      <span className="text-secondary-10">
+      <span className="text-primary-10">
         İstanbul{districtParam && `/${districtParam}`}
       </span>
     </p>
