@@ -55,7 +55,7 @@ const Cards = ({ serverProperties }: { serverProperties: TProperty[] }) => {
   const c = useTranslations("home.load-btn");
 
   return (
-    <div className="flex flex-col items-center mx-4 gap-6">
+    <div className="flex flex-col items-center mx-4 mb-10 gap-6">
       <div aria-live="polite">
         {properties.map((property: TProperty) => (
           <CardItem key={property.id} property={property} />

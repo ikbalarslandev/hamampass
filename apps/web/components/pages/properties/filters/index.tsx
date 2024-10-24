@@ -8,6 +8,7 @@ import { normalizeText } from "@/utils/normalize";
 
 import DrawerComponent from "@/components/pages/properties/filters/drawer";
 import { Input } from "@hamampass/ui/primitives/input.tsx";
+import { VscSettings } from "react-icons/vsc";
 
 const districtData = ["Kadıköy"];
 
@@ -78,7 +79,7 @@ const FilterComponent: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center border rounded-lg mx-8 my-2 shadow-md  gap-1 relative">
+    <div className="flex items-center border border-secondary-10 rounded-lg mx-4 my-2  gap-1 relative ">
       <IoSearchSharp size={22} className="mb-[.1rem] ml-2" />
       <Input
         type="text"
@@ -92,7 +93,9 @@ const FilterComponent: React.FC = () => {
       />
       <DrawerComponent
         trigger={
-          <p className="mx-2 underline text-slate-600">{input("filter")}</p>
+          <p className="py-2 px-4 text-white bg-secondary-10 rounded-r">
+            {<VscSettings size={22} />}
+          </p>
         }
       />
 

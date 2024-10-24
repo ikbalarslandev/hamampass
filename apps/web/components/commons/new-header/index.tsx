@@ -2,12 +2,15 @@
 
 import Image from "next/image";
 import { Turn as Hamburger } from "hamburger-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HamburgerDrawerComponent from "./drawer";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
-const Header = ({ isSticky = false }) => {
+interface HeaderProps {
+  variant?: "default" | "sticky" | "white";
+}
+
+const Header = ({ variant = "default" }: HeaderProps) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [cartItemCount, setCartItemCount] = useState(0);
@@ -33,18 +36,34 @@ const Header = ({ isSticky = false }) => {
     };
   }, []);
 
+  // Determine styles and logo based on the variant
+  const isSticky = variant === "sticky";
+  const isWhite = variant === "white";
+
+  const textColor = isSticky
+    ? isOpen
+      ? "text-white"
+      : "text-primary-10"
+    : isWhite
+      ? "text-primary-10"
+      : "text-white";
+
+  const logoSrc = isSticky
+    ? isOpen
+      ? "/longLogo.png"
+      : "/darkLongLogo.png"
+    : isWhite
+      ? "/darkLongLogo.png"
+      : "/longLogo.png";
+
+  const backgroundColor = isWhite ? "bg-white" : "";
+
   return (
     <header
-      className={` flex justify-between items-center ${isSticky ? (isOpen ? "text-white" : "text-primary-10") : "text-white"} `}
+      className={`flex justify-between items-center ${textColor} ${backgroundColor}`}
     >
       <Image
-        src={
-          isSticky
-            ? isOpen
-              ? "/longLogo.png"
-              : "/darkLongLogo.png"
-            : "/longLogo.png"
-        }
+        src={logoSrc}
         width={200}
         height={200}
         alt="logo"
@@ -56,15 +75,16 @@ const Header = ({ isSticky = false }) => {
         isOpen={isOpen}
         cartItemCount={cartItemCount}
         trigger={
-          <div className="relative ">
+          <div className="relative">
             <Hamburger
               toggled={isOpen}
               size={24}
+              color={isWhite ? "#2F90A1" : undefined} // Use primary-10 color for hamburger when variant is white
               aria-expanded={isOpen}
               aria-controls="drawer-content"
             />
             {cartItemCount > 0 && (
-              <span className="absolute top-2 right-1 text-xs bg-cyan-900  text-center border  text-white aspect-square rounded-full px-1">
+              <span className="absolute top-2 right-1 text-xs bg-cyan-900 text-center border text-white aspect-square rounded-full px-1">
                 {cartItemCount}
               </span>
             )}

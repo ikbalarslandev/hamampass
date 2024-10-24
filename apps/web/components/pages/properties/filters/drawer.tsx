@@ -47,7 +47,7 @@ const DrawerComponent = ({ trigger }: DrawerComponentProps) => {
   return (
     <Drawer>
       <DrawerTrigger
-        className={` border-l ${searchParams.size && "border-cyan-500"} py-2`}
+        className={` border-l ${searchParams.size && "border-cyan-500"} `}
       >
         {trigger}
       </DrawerTrigger>
